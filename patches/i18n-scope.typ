@@ -30,7 +30,10 @@
 )
 
 #let babel(en: [], zh-status: l10n-status.first(), zh: []) = {
-  let is-empty(body) = body in ([], [ ], parbreak())
+  assert.eq(type(en), type(zh))
+  assert(type(en) in (str, content))
+
+  let is-empty(body) = body in ([], [ ], parbreak(), "")
   assert(
     not is-empty(en) or is-empty(zh),
     message: "expect either en is not empty, or both en and zh are empty, but got: en {en}, zh {zh}"
@@ -50,9 +53,29 @@
     )
   }
 
-  if zh-status not in ("not translated", "proofread", "validated") [
-    [⚠️ #zh-status]
-  ]
-  set text(lang: "zh", region: "CN")
-  zh
+  let warn-icon = if zh-status in ("not translated", "proofread", "validated") {
+    // No need to warn
+  } else if zh-status == "need update" {
+    "⚠️💀"
+  } else {
+    "⚠️"
+  }
+
+  if type(zh) == str {
+    zh
+    if warn-icon != none {
+      " "
+      "[{icon} {text}]".replace("{icon}", warn-icon).replace("{text}", zh-status)
+    }
+  } else {
+    set text(lang: "zh", region: "CN")
+    zh
+    if warn-icon != none {
+      context if target() == "html" {
+        html.sup(title: zh-status)[[#warn-icon]]
+      } else {
+        super[[#warn-icon #zh-status]]
+      }
+    }
+  }
 }
