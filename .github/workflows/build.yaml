@@ -1,0 +1,135 @@
+name: Build
+on:
+  push:
+    branches:
+      - base
+      - locale
+  pull_request:
+  merge_group:
+  workflow_dispatch:
+
+jobs:
+  build-docit:
+    # This job should be moved into https://typst-community.github.io/dev-builds/ in the future.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          repository: typst/typst
+          ref: 586e1bd43fae6c9a973218163d3165c53ab8d16d
+          # This ref does not need to match `TYPST_REF` in justfile exactly.
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+        with:
+          cache-workspace-crates: true
+      - name: Switch the profile and free the cwd
+        run: |
+          git apply --ignore-whitespace <<'EOF'
+          diff --git a/.cargo/config.toml b/.cargo/config.toml
+          index cb74b9d1d..0212beb8a 100644
+          --- a/.cargo/config.toml
+          +++ b/.cargo/config.toml
+          @@ -8,7 +8,5 @@ testit = "run --quiet --package=test-wrapper --"
+
+           # Runs the documentation generator.
+           #
+          -# We use the `dev-fast` profile as a reasonable trade-off between Rust and Typst
+          -# compilation speed. Just `dev` makes the Typst compilation very slow, while
+          -# `release` makes the Rust compilation very slow.
+          -docit = "run --profile dev-fast --package=typst-docs --"
+          +# We use the `release` profile to optimize the resulting binary.
+          +docit = "run --profile release --package=typst-docs --"
+          diff --git a/docs/src/main.rs b/docs/src/main.rs
+          index 4e509ac43..8242f57cf 100644
+          --- a/docs/src/main.rs
+          +++ b/docs/src/main.rs
+          @@ -37,11 +37,6 @@ const SITE_PATH: &str = "docs/dist/site";
+
+           /// Entry point.
+           fn main() -> ExitCode {
+          -    // Make all paths relative to the workspace.
+          -    let workspace_dir =
+          -        Path::new(env!("CARGO_MANIFEST_DIR")).join(std::path::Component::ParentDir);
+          -    std::env::set_current_dir(workspace_dir).unwrap();
+          -
+               match &ARGS.command {
+                   Command::Compile(command) => compile(command),
+                   Command::Watch(command) => watch(command),
+          EOF
+      - run: cargo docit --help
+      - name: Prepare to upload
+        run: |
+          cd target/release/
+          tar cJf docit.tar.xz typst-docs
+      - uses: actions/upload-artifact@v7
+        with:
+          name: docit.tar.xz
+          path: target/release/docit.tar.xz
+          archive: false
+
+  build:
+    runs-on: ubuntu-latest
+    needs: build-docit
+    steps:
+      - uses: actions/checkout@v7
+      - uses: taiki-e/install-action@v2
+        with:
+          tool: just
+      - run: just setup
+      - uses: actions/download-artifact@v8
+        with:
+          name: docit.tar.xz
+          path: target/
+      - name: Setup docit
+        run: |
+          cd target/
+          tar -xf docit.tar.xz
+          file typst-docs
+
+      - run: just build
+      - uses: actions/upload-artifact@v7
+        with:
+          name: docs-website
+          path: target/dist/site
+      - uses: actions/upload-artifact@v7
+        with:
+          name: docs-pdf
+          path: target/dist/docs.pdf
+
+  check:
+    runs-on: ubuntu-latest
+    needs: build-docit
+    steps:
+      - uses: actions/checkout@v7
+      - uses: taiki-e/install-action@v2
+        with:
+          tool: just, sd, fd-find, typstyle
+      - run: just setup
+      - uses: actions/download-artifact@v8
+        with:
+          name: docit.tar.xz
+          path: target/
+      - name: Setup docit
+        run: |
+          cd target/
+          tar -xf docit.tar.xz
+          file typst-docs
+
+      - name: Run just fmt
+        run: |
+          just fmt
+          git add --all
+          git diff --exit-code --staged
+      - name: Run just save-patches
+        run: |
+          just save-patches
+          git add --all
+          git diff --exit-code --staged
+      - run: just export-i18n
+      - name: Make sure locale/ is up to date
+        if: ${{ github.base_ref == 'base' || github.ref_name == 'base' }}
+        run: |
+          rm -r locale/
+          mv target/i18n-export/ locale/
+          git add --all
+          git diff --exit-code --staged
