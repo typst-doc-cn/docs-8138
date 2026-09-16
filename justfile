@@ -1,4 +1,5 @@
 set minimum-version := '1.55.0'
+set shell := ["bash", "-uc"] # Some recipes requires brace expansion.
 
 TYPST_REF := "586e1bd43fae6c9a973218163d3165c53ab8d16d"
 
@@ -51,7 +52,6 @@ set-mode MODE:
 [working-directory("target/typst/")]
 docit *ARGS:
     ../typst-docs {{ ARGS }}
-
 # Export texts for internationalization to target/i18n-export/
 [group("for maintainers")]
 [working-directory("target/typst/")]
