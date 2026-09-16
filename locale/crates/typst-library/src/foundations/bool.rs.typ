@@ -1,0 +1,21 @@
+#import "/i18n-scope.typ": *
+#let live-item-data = (
+  "bool": (
+    5,
+    babel(
+      en: [
+        A type with two states.
+
+        The boolean type has two values: `{true}` and `{false}`. It denotes whether
+        something is active or enabled.
+
+        = Example <example>
+        ```example
+        #false \
+        #true \
+        #(1 < 2)
+        ```
+      ],
+    ),
+  ),
+)

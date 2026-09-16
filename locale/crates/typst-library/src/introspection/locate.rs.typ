@@ -1,0 +1,42 @@
+#import "/i18n-scope.typ": *
+#let live-item-data = (
+  "locate": (
+    9,
+    babel(
+      en: [
+        Determines the location of an element in the document.
+
+        Takes a selector that must match exactly one element and returns that
+        element's @location. This location can, in particular, be used to retrieve
+        the physical @location.page[`page`] number and
+        @location.position[`position`] (page, x, y) for that element.
+
+        = Examples <examples>
+        Locating a specific element:
+
+        ```example
+        #context [
+          Introduction is at: \
+          #locate(<intro>).position()
+        ]
+
+        = Introduction <intro>
+        ```
+      ],
+    ),
+  ),
+  "locate::selector": (
+    32,
+    babel(
+      en: [
+        A selector that should match exactly one element. This element will be
+        located.
+
+        Especially useful in combination with
+        - @here to locate the current context,
+        - a @location retrieved from some queried element via the
+          @content.location[`location()`] method on content.
+      ],
+    ),
+  ),
+)

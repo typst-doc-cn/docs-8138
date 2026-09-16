@@ -1,0 +1,144 @@
+diff --git a/docs/components/category.typ b/docs/components/category.typ
+index 61df84c..c201ab2 100644
+--- a/docs/components/category.typ
++++ b/docs/components/category.typ
+@@ -222,7 +222,7 @@
+     show raw.where(lang: "example"): example.with(folding: true)
+     set par(spacing: 1em)
+     heading-offset(2, prose-styling(
+-      live-docs(param.docs, param.def-site),
++      live-docs(param.docs, param.def-site, i18n--extra: (key: str(param-label), muted: muted)),
+       base-target: param-label,
+     ))
+   }
+@@ -241,7 +241,7 @@
+             } else {
+               html.code(class: "typ-str", "\"" + variant + "\"")
+             },
+-            live-docs(details, none),
++            live-docs(details, none, i18n--extra: (key: str(param-label) + "." + variant, muted: muted)),
+           ))
+           .flatten(),
+       )
+@@ -427,7 +427,7 @@
+ 
+   {
+     show raw.where(lang: "example"): example.with(folding: true, open: true)
+-    prose-styling(live-docs(info.docs, info.def-site), base-target: func)
++    prose-styling(live-docs(info.docs, info.def-site, i18n--extra: (muted: muted)), base-target: func)
+   }
+ 
+   let params = info.params
+@@ -625,8 +625,12 @@
+     description: "Documentation for the `" + name + "` function.",
+   )
+ 
++  // Functions for typed-html belongs to `group-section`, but here it is `func-section`, so normally `muted` is always false.
++  // However, before `category-settings` is resolved, typed-html might take the wrong branch.
++  // Since i18n relies on `muted`, we should set `muted` correctly even if typed-html takes the wrong branch.
++  let muted = info.keywords == ("typed-html",)
+   prose-styling(
+-    live-docs(info.docs, info.def-site),
++    live-docs(info.docs, info.def-site, i18n--extra: (muted: muted)),
+     base-target: func,
+   )
+ 
+@@ -638,6 +642,7 @@
+       info.params,
+       info.returns,
+       base-label,
++      muted: muted,
+     )
+   }
+ 
+diff --git a/docs/components/live.typ b/docs/components/live.typ
+index 34d06a7..05db2ff 100644
+--- a/docs/components/live.typ
++++ b/docs/components/live.typ
+@@ -9,6 +9,8 @@
+ #import "figure.typ": docs-figure
+ #import "table.typ": docs-table
+ 
++#import "/i18n.typ"
++
+ // The definitions that are available in Rust doc comments.
+ #let scope = (
+   category-settings: category-settings,
+@@ -41,9 +43,29 @@
+   //
+   // See `DefSite::key` for more information.
+   def-site,
++  // Extra information for i18n in case `def-site` is `none`.
++  i18n--extra: none,
+ ) = {
+   if def-site == none {
+-    return eval(markup, scope: scope, mode: "markup")
++    return {
++      if i18n.mode == "export-i18n" {
++        i18n.export-static(i18n--extra, markup)
++      }
++      let locale = if i18n.mode == "import-l10n" {
++        i18n.import-static(i18n--extra)
++      }
++
++      if locale != none {
++        locale
++      } else {
++        eval(markup, scope: scope, mode: "markup")
++      }
++    }
++  }
++
++  if i18n.mode == "import-l10n" {
++    let (_line, markup) = i18n.import-live(def-site.path, def-site.key)
++    return markup
+   }
+ 
+   let live = live-item-data-at-path(def-site.path)
+@@ -51,6 +73,10 @@
+     panic("def site was not found:", def-site)
+   }
+ 
++  if i18n.mode == "export-i18n" {
++    i18n.export-live(def-site.path, def-site.key, live)
++  }
++
+   let (_, markup, ranges) = live.at(def-site.key)
+   stdx.eval-mapped(
+     markup,
+@@ -64,12 +90,18 @@
+ // Returns a GitHub permalink to the source of an item, including the commit and
+ // line number.
+ #let item-source-link(def-site) = {
++  let line = if i18n.mode == "import-l10n" {
++    let (line, _markup) = i18n.import-live(def-site.path, def-site.key)
++    line
++  } else {
+   let live = live-item-data-at-path(def-site.path)
+   if def-site.key not in live {
+     panic("def site was not found:", def-site)
+   }
+ 
+   let (line, _, _) = live.at(def-site.key)
++    line
++  }
+   let file = stdx.str-from-path(def-site.path)
+   "https://github.com/typst/typst/blob/" + stdx.commit + file + "#L" + str(line)
+ }
+diff --git a/docs/content/index.typ b/docs/content/index.typ
+index 6d8f2de..7309115 100644
+--- a/docs/content/index.typ
++++ b/docs/content/index.typ
+@@ -1,5 +1,8 @@
+-#include "overview.typ"
+-#include "tutorial/index.typ"
+-#include "reference/index.typ"
+-#include "guides/index.typ"
++#import "/i18n.typ": mode
++#let locale = if mode == "import-l10n" { "/locale/content/" }
++
++#include locale + "overview.typ"
++#include locale + "tutorial/index.typ"
++#include locale + "reference/index.typ"
++#include locale + "guides/index.typ"
+ #include "changelog/index.typ"
