@@ -2,8 +2,16 @@
 #import "/components/index.typ": docs-category, scope
 
 #show: docs-category.with(
-  title: "Foundations",
-  description: "Documentation for foundational definitions that make up the bedrock of Typst.",
+  title: babel(
+    en: "Foundations",
+    zh-status: "need proofread",
+    zh: "基础",
+  ),
+  description: babel(
+    en: "Documentation for foundational definitions that make up the bedrock of Typst.",
+    zh-status: "need proofread",
+    zh: "Typst中与基础有关联的函数族的文档",
+  ),
   category: "foundations",
   scope-additions: (
     "none": type(none),
@@ -13,15 +21,27 @@
     (
       name: "calc",
       def-target: calc,
-      title: "Calculation",
+      title: babel(
+        en: "Calculation",
+        zh-status: "need proofread",
+        zh: "计算",
+      ),
       scope: scope(std, "calc"),
       items: dictionary(calc).filter(v => type(v) == function),
       description: "Documentation for the `calc` module, which contains definitions for mathematical computation.",
-      docs: [
-        Module for calculations and processing of numeric values.
+      docs: babel(
+        en: [
+          Module for calculations and processing of numeric values.
 
-        These definitions are part of the `calc` module and not imported by default. In addition to the functions listed below, the `calc` module also defines the constants `pi`, `tau`, `e`, and `inf`.
-      ],
+          These definitions are part of the `calc` module and not imported by default. In addition to the functions listed below, the `calc` module also defines the constants `pi`, `tau`, `e`, and `inf`.
+        ],
+        zh-status: "need proofread",
+        zh: [
+          用于计算和处理数字值的模块。
+
+          这些定义是`calc`模块的一部分，不会默认导入。除了下面列出的功能之外，`calc`模块还定义了常量`pi`、`tau`、`e`、`inf`和`nan`。
+        ],
+      ),
     ),
     (
       name: "std",
@@ -64,24 +84,41 @@
     (
       name: "sys",
       def-target: sys,
-      title: "System",
+      title: babel(en: "System", zh-status: "need proofread", zh: "系统"),
       items: (:),
       description: "Documentation for the `sys` module.",
-      docs: [
-        Module for system interactions.
+      docs: babel(
+        en: [
+          Module for system interactions.
 
-        This module defines the following items:
+          This module defines the following items:
 
-        - The `sys.version` constant (of type @version) that specifies the currently active Typst compiler version.
+          - The `sys.version` constant (of type @version) that specifies the currently active Typst compiler version.
 
-        - The `sys.inputs` @dictionary[dictionary], which makes external inputs available to the project. An input specified in the command line as `--input key=value` becomes available under `sys.inputs.key` as `{"value"}`. To include spaces in the value, it may be enclosed with single or double quotes.
+          - The `sys.inputs` @dictionary[dictionary], which makes external inputs available to the project. An input specified in the command line as `--input key=value` becomes available under `sys.inputs.key` as `{"value"}`. To include spaces in the value, it may be enclosed with single or double quotes.
 
-          The value is always of type @str[string]. More complex data may be parsed manually using functions like @json.
-      ],
+            The value is always of type @str[string]. More complex data may be parsed manually using functions like @json.
+        ],
+        zh-status: "need update",
+        zh: [
+          用于系统交互的模块。
+
+          目前，此模块定义了一个项目：`sys.version`常量（类型为@version），指定当前活动的Typst编译器版本。
+        ],
+      ),
     ),
   ),
 )
 
-Foundational types and functions.
+#babel(
+  en: [
+    Foundational types and functions.
 
-Here, you'll find documentation for basic data types like @int[integers] and @str[strings] as well as details about core computational functions.
+    Here, you'll find documentation for basic data types like @int[integers] and @str[strings] as well as details about core computational functions.
+  ],
+  zh-status: "need proofread",
+  zh: [
+    基础类型和函数。
+    在这里，您将找到有关基本数据类型（如@int[整数]和@str[字符串]）以及核心计算功能的详细信息。
+  ],
+)
