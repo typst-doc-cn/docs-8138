@@ -18,14 +18,38 @@
     context big-nav-button(
       icon: icon(32, "tutorial-c", "Circled play icon"),
       href: def-dest(<tutorial>),
-      title: "Tutorial",
-      description: [Step-by-step guide to help you get started.],
+      title: babel(
+        en: "Tutorial",
+        zh-status: "validated",
+        zh: "教程",
+        ja-status: "validated",
+        ja: "チュートリアル",
+      ),
+      description: babel(
+        en: [Step-by-step guide to help you get started.],
+        zh-status: "validated",
+        zh: [逐步学习如何使用Typst。],
+        ja-status: "need update", // When it was translated, the wording of en was slightly different.
+        ja: [一歩一歩、Typstの使い方を学びましょう。],
+      ),
     )
     context big-nav-button(
       icon: icon(32, "reference-c", "Circled information icon"),
       href: def-dest(<reference>),
-      title: "Reference",
-      description: [Details about all syntax, concepts, types, and functions.],
+      title: babel(
+        en: "Reference",
+        ja-status: "validated",
+        ja: "リファレンス",
+        zh-status: "validated",
+        zh: "参考手册",
+      ),
+      description: babel(
+        en: [Details about all syntax, concepts, types, and functions.],
+        ja-status: "need update", // When it was translated, the wording of en was slightly different.
+        ja: [Typstのあらゆる構文、概念、型、関数についての詳細なリファレンスです。],
+        zh-status: "proofread",
+        zh: [了解Typst的语法、概念、类型、函数等各类细节。],
+      ),
     )
   }),
 )
