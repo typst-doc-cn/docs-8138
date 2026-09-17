@@ -32,7 +32,7 @@ Typst文档有以下三种来源。
 
 - `en: […]`与`zh: […]`分别填写英文原文与中文翻译。具体写法请参考 [Typst documentation: Editing typst.app/docs - General - Typst Forum](https://forum.typst.app/t/typst-documentation-editing-typst-app-docs/5705)，例如`@counter.display`表示链接到`counter.display`函数。
 
-- `zh-status`表示中文翻译的状态，常用取值如下，更多细节请参考[`i18n-scope.py`](./patches/i18n-scope.typ)中的注释。
+- `zh-status`表示中文翻译的状态，常用取值如下，更多细节请参考[`i18n-babel.py`](./patches/i18n-babel.typ)中的注释。
 
   ```mermaid
   flowchart LR
