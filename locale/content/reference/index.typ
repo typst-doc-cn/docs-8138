@@ -1,4 +1,5 @@
 #import "/i18n-scope.typ": babel
+#import "/i18n-translation.typ": Translation
 #import "/components/index.typ": docs-chapter, info, modifier-list, paged-heading-offset, ty-pill
 
 #docs-chapter(
@@ -81,22 +82,54 @@
   = Reading the reference <reading-the-reference>
   This reference uses a few graphical conventions and labels to let you quickly scan its sections.
 
-  / #ty-pill(
-      str,
-      linked: false,
-    ): These pills indicate that a value is of a particular type. Each type's chapter uses the respective pill as its title. Similar types share a color. For example, all numeric types have the same color.
+  / #ty-pill(str, linked: false):
+    #babel(
+      en: [
+        These pills indicate that a value is of a particular type. Each type's chapter uses the respective pill as its title. Similar types share a color. For example, all numeric types have the same color.
+      ],
+    )
 
-  / #modifier-list[Element]: Some functions are labelled as elements. This means that they can be used with set and show rules. Some elements can be @locate[located] and used with the @query function. Elements generally produce visible output in the document. You may be using elements even if you are not calling functions, as there is dedicated markup for some elements.
+  / #modifier-list(Translation.elementFunction):
+    #babel(
+      en: [
+        Some functions are labelled as elements. This means that they can be used with set and show rules. Some elements can be @locate[located] and used with the @query function. Elements generally produce visible output in the document. You may be using elements even if you are not calling functions, as there is dedicated markup for some elements.
+      ],
+    )
 
-  / #modifier-list[Contextual]: These functions can reason about the contents of your document. They can only be used when _context_ is available, for example through a context block. Refer to the @reference:context section for more information.
+  / #modifier-list(Translation.contextFunction):
+    #babel(
+      en: [
+        These functions can reason about the contents of your document. They can only be used when _context_ is available, for example through a context block. Refer to the @reference:context section for more information.
+      ],
+    )
 
-  / #modifier-list[Required]: Appears on a function parameter if calling the function without that parameter would result in an error.
+  / #modifier-list(Translation.required):
+    #babel(
+      en: [
+        Appears on a function parameter if calling the function without that parameter would result in an error.
+      ],
+    )
 
-  / #modifier-list[Positional]: Appears on a function parameter that is specified without a parameter name and colon. Instead, Typst will use the parameter order to determine which argument is which. Parameters not marked as positional are _named_ parameters.
+  / #modifier-list(Translation.positional):
+    #babel(
+      en: [
+        Appears on a function parameter that is specified without a parameter name and colon. Instead, Typst will use the parameter order to determine which argument is which. Parameters not marked as positional are _named_ parameters.
+      ],
+    )
 
-  / #modifier-list[Variadic]: Appears on function parameters that can be specified multiple times.
+  / #modifier-list(Translation.variadic):
+    #babel(
+      en: [
+        Appears on function parameters that can be specified multiple times.
+      ],
+    )
 
-  / #modifier-list[Settable]: Appears on function parameters of element functions that can be customized with a set rule.
+  / #modifier-list(Translation.settable):
+    #babel(
+      en: [
+        Appears on function parameters of element functions that can be customized with a set rule.
+      ],
+    )
 ]
 
 #show: paged-heading-offset.with(1)
