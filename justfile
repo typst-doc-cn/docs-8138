@@ -95,6 +95,14 @@ build: (docit "compile" "--format=pdf") (docit "compile" "--format=website")
     mv target/typst/docs/dist/ target/
     # ✅ Now you can view or deploy target/dist/
 
+# Build the project to target/dist/ for CI
+[arg("BASE", pattern='/|(/.+/)')]
+ci-build BASE="/base/":
+    sd --fixed-strings '#let base = "/"' '#let base = "{{ BASE }}"' patches/main.typ
+    just build
+    mv target/dist/site{{ BASE }}* target/dist/
+    mv target/dist/docs.pdf target/dist/typst-documentation.pdf
+
 # Format files
 fmt:
     {{ typstyle }} --inplace locale/ patches/
