@@ -29,7 +29,9 @@ setup:
     ln --symbolic \
         {{ quote(clean("../../../patches/main.typ")) }} \
         {{ quote(clean("../../../patches/i18n.typ")) }} \
+        {{ quote(clean("../../../patches/i18n-babel.typ")) }} \
         {{ quote(clean("../../../patches/i18n-scope.typ")) }} \
+        {{ quote(clean("../../../patches/i18n-translation.typ")) }} \
         {{ quote(clean("../../../locale")) }} \
         .
 
@@ -37,6 +39,7 @@ setup:
 [group("for maintainers")]
 [working-directory("target/typst/")]
 save-patches:
+    git diff --no-ext-diff --abbrev=10 docs/assets/ > ../../patches/assets.diff
     git diff --no-ext-diff --abbrev=10 docs/components/ > ../../patches/components.diff
     git diff --no-ext-diff --abbrev=10 docs/content/index.typ > ../../patches/content-index.diff
 

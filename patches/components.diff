@@ -1,8 +1,54 @@
 diff --git a/docs/components/category.typ b/docs/components/category.typ
-index 61df84c069..c201ab22bb 100644
+index 61df84c069..e37861cec2 100644
 --- a/docs/components/category.typ
 +++ b/docs/components/category.typ
-@@ -222,7 +222,7 @@
+@@ -1,3 +1,4 @@
++#import "/i18n-translation.typ": Translation
+ #import "system.typ": colors
+ #import "base.typ": (
+   classnames, folding-details, heading-offset, html-heading-n, icon, labelled,
+@@ -125,7 +126,7 @@
+   let pills = input-types.map(ty-pill)
+   let modifiers = ()
+   if param.required {
+-    modifiers.push[Required]
++    modifiers.push(with-tooltip(Translation.required, Translation.requiredDescription))
+   }
+   if param.positional {
+     if param.named {
+@@ -134,27 +135,20 @@
+         This named parameter can also be specified as a positional argument.
+       ])
+     } else {
+-      modifiers.push(with-tooltip[Positional][
+-        Positional parameters are specified in order, without names.
+-      ])
++      modifiers.push(with-tooltip(Translation.positional, Translation.positionalDescription))
+     }
+   }
+   if param.variadic {
+-    modifiers.push(with-tooltip[Variadic][
+-      Variadic parameters can be specified multiple times.
+-    ])
++    modifiers.push(with-tooltip(Translation.variadic, Translation.variadicDescription))
+   }
+   if param.settable {
+-    modifiers.push(with-tooltip[Settable][
+-      Settable parameters can be customized for all following uses of the
+-      function with a `set` rule.
+-    ])
++    modifiers.push(with-tooltip(Translation.settable, Translation.settableDescription))
+   }
+ 
+   raw(param.name)
+ 
+   let default = if not param.required and "default" in param {
+-    [Default: ]
++    Translation.defaultValue
+     raw(lang: "typc", repr(param.default))
+   }
+ 
+@@ -222,7 +216,7 @@
      show raw.where(lang: "example"): example.with(folding: true)
      set par(spacing: 1em)
      heading-offset(2, prose-styling(
@@ -11,7 +57,7 @@ index 61df84c069..c201ab22bb 100644
        base-target: param-label,
      ))
    }
-@@ -241,7 +241,7 @@
+@@ -241,12 +235,12 @@
              } else {
                html.code(class: "typ-str", "\"" + variant + "\"")
              },
@@ -20,7 +66,48 @@ index 61df84c069..c201ab22bb 100644
            ))
            .flatten(),
        )
-@@ -427,7 +427,7 @@
+       context if strings.len() > 10 and target() == "html" {
+-        folding-details(title: [View options], t)
++        folding-details(title: Translation.viewOptions, t)
+       } else {
+         t
+       }
+@@ -324,12 +318,10 @@
+ 
+   if info.deprecation != none {
+     gap
+-    item(16, "warn", "Warning", {
+-      text-with-code(info.deprecation.message)
+-      if info.deprecation.until != none {
+-        [; it will be removed in Typst #info.deprecation.until]
+-      }
+-    })
++    item(16, "warn", "Warning", Translation.deprecationWarning(
++      text-with-code(info.deprecation.message),
++      until: info.deprecation.until,
++    ))
+   }
+ }
+ 
+@@ -342,15 +334,11 @@
+   set text(0.75em)
+   if info.element {
+     gap
+-    small(with-tooltip[Element][
+-      Element functions can be customized with `set` and `show` rules.
+-    ])
++    small(with-tooltip(Translation.elementFunction, Translation.elementFunctionDescription))
+   }
+   if info.contextual != none and info.contextual {
+     gap
+-    small(with-tooltip[Contextual][
+-      Contextual functions can only be used when the context is known.
+-    ])
++    small(with-tooltip(Translation.contextFunction, Translation.contextFunctionDescription))
+   }
+   if info.since != none {
+     gap
+@@ -427,7 +415,7 @@
  
    {
      show raw.where(lang: "example"): example.with(folding: true, open: true)
@@ -29,7 +116,39 @@ index 61df84c069..c201ab22bb 100644
    }
  
    let params = info.params
-@@ -625,8 +625,12 @@
+@@ -465,11 +453,8 @@
+   let base-label = <constructor>
+ 
+   let title = short-or-long(
+-    [Constructor],
+-    with-tooltip[Constructor][
+-      If a type has a constructor, you can call it like a function to create
+-      a new value of the type.
+-    ] + func-subtitle(info, none),
++    Translation.constructor,
++    with-tooltip(Translation.constructor, Translation.constructorDescription) + func-subtitle(info, none),
+   )
+ 
+   {
+@@ -563,12 +548,11 @@
+ 
+   let nested = base-label != <definitions>
+   let title = short-or-long(
+-    [Definitions] + if nested [ on #parent],
+-    with-tooltip[Definitions #if nested [on #raw(parent)]][
+-      Functions and types can have associated definitions. These are
+-      accessed by specifying the function or type, followed by a period,
+-      and then the definition's name.
+-    ],
++    if nested { (Translation.definitionsOn)(parent) } else { Translation.definitions },
++    with-tooltip(
++      if nested { (Translation.definitionsOn)(parent) } else { Translation.definitions },
++      Translation.definitionsDescription,
++    ),
+   )
+ 
+   labelled(heading(title), base-label)
+@@ -625,19 +609,27 @@
      description: "Documentation for the `" + name + "` function.",
    )
  
@@ -43,7 +162,15 @@ index 61df84c069..c201ab22bb 100644
      base-target: func,
    )
  
-@@ -638,6 +642,7 @@
+   {
+     let base-label = <parameters>
+-    labelled(heading[Parameters], base-label)
++    labelled(heading(short-or-long(
++      Translation.parameters,
++      with-tooltip(Translation.parameters, Translation.parametersDescription),
++    )), base-label)
+     params-section(
+       func,
        info.params,
        info.returns,
        base-label,
@@ -51,6 +178,60 @@ index 61df84c069..c201ab22bb 100644
      )
    }
  
+@@ -705,7 +697,7 @@
+ 
+   if info.items.len() > 0 {
+     let base-label = <functions>
+-    labelled(heading[Functions], base-label)
++    labelled(heading(Translation.functions), base-label)
+     for (key, value) in info.items {
+       func-member(
+         value,
+@@ -791,12 +783,12 @@
+     }
+ 
+     outline(
+-      title: [Definitions],
++      title: Translation.definitions,
+       indent: 0pt,
+       target: selector.or(..dests),
+     )
+   } else {
+-    [= Definitions <definitions>]
++    [= #Translation.definitions <definitions>]
+     html.ul(class: "subgridded catgrid", lis.join())
+   }
+ }
+@@ -923,7 +915,10 @@
+ 
+       {
+         let base-label = <parameters>
+-        labelled(heading[Parameters], base-label)
++        labelled(heading(short-or-long(
++          Translation.parameters,
++          with-tooltip(Translation.parameters, Translation.parametersDescription),
++        )), base-label)
+         params-section(
+           func,
+           info.params,
+diff --git a/docs/components/example.typ b/docs/components/example.typ
+index 860ac64eee..93c7da4f66 100644
+--- a/docs/components/example.typ
++++ b/docs/components/example.typ
+@@ -1,3 +1,4 @@
++#import "/i18n-translation.typ": Translation
+ // Support for showing code blocks in one of three modes:
+ // - Source only via `source`
+ // - Preview only via `preview`
+@@ -115,7 +116,7 @@
+   } else {
+     if folding == true or (folding == auto and title != none) {
+       folding-details(
+-        title: [View example] + if title != none [: #title],
++        title: (Translation.viewExample)(title: title),
+         open: open,
+         rest,
+       )
 diff --git a/docs/components/live.typ b/docs/components/live.typ
 index 34d06a7dd3..05db2ff671 100644
 --- a/docs/components/live.typ
@@ -125,3 +306,129 @@ index 34d06a7dd3..05db2ff671 100644
    let file = stdx.str-from-path(def-site.path)
    "https://github.com/typst/typst/blob/" + stdx.commit + file + "#L" + str(line)
  }
+diff --git a/docs/components/nav.typ b/docs/components/nav.typ
+index 970e70646c..42c97a8c91 100644
+--- a/docs/components/nav.typ
++++ b/docs/components/nav.typ
+@@ -1,3 +1,4 @@
++#import "/i18n-translation.typ": Translation, translation
+ // Navigation components for the HTML version.
+ //
+ // Defines
+@@ -71,7 +72,7 @@
+ // The folding navigation on the left of the docs.
+ #let nav-folding(current) = html.nav(class: "folding", context {
+   html.button(class: "close", icon(16, "close", "Close"))
+-  search-box(id: "docs-search", placeholder: "Search (S)")
++  search-box(id: "docs-search", placeholder: translation.search + " (S)")
+   html.ul(id: "search-results", class: "search-results hidden")
+   let items = query(selector.or(
+     <metadata-page>,
+@@ -100,7 +101,7 @@
+     for m in route.matches("/") {
+       let parent = route.slice(0, m.end)
+       let title = titles.at(parent, default: none)
+-      if title == none or title == "Overview" { continue }
++      if title == none or parent == stdx.config.content-base { continue } // Skip the localized _Overview_
+       html.li(aria-hidden: true, icon(16, "chevron-right", ""))
+       html.li(html.a(href: parent, title))
+     }
+@@ -135,7 +136,7 @@
+   let titles = query(selector.and(title, <summary>).within(scope))
+   if titles.len() > 0 {
+     let dest = titles.first().location()
+-    items.push((dest: dest, level: 1, body: [Summary]))
++    items.push((dest: dest, level: 1, body: Translation.summary))
+   }
+ 
+   items += query(heading.where(outlined: true).within(scope))
+@@ -144,7 +145,7 @@
+   if items.len() == 0 { return }
+ 
+   html.nav(id: "page-overview", {
+-    strong[On this page]
++    strong(Translation.tableOfContents)
+     with-short-versions(nav-on-this-page-items(items))
+   })
+ }
+@@ -192,7 +193,7 @@
+     nav-button(
+       icon: icon(16, "chevron-right", "←"),
+       class: "previous",
+-      hint: [Previous page],
++      hint: Translation.previousPage,
+       href: route,
+       title: title,
+     )
+@@ -203,7 +204,7 @@
+     nav-button(
+       icon: icon(16, "chevron-right", "→"),
+       class: "next",
+-      hint: [Next page],
++      hint: Translation.nextPage,
+       href: route,
+       title: title,
+     )
+diff --git a/docs/components/preface.typ b/docs/components/preface.typ
+index 8ea050c623..b187e8739e 100644
+--- a/docs/components/preface.typ
++++ b/docs/components/preface.typ
+@@ -1,3 +1,4 @@
++#import "/i18n-translation.typ": translation
+ // The preface of the docs. Only used in the paged version.
+ 
+ #import "system.typ": fonts, logotype
+@@ -7,7 +8,7 @@
+ #page({
+   logotype
+   v(2fr)
+-  title[Typst Documentation]
++  title(translation.documentationTitle)
+   text(1.5em, luma(100))[Version: #sys.version]
+   v(1fr)
+ })
+diff --git a/docs/components/section.typ b/docs/components/section.typ
+index 58463d1257..e48cbc7d55 100644
+--- a/docs/components/section.typ
++++ b/docs/components/section.typ
+@@ -1,3 +1,4 @@
++#import "/i18n-translation.typ": translation
+ #import "base.typ": (
+   classnames, dev-version-warning, heading-offset, icon, labelled,
+   short-or-long, title-state, tooltip-counter,
+@@ -91,7 +92,7 @@
+   // Reset the tooltip counter for each page.
+   tooltip-counter.update((0,))
+ 
+-  document(route + "index.html", title: title, html.html({
++  document(route + "index.html", title: title, html.html(lang: translation.htmlLang, {
+     // The index item is placed here so that all body text of this HTML document
+     // is considered part of this index item.
+     register-index-item(
+@@ -119,7 +120,7 @@
+       html.link(href: stdx.config.asset-base + "base.css", rel: "stylesheet")
+       html.link(href: stdx.config.asset-base + "docs.css", rel: "stylesheet")
+       html.script(type: "module", src: stdx.config.asset-base + "docs.js")
+-      html.title(title + " - Typst Documentation")
++      html.title(title + " - " + translation.documentationTitle)
+     })
+ 
+     html.body(class: classnames("docs", class), {
+diff --git a/docs/components/styling.typ b/docs/components/styling.typ
+index b20b4884b0..2fdff535ef 100644
+--- a/docs/components/styling.typ
++++ b/docs/components/styling.typ
+@@ -1,3 +1,4 @@
++#import "/i18n-translation.typ": translation
+ // Defines the set of styling rules for
+ // - docs content at large
+ // - "prose" content, i.e. hand-written content in chapters or individual
+@@ -117,7 +118,7 @@
+ // Global styling that is applied to the full docs.
+ #let styling(body) = {
+   set document(
+-    title: "Typst Documentation (Version: " + str(sys.version) + ")",
++    title: translation.documentationTitle + " (Version: " + str(sys.version) + ")",
+     author: (
+       "Laurenz Mädje",
+       "Martin Haug",
