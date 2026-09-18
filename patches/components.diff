@@ -1,3 +1,16 @@
+diff --git a/docs/components/base.typ b/docs/components/base.typ
+index c1252dac94..2a8f261e79 100644
+--- a/docs/components/base.typ
++++ b/docs/components/base.typ
+@@ -31,6 +31,8 @@
+     body.split("\n\n").first().replace("\n", " ")
+   } else if body.has("children") {
+     body.children.split(parbreak()).first().join()
++  } else if body.has("child") {
++    oneliner(body.child)
+   } else {
+     body
+   }
 diff --git a/docs/components/category.typ b/docs/components/category.typ
 index 61df84c069..b6d143e6c2 100644
 --- a/docs/components/category.typ
