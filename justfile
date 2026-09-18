@@ -24,7 +24,7 @@ setup:
     git switch --detach {{ TYPST_REF }}
 
     cd docs
-    git apply --ignore-whitespace ../../../patches/edits.diff
+    git apply --ignore-whitespace ../../../patches/*.diff
     rm main.typ
     ln --symbolic \
         {{ quote(clean("../../../patches/main.typ")) }} \
@@ -37,7 +37,8 @@ setup:
 [group("for maintainers")]
 [working-directory("target/typst/")]
 save-patches:
-    git diff --no-ext-diff docs/{components/,content/index.typ} > ../../patches/edits.diff
+    git diff --no-ext-diff --abbrev=10 docs/components/ > ../../patches/components.diff
+    git diff --no-ext-diff --abbrev=10 docs/content/index.typ > ../../patches/content-index.diff
 
 # Set the mode for i18n; callers should keep import-l10n as the default mode
 [arg("MODE", pattern='export-i18n|import-l10n')]

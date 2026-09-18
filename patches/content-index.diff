@@ -1,0 +1,17 @@
+diff --git a/docs/content/index.typ b/docs/content/index.typ
+index 6d8f2de31c..73091154bf 100644
+--- a/docs/content/index.typ
++++ b/docs/content/index.typ
+@@ -1,5 +1,8 @@
+-#include "overview.typ"
+-#include "tutorial/index.typ"
+-#include "reference/index.typ"
+-#include "guides/index.typ"
++#import "/i18n.typ": mode
++#let locale = if mode == "import-l10n" { "/locale/content/" }
++
++#include locale + "overview.typ"
++#include locale + "tutorial/index.typ"
++#include locale + "reference/index.typ"
++#include locale + "guides/index.typ"
+ #include "changelog/index.typ"
