@@ -1,4 +1,5 @@
-#import "i18n-translation.typ": Translation, enable-pagefind, translation
+#import "i18n-translation.typ": Translation, translation
+#import "i18n-inputs.typ": enable-pagefind, link-pdf-docs
 
 #let _icon = (
   // https://simpleicons.org/?q=git
@@ -237,7 +238,7 @@
 
   after-nav-items: (
     // Show only when the PDF is put properly by `just ci-build`
-    context if stdx.config.content-base != "/" {
+    context if link-pdf-docs {
       show: html.p.with(class: "after-nav-items")
       html.a(
         href: stdx.config.content-base + "typst-documentation.pdf",

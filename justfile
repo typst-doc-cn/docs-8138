@@ -1,7 +1,7 @@
 set minimum-version := '1.55.0'
 set shell := ["bash", "-uc"] # Some recipes requires brace expansion.
 
-TYPST_REF := "586e1bd43fae6c9a973218163d3165c53ab8d16d"
+TYPST_REF := "5a60a516db5d73cca11fb5884c650d671f08b3f1"
 
 typstyle := "typstyle --line-width 120"
 
@@ -39,6 +39,7 @@ resetup:
         {{ quote(clean("../../../patches/main.typ")) }} \
         {{ quote(clean("../../../patches/i18n.typ")) }} \
         {{ quote(clean("../../../patches/i18n-babel.typ")) }} \
+        {{ quote(clean("../../../patches/i18n-inputs.typ")) }} \
         {{ quote(clean("../../../patches/i18n-insertions.typ")) }} \
         {{ quote(clean("../../../patches/i18n-scope.typ")) }} \
         {{ quote(clean("../../../patches/i18n-translation.typ")) }} \
@@ -53,24 +54,23 @@ save-patches:
     git diff --no-ext-diff --abbrev=10 docs/components/ > ../../patches/components.diff
     git diff --no-ext-diff --abbrev=10 docs/content/index.typ > ../../patches/content-index.diff
 
-# Set the mode for i18n; callers should keep import-l10n as the default mode
+# Prepare the mode for i18n; callers should keep import-l10n as the default mode
 [arg("MODE", pattern='export-i18n|import-l10n')]
 [private]
 [working-directory("target/typst/")]
-set-mode MODE:
-    sd '#let mode = ".+"' '#let mode = "{{ MODE }}"' docs/i18n.typ
+prepare-mode MODE:
     git sparse-checkout set {{ if MODE == "export-i18n" { "docs crates" } else { "docs" } }}
 
 # Call the typst-docs CLI
 [private]
 [working-directory("target/typst/")]
 docit *ARGS:
-    ../typst-docs {{ ARGS }}
+    ../typst-docs {{ ARGS }} --workspace .
 
 # Export texts for internationalization to target/i18n-export/
 [group("for maintainers")]
 [working-directory("target/typst/")]
-export-i18n: setup-babelize (set-mode "export-i18n") (docit "compile" "--format=website") (set-mode "import-l10n")
+export-i18n: setup-babelize (prepare-mode "export-i18n") (docit "compile" "--format=website" "--input" "i18n--mode=export-i18n") (prepare-mode "import-l10n")
     rm -rf ../i18n-export/
     mv docs/dist/site/i18n-export/ ../
 
@@ -91,17 +91,16 @@ serve: (docit "watch" "--format=website" "--open")
 
 # Compile the docs as PDF and website to target/dist/
 [group("for contributors")]
-build: (docit "compile" "--format=pdf" "--deny-warnings") (docit "compile" "--format=website" "--deny-warnings")
+build *SYS_INPUTS: (docit "compile" "--format=pdf" "--deny-warnings" SYS_INPUTS) (docit "compile" "--format=website" "--deny-warnings" SYS_INPUTS)
     -rm -rf target/dist/
     mv target/typst/docs/dist/ target/
     # ✅ Now you can view or deploy target/dist/
 
 # Build the project to target/dist/ for CI
 [arg("BASE", pattern='/|(/.+/)')]
+[group("for maintainers")]
 ci-build BASE="/base/":
-    sd --fixed-strings '#let base = "/"' '#let base = "{{ BASE }}"' patches/main.typ
-    sd --fixed-strings '#let enable-pagefind = false' '#let enable-pagefind = true' patches/i18n-translation.typ
-    just build
+    just build --input "i18n--base={{ BASE }}" --input i18n--link-pdf-docs=true --input i18n--enable-pagefind=true
     mv target/dist/site{{ BASE }}* target/dist/
     mv target/dist/docs.pdf target/dist/typst-documentation.pdf
     pagefind_extended --site target/dist/

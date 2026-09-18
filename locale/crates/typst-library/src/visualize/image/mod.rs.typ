@@ -1,7 +1,7 @@
 #import "/i18n-scope.typ": *
 #let live-item-data = (
   "ImageElem": (
-    33,
+    35,
     [
       #babel(
         en: [
@@ -58,7 +58,7 @@
     ],
   ),
   "ImageElem::source": (
-    79,
+    81,
     [
       #babel(
         en: [
@@ -83,7 +83,7 @@
     ],
   ),
   "ImageElem::format": (
-    103,
+    105,
     [
       #babel(
         en: [
@@ -148,7 +148,7 @@
     ],
   ),
   "ImageElem::width": (
-    161,
+    163,
     babel(
       en: [
         The width of the image.
@@ -156,7 +156,7 @@
     ),
   ),
   "ImageElem::height": (
-    164,
+    166,
     babel(
       en: [
         The height of the image.
@@ -164,7 +164,7 @@
     ),
   ),
   "ImageElem::alt": (
-    167,
+    169,
     babel(
       en: [
         An alternative description of the image.
@@ -185,7 +185,7 @@
     ),
   ),
   "ImageElem::page": (
-    183,
+    185,
     babel(
       en: [
         The page number that should be embedded as an image. This attribute only
@@ -194,7 +194,7 @@
     ),
   ),
   "ImageElem::fit": (
-    188,
+    190,
     [
       #babel(
         en: [
@@ -214,7 +214,7 @@
     ],
   ),
   "ImageElem::scaling": (
-    202,
+    204,
     babel(
       en: [
         A hint to viewers how they should scale the image.
@@ -228,7 +228,7 @@
     ),
   ),
   "ImageElem::icc": (
-    211,
+    213,
     babel(
       en: [
         An ICC profile for the image.

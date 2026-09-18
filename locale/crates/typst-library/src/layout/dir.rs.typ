@@ -25,7 +25,7 @@
     ],
   ),
   "Dir::from": (
-    53,
+    57,
     [
       #babel(
         en: [
@@ -44,7 +44,7 @@
     ],
   ),
   "Dir::from::side": (
-    65,
+    69,
     babel(
       en: [
         The starting point for the direction.
@@ -54,7 +54,7 @@
     ),
   ),
   "Dir::to": (
-    78,
+    82,
     [
       #babel(
         en: [
@@ -73,7 +73,7 @@
     ],
   ),
   "Dir::to::side": (
-    90,
+    94,
     babel(
       en: [
         The end point for the direction.
@@ -83,7 +83,7 @@
     ),
   ),
   "Dir::axis": (
-    103,
+    107,
     [
       #babel(
         en: [
@@ -99,7 +99,7 @@
     ],
   ),
   "Dir::sign": (
-    118,
+    122,
     [
       #babel(
         en: [
@@ -119,7 +119,7 @@
     ],
   ),
   "Dir::start": (
-    137,
+    141,
     [
       #babel(
         en: [
@@ -138,7 +138,7 @@
     ],
   ),
   "Dir::end": (
-    157,
+    161,
     [
       #babel(
         en: [
@@ -157,7 +157,7 @@
     ],
   ),
   "Dir::inv": (
-    177,
+    181,
     [
       #babel(
         en: [

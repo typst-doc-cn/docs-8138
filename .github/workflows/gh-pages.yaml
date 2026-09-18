@@ -20,7 +20,7 @@ jobs:
       - uses: actions/checkout@v7
       - uses: taiki-e/install-action@v2
         with:
-          tool: just, sd
+          tool: just
       - name: Install pagefind
         shell: bash
         run: |

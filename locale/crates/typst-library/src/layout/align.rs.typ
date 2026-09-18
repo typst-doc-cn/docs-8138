@@ -181,7 +181,7 @@
     ],
   ),
   "Alignment::axis": (
-    187,
+    195,
     [
       #babel(
         en: [
@@ -199,7 +199,7 @@
     ],
   ),
   "Alignment::inv": (
-    205,
+    213,
     [
       #babel(
         en: [

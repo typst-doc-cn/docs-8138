@@ -27,7 +27,7 @@
     ],
   ),
   "f64::construct": (
-    41,
+    43,
     [
       #babel(
         en: [
@@ -54,7 +54,7 @@
     ],
   ),
   "f64::construct::value": (
-    61,
+    63,
     babel(
       en: [
         The value that should be converted to a float.
@@ -62,7 +62,7 @@
     ),
   ),
   "f64::is_nan": (
-    67,
+    69,
     [
       #babel(
         en: [
@@ -81,7 +81,7 @@
     ],
   ),
   "f64::is_infinite": (
-    82,
+    84,
     [
       #babel(
         en: [
@@ -100,7 +100,7 @@
     ],
   ),
   "f64::signum": (
-    97,
+    99,
     [
       #babel(
         en: [
@@ -121,7 +121,7 @@
     ],
   ),
   "f64::from_bytes": (
-    114,
+    116,
     [
       #babel(
         en: [
@@ -136,7 +136,7 @@
     ],
   ),
   "f64::from_bytes::bytes": (
-    122,
+    124,
     babel(
       en: [
         The bytes that should be converted to a float.
@@ -149,7 +149,7 @@
     ),
   ),
   "f64::from_bytes::endian": (
-    129,
+    131,
     babel(
       en: [
         The endianness of the conversion.
@@ -157,7 +157,7 @@
     ),
   ),
   "f64::to_bytes": (
-    151,
+    153,
     [
       #babel(
         en: [
@@ -172,7 +172,7 @@
     ],
   ),
   "f64::to_bytes::endian": (
-    160,
+    162,
     babel(
       en: [
         The endianness of the conversion.
@@ -180,7 +180,7 @@
     ),
   ),
   "f64::to_bytes::size": (
-    164,
+    166,
     babel(
       en: [
         The size of the resulting bytes.

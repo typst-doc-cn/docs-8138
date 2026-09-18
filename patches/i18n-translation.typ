@@ -5,8 +5,7 @@
 //! Commented keys are unused at present. Ideally, all keys should be used.
 
 #import "i18n-babel.typ": babel
-
-#let enable-pagefind = false
+#import "i18n-inputs.typ": enable-pagefind
 
 /// Translation dictionary for UI attributes and aria labels.
 #let translation = (

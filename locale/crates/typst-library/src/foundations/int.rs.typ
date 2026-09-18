@@ -72,7 +72,7 @@
     ],
   ),
   "i64::construct": (
-    81,
+    83,
     [
       #babel(
         en: [
@@ -98,7 +98,7 @@
     ],
   ),
   "i64::construct::value": (
-    100,
+    102,
     babel(
       en: [
         The value that should be converted to an integer.
@@ -106,7 +106,7 @@
     ),
   ),
   "i64::construct::base": (
-    102,
+    104,
     babel(
       en: [
         The base (radix) for parsing strings, between 2 and 36.
@@ -117,7 +117,7 @@
     ),
   ),
   "i64::signum": (
-    148,
+    150,
     [
       #babel(
         en: [
@@ -137,7 +137,7 @@
     ],
   ),
   "i64::bit_not": (
-    164,
+    166,
     [
       #babel(
         en: [
@@ -155,7 +155,7 @@
     ],
   ),
   "i64::bit_and": (
-    178,
+    180,
     [
       #babel(
         en: [
@@ -172,7 +172,7 @@
     ],
   ),
   "i64::bit_and::rhs": (
-    189,
+    191,
     babel(
       en: [
         The right-hand operand of the bitwise AND.
@@ -180,7 +180,7 @@
     ),
   ),
   "i64::bit_or": (
-    195,
+    197,
     [
       #babel(
         en: [
@@ -197,7 +197,7 @@
     ],
   ),
   "i64::bit_or::rhs": (
-    206,
+    208,
     babel(
       en: [
         The right-hand operand of the bitwise OR.
@@ -205,7 +205,7 @@
     ),
   ),
   "i64::bit_xor": (
-    212,
+    214,
     [
       #babel(
         en: [
@@ -222,7 +222,7 @@
     ],
   ),
   "i64::bit_xor::rhs": (
-    223,
+    225,
     babel(
       en: [
         The right-hand operand of the bitwise XOR.
@@ -230,7 +230,7 @@
     ),
   ),
   "i64::bit_lshift": (
-    229,
+    231,
     [
       #babel(
         en: [
@@ -249,7 +249,7 @@
     ],
   ),
   "i64::bit_lshift::shift": (
-    242,
+    244,
     babel(
       en: [
         The amount of bits to shift. Must not be negative.
@@ -257,7 +257,7 @@
     ),
   ),
   "i64::bit_rshift": (
-    248,
+    250,
     [
       #babel(
         en: [
@@ -279,7 +279,7 @@
     ],
   ),
   "i64::bit_rshift::shift": (
-    264,
+    266,
     babel(
       en: [
         The amount of bits to shift. Must not be negative.
@@ -294,7 +294,7 @@
     ),
   ),
   "i64::bit_rshift::logical": (
-    273,
+    275,
     babel(
       en: [
         Toggles whether a logical (unsigned) right shift should be performed
@@ -306,7 +306,7 @@
     ),
   ),
   "i64::from_bytes": (
-    309,
+    311,
     [
       #babel(
         en: [
@@ -321,7 +321,7 @@
     ],
   ),
   "i64::from_bytes::bytes": (
-    317,
+    319,
     babel(
       en: [
         The bytes that should be converted to an integer.
@@ -332,7 +332,7 @@
     ),
   ),
   "i64::from_bytes::endian": (
-    322,
+    324,
     babel(
       en: [
         The endianness of the conversion.
@@ -340,7 +340,7 @@
     ),
   ),
   "i64::from_bytes::signed": (
-    326,
+    328,
     babel(
       en: [
         Whether the bytes should be treated as a signed integer. If this is
@@ -350,7 +350,7 @@
     ),
   ),
   "i64::to_bytes": (
-    375,
+    377,
     [
       #babel(
         en: [
@@ -365,7 +365,7 @@
     ],
   ),
   "i64::to_bytes::endian": (
-    384,
+    386,
     babel(
       en: [
         The endianness of the conversion.
@@ -373,7 +373,7 @@
     ),
   ),
   "i64::to_bytes::size": (
-    388,
+    390,
     babel(
       en: [
         The size in bytes of the resulting bytes (must be at least zero). If
