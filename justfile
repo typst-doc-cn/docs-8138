@@ -11,7 +11,7 @@ typstyle := "typstyle --line-width 120"
 
 # Setup target/typst/docs/ and apply patches; after `git clone`, please run this recipe before running other recipes
 [group("for contributors")]
-setup:
+setup: && resetup
     #!/usr/bin/env bash
     set -euxo pipefail
 
@@ -23,7 +23,16 @@ setup:
     git sparse-checkout set docs
     git switch --detach {{ TYPST_REF }}
 
-    cd docs
+# Reset target/typst/docs/ and re-apply patches; after `git switch`, run this recipe if you meet any problems
+[group("for contributors")]
+[working-directory("target/typst/docs/")]
+resetup:
+    git restore .
+    # ✋ Please confirm that there are no untracked files except i18n-*.typ and locale/.
+    # Enter `c` if that is true. (or do nothing if git has not prompted you)
+    git clean -d --interactive
+    git switch --detach {{ TYPST_REF }}
+
     git apply --ignore-whitespace ../../../patches/*.diff
     rm main.typ
     ln --symbolic \
