@@ -39,6 +39,7 @@ resetup:
         {{ quote(clean("../../../patches/main.typ")) }} \
         {{ quote(clean("../../../patches/i18n.typ")) }} \
         {{ quote(clean("../../../patches/i18n-babel.typ")) }} \
+        {{ quote(clean("../../../patches/i18n-insertions.typ")) }} \
         {{ quote(clean("../../../patches/i18n-scope.typ")) }} \
         {{ quote(clean("../../../patches/i18n-translation.typ")) }} \
         {{ quote(clean("../../../locale")) }} \
