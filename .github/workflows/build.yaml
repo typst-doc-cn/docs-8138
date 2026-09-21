@@ -75,6 +75,23 @@ jobs:
           just save-patches
           git add --all
           git diff --exit-code --staged
+
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: scripts/babelize/
+      - run: rustup target add wasm32-unknown-unknown
+      - run: cargo test
+        working-directory: scripts/babelize/
+      - run: cargo check --all-targets
+        working-directory: scripts/babelize/
+      - run: cargo clippy --all-targets
+        working-directory: scripts/babelize/
+      - run: just setup-babelize
+      - uses: actions/upload-artifact@v7
+        with:
+          name: babelize-wasm
+          path: scripts/babelize/target/wasm32-unknown-unknown/release/babelize.wasm
+
       - run: just export-i18n
       - name: Make sure locale/ is up to date
         if: ${{ github.base_ref == 'base' || github.ref_name == 'base' }}

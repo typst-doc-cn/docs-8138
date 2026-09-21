@@ -70,7 +70,7 @@ docit *ARGS:
 # Export texts for internationalization to target/i18n-export/
 [group("for maintainers")]
 [working-directory("target/typst/")]
-export-i18n: (set-mode "export-i18n") (docit "compile" "--format=website") (set-mode "import-l10n")
+export-i18n: setup-babelize (set-mode "export-i18n") (docit "compile" "--format=website") (set-mode "import-l10n")
     rm -rf ../i18n-export/
     mv docs/dist/site/i18n-export/ ../
 
@@ -104,7 +104,15 @@ ci-build BASE="/base/":
     mv target/dist/site{{ BASE }}* target/dist/
     mv target/dist/docs.pdf target/dist/typst-documentation.pdf
 
+# Build and setup the babelize Wasm plugin
+[group("for maintainers")]
+setup-babelize:
+    cargo build --release --target wasm32-unknown-unknown --manifest-path scripts/babelize/Cargo.toml
+    -rm patches/babelize.wasm
+    ln --symbolic {{ quote(clean("../scripts/babelize/target/wasm32-unknown-unknown/release/babelize.wasm")) }} patches/
+
 # Format files
 fmt:
     {{ typstyle }} --inplace locale/ patches/
     just --fmt
+    cargo fmt --manifest-path scripts/babelize/Cargo.toml

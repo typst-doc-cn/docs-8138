@@ -37,6 +37,8 @@
 }
 
 #let asset-live() = {
+  let babelize(markup) = str(plugin("babelize.wasm").babelize_bytes(bytes(markup)))
+
   for (path, live) in _export-live.get().pairs() {
     assert(path.starts-with("/crates/")) // Ensure it does not conflict with content/ and static.typ.
     asset(
@@ -51,21 +53,17 @@
         for (key, (line, markup)) in live.pairs().sorted(key: ((key, (line, markup))) => line) {
           assert(("{key}", "{line}", "{markup}").all(magic => magic not in markup))
           // `key` must be quoted, because some `key`s contain colons.
-          // `markup` must be preceded and followed by newlines; otherwise, the output of typstyle will look odd. Note that we don't have to consider the indentations, because typstyle will handle it properly.
+          // `markup` must be babelized, because the leading section might be complex. Note that we don't have to consider the indentations, because typstyle will handle it properly.
           ```typst
           "{key}": (
             {line},
-            babel(
-              en: [
-                {markup}
-              ],
-            ),
+            {markup},
           ),
           ```
             .text
             .replace("{key}", key)
             .replace("{line}", str(line))
-            .replace("{markup}", markup.trim())
+            .replace("{markup}", babelize(markup))
         }
         ")"
       },
