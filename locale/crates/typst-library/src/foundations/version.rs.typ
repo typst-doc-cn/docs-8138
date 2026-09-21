@@ -23,36 +23,42 @@
   ),
   "Version::construct": (
     63,
-    babel(
-      en: [
-        Creates a new version.
+    [
+      #babel(
+        en: [
+          Creates a new version.
 
-        It can have any number of components (even zero).
+          It can have any number of components (even zero).
+        ],
+      )
 
-        #example(
-          title: "Constructing versions",
-          ```
-          #version() \
-          #version(1) \
-          #version(1, 2, 3, 4) \
-          #version((1, 2, 3, 4)) \
-          #version((1, 2), 3)
-          ```,
-        )
+      #example(
+        title: "Constructing versions",
+        ```
+        #version() \
+        #version(1) \
+        #version(1, 2, 3, 4) \
+        #version((1, 2, 3, 4)) \
+        #version((1, 2), 3)
+        ```,
+      )
 
-        As a practical use case, this allows comparing the current version
-        (@version[`{sys.version}`]) to a specific one.
+      #babel(
+        en: [
+          As a practical use case, this allows comparing the current version
+          (@version[`{sys.version}`]) to a specific one.
+        ],
+      )
 
-        #example(
-          title: "Comparing with the current version",
-          ```
-          Current version: #sys.version \
-          #(sys.version >= version(0, 14, 0)) \
-          #(version(3, 2, 0) > version(4, 1, 0))
-          ```,
-        )
-      ],
-    ),
+      #example(
+        title: "Comparing with the current version",
+        ```
+        Current version: #sys.version \
+        #(sys.version >= version(0, 14, 0)) \
+        #(version(3, 2, 0) > version(4, 1, 0))
+        ```,
+      )
+    ],
   ),
   "Version::construct::components": (
     91,

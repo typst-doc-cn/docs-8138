@@ -2,73 +2,79 @@
 #let live-item-data = (
   "cbor": (
     10,
-    babel(
-      en: [
-        Reads structured data from a CBOR file.
+    [
+      #babel(
+        en: [
+          Reads structured data from a CBOR file.
 
-        The file must contain a valid CBOR serialization. The CBOR values will be
-        converted into corresponding Typst values as listed in the
-        @cbor:conversion[table below].
+          The file must contain a valid CBOR serialization. The CBOR values will be
+          converted into corresponding Typst values as listed in the
+          @cbor:conversion[table below].
 
-        The function returns a dictionary, an array or, depending on the CBOR file,
-        another CBOR data type.
+          The function returns a dictionary, an array or, depending on the CBOR file,
+          another CBOR data type.
+        ],
+      )
 
-        = #short-or-long[Conversion][Conversion details] <conversion>
-        #docs-table(
-          table.header[CBOR value][Converted into Typst],
+      = #babel(en: short-or-long[Conversion][Conversion details]) <conversion>
+      #docs-table(
+        table.header[CBOR value][Converted into Typst],
 
-          [integer],
-          [@int (or @float)],
+        [integer],
+        [@int (or @float)],
 
-          [bytes],
-          [@bytes],
+        [bytes],
+        [@bytes],
 
-          [float],
-          [@float],
+        [float],
+        [@float],
 
-          [text],
-          [@str],
+        [text],
+        [@str],
 
-          [bool],
-          [@bool],
+        [bool],
+        [@bool],
 
-          [null],
-          [`{none}`],
+        [null],
+        [`{none}`],
 
-          [array],
-          [@array],
+        [array],
+        [@array],
 
-          [map],
-          [@dictionary],
-        )
+        [map],
+        [@dictionary],
+      )
 
-        #docs-table(
-          table.header[Typst value][Converted into CBOR],
+      #docs-table(
+        table.header[Typst value][Converted into CBOR],
 
-          [types that can be converted from CBOR],
-          [corresponding CBOR value],
+        [types that can be converted from CBOR],
+        [corresponding CBOR value],
 
-          [@symbol],
-          [text],
+        [@symbol],
+        [text],
 
-          [@content],
-          [a map describing the content],
+        [@content],
+        [a map describing the content],
 
-          [other types (@length, etc.)],
-          [text via @repr],
-        )
+        [other types (@length, etc.)],
+        [text via @repr],
+      )
 
-        == Notes <notes>
-        - Be aware that CBOR integers larger than 2#super[63]-1 or smaller
-          than -2#super[63] will be converted to floating point numbers, which may
-          result in an approximative value.
+      == #babel(en: [Notes]) <notes>
+      #babel(
+        en: [
+          - Be aware that CBOR integers larger than 2#super[63]-1 or smaller
+            than -2#super[63] will be converted to floating point numbers, which may
+            result in an approximative value.
 
-        - CBOR tags are not supported, and an error will be thrown.
+          - CBOR tags are not supported, and an error will be thrown.
 
-        - The `repr` function is @repr:debugging-only[for debugging purposes only],
-          and its output is not guaranteed to be stable across Typst versions.
-      ],
-    ),
+          - The `repr` function is @repr:debugging-only[for debugging purposes only],
+            and its output is not guaranteed to be stable across Typst versions.
+        ],
+      )
+    ],
   ),
   "cbor::source": (
     76,

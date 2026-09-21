@@ -2,44 +2,46 @@
 #let live-item-data = (
   "Selector": (
     40,
-    babel(
-      en: [
-        A filter for selecting elements within the document.
+    [
+      #babel(
+        en: [
+          A filter for selecting elements within the document.
 
-        To construct a selector you can:
-        - use an @function:element-functions[element function]
-        - filter for an element function with @function.where[specific fields]
-        - use a @str[string] or @regex[regular expression]
-        - use a @label[`{<label>}`]
-        - use a @location
-        - call the @selector constructor to convert any of the above types into a
-          selector value and use the methods below to refine it
+          To construct a selector you can:
+          - use an @function:element-functions[element function]
+          - filter for an element function with @function.where[specific fields]
+          - use a @str[string] or @regex[regular expression]
+          - use a @label[`{<label>}`]
+          - use a @location
+          - call the @selector constructor to convert any of the above types into a
+            selector value and use the methods below to refine it
 
-        Selectors are used to @reference:styling:show-rules[apply styling rules] to
-        elements. You can also use selectors to @query[query] the document for
-        certain types of elements.
+          Selectors are used to @reference:styling:show-rules[apply styling rules] to
+          elements. You can also use selectors to @query[query] the document for
+          certain types of elements.
 
-        Furthermore, you can pass a selector to several of Typst's built-in
-        functions to configure their behaviour. One such example is the
-        @outline[outline] where it can be used to change which elements are listed
-        within the outline.
+          Furthermore, you can pass a selector to several of Typst's built-in
+          functions to configure their behaviour. One such example is the
+          @outline[outline] where it can be used to change which elements are listed
+          within the outline.
 
-        Multiple selectors can be combined using the methods shown below. However,
-        not all kinds of selectors are supported in all places, at the moment.
+          Multiple selectors can be combined using the methods shown below. However,
+          not all kinds of selectors are supported in all places, at the moment.
+        ],
+      )
 
-        = Example <example>
-        ```example
-        #context query(
-          heading.where(level: 1)
-            .or(heading.where(level: 2))
-        )
+      = #babel(en: [Example]) <example>
+      ```example
+      #context query(
+        heading.where(level: 1)
+          .or(heading.where(level: 2))
+      )
 
-        = This will be found
-        == So will this
-        === But this will not.
-        ```
-      ],
-    ),
+      = This will be found
+      == So will this
+      === But this will not.
+      ```
+    ],
   ),
   "Selector::construct": (
     160,
@@ -156,50 +158,60 @@
   ),
   "Selector::within": (
     244,
-    babel(
-      en: [
-        Returns a modified selector that will only match elements that are
-        contained within any elements matching the `ancestor` selector.
+    [
+      #babel(
+        en: [
+          Returns a modified selector that will only match elements that are
+          contained within any elements matching the `ancestor` selector.
+        ],
+      )
 
-        #example(
-          title: "Finding strong elements in lists",
-          ```
-          *Strong emphasis* that does not count.
+      #example(
+        title: "Finding strong elements in lists",
+        ```
+        *Strong emphasis* that does not count.
 
-          - An *important* word
-          - Another *key* word
+        - An *important* word
+        - Another *key* word
 
-          Strong elements in lists:
-          #context {
-            query(selector(strong).within(list))
-              .map(it => it.body)
-              .join[, ]
-          }
-          ```,
-        )
+        Strong elements in lists:
+        #context {
+          query(selector(strong).within(list))
+            .map(it => it.body)
+            .join[, ]
+        }
+        ```,
+      )
 
-        This can also be used in combination with @here to find all matches of a
-        selector within a @reference:context[context] expression. This can be
-        quite useful to have an introspection return results local to some
-        component you are building.
+      #babel(
+        en: [
+          This can also be used in combination with @here to find all matches of a
+          selector within a @reference:context[context] expression. This can be
+          quite useful to have an introspection return results local to some
+          component you are building.
+        ],
+      )
 
-        #example(
-          title: "Counting elements locally in a context block",
-          ```
-          #let count(sel, body) = context {
-            let n = query(selector(sel).within(here())).len()
-            [#body (#n matches)]
-          }
+      #example(
+        title: "Counting elements locally in a context block",
+        ```
+        #let count(sel, body) = context {
+          let n = query(selector(sel).within(here())).len()
+          [#body (#n matches)]
+        }
 
-          - #count(emph)[Has _two_ matching _elements_]
-          - #count(strong)[Has *one* matching element]
-          ```,
-        )
+        - #count(emph)[Has _two_ matching _elements_]
+        - #count(strong)[Has *one* matching element]
+        ```,
+      )
 
-        _Note:_ This selector is currently only supported with introspection
-        functions, not in show rules.
-      ],
-    ),
+      #babel(
+        en: [
+          _Note:_ This selector is currently only supported with introspection
+          functions, not in show rules.
+        ],
+      )
+    ],
   ),
   "Selector::within::ancestor": (
     287,

@@ -2,40 +2,44 @@
 #let live-item-data = (
   "SubElem": (
     7,
-    babel(
-      en: [
-        Renders text in subscript.
+    [
+      #babel(
+        en: [
+          Renders text in subscript.
 
-        The text is rendered smaller and its baseline is lowered.
+          The text is rendered smaller and its baseline is lowered.
+        ],
+      )
 
-        = Example <example>
-        ```example
-        Revenue#sub[yearly]
-        ```
-      ],
-    ),
+      = #babel(en: [Example]) <example>
+      ```example
+      Revenue#sub[yearly]
+      ```
+    ],
   ),
   "SubElem::typographic": (
     17,
-    babel(
-      en: [
-        Whether to use subscript glyphs from the font if available.
+    [
+      #babel(
+        en: [
+          Whether to use subscript glyphs from the font if available.
 
-        Ideally, subscripts glyphs are provided by the font (using the `subs`
-        OpenType feature). Otherwise, Typst is able to synthesize subscripts by
-        lowering and scaling down regular glyphs.
+          Ideally, subscripts glyphs are provided by the font (using the `subs`
+          OpenType feature). Otherwise, Typst is able to synthesize subscripts by
+          lowering and scaling down regular glyphs.
 
-        When this is set to `{false}`, synthesized glyphs will be used
-        regardless of whether the font provides dedicated subscript glyphs. When
-        `{true}`, synthesized glyphs may still be used in case the font does not
-        provide the necessary subscript glyphs.
+          When this is set to `{false}`, synthesized glyphs will be used
+          regardless of whether the font provides dedicated subscript glyphs. When
+          `{true}`, synthesized glyphs may still be used in case the font does not
+          provide the necessary subscript glyphs.
+        ],
+      )
 
-        ```example
-        N#sub(typographic: true)[1]
-        N#sub(typographic: false)[1]
-        ```
-      ],
-    ),
+      ```example
+      N#sub(typographic: true)[1]
+      N#sub(typographic: false)[1]
+      ```
+    ],
   ),
   "SubElem::baseline": (
     35,
@@ -83,83 +87,89 @@
   ),
   "SuperElem": (
     66,
-    babel(
-      en: [
-        Renders text in superscript.
+    [
+      #babel(
+        en: [
+          Renders text in superscript.
 
-        The text is rendered smaller and its baseline is raised.
+          The text is rendered smaller and its baseline is raised.
+        ],
+      )
 
-        = Example <example>
-        ```example
-        1#super[st] try!
-        ```
-      ],
-    ),
+      = #babel(en: [Example]) <example>
+      ```example
+      1#super[st] try!
+      ```
+    ],
   ),
   "SuperElem::typographic": (
     76,
-    babel(
-      en: [
-        Whether to use superscript glyphs from the font if available.
+    [
+      #babel(
+        en: [
+          Whether to use superscript glyphs from the font if available.
 
-        Ideally, superscripts glyphs are provided by the font (using the `sups`
-        OpenType feature). Otherwise, Typst is able to synthesize superscripts
-        by raising and scaling down regular glyphs.
+          Ideally, superscripts glyphs are provided by the font (using the `sups`
+          OpenType feature). Otherwise, Typst is able to synthesize superscripts
+          by raising and scaling down regular glyphs.
 
-        When this is set to `{false}`, synthesized glyphs will be used
-        regardless of whether the font provides dedicated superscript glyphs.
-        When `{true}`, synthesized glyphs may still be used in case the font
-        does not provide the necessary superscript glyphs.
+          When this is set to `{false}`, synthesized glyphs will be used
+          regardless of whether the font provides dedicated superscript glyphs.
+          When `{true}`, synthesized glyphs may still be used in case the font
+          does not provide the necessary superscript glyphs.
+        ],
+      )
 
-        ```example
-        N#super(typographic: true)[1]
-        N#super(typographic: false)[1]
-        ```
-      ],
-    ),
+      ```example
+      N#super(typographic: true)[1]
+      N#super(typographic: false)[1]
+      ```
+    ],
   ),
   "SuperElem::baseline": (
     94,
-    babel(
-      en: [
-        The downward baseline shift for synthesized superscripts.
+    [
+      #babel(
+        en: [
+          The downward baseline shift for synthesized superscripts.
 
-        This only applies to synthesized superscripts. In other words, this has
-        no effect if `typographic` is `{true}` and the font provides the
-        necessary superscript glyphs.
+          This only applies to synthesized superscripts. In other words, this has
+          no effect if `typographic` is `{true}` and the font provides the
+          necessary superscript glyphs.
 
-        If set to `{auto}`, the baseline is shifted according to the metrics
-        provided by the font, with a fallback to `{-0.5em}` in case the font
-        does not define the necessary metrics.
+          If set to `{auto}`, the baseline is shifted according to the metrics
+          provided by the font, with a fallback to `{-0.5em}` in case the font
+          does not define the necessary metrics.
 
-        Note that, since the baseline shift is applied downward, you will need
-        to provide a negative value for the content to appear as raised above
-        the normal baseline.
+          Note that, since the baseline shift is applied downward, you will need
+          to provide a negative value for the content to appear as raised above
+          the normal baseline.
 
-        Sometimes it is necessary to set `baseline` and @super.size[`size`]
-        explicitly. In the following example, the superscripted text uses
-        multiple fonts with incompatible metrics. To avoid misalignment, we
-        override the metrics for all fonts.
+          Sometimes it is necessary to set `baseline` and @super.size[`size`]
+          explicitly. In the following example, the superscripted text uses
+          multiple fonts with incompatible metrics. To avoid misalignment, we
+          override the metrics for all fonts.
+        ],
+      )
 
-        ```example
-        #let tz(timezone) = text(
-          font: "Roboto",
-          smallcaps(timezone, all: true),
-        )
+      ```example
+      #let tz(timezone) = text(
+        font: "Roboto",
+        smallcaps(timezone, all: true),
+      )
 
-        / Per-font metrics:
-          14:00#super[#tz[UTC], not #tz[CET]]
+      / Per-font metrics:
+        14:00#super[#tz[UTC], not #tz[CET]]
 
-        #set super(
-          baseline: -0.4em,
-          size: 0.6em,
-          typographic: false,
-        )
-        / Unified metrics:
-          14:00#super[#tz[UTC], not #tz[CET]]
-        ```
-      ],
-    ),
+      #set super(
+        baseline: -0.4em,
+        size: 0.6em,
+        typographic: false,
+      )
+      / Unified metrics:
+        14:00#super[#tz[UTC], not #tz[CET]]
+      ```
+    ],
   ),
   "SuperElem::size": (
     132,

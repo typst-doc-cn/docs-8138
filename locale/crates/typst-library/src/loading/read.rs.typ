@@ -2,25 +2,27 @@
 #let live-item-data = (
   "read": (
     8,
-    babel(
-      en: [
-        Reads plain text or data from a file.
+    [
+      #babel(
+        en: [
+          Reads plain text or data from a file.
 
-        By default, the file will be read as UTF-8 and returned as a @str[string].
+          By default, the file will be read as UTF-8 and returned as a @str[string].
 
-        If you specify `{encoding: none}`, this returns raw @bytes[bytes] instead.
+          If you specify `{encoding: none}`, this returns raw @bytes[bytes] instead.
+        ],
+      )
 
-        = Example <example>
-        ```example
-        An example for a HTML file: \
-        #let text = read("example.html")
-        #raw(text, block: true, lang: "html")
+      = #babel(en: [Example]) <example>
+      ```example
+      An example for a HTML file: \
+      #let text = read("example.html")
+      #raw(text, block: true, lang: "html")
 
-        Raw bytes:
-        #read("tiger.jpg", encoding: none)
-        ```
-      ],
-    ),
+      Raw bytes:
+      #read("tiger.jpg", encoding: none)
+      ```
+    ],
   ),
   "read::path": (
     26,

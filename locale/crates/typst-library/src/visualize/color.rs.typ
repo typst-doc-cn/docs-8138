@@ -2,252 +2,272 @@
 #let live-item-data = (
   "Color": (
     58,
-    babel(
-      en: [
-        A color in a specific color space.
+    [
+      #babel(
+        en: [
+          A color in a specific color space.
 
-        Typst supports:
-        - sRGB through the @color.rgb[`rgb` function]
-        - Device CMYK through the @color.cmyk[`cmyk` function]
-        - D65 Gray through the @color.luma[`luma` function]
-        - Oklab through the @color.oklab[`oklab` function]
-        - Oklch through the @color.oklch[`oklch` function]
-        - Linear RGB through the @color.linear-rgb[`color.linear-rgb` function]
-        - HSL through the @color.hsl[`color.hsl` function]
-        - HSV through the @color.hsv[`color.hsv` function]
-        - Color spaces described by spot colorants through the
-          @color.spot[`color.spot` type]
+          Typst supports:
+          - sRGB through the @color.rgb[`rgb` function]
+          - Device CMYK through the @color.cmyk[`cmyk` function]
+          - D65 Gray through the @color.luma[`luma` function]
+          - Oklab through the @color.oklab[`oklab` function]
+          - Oklch through the @color.oklch[`oklch` function]
+          - Linear RGB through the @color.linear-rgb[`color.linear-rgb` function]
+          - HSL through the @color.hsl[`color.hsl` function]
+          - HSV through the @color.hsv[`color.hsv` function]
+          - Color spaces described by spot colorants through the
+            @color.spot[`color.spot` type]
 
-        All color spaces except for CMYK and spot colorants have alpha channels.
+          All color spaces except for CMYK and spot colorants have alpha channels.
 
-        Throughout the documentation, we use the term _process color_ for colors
-        that can be blended with each other (currently all colors other than spot
-        colors). In this term, _process_ signifies that the shade is being created
-        throughout the printing process instead of ahead of time.
+          Throughout the documentation, we use the term _process color_ for colors
+          that can be blended with each other (currently all colors other than spot
+          colors). In this term, _process_ signifies that the shade is being created
+          throughout the printing process instead of ahead of time.
+        ],
+      )
 
-        = Example <example>
-        ```example
-        #rect(fill: aqua)
-        ```
+      = #babel(en: [Example]) <example>
+      ```example
+      #rect(fill: aqua)
+      ```
 
-        = Predefined colors <predefined-colors>
-        Typst defines the following built-in colors:
+      = #babel(en: [Predefined colors]) <predefined-colors>
+      #babel(
+        en: [
+          Typst defines the following built-in colors:
+        ],
+      )
 
-        #docs-table(
-          table.header[Color][Definition],
+      #docs-table(
+        table.header[Color][Definition],
 
-          [`black`],
-          [`{luma(0)}`],
+        [`black`],
+        [`{luma(0)}`],
 
-          [`gray`],
-          [`{luma(170)}`],
+        [`gray`],
+        [`{luma(170)}`],
 
-          [`silver`],
-          [`{luma(221)}`],
+        [`silver`],
+        [`{luma(221)}`],
 
-          [`white`],
-          [`{luma(255)}`],
+        [`white`],
+        [`{luma(255)}`],
 
-          [`navy`],
-          [`{rgb("#001f3f")}`],
+        [`navy`],
+        [`{rgb("#001f3f")}`],
 
-          [`blue`],
-          [`{rgb("#0074d9")}`],
+        [`blue`],
+        [`{rgb("#0074d9")}`],
 
-          [`aqua`],
-          [`{rgb("#7fdbff")}`],
+        [`aqua`],
+        [`{rgb("#7fdbff")}`],
 
-          [`teal`],
-          [`{rgb("#39cccc")}`],
+        [`teal`],
+        [`{rgb("#39cccc")}`],
 
-          [`eastern`],
-          [`{rgb("#239dad")}`],
+        [`eastern`],
+        [`{rgb("#239dad")}`],
 
-          [`purple`],
-          [`{rgb("#b10dc9")}`],
+        [`purple`],
+        [`{rgb("#b10dc9")}`],
 
-          [`fuchsia`],
-          [`{rgb("#f012be")}`],
+        [`fuchsia`],
+        [`{rgb("#f012be")}`],
 
-          [`maroon`],
-          [`{rgb("#85144b")}`],
+        [`maroon`],
+        [`{rgb("#85144b")}`],
 
-          [`red`],
-          [`{rgb("#ff4136")}`],
+        [`red`],
+        [`{rgb("#ff4136")}`],
 
-          [`orange`],
-          [`{rgb("#ff851b")}`],
+        [`orange`],
+        [`{rgb("#ff851b")}`],
 
-          [`yellow`],
-          [`{rgb("#ffdc00")}`],
+        [`yellow`],
+        [`{rgb("#ffdc00")}`],
 
-          [`olive`],
-          [`{rgb("#3d9970")}`],
+        [`olive`],
+        [`{rgb("#3d9970")}`],
 
-          [`green`],
-          [`{rgb("#2ecc40")}`],
+        [`green`],
+        [`{rgb("#2ecc40")}`],
 
-          [`lime`],
-          [`{rgb("#01ff70")}`],
+        [`lime`],
+        [`{rgb("#01ff70")}`],
+      )
+
+      #babel(
+        en: [
+          The predefined colors and the most important color constructors are
+          available globally and also in the color type's scope, so you can write
+          either `color.red` or just `red`.
+        ],
+      )
+
+      ```preview
+      #let colors = (
+        "black", "gray", "silver", "white",
+        "navy", "blue", "aqua", "teal",
+        "eastern", "purple", "fuchsia",
+        "maroon", "red", "orange", "yellow",
+        "olive", "green", "lime",
+      )
+
+      #set text(font: "PT Sans")
+      #set page(width: auto)
+      #grid(
+        columns: 9,
+        gutter: 10pt,
+        ..colors.map(name => {
+            let col = eval(name)
+            let luminance = luma(col).components().first()
+            set text(fill: white) if luminance < 50%
+            set square(stroke: black) if col == white
+            set align(center + horizon)
+            square(size: 50pt,  fill: col, name)
+        })
+      )
+      ```
+
+      = #babel(en: [Predefined color maps]) <predefined-color-maps>
+      #babel(
+        en: [
+          Typst also includes a number of preset color maps that can be used for
+          @gradient:stops[gradients]. These are simply arrays of colors defined in the
+          module `color.map`.
+        ],
+      )
+
+      ```example
+      #circle(fill: gradient.linear(..color.map.crest))
+      ```
+
+      #docs-table(
+        table.header[Map][Details],
+
+        [`turbo`],
+        [
+          A perceptually uniform rainbow-like color map. Read
+          #link("https://ai.googleblog.com/2019/08/turbo-improved-rainbow-colormap-for.html")[this blog post]
+          for more details.
+        ],
+
+        [`cividis`],
+        [
+          A blue to gray to yellow color map. See
+          #link("https://bids.github.io/colormap/")[this blog post] for more
+          details.
+        ],
+
+        [`rainbow`],
+        [
+          Cycles through the full color spectrum. This color map is best used by
+          setting the interpolation color space to @color.hsl[HSL]. The rainbow
+          gradient is *not suitable* for data visualization because it is not
+          perceptually uniform, so the differences between values become unclear
+          to your readers. It should only be used for decorative purposes.
+        ],
+
+        [`spectral`],
+        [Red to yellow to blue color map.],
+
+        [`viridis`],
+        [A purple to teal to yellow color map.],
+
+        [`inferno`],
+        [A black to red to yellow color map.],
+
+        [`magma`],
+        [A black to purple to yellow color map.],
+
+        [`plasma`],
+        [A purple to pink to yellow color map.],
+
+        [`rocket`],
+        [A black to red to white color map.],
+
+        [`mako`],
+        [A black to teal to white color map.],
+
+        [`coolwarm`],
+        [A blue to white to red color map with smooth transitions.],
+
+        [`vlag`],
+        [A light blue to white to red color map.],
+
+        [`icefire`],
+        [A light teal to black to orange color map.],
+
+        [`flare`],
+        [A orange to purple color map that is perceptually uniform.],
+
+        [`crest`],
+        [A light green to blue color map.],
+      )
+
+      #babel(
+        en: [
+          Some popular presets are not included because they are not available under a
+          free licence. Others, like
+          #link("https://jakevdp.github.io/blog/2014/10/16/how-bad-is-your-colormap/")[Jet],
+          are not included because they are not color blind friendly. Feel free to use
+          or create a package with other presets that are useful to you!
+        ],
+      )
+
+      ```preview
+      #set page(width: auto, height: auto)
+      #set text(font: "PT Sans", size: 8pt)
+
+      #let maps = (
+        "turbo", "cividis", "rainbow", "spectral",
+        "viridis", "inferno", "magma", "plasma",
+        "rocket", "mako", "coolwarm", "vlag",
+        "icefire", "flare", "crest",
+      )
+
+      #stack(dir: ltr, spacing: 3pt, ..maps.map((name) => {
+        let map = eval("color.map." + name)
+        stack(
+          dir: ttb,
+          block(
+            width: 15pt,
+            height: 100pt,
+            fill: gradient.linear(..map, angle: 90deg),
+          ),
+          block(
+            width: 15pt,
+            height: 32pt,
+            move(dy: 8pt, rotate(90deg, name)),
+          ),
         )
-
-        The predefined colors and the most important color constructors are
-        available globally and also in the color type's scope, so you can write
-        either `color.red` or just `red`.
-
-        ```preview
-        #let colors = (
-          "black", "gray", "silver", "white",
-          "navy", "blue", "aqua", "teal",
-          "eastern", "purple", "fuchsia",
-          "maroon", "red", "orange", "yellow",
-          "olive", "green", "lime",
-        )
-
-        #set text(font: "PT Sans")
-        #set page(width: auto)
-        #grid(
-          columns: 9,
-          gutter: 10pt,
-          ..colors.map(name => {
-              let col = eval(name)
-              let luminance = luma(col).components().first()
-              set text(fill: white) if luminance < 50%
-              set square(stroke: black) if col == white
-              set align(center + horizon)
-              square(size: 50pt,  fill: col, name)
-          })
-        )
-        ```
-
-        = Predefined color maps <predefined-color-maps>
-        Typst also includes a number of preset color maps that can be used for
-        @gradient:stops[gradients]. These are simply arrays of colors defined in the
-        module `color.map`.
-
-        ```example
-        #circle(fill: gradient.linear(..color.map.crest))
-        ```
-
-        #docs-table(
-          table.header[Map][Details],
-
-          [`turbo`],
-          [
-            A perceptually uniform rainbow-like color map. Read
-            #link("https://ai.googleblog.com/2019/08/turbo-improved-rainbow-colormap-for.html")[this blog post]
-            for more details.
-          ],
-
-          [`cividis`],
-          [
-            A blue to gray to yellow color map. See
-            #link("https://bids.github.io/colormap/")[this blog post] for more
-            details.
-          ],
-
-          [`rainbow`],
-          [
-            Cycles through the full color spectrum. This color map is best used by
-            setting the interpolation color space to @color.hsl[HSL]. The rainbow
-            gradient is *not suitable* for data visualization because it is not
-            perceptually uniform, so the differences between values become unclear
-            to your readers. It should only be used for decorative purposes.
-          ],
-
-          [`spectral`],
-          [Red to yellow to blue color map.],
-
-          [`viridis`],
-          [A purple to teal to yellow color map.],
-
-          [`inferno`],
-          [A black to red to yellow color map.],
-
-          [`magma`],
-          [A black to purple to yellow color map.],
-
-          [`plasma`],
-          [A purple to pink to yellow color map.],
-
-          [`rocket`],
-          [A black to red to white color map.],
-
-          [`mako`],
-          [A black to teal to white color map.],
-
-          [`coolwarm`],
-          [A blue to white to red color map with smooth transitions.],
-
-          [`vlag`],
-          [A light blue to white to red color map.],
-
-          [`icefire`],
-          [A light teal to black to orange color map.],
-
-          [`flare`],
-          [A orange to purple color map that is perceptually uniform.],
-
-          [`crest`],
-          [A light green to blue color map.],
-        )
-
-        Some popular presets are not included because they are not available under a
-        free licence. Others, like
-        #link("https://jakevdp.github.io/blog/2014/10/16/how-bad-is-your-colormap/")[Jet],
-        are not included because they are not color blind friendly. Feel free to use
-        or create a package with other presets that are useful to you!
-
-        ```preview
-        #set page(width: auto, height: auto)
-        #set text(font: "PT Sans", size: 8pt)
-
-        #let maps = (
-          "turbo", "cividis", "rainbow", "spectral",
-          "viridis", "inferno", "magma", "plasma",
-          "rocket", "mako", "coolwarm", "vlag",
-          "icefire", "flare", "crest",
-        )
-
-        #stack(dir: ltr, spacing: 3pt, ..maps.map((name) => {
-          let map = eval("color.map." + name)
-          stack(
-            dir: ttb,
-            block(
-              width: 15pt,
-              height: 100pt,
-              fill: gradient.linear(..map, angle: 90deg),
-            ),
-            block(
-              width: 15pt,
-              height: 32pt,
-              move(dy: 8pt, rotate(90deg, name)),
-            ),
-          )
-        }))
-        ```
-      ],
-    ),
+      }))
+      ```
+    ],
   ),
   "Color::luma": (
     327,
-    babel(
-      en: [
-        Create a grayscale color.
+    [
+      #babel(
+        en: [
+          Create a grayscale color.
 
-        A grayscale color is represented by `lightness` (@ratio) and `alpha`
-        (@ratio) components.
+          A grayscale color is represented by `lightness` (@ratio) and `alpha`
+          (@ratio) components.
 
-        These components are also available using the
-        @color.components[`components`] method.
+          These components are also available using the
+          @color.components[`components`] method.
+        ],
+      )
 
-        ```example
-        #for x in range(250, step: 50) {
-          box(square(fill: luma(x)))
-        }
-        ```
-      ],
-    ),
+      ```example
+      #for x in range(250, step: 50) {
+        box(square(fill: luma(x)))
+      }
+      ```
+    ],
   ),
   "Color::luma::lightness": (
     343,
@@ -277,35 +297,37 @@
   ),
   "Color::oklab": (
     377,
-    babel(
-      en: [
-        Create an #link("https://bottosson.github.io/posts/oklab/")[Oklab]
-        color.
+    [
+      #babel(
+        en: [
+          Create an #link("https://bottosson.github.io/posts/oklab/")[Oklab]
+          color.
 
-        This color space is well suited for the following use cases:
-        - Color manipulation such as saturating while keeping perceived hue
-        - Creating grayscale images with uniform perceived lightness
-        - Creating smooth and uniform color transition and gradients
+          This color space is well suited for the following use cases:
+          - Color manipulation such as saturating while keeping perceived hue
+          - Creating grayscale images with uniform perceived lightness
+          - Creating smooth and uniform color transition and gradients
 
-        A linear Oklab color is represented internally by an array of four
-        components:
-        - lightness (@ratio)
-        - a (@float or @ratio. Ratios are relative to `{0.4}`; meaning `{50%}`
-          is equal to `{0.2}`)
-        - b (@float or @ratio. Ratios are relative to `{0.4}`; meaning `{50%}`
-          is equal to `{0.2}`)
-        - alpha (@ratio)
+          A linear Oklab color is represented internally by an array of four
+          components:
+          - lightness (@ratio)
+          - a (@float or @ratio. Ratios are relative to `{0.4}`; meaning `{50%}`
+            is equal to `{0.2}`)
+          - b (@float or @ratio. Ratios are relative to `{0.4}`; meaning `{50%}`
+            is equal to `{0.2}`)
+          - alpha (@ratio)
 
-        These components are also available using the
-        @color.components[`components`] method.
+          These components are also available using the
+          @color.components[`components`] method.
+        ],
+      )
 
-        ```example
-        #square(
-          fill: oklab(27%, 20%, -3%, 50%)
-        )
-        ```
-      ],
-    ),
+      ```example
+      #square(
+        fill: oklab(27%, 20%, -3%, 50%)
+      )
+      ```
+    ],
   ),
   "Color::oklab::lightness": (
     405,
@@ -351,34 +373,36 @@
   ),
   "Color::oklch": (
     437,
-    babel(
-      en: [
-        Create an #link("https://bottosson.github.io/posts/oklab/")[Oklch]
-        color.
+    [
+      #babel(
+        en: [
+          Create an #link("https://bottosson.github.io/posts/oklab/")[Oklch]
+          color.
 
-        This color space is well suited for the following use cases:
-        - Color manipulation involving lightness, chroma, and hue
-        - Creating grayscale images with uniform perceived lightness
-        - Creating smooth and uniform color transition and gradients
+          This color space is well suited for the following use cases:
+          - Color manipulation involving lightness, chroma, and hue
+          - Creating grayscale images with uniform perceived lightness
+          - Creating smooth and uniform color transition and gradients
 
-        A linear Oklch color is represented internally by an array of four
-        components:
-        - lightness (@ratio)
-        - chroma (@float or @ratio. Ratios are relative to `{0.4}`; meaning
-          `{50%}` is equal to `{0.2}`)
-        - hue (@angle)
-        - alpha (@ratio)
+          A linear Oklch color is represented internally by an array of four
+          components:
+          - lightness (@ratio)
+          - chroma (@float or @ratio. Ratios are relative to `{0.4}`; meaning
+            `{50%}` is equal to `{0.2}`)
+          - hue (@angle)
+          - alpha (@ratio)
 
-        These components are also available using the
-        @color.components[`components`] method.
+          These components are also available using the
+          @color.components[`components`] method.
+        ],
+      )
 
-        ```example
-        #square(
-          fill: oklch(40%, 0.2, 160deg, 50%)
-        )
-        ```
-      ],
-    ),
+      ```example
+      #square(
+        fill: oklch(40%, 0.2, 160deg, 50%)
+      )
+      ```
+    ],
   ),
   "Color::oklch::lightness": (
     464,
@@ -424,32 +448,34 @@
   ),
   "Color::linear_rgb": (
     501,
-    babel(
-      en: [
-        Create an RGB(A) color with linear luma.
+    [
+      #babel(
+        en: [
+          Create an RGB(A) color with linear luma.
 
-        This color space is similar to sRGB, but with the distinction that the
-        color component are not gamma corrected. This makes it easier to perform
-        color operations such as blending and interpolation. Although, you
-        should prefer to use the @color.oklab[`oklab` function] for these.
+          This color space is similar to sRGB, but with the distinction that the
+          color component are not gamma corrected. This makes it easier to perform
+          color operations such as blending and interpolation. Although, you
+          should prefer to use the @color.oklab[`oklab` function] for these.
 
-        A linear RGB(A) color is represented internally by an array of four
-        components:
-        - red (@ratio)
-        - green (@ratio)
-        - blue (@ratio)
-        - alpha (@ratio)
+          A linear RGB(A) color is represented internally by an array of four
+          components:
+          - red (@ratio)
+          - green (@ratio)
+          - blue (@ratio)
+          - alpha (@ratio)
 
-        These components are also available using the
-        @color.components[`components`] method.
+          These components are also available using the
+          @color.components[`components`] method.
+        ],
+      )
 
-        ```example
-        #square(fill: color.linear-rgb(
-          30%, 50%, 10%,
-        ))
-        ```
-      ],
-    ),
+      ```example
+      #square(fill: color.linear-rgb(
+        30%, 50%, 10%,
+      ))
+      ```
+    ],
   ),
   "Color::linear_rgb::red": (
     526,
@@ -495,29 +521,31 @@
   ),
   "Color::rgb": (
     562,
-    babel(
-      en: [
-        Create an RGB(A) color.
+    [
+      #babel(
+        en: [
+          Create an RGB(A) color.
 
-        The color is specified in the sRGB color space.
+          The color is specified in the sRGB color space.
 
-        An RGB(A) color is represented internally by an array of four
-        components:
-        - red (@ratio)
-        - green (@ratio)
-        - blue (@ratio)
-        - alpha (@ratio)
+          An RGB(A) color is represented internally by an array of four
+          components:
+          - red (@ratio)
+          - green (@ratio)
+          - blue (@ratio)
+          - alpha (@ratio)
 
-        These components are also available using the
-        @color.components[`components`] method.
+          These components are also available using the
+          @color.components[`components`] method.
+        ],
+      )
 
-        ```example
-        #square(fill: rgb("#b1f2eb"))
-        #square(fill: rgb(87, 127, 230))
-        #square(fill: rgb(25%, 13%, 65%))
-        ```
-      ],
-    ),
+      ```example
+      #square(fill: rgb("#b1f2eb"))
+      #square(fill: rgb(87, 127, 230))
+      #square(fill: rgb(25%, 13%, 65%))
+      ```
+    ],
   ),
   "Color::rgb::red": (
     584,
@@ -553,22 +581,24 @@
   ),
   "Color::rgb::hex": (
     596,
-    babel(
-      en: [
-        Alternatively: The color in hexadecimal notation.
+    [
+      #babel(
+        en: [
+          Alternatively: The color in hexadecimal notation.
 
-        Accepts three, four, six or eight hexadecimal digits and optionally
-        a leading hash.
+          Accepts three, four, six or eight hexadecimal digits and optionally
+          a leading hash.
 
-        If this is given, the individual components should not be given.
+          If this is given, the individual components should not be given.
+        ],
+      )
 
-        ```example
-        #text(16pt, rgb("#239dad"))[
-          *Typst*
-        ]
-        ```
-      ],
-    ),
+      ```example
+      #text(16pt, rgb("#239dad"))[
+        *Typst*
+      ]
+      ```
+    ],
   ),
   "Color::rgb::color": (
     610,
@@ -582,33 +612,35 @@
   ),
   "Color::cmyk": (
     634,
-    babel(
-      en: [
-        Create a CMYK color.
+    [
+      #babel(
+        en: [
+          Create a CMYK color.
 
-        This is useful if you want to target a specific printer. The conversion
-        to RGB for display preview might differ from how your printer reproduces
-        the color.
+          This is useful if you want to target a specific printer. The conversion
+          to RGB for display preview might differ from how your printer reproduces
+          the color.
 
-        A CMYK color is represented internally by an array of four components:
-        - cyan (@ratio)
-        - magenta (@ratio)
-        - yellow (@ratio)
-        - key (@ratio)
+          A CMYK color is represented internally by an array of four components:
+          - cyan (@ratio)
+          - magenta (@ratio)
+          - yellow (@ratio)
+          - key (@ratio)
 
-        These components are also available using the
-        @color.components[`components`] method.
+          These components are also available using the
+          @color.components[`components`] method.
 
-        Note that CMYK colors are not currently supported when PDF/A output is
-        enabled.
+          Note that CMYK colors are not currently supported when PDF/A output is
+          enabled.
+        ],
+      )
 
-        ```example
-        #square(
-          fill: cmyk(27%, 0%, 3%, 5%)
-        )
-        ```
-      ],
-    ),
+      ```example
+      #square(
+        fill: cmyk(27%, 0%, 3%, 5%)
+      )
+      ```
+    ],
   ),
   "Color::cmyk::cyan": (
     660,
@@ -654,30 +686,32 @@
   ),
   "Color::hsl": (
     691,
-    babel(
-      en: [
-        Create an HSL color.
+    [
+      #babel(
+        en: [
+          Create an HSL color.
 
-        This color space is useful for specifying colors by hue, saturation and
-        lightness. It is also useful for color manipulation, such as saturating
-        while keeping perceived hue.
+          This color space is useful for specifying colors by hue, saturation and
+          lightness. It is also useful for color manipulation, such as saturating
+          while keeping perceived hue.
 
-        An HSL color is represented internally by an array of four components:
-        - hue (@angle)
-        - saturation (@ratio)
-        - lightness (@ratio)
-        - alpha (@ratio)
+          An HSL color is represented internally by an array of four components:
+          - hue (@angle)
+          - saturation (@ratio)
+          - lightness (@ratio)
+          - alpha (@ratio)
 
-        These components are also available using the
-        @color.components[`components`] method.
+          These components are also available using the
+          @color.components[`components`] method.
+        ],
+      )
 
-        ```example
-        #square(
-          fill: color.hsl(30deg, 50%, 60%)
-        )
-        ```
-      ],
-    ),
+      ```example
+      #square(
+        fill: color.hsl(30deg, 50%, 60%)
+      )
+      ```
+    ],
   ),
   "Color::hsl::hue": (
     714,
@@ -723,30 +757,32 @@
   ),
   "Color::hsv": (
     748,
-    babel(
-      en: [
-        Create an HSV color.
+    [
+      #babel(
+        en: [
+          Create an HSV color.
 
-        This color space is useful for specifying colors by hue, saturation and
-        value. It is also useful for color manipulation, such as saturating
-        while keeping perceived hue.
+          This color space is useful for specifying colors by hue, saturation and
+          value. It is also useful for color manipulation, such as saturating
+          while keeping perceived hue.
 
-        An HSV color is represented internally by an array of four components:
-        - hue (@angle)
-        - saturation (@ratio)
-        - value (@ratio)
-        - alpha (@ratio)
+          An HSV color is represented internally by an array of four components:
+          - hue (@angle)
+          - saturation (@ratio)
+          - value (@ratio)
+          - alpha (@ratio)
 
-        These components are also available using the
-        @color.components[`components`] method.
+          These components are also available using the
+          @color.components[`components`] method.
+        ],
+      )
 
-        ```example
-        #square(
-          fill: color.hsv(30deg, 50%, 60%)
-        )
-        ```
-      ],
-    ),
+      ```example
+      #square(
+        fill: color.hsv(30deg, 50%, 60%)
+      )
+      ```
+    ],
   ),
   "Color::hsv::hue": (
     771,
@@ -792,84 +828,90 @@
   ),
   "Color::components": (
     805,
-    babel(
-      en: [
-        Extracts the components of this color.
+    [
+      #babel(
+        en: [
+          Extracts the components of this color.
 
-        The size and values of this array depends on the color space. You can
-        obtain the color space using @color.space[`space`]. Below is a table of
-        the color spaces and their components:
+          The size and values of this array depends on the color space. You can
+          obtain the color space using @color.space[`space`]. Below is a table of
+          the color spaces and their components:
+        ],
+      )
 
-        #docs-table(
-          table.header[Color space][C1][C2][C3][C4],
+      #docs-table(
+        table.header[Color space][C1][C2][C3][C4],
 
-          [@color.luma[`luma`]],
-          [Lightness],
-          [],
-          [],
-          [],
+        [@color.luma[`luma`]],
+        [Lightness],
+        [],
+        [],
+        [],
 
-          [@color.oklab[`oklab`]],
-          [Lightness],
-          [`a`],
-          [`b`],
-          [Alpha],
+        [@color.oklab[`oklab`]],
+        [Lightness],
+        [`a`],
+        [`b`],
+        [Alpha],
 
-          [@color.oklch[`oklch`]],
-          [Lightness],
-          [Chroma],
-          [Hue],
-          [Alpha],
+        [@color.oklch[`oklch`]],
+        [Lightness],
+        [Chroma],
+        [Hue],
+        [Alpha],
 
-          [@color.linear-rgb[`linear-rgb`]],
-          [Red],
-          [Green],
-          [Blue],
-          [Alpha],
+        [@color.linear-rgb[`linear-rgb`]],
+        [Red],
+        [Green],
+        [Blue],
+        [Alpha],
 
-          [@color.rgb[`rgb`]],
-          [Red],
-          [Green],
-          [Blue],
-          [Alpha],
+        [@color.rgb[`rgb`]],
+        [Red],
+        [Green],
+        [Blue],
+        [Alpha],
 
-          [@color.cmyk[`cmyk`]],
-          [Cyan],
-          [Magenta],
-          [Yellow],
-          [Key],
+        [@color.cmyk[`cmyk`]],
+        [Cyan],
+        [Magenta],
+        [Yellow],
+        [Key],
 
-          [@color.hsl[`hsl`]],
-          [Hue],
-          [Saturation],
-          [Lightness],
-          [Alpha],
+        [@color.hsl[`hsl`]],
+        [Hue],
+        [Saturation],
+        [Lightness],
+        [Alpha],
 
-          [@color.hsv[`hsv`]],
-          [Hue],
-          [Saturation],
-          [Value],
-          [Alpha],
+        [@color.hsv[`hsv`]],
+        [Hue],
+        [Saturation],
+        [Value],
+        [Alpha],
 
-          [@color.spot[`spot`]],
-          [Tint],
-          none,
-          none,
-          none,
-        )
+        [@color.spot[`spot`]],
+        [Tint],
+        none,
+        none,
+        none,
+      )
 
-        For the meaning and type of each individual value, see the documentation
-        of the corresponding color space. The alpha component is optional and
-        only included if the `alpha` argument is `true`. The length of the
-        returned array depends on the number of components and whether the alpha
-        component is included.
+      #babel(
+        en: [
+          For the meaning and type of each individual value, see the documentation
+          of the corresponding color space. The alpha component is optional and
+          only included if the `alpha` argument is `true`. The length of the
+          returned array depends on the number of components and whether the alpha
+          component is included.
+        ],
+      )
 
-        ```example
-        // note that the alpha component is included by default
-        #rgb(40%, 60%, 80%).components()
-        ```
-      ],
-    ),
+      ```example
+      // note that the alpha component is included by default
+      #rgb(40%, 60%, 80%).components()
+      ```
+    ],
   ),
   "Color::components::alpha": (
     882,
@@ -881,26 +923,28 @@
   ),
   "Color::space": (
     893,
-    babel(
-      en: [
-        Returns the constructor function for this color's space.
+    [
+      #babel(
+        en: [
+          Returns the constructor function for this color's space.
 
-        Returns one of:
-        - @color.luma[`luma`]
-        - @color.oklab[`oklab`]
-        - @color.oklch[`oklch`]
-        - @color.linear-rgb[`linear-rgb`]
-        - @color.rgb[`rgb`]
-        - @color.cmyk[`cmyk`]
-        - @color.hsl[`hsl`]
-        - @color.hsv[`hsv`]
+          Returns one of:
+          - @color.luma[`luma`]
+          - @color.oklab[`oklab`]
+          - @color.oklch[`oklch`]
+          - @color.linear-rgb[`linear-rgb`]
+          - @color.rgb[`rgb`]
+          - @color.cmyk[`cmyk`]
+          - @color.hsl[`hsl`]
+          - @color.hsv[`hsv`]
+        ],
+      )
 
-        ```example
-        #let color = cmyk(1%, 2%, 3%, 4%)
-        #(color.space() == cmyk)
-        ```
-      ],
-    ),
+      ```example
+      #let color = cmyk(1%, 2%, 3%, 4%)
+      #(color.space() == cmyk)
+      ```
+    ],
   ),
   "Color::to_hex": (
     917,
@@ -984,18 +1028,20 @@
   ),
   "Color::negate": (
     996,
-    babel(
-      en: [
-        Produces the complementary color using a provided color space. You can
-        think of it as the opposite side on a color wheel.
+    [
+      #babel(
+        en: [
+          Produces the complementary color using a provided color space. You can
+          think of it as the opposite side on a color wheel.
+        ],
+      )
 
-        ```example
-        #square(fill: yellow)
-        #square(fill: yellow.negate())
-        #square(fill: yellow.negate(space: rgb))
-        ```
-      ],
-    ),
+      ```example
+      #square(fill: yellow)
+      #square(fill: yellow.negate())
+      #square(fill: yellow.negate(space: rgb))
+      ```
+    ],
   ),
   "Color::negate::space": (
     1007,
@@ -1036,23 +1082,25 @@
   ),
   "Color::mix": (
     1067,
-    babel(
-      en: [
-        Create a color by mixing two or more colors.
+    [
+      #babel(
+        en: [
+          Create a color by mixing two or more colors.
 
-        In color spaces with a hue component (HSL, HSV, Oklch), only two colors
-        can be mixed at once. Mixing more than two colors in such a space will
-        result in an error!
+          In color spaces with a hue component (HSL, HSV, Oklch), only two colors
+          can be mixed at once. Mixing more than two colors in such a space will
+          result in an error!
+        ],
+      )
 
-        ```example
-        #set block(height: 20pt, width: 100%)
-        #block(fill: red.mix(blue))
-        #block(fill: red.mix(blue, space: rgb))
-        #block(fill: color.mix(red, blue, white))
-        #block(fill: color.mix((red, 70%), (blue, 30%)))
-        ```
-      ],
-    ),
+      ```example
+      #set block(height: 20pt, width: 100%)
+      #block(fill: red.mix(blue))
+      #block(fill: red.mix(blue, space: rgb))
+      #block(fill: color.mix(red, blue, white))
+      #block(fill: color.mix((red, 70%), (blue, 30%)))
+      ```
+    ],
   ),
   "Color::mix::colors": (
     1082,
@@ -1080,21 +1128,23 @@
   ),
   "Color::transparentize": (
     1101,
-    babel(
-      en: [
-        Makes a color more transparent by a given factor.
+    [
+      #babel(
+        en: [
+          Makes a color more transparent by a given factor.
 
-        This method is relative to the existing alpha value. If the scale is
-        positive, calculates `alpha - alpha * scale`. Negative scales behave
-        like `color.opacify(-scale)`.
+          This method is relative to the existing alpha value. If the scale is
+          positive, calculates `alpha - alpha * scale`. Negative scales behave
+          like `color.opacify(-scale)`.
+        ],
+      )
 
-        ```example
-        #block(fill: red)[opaque]
-        #block(fill: red.transparentize(50%))[half red]
-        #block(fill: red.transparentize(75%))[quarter red]
-        ```
-      ],
-    ),
+      ```example
+      #block(fill: red)[opaque]
+      #block(fill: red.transparentize(50%))[half red]
+      #block(fill: red.transparentize(75%))[quarter red]
+      ```
+    ],
   ),
   "Color::transparentize::scale": (
     1115,
@@ -1106,22 +1156,24 @@
   ),
   "Color::opacify": (
     1121,
-    babel(
-      en: [
-        Makes a color more opaque by a given scale.
+    [
+      #babel(
+        en: [
+          Makes a color more opaque by a given scale.
 
-        This method is relative to the existing alpha value. If the scale is
-        positive, calculates `alpha + scale - alpha * scale`. Negative scales
-        behave like `color.transparentize(-scale)`.
+          This method is relative to the existing alpha value. If the scale is
+          positive, calculates `alpha + scale - alpha * scale`. Negative scales
+          behave like `color.transparentize(-scale)`.
+        ],
+      )
 
-        ```example
-        #let half-red = red.transparentize(50%)
-        #block(fill: half-red.opacify(100%))[opaque]
-        #block(fill: half-red.opacify(50%))[three quarters red]
-        #block(fill: half-red.opacify(-50%))[one quarter red]
-        ```
-      ],
-    ),
+      ```example
+      #let half-red = red.transparentize(50%)
+      #block(fill: half-red.opacify(100%))[opaque]
+      #block(fill: half-red.opacify(50%))[three quarters red]
+      #block(fill: half-red.opacify(-50%))[one quarter red]
+      ```
+    ],
   ),
   "Color::opacify::scale": (
     1136,
@@ -1197,26 +1249,28 @@
   ),
   "SpotColorant::tint": (
     2367,
-    babel(
-      en: [
-        Create a spot color at a specific tint of this colorant.
+    [
+      #babel(
+        en: [
+          Create a spot color at a specific tint of this colorant.
 
-        The tint represents what percentage of the colorant is applied. A tint
-        of `{100%}` means the colorant is applied at full strength, while `{0%}`
-        means no colorant is applied.
+          The tint represents what percentage of the colorant is applied. A tint
+          of `{100%}` means the colorant is applied at full strength, while `{0%}`
+          means no colorant is applied.
+        ],
+      )
 
-        ```example
-        #let pantone = color.spot(
-          "PANTONE 2221 C",
-          rgb("#239dad")
-        )
+      ```example
+      #let pantone = color.spot(
+        "PANTONE 2221 C",
+        rgb("#239dad")
+      )
 
-        #square(fill: pantone.tint(100%))
-        #square(fill: pantone.tint(70%))
-        #square(fill: pantone.tint(40%))
-        ```
-      ],
-    ),
+      #square(fill: pantone.tint(100%))
+      #square(fill: pantone.tint(70%))
+      #square(fill: pantone.tint(40%))
+      ```
+    ],
   ),
   "SpotColorant::tint::value": (
     2386,

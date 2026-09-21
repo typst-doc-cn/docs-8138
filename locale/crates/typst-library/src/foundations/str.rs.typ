@@ -2,76 +2,84 @@
 #let live-item-data = (
   "Str": (
     36,
-    babel(
-      en: [
-        A sequence of Unicode codepoints.
+    [
+      #babel(
+        en: [
+          A sequence of Unicode codepoints.
 
-        You can iterate over the grapheme clusters of the string using a
-        @reference:scripting:loops[for loop]. Grapheme clusters are basically
-        characters but keep together things that belong together, e.g. multiple
-        codepoints that together form a flag emoji. Strings can be added with the
-        `+` operator, @reference:scripting:blocks[joined together] and multiplied
-        with integers.
+          You can iterate over the grapheme clusters of the string using a
+          @reference:scripting:loops[for loop]. Grapheme clusters are basically
+          characters but keep together things that belong together, e.g. multiple
+          codepoints that together form a flag emoji. Strings can be added with the
+          `+` operator, @reference:scripting:blocks[joined together] and multiplied
+          with integers.
 
-        Typst provides utility methods for string manipulation. Many of these
-        methods (e.g., @str.split[`split`], @str.trim[`trim`] and
-        @str.replace[`replace`]) operate on _patterns:_ A pattern can be either a
-        string or a @regex[regular expression]. This makes the methods quite
-        versatile.
+          Typst provides utility methods for string manipulation. Many of these
+          methods (e.g., @str.split[`split`], @str.trim[`trim`] and
+          @str.replace[`replace`]) operate on _patterns:_ A pattern can be either a
+          string or a @regex[regular expression]. This makes the methods quite
+          versatile.
 
-        All lengths and indices are expressed in terms of UTF-8 bytes. Indices are
-        zero-based and negative indices wrap around to the end of the string.
+          All lengths and indices are expressed in terms of UTF-8 bytes. Indices are
+          zero-based and negative indices wrap around to the end of the string.
 
-        You can convert a value to a string with the `str` constructor.
+          You can convert a value to a string with the `str` constructor.
+        ],
+      )
 
-        = Example <example>
-        ```example
-        #"hello world!" \
-        #"\"hello\n  world\"!" \
-        #"1 2 3".split() \
-        #"1,2;3".split(regex("[,;]")) \
-        #(regex("\\d+") in "ten euros") \
-        #(regex("\\d+") in "10 euros")
-        ```
+      = #babel(en: [Example]) <example>
+      ```example
+      #"hello world!" \
+      #"\"hello\n  world\"!" \
+      #"1 2 3".split() \
+      #"1,2;3".split(regex("[,;]")) \
+      #(regex("\\d+") in "ten euros") \
+      #(regex("\\d+") in "10 euros")
+      ```
 
-        = #short-or-long[Escapes][Escape sequences] <escapes>
-        Just like in markup, you can escape a few symbols in strings:
-        - `[\\]` for a backslash
-        - `[\"]` for a quote
-        - `[\n]` for a newline
-        - `[\r]` for a carriage return
-        - `[\t]` for a tab
-        - `[\u{1f600}]` for a hexadecimal Unicode escape sequence
-      ],
-    ),
+      = #babel(en: short-or-long[Escapes][Escape sequences]) <escapes>
+      #babel(
+        en: [
+          Just like in markup, you can escape a few symbols in strings:
+          - `[\\]` for a backslash
+          - `[\"]` for a quote
+          - `[\n]` for a newline
+          - `[\r]` for a carriage return
+          - `[\t]` for a tab
+          - `[\u{1f600}]` for a hexadecimal Unicode escape sequence
+        ],
+      )
+    ],
   ),
   "Str::construct": (
     131,
-    babel(
-      en: [
-        Converts a value to a string.
+    [
+      #babel(
+        en: [
+          Converts a value to a string.
 
-        - Integers are formatted in base 10. This can be overridden with the
-          optional `base` parameter.
-        - Floats are formatted in base 10 and never in exponential notation.
-        - Negative integers and floats are formatted with the Unicode minus sign
-          ("−" U+2212) instead of the ASCII minus sign ("-" U+002D).
-        - From labels the name is extracted.
-        - Bytes are decoded as UTF-8.
+          - Integers are formatted in base 10. This can be overridden with the
+            optional `base` parameter.
+          - Floats are formatted in base 10 and never in exponential notation.
+          - Negative integers and floats are formatted with the Unicode minus sign
+            ("−" U+2212) instead of the ASCII minus sign ("-" U+002D).
+          - From labels the name is extracted.
+          - Bytes are decoded as UTF-8.
 
-        If you wish to convert from and to Unicode code points, see the
-        @str.to-unicode[`to-unicode`] and @str.from-unicode[`from-unicode`]
-        functions.
+          If you wish to convert from and to Unicode code points, see the
+          @str.to-unicode[`to-unicode`] and @str.from-unicode[`from-unicode`]
+          functions.
+        ],
+      )
 
-        ```example
-        #str(10) \
-        #str(4000, base: 16) \
-        #str(2.7) \
-        #str(1e8) \
-        #str(<intro>)
-        ```
-      ],
-    ),
+      ```example
+      #str(10) \
+      #str(4000, base: 16) \
+      #str(2.7) \
+      #str(1e8) \
+      #str(<intro>)
+      ```
+    ],
   ),
   "Str::construct::value": (
     154,
@@ -217,18 +225,20 @@
   ),
   "Str::to_unicode": (
     287,
-    babel(
-      en: [
-        Converts a character into its corresponding code point.
+    [
+      #babel(
+        en: [
+          Converts a character into its corresponding code point.
+        ],
+      )
 
-        ```example
-        #"a".to-unicode() \
-        #("a\u{0300}"
-           .codepoints()
-           .map(str.to-unicode))
-        ```
-      ],
-    ),
+      ```example
+      #"a".to-unicode() \
+      #("a\u{0300}"
+         .codepoints()
+         .map(str.to-unicode))
+      ```
+    ],
   ),
   "Str::to_unicode::character": (
     297,
@@ -240,15 +250,17 @@
   ),
   "Str::from_unicode": (
     303,
-    babel(
-      en: [
-        Converts a unicode code point into its corresponding string.
+    [
+      #babel(
+        en: [
+          Converts a unicode code point into its corresponding string.
+        ],
+      )
 
-        ```example
-        #str.from-unicode(97)
-        ```
-      ],
-    ),
+      ```example
+      #str.from-unicode(97)
+      ```
+    ],
   ),
   "Str::from_unicode::value": (
     310,
@@ -260,19 +272,21 @@
   ),
   "Str::normalize": (
     319,
-    babel(
-      en: [
-        Normalizes the string to the given Unicode normal form.
+    [
+      #babel(
+        en: [
+          Normalizes the string to the given Unicode normal form.
 
-        This is useful when manipulating strings containing Unicode combining
-        characters.
+          This is useful when manipulating strings containing Unicode combining
+          characters.
+        ],
+      )
 
-        ```typ
-        #assert.eq("é".normalize(form: "nfd"), "e\u{0301}")
-        #assert.eq("ſ́".normalize(form: "nfkc"), "ś")
-        ```
-      ],
-    ),
+      ```typ
+      #assert.eq("é".normalize(form: "nfd"), "e\u{0301}")
+      #assert.eq("ſ́".normalize(form: "nfkc"), "ś")
+      ```
+    ],
   ),
   "Str::normalize::form": (
     331,
@@ -369,39 +383,41 @@
   ),
   "Str::match_": (
     426,
-    babel(
-      en: [
-        Searches for the specified pattern in the string and returns a
-        dictionary with details about the first match or `{none}` if there is no
-        match.
+    [
+      #babel(
+        en: [
+          Searches for the specified pattern in the string and returns a
+          dictionary with details about the first match or `{none}` if there is no
+          match.
 
-        The returned dictionary has the following keys:
-        - `start`: The start offset of the match
-        - `end`: The end offset of the match
-        - `text`: The text that matched.
-        - `captures`: An array containing a string for each matched capturing
-          group. The first item of the array contains the first matched
-          capturing, not the whole match! This is empty unless the `pattern` was
-          a regex with capturing groups.
+          The returned dictionary has the following keys:
+          - `start`: The start offset of the match
+          - `end`: The end offset of the match
+          - `text`: The text that matched.
+          - `captures`: An array containing a string for each matched capturing
+            group. The first item of the array contains the first matched
+            capturing, not the whole match! This is empty unless the `pattern` was
+            a regex with capturing groups.
+        ],
+      )
 
-        #example(
-          title: "Shape of the returned dictionary",
-          ```
-          #let pat = regex("not (a|an) (apple|cat)")
-          #"I'm a doctor, not an apple.".match(pat) \
-          #"I am not a cat!".match(pat)
-          ```,
-        )
+      #example(
+        title: "Shape of the returned dictionary",
+        ```
+        #let pat = regex("not (a|an) (apple|cat)")
+        #"I'm a doctor, not an apple.".match(pat) \
+        #"I am not a cat!".match(pat)
+        ```,
+      )
 
-        #example(
-          title: "Different kinds of patterns",
-          ```
-          #assert.eq("Is there a".match("for this?"), none)
-          #"The time of my life.".match(regex("[mit]+e"))
-          ```,
-        )
-      ],
-    ),
+      #example(
+        title: "Different kinds of patterns",
+        ```
+        #assert.eq("Is there a".match("for this?"), none)
+        #"The time of my life.".match(regex("[mit]+e"))
+        ```,
+      )
+    ],
   ),
   "Str::match_::pattern": (
     458,
@@ -413,17 +429,19 @@
   ),
   "Str::matches": (
     469,
-    babel(
-      en: [
-        Searches for the specified pattern in the string and returns an array of
-        dictionaries with details about all matches. For details about the
-        returned dictionaries, see @str.match[above].
+    [
+      #babel(
+        en: [
+          Searches for the specified pattern in the string and returns an array of
+          dictionaries with details about all matches. For details about the
+          returned dictionaries, see @str.match[above].
+        ],
+      )
 
-        ```example
-        #"Day by Day.".matches("Day")
-        ```
-      ],
-    ),
+      ```example
+      #"Day by Day.".matches("Day")
+      ```
+    ],
   ),
   "Str::matches::pattern": (
     479,
@@ -533,70 +551,86 @@
   ),
   "Str::rev": (
     680,
-    babel(
-      en: [
-        Reverses the string.
+    [
+      #babel(
+        en: [
+          Reverses the string.
 
-        More specifically, this returns a string with the same grapheme
-        clusters, in reversed order.
+          More specifically, this returns a string with the same grapheme
+          clusters, in reversed order.
+        ],
+      )
 
-        ```example
-        #"Pirate flag: 🏴‍☠️".rev()
-        ```
-      ],
-    ),
+      ```example
+      #"Pirate flag: 🏴‍☠️".rev()
+      ```
+    ],
   ),
   "Regex": (
     970,
-    babel(
-      en: [
-        A regular expression.
+    [
+      #babel(
+        en: [
+          A regular expression.
 
-        Can be used as a @reference:styling:show-rules[show rule selector] or with
-        @str[string methods].
+          Can be used as a @reference:styling:show-rules[show rule selector] or with
+          @str[string methods].
 
-        Visit #link("https://docs.rs/regex/latest/regex/#syntax")[this website] for
-        a complete specification of the supported syntax.
+          Visit #link("https://docs.rs/regex/latest/regex/#syntax")[this website] for
+          a complete specification of the supported syntax.
+        ],
+      )
 
-        = With string methods <string-methods>
-        Regular expressions can be used with string methods like @str.find[`find`],
-        @str.split[`split`], @str.replace[`replace`], @str.match[`match`], or
-        @str.matches[`matches`]. See the documentation of these methods for more
-        details.
+      = #babel(en: [With string methods]) <string-methods>
+      #babel(
+        en: [
+          Regular expressions can be used with string methods like @str.find[`find`],
+          @str.split[`split`], @str.replace[`replace`], @str.match[`match`], or
+          @str.matches[`matches`]. See the documentation of these methods for more
+          details.
+        ],
+      )
 
-        ```example
-        #"a,b;c".split(regex("[,;]"))
-        ```
+      ```example
+      #"a,b;c".split(regex("[,;]"))
+      ```
 
-        = With show rules <show-rules>
-        Regular expressions can also be used with
-        @reference:styling:show-rules[show rules] to match on and transform text in
-        the document. For example, below, we are turning all numbers red.
+      = #babel(en: [With show rules]) <show-rules>
+      #babel(
+        en: [
+          Regular expressions can also be used with
+          @reference:styling:show-rules[show rules] to match on and transform text in
+          the document. For example, below, we are turning all numbers red.
+        ],
+      )
 
-        ```example
-        #show regex("\\d+"): set text(red)
+      ```example
+      #show regex("\\d+"): set text(red)
 
-        The numbers 1 to 10.
-        ```
+      The numbers 1 to 10.
+      ```
 
-        Sometimes, you may also want to combine both uses, by first matching on text
-        with a show rule and then rematching on the text to extract a specific
-        #link("https://docs.rs/regex/latest/regex/#grouping-and-flags")[capture group].
-        In this case, it can be convenient to store the regular expression in a
-        variable instead of repeating it twice.
+      #babel(
+        en: [
+          Sometimes, you may also want to combine both uses, by first matching on text
+          with a show rule and then rematching on the text to extract a specific
+          #link("https://docs.rs/regex/latest/regex/#grouping-and-flags")[capture group].
+          In this case, it can be convenient to store the regular expression in a
+          variable instead of repeating it twice.
+        ],
+      )
 
-        ```example
-        #let pattern = regex("\|([^|]*)\|")
-        #show pattern: it => {
-          let m = it.text.match(pattern)
-          let inner = m.captures.first()
-          highlight(inner)
-        }
+      ```example
+      #let pattern = regex("\|([^|]*)\|")
+      #show pattern: it => {
+        let m = it.text.match(pattern)
+        let inner = m.captures.first()
+        highlight(inner)
+      }
 
-        A |handy-dandy| highlighter!
-        ```
-      ],
-    ),
+      A |handy-dandy| highlighter!
+      ```
+    ],
   ),
   "Regex::construct": (
     1028,

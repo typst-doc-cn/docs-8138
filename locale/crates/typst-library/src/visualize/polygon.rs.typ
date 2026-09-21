@@ -2,25 +2,27 @@
 #let live-item-data = (
   "PolygonElem": (
     9,
-    babel(
-      en: [
-        A closed polygon.
+    [
+      #babel(
+        en: [
+          A closed polygon.
 
-        The polygon is defined by its corner points and is closed automatically.
+          The polygon is defined by its corner points and is closed automatically.
+        ],
+      )
 
-        = Example <example>
-        ```example
-        #polygon(
-          fill: blue.lighten(80%),
-          stroke: blue,
-          (20%, 0pt),
-          (60%, 0pt),
-          (80%, 2cm),
-          (0%,  2cm),
-        )
-        ```
-      ],
-    ),
+      = #babel(en: [Example]) <example>
+      ```example
+      #polygon(
+        fill: blue.lighten(80%),
+        stroke: blue,
+        (20%, 0pt),
+        (60%, 0pt),
+        (80%, 2cm),
+        (0%,  2cm),
+      )
+      ```
+    ],
   ),
   "PolygonElem::fill": (
     26,
@@ -65,20 +67,22 @@
   ),
   "PolygonElem::regular": (
     53,
-    babel(
-      en: [
-        A regular polygon, defined by its size and number of vertices.
+    [
+      #babel(
+        en: [
+          A regular polygon, defined by its size and number of vertices.
+        ],
+      )
 
-        ```example
-        #polygon.regular(
-          fill: blue.lighten(80%),
-          stroke: blue,
-          size: 30pt,
-          vertices: 3,
-        )
-        ```
-      ],
-    ),
+      ```example
+      #polygon.regular(
+        fill: blue.lighten(80%),
+        stroke: blue,
+        size: 30pt,
+        vertices: 3,
+      )
+      ```
+    ],
   ),
   "PolygonElem::regular::fill": (
     67,

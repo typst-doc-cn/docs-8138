@@ -2,15 +2,17 @@
 #let live-item-data = (
   "UnderlineElem": (
     4,
-    babel(
-      en: [
-        A horizontal line under content.
+    [
+      #babel(
+        en: [
+          A horizontal line under content.
+        ],
+      )
 
-        ```example
-        $ underline(1 + 2 + ... + 5) $
-        ```
-      ],
-    ),
+      ```example
+      $ underline(1 + 2 + ... + 5) $
+      ```
+    ],
   ),
   "UnderlineElem::body": (
     11,
@@ -22,15 +24,17 @@
   ),
   "OverlineElem": (
     16,
-    babel(
-      en: [
-        A horizontal line over content.
+    [
+      #babel(
+        en: [
+          A horizontal line over content.
+        ],
+      )
 
-        ```example
-        $ overline(1 + 2 + ... + 5) $
-        ```
-      ],
-    ),
+      ```example
+      $ overline(1 + 2 + ... + 5) $
+      ```
+    ],
   ),
   "OverlineElem::body": (
     23,
@@ -42,15 +46,17 @@
   ),
   "UnderbraceElem": (
     28,
-    babel(
-      en: [
-        A horizontal brace under content, with an optional annotation below.
+    [
+      #babel(
+        en: [
+          A horizontal brace under content, with an optional annotation below.
+        ],
+      )
 
-        ```example
-        $ underbrace(0 + 1 + dots.c + n, n + 1 "numbers") $
-        ```
-      ],
-    ),
+      ```example
+      $ underbrace(0 + 1 + dots.c + n, n + 1 "numbers") $
+      ```
+    ],
   ),
   "UnderbraceElem::body": (
     35,
@@ -70,15 +76,17 @@
   ),
   "OverbraceElem": (
     44,
-    babel(
-      en: [
-        A horizontal brace over content, with an optional annotation above.
+    [
+      #babel(
+        en: [
+          A horizontal brace over content, with an optional annotation above.
+        ],
+      )
 
-        ```example
-        $ overbrace(0 + 1 + dots.c + n, n + 1 "numbers") $
-        ```
-      ],
-    ),
+      ```example
+      $ overbrace(0 + 1 + dots.c + n, n + 1 "numbers") $
+      ```
+    ],
   ),
   "OverbraceElem::body": (
     51,
@@ -98,15 +106,17 @@
   ),
   "UnderbracketElem": (
     60,
-    babel(
-      en: [
-        A horizontal bracket under content, with an optional annotation below.
+    [
+      #babel(
+        en: [
+          A horizontal bracket under content, with an optional annotation below.
+        ],
+      )
 
-        ```example
-        $ underbracket(0 + 1 + dots.c + n, n + 1 "numbers") $
-        ```
-      ],
-    ),
+      ```example
+      $ underbracket(0 + 1 + dots.c + n, n + 1 "numbers") $
+      ```
+    ],
   ),
   "UnderbracketElem::body": (
     67,
@@ -126,15 +136,17 @@
   ),
   "OverbracketElem": (
     76,
-    babel(
-      en: [
-        A horizontal bracket over content, with an optional annotation above.
+    [
+      #babel(
+        en: [
+          A horizontal bracket over content, with an optional annotation above.
+        ],
+      )
 
-        ```example
-        $ overbracket(0 + 1 + dots.c + n, n + 1 "numbers") $
-        ```
-      ],
-    ),
+      ```example
+      $ overbracket(0 + 1 + dots.c + n, n + 1 "numbers") $
+      ```
+    ],
   ),
   "OverbracketElem::body": (
     83,
@@ -154,15 +166,17 @@
   ),
   "UnderparenElem": (
     92,
-    babel(
-      en: [
-        A horizontal parenthesis under content, with an optional annotation below.
+    [
+      #babel(
+        en: [
+          A horizontal parenthesis under content, with an optional annotation below.
+        ],
+      )
 
-        ```example
-        $ underparen(0 + 1 + dots.c + n, n + 1 "numbers") $
-        ```
-      ],
-    ),
+      ```example
+      $ underparen(0 + 1 + dots.c + n, n + 1 "numbers") $
+      ```
+    ],
   ),
   "UnderparenElem::body": (
     99,
@@ -182,15 +196,17 @@
   ),
   "OverparenElem": (
     108,
-    babel(
-      en: [
-        A horizontal parenthesis over content, with an optional annotation above.
+    [
+      #babel(
+        en: [
+          A horizontal parenthesis over content, with an optional annotation above.
+        ],
+      )
 
-        ```example
-        $ overparen(0 + 1 + dots.c + n, n + 1 "numbers") $
-        ```
-      ],
-    ),
+      ```example
+      $ overparen(0 + 1 + dots.c + n, n + 1 "numbers") $
+      ```
+    ],
   ),
   "OverparenElem::body": (
     115,
@@ -210,16 +226,18 @@
   ),
   "UndershellElem": (
     124,
-    babel(
-      en: [
-        A horizontal tortoise shell bracket under content, with an optional
-        annotation below.
+    [
+      #babel(
+        en: [
+          A horizontal tortoise shell bracket under content, with an optional
+          annotation below.
+        ],
+      )
 
-        ```example
-        $ undershell(0 + 1 + dots.c + n, n + 1 "numbers") $
-        ```
-      ],
-    ),
+      ```example
+      $ undershell(0 + 1 + dots.c + n, n + 1 "numbers") $
+      ```
+    ],
   ),
   "UndershellElem::body": (
     132,
@@ -239,16 +257,18 @@
   ),
   "OvershellElem": (
     141,
-    babel(
-      en: [
-        A horizontal tortoise shell bracket over content, with an optional
-        annotation above.
+    [
+      #babel(
+        en: [
+          A horizontal tortoise shell bracket over content, with an optional
+          annotation above.
+        ],
+      )
 
-        ```example
-        $ overshell(0 + 1 + dots.c + n, n + 1 "numbers") $
-        ```
-      ],
-    ),
+      ```example
+      $ overshell(0 + 1 + dots.c + n, n + 1 "numbers") $
+      ```
+    ],
   ),
   "OvershellElem::body": (
     149,

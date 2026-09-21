@@ -2,42 +2,52 @@
 #let live-item-data = (
   "PageElem": (
     21,
-    babel(
-      en: [
-        Layouts its child onto one or multiple pages.
+    [
+      #babel(
+        en: [
+          Layouts its child onto one or multiple pages.
 
-        Although this function is primarily used in set rules to affect page
-        properties, it can also be used to explicitly render its argument onto a set
-        of pages of its own.
+          Although this function is primarily used in set rules to affect page
+          properties, it can also be used to explicitly render its argument onto a set
+          of pages of its own.
 
-        Pages can be set to use `{auto}` as their width or height. In this case, the
-        pages will grow to fit their content on the respective axis.
+          Pages can be set to use `{auto}` as their width or height. In this case, the
+          pages will grow to fit their content on the respective axis.
 
-        The @guides:page-setup[Guide for Page Setup] explains how to use this and
-        related functions to set up a document with many examples.
+          The @guides:page-setup[Guide for Page Setup] explains how to use this and
+          related functions to set up a document with many examples.
+        ],
+      )
 
-        = Example <example>
-        ```example
-        >>> #set page(margin: auto)
-        #set page("us-letter")
+      = #babel(en: [Example]) <example>
+      ```example
+      >>> #set page(margin: auto)
+      #set page("us-letter")
 
-        There you go, US friends!
-        ```
+      There you go, US friends!
+      ```
 
-        = Accessibility <accessibility>
-        The contents of the page's header, footer, foreground, and background are
-        invisible to Assistive Technology (AT) like screen readers. Only the body of
-        the page is read by AT. Do not include vital information not included
-        elsewhere in the document in these areas.
+      = #babel(en: [Accessibility]) <accessibility>
+      #babel(
+        en: [
+          The contents of the page's header, footer, foreground, and background are
+          invisible to Assistive Technology (AT) like screen readers. Only the body of
+          the page is read by AT. Do not include vital information not included
+          elsewhere in the document in these areas.
+        ],
+      )
 
-        = Styling <styling>
-        Note that the @page element cannot be targeted by show rules; writing
-        `{show page: ..}` has no effect. To repeat content on every page, you can
-        instead configure the @page.header[`header`], @page.footer[`footer`],
-        @page.background[`background`], and @page.foreground[`foreground`]
-        properties with a set rule.
-      ],
-    ),
+      = #babel(en: [Styling]) <styling>
+      #babel(
+        en: [
+          Note that the @page element cannot be targeted by show rules; writing
+          `{show page: ..}` has no effect. To repeat content on every page, you can
+          instead configure the @page.header[`header`], @page.footer[`footer`],
+          @page.background[`background`], and @page.foreground[`foreground`]
+          properties with a set rule.
+        ],
+      )
+    ],
   ),
   "PageElem::paper": (
     55,
@@ -52,28 +62,30 @@
   ),
   "PageElem::width": (
     63,
-    babel(
-      en: [
-        The width of the final page, after any trims have been applied.
+    [
+      #babel(
+        en: [
+          The width of the final page, after any trims have been applied.
 
-        In professional printing setups, this may be smaller than the sheet size
-        fed into the printer.
+          In professional printing setups, this may be smaller than the sheet size
+          fed into the printer.
 
-        See the @page.bleed[`bleed`] parameter for details on how to set a trim
-        or bleed area.
+          See the @page.bleed[`bleed`] parameter for details on how to set a trim
+          or bleed area.
+        ],
+      )
 
-        ```example
-        #set page(
-          width: 3cm,
-          margin: (x: 0cm),
-        )
+      ```example
+      #set page(
+        width: 3cm,
+        margin: (x: 0cm),
+      )
 
-        #for i in range(3) {
-          box(square(width: 1cm))
-        }
-        ```
-      ],
-    ),
+      #for i in range(3) {
+        box(square(width: 1cm))
+      }
+      ```
+    ],
   ),
   "PageElem::height": (
     90,
@@ -91,129 +103,135 @@
   ),
   "PageElem::flipped": (
     105,
-    babel(
-      en: [
-        Whether the page is flipped into landscape orientation.
+    [
+      #babel(
+        en: [
+          Whether the page is flipped into landscape orientation.
+        ],
+      )
 
-        ```example
-        #set page(
-          "us-business-card",
-          flipped: true,
-          fill: rgb("f2e5dd"),
-        )
+      ```example
+      #set page(
+        "us-business-card",
+        flipped: true,
+        fill: rgb("f2e5dd"),
+      )
 
-        #set align(bottom + end)
-        #text(14pt)[*Sam H. Richards*] \
-        _Procurement Manager_
+      #set align(bottom + end)
+      #text(14pt)[*Sam H. Richards*] \
+      _Procurement Manager_
 
-        #set text(10pt)
-        23 W 23rd Street \
-        New York, NY 10010 \
-        +1 (212) 555-0155
-        ```
-      ],
-    ),
+      #set text(10pt)
+      23 W 23rd Street \
+      New York, NY 10010 \
+      +1 (212) 555-0155
+      ```
+    ],
   ),
   "PageElem::margin": (
     127,
-    babel(
-      en: [
-        The page's margins.
+    [
+      #babel(
+        en: [
+          The page's margins.
 
-        - `{auto}`: The margins are set automatically to 2.5/21 times the
-          smaller dimension of the page. This results in 2.5 cm margins for an
-          A4 page.
-        - A single length: The same margin on all sides.
-        - A dictionary: With a dictionary, the margins can be set individually.
-          The dictionary can contain the following keys in order of precedence:
-          - `top`: The top margin.
-          - `right`: The right margin.
-          - `bottom`: The bottom margin.
-          - `left`: The left margin.
-          - `inside`: The margin at the inner side of the page (where the
-            @page.binding[binding] is).
-          - `outside`: The margin at the outer side of the page (opposite to the
-            @page.binding[binding]).
-          - `x`: The horizontal margins.
-          - `y`: The vertical margins.
-          - `rest`: The margins on all sides except those for which the
-            dictionary explicitly sets a size.
+          - `{auto}`: The margins are set automatically to 2.5/21 times the
+            smaller dimension of the page. This results in 2.5 cm margins for an
+            A4 page.
+          - A single length: The same margin on all sides.
+          - A dictionary: With a dictionary, the margins can be set individually.
+            The dictionary can contain the following keys in order of precedence:
+            - `top`: The top margin.
+            - `right`: The right margin.
+            - `bottom`: The bottom margin.
+            - `left`: The left margin.
+            - `inside`: The margin at the inner side of the page (where the
+              @page.binding[binding] is).
+            - `outside`: The margin at the outer side of the page (opposite to the
+              @page.binding[binding]).
+            - `x`: The horizontal margins.
+            - `y`: The vertical margins.
+            - `rest`: The margins on all sides except those for which the
+              dictionary explicitly sets a size.
 
-        All keys are optional; omitted keys will use their previously set value,
-        or the default margin if never set. In addition, the values for `left`
-        and `right` are mutually exclusive with the values for `inside` and
-        `outside`. The values should be relative lengths or `{auto}`.
+          All keys are optional; omitted keys will use their previously set value,
+          or the default margin if never set. In addition, the values for `left`
+          and `right` are mutually exclusive with the values for `inside` and
+          `outside`. The values should be relative lengths or `{auto}`.
+        ],
+      )
 
-        ```example
-        #set page(
-         width: 3cm,
-         height: 4cm,
-         margin: (x: 8pt, y: 4pt),
-        )
+      ```example
+      #set page(
+       width: 3cm,
+       height: 4cm,
+       margin: (x: 8pt, y: 4pt),
+      )
 
-        #rect(
-          width: 100%,
-          height: 100%,
-          fill: aqua,
-        )
-        ```
-      ],
-    ),
+      #rect(
+        width: 100%,
+        height: 100%,
+        fill: aqua,
+      )
+      ```
+    ],
   ),
   "PageElem::bleed": (
     170,
-    babel(
-      en: [
-        The page's bleed margin.
+    [
+      #babel(
+        en: [
+          The page's bleed margin.
 
-        The bleed is the area of content that extends beyond the final trimmed
-        size of the page. It ensures that no unprinted edges appear in the final
-        product, even if minor trimming misalignments occur.
+          The bleed is the area of content that extends beyond the final trimmed
+          size of the page. It ensures that no unprinted edges appear in the final
+          product, even if minor trimming misalignments occur.
 
-        Accepted values:
+          Accepted values:
 
-        - A single length: The same bleed on all sides.
-        - A dictionary: With a dictionary, the bleed margins can be set
-          individually. The dictionary may include the following keys, listed in
-          order of precedence:
-          - `top`: The top bleed margin.
-          - `right`: The right bleed margin.
-          - `bottom`: The bottom bleed margin.
-          - `left`: The left bleed margin.
-          - `inside`: The bleed margin at the inner side of the page (where the
-            @page.binding[binding] is).
-          - `outside`: The bleed margin at the outer side of the page (opposite
-            to the @page.binding[binding]).
-          - `x`: The horizontal bleed margins.
-          - `y`: The vertical bleed margins.
-          - `rest`: The bleed margins on all sides except those for which the
-            dictionary explicitly sets a size.
+          - A single length: The same bleed on all sides.
+          - A dictionary: With a dictionary, the bleed margins can be set
+            individually. The dictionary may include the following keys, listed in
+            order of precedence:
+            - `top`: The top bleed margin.
+            - `right`: The right bleed margin.
+            - `bottom`: The bottom bleed margin.
+            - `left`: The left bleed margin.
+            - `inside`: The bleed margin at the inner side of the page (where the
+              @page.binding[binding] is).
+            - `outside`: The bleed margin at the outer side of the page (opposite
+              to the @page.binding[binding]).
+            - `x`: The horizontal bleed margins.
+            - `y`: The vertical bleed margins.
+            - `rest`: The bleed margins on all sides except those for which the
+              dictionary explicitly sets a size.
 
-        All keys are optional; omitted keys will use their previously set value,
-        or `{0pt}` if never set. In addition, the values for `left` and `right`
-        are mutually exclusive with the values for `inside` and `outside`. The
-        values should be relative lengths.
+          All keys are optional; omitted keys will use their previously set value,
+          or `{0pt}` if never set. In addition, the values for `left` and `right`
+          are mutually exclusive with the values for `inside` and `outside`. The
+          values should be relative lengths.
 
-        In PDF export, if the bleed is non-zero, a `TrimBox` is defined for the
-        page.
+          In PDF export, if the bleed is non-zero, a `TrimBox` is defined for the
+          page.
+        ],
+      )
 
-        ```example
-        #set page(
-          width: 8cm,
-          height: 5cm,
-          margin: 1cm,
-          // The bleed is not visible in the preview;
-          // it exceeds beyond the page.
-          bleed: 0.5cm,
-          // Fills the entire bleed area, so there will
-          // be no white strips after printing and trimming.
-          background: rect(width: 100%, height: 100%, fill: aqua),
-        )
+      ```example
+      #set page(
+        width: 8cm,
+        height: 5cm,
+        margin: 1cm,
+        // The bleed is not visible in the preview;
+        // it exceeds beyond the page.
+        bleed: 0.5cm,
+        // Fills the entire bleed area, so there will
+        // be no white strips after printing and trimming.
+        background: rect(width: 100%, height: 100%, fill: aqua),
+      )
 
-        #rect(width: 100%, height: 100%, fill: white)
-        ```
-      ],
-    ),
+      #rect(width: 100%, height: 100%, fill: white)
+      ```
+    ],
   ),
   "PageElem::binding": (
     221,
@@ -233,161 +251,173 @@
   ),
   "PageElem::columns": (
     233,
-    babel(
-      en: [
-        How many columns the page has.
+    [
+      #babel(
+        en: [
+          How many columns the page has.
 
-        If you need to insert columns into a page or other container, you can
-        also use the @columns[`columns` function].
+          If you need to insert columns into a page or other container, you can
+          also use the @columns[`columns` function].
+        ],
+      )
 
-        #example(
-          single: true,
-          ```
-          #set page(columns: 2, height: 4.8cm)
-          Climate change is one of the most
-          pressing issues of our time, with
-          the potential to devastate
-          communities, ecosystems, and
-          economies around the world. It's
-          clear that we need to take urgent
-          action to reduce our carbon
-          emissions and mitigate the impacts
-          of a rapidly changing climate.
-          ```,
-        )
-      ],
-    ),
+      #example(
+        single: true,
+        ```
+        #set page(columns: 2, height: 4.8cm)
+        Climate change is one of the most
+        pressing issues of our time, with
+        the potential to devastate
+        communities, ecosystems, and
+        economies around the world. It's
+        clear that we need to take urgent
+        action to reduce our carbon
+        emissions and mitigate the impacts
+        of a rapidly changing climate.
+        ```,
+      )
+    ],
   ),
   "PageElem::fill": (
     257,
-    babel(
-      en: [
-        The page's background fill.
+    [
+      #babel(
+        en: [
+          The page's background fill.
 
-        Setting this to something non-transparent instructs the printer to color
-        the complete page. If you are considering larger production runs, it may
-        be more environmentally friendly and cost-effective to source pre-dyed
-        pages and not set this property.
+          Setting this to something non-transparent instructs the printer to color
+          the complete page. If you are considering larger production runs, it may
+          be more environmentally friendly and cost-effective to source pre-dyed
+          pages and not set this property.
 
-        When set to `{none}`, the background becomes transparent. Note that PDF
-        pages will still appear with a (usually white) background in viewers,
-        but they are actually transparent. (If you print them, no color is used
-        for the background.)
+          When set to `{none}`, the background becomes transparent. Note that PDF
+          pages will still appear with a (usually white) background in viewers,
+          but they are actually transparent. (If you print them, no color is used
+          for the background.)
 
-        The default of `{auto}` results in `{none}` for PDF output, and
-        `{white}` for PNG and SVG.
+          The default of `{auto}` results in `{none}` for PDF output, and
+          `{white}` for PNG and SVG.
+        ],
+      )
 
-        ```example
-        #set page(fill: rgb("444352"))
-        #set text(fill: rgb("fdfdfd"))
-        *Dark mode enabled.*
-        ```
-      ],
-    ),
+      ```example
+      #set page(fill: rgb("444352"))
+      #set text(fill: rgb("fdfdfd"))
+      *Dark mode enabled.*
+      ```
+    ],
   ),
   "PageElem::numbering": (
     280,
-    babel(
-      en: [
-        How to number the pages. You can refer to the Page Setup Guide for
-        @guides:page-setup:page-numbers[customizing page numbers].
+    [
+      #babel(
+        en: [
+          How to number the pages. You can refer to the Page Setup Guide for
+          @guides:page-setup:page-numbers[customizing page numbers].
 
-        Accepts a @numbering[numbering pattern or function] taking one or two
-        numbers:
-        + The first number is the current page number.
-        + The second number is the total number of pages. In a numbering
-          pattern, the second number can be omitted. If a function is passed, it
-          will receive one argument in the context of links or references, and
-          two arguments when producing the visible page numbers.
+          Accepts a @numbering[numbering pattern or function] taking one or two
+          numbers:
+          + The first number is the current page number.
+          + The second number is the total number of pages. In a numbering
+            pattern, the second number can be omitted. If a function is passed, it
+            will receive one argument in the context of links or references, and
+            two arguments when producing the visible page numbers.
 
-        These are logical numbers controlled by the page counter, and may thus
-        not match the physical numbers. Specifically, they are the
-        @counter.get[current] and the @counter.final[final] value of
-        `{counter(page)}`. See the @counter:page-counter[`counter`]
-        documentation for more details.
+          These are logical numbers controlled by the page counter, and may thus
+          not match the physical numbers. Specifically, they are the
+          @counter.get[current] and the @counter.final[final] value of
+          `{counter(page)}`. See the @counter:page-counter[`counter`]
+          documentation for more details.
 
-        If an explicit @page.footer[`footer`] (or @page.header[`header`] for
-        @page.number-align[top-aligned] numbering) is given, the numbering is
-        ignored.
+          If an explicit @page.footer[`footer`] (or @page.header[`header`] for
+          @page.number-align[top-aligned] numbering) is given, the numbering is
+          ignored.
+        ],
+      )
 
-        ```example
-        #set page(
-          height: 100pt,
-          margin: (top: 16pt, bottom: 24pt),
-          numbering: "1 / 1",
-        )
+      ```example
+      #set page(
+        height: 100pt,
+        margin: (top: 16pt, bottom: 24pt),
+        numbering: "1 / 1",
+      )
 
-        #lorem(48)
-        ```
-      ],
-    ),
+      #lorem(48)
+      ```
+    ],
   ),
   "PageElem::supplement": (
     313,
-    babel(
-      en: [
-        A supplement for the pages.
+    [
+      #babel(
+        en: [
+          A supplement for the pages.
 
-        For page references, this is added before the page number.
+          For page references, this is added before the page number.
+        ],
+      )
 
-        ```example
-        #set page(numbering: "1.", supplement: [p.])
+      ```example
+      #set page(numbering: "1.", supplement: [p.])
 
-        = Introduction <intro>
-        We are on #ref(<intro>, form: "page")!
-        ```
-      ],
-    ),
+      = Introduction <intro>
+      We are on #ref(<intro>, form: "page")!
+      ```
+    ],
   ),
   "PageElem::number_align": (
     326,
-    babel(
-      en: [
-        The alignment of the page numbering.
+    [
+      #babel(
+        en: [
+          The alignment of the page numbering.
 
-        If the vertical component is `top`, the numbering is placed into the
-        header and if it is `bottom`, it is placed in the footer. Horizon
-        alignment is forbidden. If an explicit matching `header` or `footer` is
-        given, the numbering is ignored.
+          If the vertical component is `top`, the numbering is placed into the
+          header and if it is `bottom`, it is placed in the footer. Horizon
+          alignment is forbidden. If an explicit matching `header` or `footer` is
+          given, the numbering is ignored.
+        ],
+      )
 
-        ```example
-        #set page(
-          margin: (top: 16pt, bottom: 24pt),
-          numbering: "1",
-          number-align: right,
-        )
+      ```example
+      #set page(
+        margin: (top: 16pt, bottom: 24pt),
+        numbering: "1",
+        number-align: right,
+      )
 
-        #lorem(30)
-        ```
-      ],
-    ),
+      #lorem(30)
+      ```
+    ],
   ),
   "PageElem::header": (
     346,
-    babel(
-      en: [
-        The page's header. Fills the top margin of each page.
+    [
+      #babel(
+        en: [
+          The page's header. Fills the top margin of each page.
 
-        - Content: Shows the content as the header.
-        - `{auto}`: Shows the page number if a @page.numbering[`numbering`] is
-          set and @page.number-align[`number-align`] is `top`.
-        - `{none}`: Suppresses the header.
+          - Content: Shows the content as the header.
+          - `{auto}`: Shows the page number if a @page.numbering[`numbering`] is
+            set and @page.number-align[`number-align`] is `top`.
+          - `{none}`: Suppresses the header.
+        ],
+      )
 
-        ```example
-        #set par(justify: true)
-        #set page(
-          margin: (top: 32pt, bottom: 20pt),
-          header: [
-            #set text(8pt)
-            #smallcaps[Typst Academy]
-            #h(1fr) _Exercise Sheet 3_
-          ],
-        )
+      ```example
+      #set par(justify: true)
+      #set page(
+        margin: (top: 32pt, bottom: 20pt),
+        header: [
+          #set text(8pt)
+          #smallcaps[Typst Academy]
+          #h(1fr) _Exercise Sheet 3_
+        ],
+      )
 
-        #lorem(19)
-        ```
-      ],
-    ),
+      #lorem(19)
+      ```
+    ],
   ),
   "PageElem::header_ascent": (
     369,
@@ -400,137 +430,145 @@
   ),
   "PageElem::footer": (
     375,
-    babel(
-      en: [
-        The page's footer. Fills the bottom margin of each page.
+    [
+      #babel(
+        en: [
+          The page's footer. Fills the bottom margin of each page.
 
-        - Content: Shows the content as the footer.
-        - `{auto}`: Shows the page number if a @page.numbering[`numbering`] is
-          set and @page.number-align[`number-align`] is `bottom`.
-        - `{none}`: Suppresses the footer.
+          - Content: Shows the content as the footer.
+          - `{auto}`: Shows the page number if a @page.numbering[`numbering`] is
+            set and @page.number-align[`number-align`] is `bottom`.
+          - `{none}`: Suppresses the footer.
 
-        For just a page number, the `numbering` property typically suffices. If
-        you want to create a custom footer but still display the page number,
-        you can directly access the @counter[page counter].
+          For just a page number, the `numbering` property typically suffices. If
+          you want to create a custom footer but still display the page number,
+          you can directly access the @counter[page counter].
+        ],
+      )
 
-        ```example
-        #set par(justify: true)
-        #set page(
-          height: 100pt,
-          margin: 20pt,
-          footer: context [
-            #set align(right)
-            #set text(8pt)
-            #counter(page).display(
-              "1 of I",
-              both: true,
-            )
-          ]
-        )
+      ```example
+      #set par(justify: true)
+      #set page(
+        height: 100pt,
+        margin: 20pt,
+        footer: context [
+          #set align(right)
+          #set text(8pt)
+          #counter(page).display(
+            "1 of I",
+            both: true,
+          )
+        ]
+      )
 
-        #lorem(48)
-        ```
-      ],
-    ),
+      #lorem(48)
+      ```
+    ],
   ),
   "PageElem::footer_descent": (
     406,
-    babel(
-      en: [
-        The amount the footer is lowered into the bottom margin. Ratios are
-        relative to the height of the bottom margin.
+    [
+      #babel(
+        en: [
+          The amount the footer is lowered into the bottom margin. Ratios are
+          relative to the height of the bottom margin.
+        ],
+      )
 
-        ```preview
-        #set page(
-          height: 126pt,
-          width: 240pt,
-          margin: (top: 0pt, x: 20pt, bottom: 50pt),
-          numbering: (..nums) => box(
-            outset: (x: 50%),
-            fill: orange.lighten(50%),
-          )[6 / 8],
-          footer-descent: 47%,
-          foreground: place(bottom, {
-            let arrow(height) = math.stretch(
-              text(1.4em, sym.arrow.t.b),
-              size: height,
-            )
-            set text(
-              1.2em,
-              purple.darken(10%),
-              bottom-edge: "bounds",
-              top-edge: "bounds",
-            )
-            set par(leading: 0.5em)
-            import grid: cell
-            context grid(
-              align: center + horizon,
-              columns: (37%, 10%, 6%, 47%),
-              cell(rowspan: 2, align: right)[bottom\ margin],
-              cell(rowspan: 2, align: left, arrow(page.margin.bottom)),
-              arrow(page.margin.bottom * page.footer-descent.ratio),
-              cell(align: left)[footer descent],
-            )
-          }),
-        )
-        #block(width: 100%, height: 100%, fill: green.lighten(75%), {
-          set par(justify: true)
-          set text(luma(25%))
-          place(bottom, lorem(42))
-        })
-        ```
-      ],
-    ),
+      ```preview
+      #set page(
+        height: 126pt,
+        width: 240pt,
+        margin: (top: 0pt, x: 20pt, bottom: 50pt),
+        numbering: (..nums) => box(
+          outset: (x: 50%),
+          fill: orange.lighten(50%),
+        )[6 / 8],
+        footer-descent: 47%,
+        foreground: place(bottom, {
+          let arrow(height) = math.stretch(
+            text(1.4em, sym.arrow.t.b),
+            size: height,
+          )
+          set text(
+            1.2em,
+            purple.darken(10%),
+            bottom-edge: "bounds",
+            top-edge: "bounds",
+          )
+          set par(leading: 0.5em)
+          import grid: cell
+          context grid(
+            align: center + horizon,
+            columns: (37%, 10%, 6%, 47%),
+            cell(rowspan: 2, align: right)[bottom\ margin],
+            cell(rowspan: 2, align: left, arrow(page.margin.bottom)),
+            arrow(page.margin.bottom * page.footer-descent.ratio),
+            cell(align: left)[footer descent],
+          )
+        }),
+      )
+      #block(width: 100%, height: 100%, fill: green.lighten(75%), {
+        set par(justify: true)
+        set text(luma(25%))
+        place(bottom, lorem(42))
+      })
+      ```
+    ],
   ),
   "PageElem::background": (
     452,
-    babel(
-      en: [
-        Content in the page's background.
+    [
+      #babel(
+        en: [
+          Content in the page's background.
 
-        This content will be placed behind the page's body. It can be used to
-        place a background image or a watermark.
+          This content will be placed behind the page's body. It can be used to
+          place a background image or a watermark.
 
-        For convenience, @relative[relative lengths] are resolved against the
-        page size including the @page.bleed[page `bleed`] when used in
-        background content. For example, on a page that is `{100mm}` wide with a
-        `{5mm}` bleed, a width of `{100%}` is computed as `{5mm + 100mm + 5mm}`.
+          For convenience, @relative[relative lengths] are resolved against the
+          page size including the @page.bleed[page `bleed`] when used in
+          background content. For example, on a page that is `{100mm}` wide with a
+          `{5mm}` bleed, a width of `{100%}` is computed as `{5mm + 100mm + 5mm}`.
+        ],
+      )
 
-        ```example
-        #set page(background: rotate(24deg,
-          text(18pt, fill: rgb("FFCBC4"))[
-            *CONFIDENTIAL*
-          ]
-        ))
+      ```example
+      #set page(background: rotate(24deg,
+        text(18pt, fill: rgb("FFCBC4"))[
+          *CONFIDENTIAL*
+        ]
+      ))
 
-        = Typst's secret plans
-        In the year 2023, we plan to take
-        over the world (of typesetting).
-        ```
-      ],
-    ),
+      = Typst's secret plans
+      In the year 2023, we plan to take
+      over the world (of typesetting).
+      ```
+    ],
   ),
   "PageElem::foreground": (
     476,
-    babel(
-      en: [
-        Content in the page's foreground.
+    [
+      #babel(
+        en: [
+          Content in the page's foreground.
 
-        This content will overlay the page's body.
+          This content will overlay the page's body.
 
-        Relative lengths are resolved against the page size including
-        @page.bleed[`bleed`], following the same behavior as
-        @page.background[`background`].
+          Relative lengths are resolved against the page size including
+          @page.bleed[`bleed`], following the same behavior as
+          @page.background[`background`].
+        ],
+      )
 
-        ```example
-        #set page(foreground: text(24pt)[🤓])
+      ```example
+      #set page(foreground: text(24pt)[🤓])
 
-        Reviewer 2 has marked our paper
-        "Weak Reject" because they did
-        not understand our approach...
-        ```
-      ],
-    ),
+      Reviewer 2 has marked our paper
+      "Weak Reject" because they did
+      not understand our approach...
+      ```
+    ],
   ),
   "PageElem::body": (
     494,
@@ -546,32 +584,38 @@
   ),
   "PagebreakElem": (
     530,
-    babel(
-      en: [
-        A manual page break.
+    [
+      #babel(
+        en: [
+          A manual page break.
 
-        Must not be used inside any containers.
+          Must not be used inside any containers.
+        ],
+      )
 
-        = Example <example>
-        ```example
-        The next page contains
-        more details on compound theory.
-        #pagebreak()
+      = #babel(en: [Example]) <example>
+      ```example
+      The next page contains
+      more details on compound theory.
+      #pagebreak()
 
-        == Compound Theory
-        In 1984, the first ...
-        ```
+      == Compound Theory
+      In 1984, the first ...
+      ```
 
-        Even without manual page breaks, content will be automatically paginated
-        based on the configured page size. You can set @page.height[the page height]
-        to `{auto}` to let the page grow dynamically until a manual page break
-        occurs.
+      #babel(
+        en: [
+          Even without manual page breaks, content will be automatically paginated
+          based on the configured page size. You can set @page.height[the page height]
+          to `{auto}` to let the page grow dynamically until a manual page break
+          occurs.
 
-        Pagination tries to avoid single lines of text at the top or bottom of a
-        page (these are called _widows_ and _orphans_). You can adjust the
-        @text.costs parameter to disable this behavior.
-      ],
-    ),
+          Pagination tries to avoid single lines of text at the top or bottom of a
+          page (these are called _widows_ and _orphans_). You can adjust the
+          @text.costs parameter to disable this behavior.
+        ],
+      )
+    ],
   ),
   "PagebreakElem::weak": (
     554,
@@ -584,19 +628,21 @@
   ),
   "PagebreakElem::to": (
     559,
-    babel(
-      en: [
-        If given, ensures that the next page will be an even/odd page, with an
-        empty page in between if necessary.
+    [
+      #babel(
+        en: [
+          If given, ensures that the next page will be an even/odd page, with an
+          empty page in between if necessary.
+        ],
+      )
 
-        ```example
-        #set page(height: 30pt)
+      ```example
+      #set page(height: 30pt)
 
-        First.
-        #pagebreak(to: "odd")
-        Third.
-        ```
-      ],
-    ),
+      First.
+      #pagebreak(to: "odd")
+      Third.
+      ```
+    ],
   ),
 )

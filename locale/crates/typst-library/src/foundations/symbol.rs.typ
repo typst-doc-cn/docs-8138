@@ -2,64 +2,72 @@
 #let live-item-data = (
   "Symbol": (
     19,
-    babel(
-      en: [
-        A Unicode symbol.
+    [
+      #babel(
+        en: [
+          A Unicode symbol.
 
-        Typst defines common symbols so that they can easily be written with
-        standard keyboards. The symbols are defined in modules, from which they can
-        be accessed using @reference:scripting:fields[field access notation]:
+          Typst defines common symbols so that they can easily be written with
+          standard keyboards. The symbols are defined in modules, from which they can
+          be accessed using @reference:scripting:fields[field access notation]:
 
-        - General symbols are defined in the @sym[`sym` module] and are accessible
-          without the `sym.` prefix in math mode.
-        - Emoji are defined in the @emoji[`emoji` module]
+          - General symbols are defined in the @sym[`sym` module] and are accessible
+            without the `sym.` prefix in math mode.
+          - Emoji are defined in the @emoji[`emoji` module]
 
-        Moreover, you can define custom symbols with this type's constructor
-        function.
+          Moreover, you can define custom symbols with this type's constructor
+          function.
+        ],
+      )
 
-        ```example
-        #sym.arrow.r \
-        #sym.gt.eq.not \
-        $gt.eq.not$ \
-        #emoji.face.halo
-        ```
+      ```example
+      #sym.arrow.r \
+      #sym.gt.eq.not \
+      $gt.eq.not$ \
+      #emoji.face.halo
+      ```
 
-        Many symbols have different variants, which can be selected by appending the
-        modifiers with dot notation. The order of the modifiers is not relevant.
-        Visit the documentation pages of the symbol modules and click on a symbol to
-        see its available variants.
+      #babel(
+        en: [
+          Many symbols have different variants, which can be selected by appending the
+          modifiers with dot notation. The order of the modifiers is not relevant.
+          Visit the documentation pages of the symbol modules and click on a symbol to
+          see its available variants.
+        ],
+      )
 
-        ```example
-        $arrow.l$ \
-        $arrow.r$ \
-        $arrow.t.quad$
-        ```
-      ],
-    ),
+      ```example
+      $arrow.l$ \
+      $arrow.r$ \
+      $arrow.t.quad$
+      ```
+    ],
   ),
   "Symbol::construct": (
     201,
-    babel(
-      en: [
-        Create a custom symbol with modifiers.
+    [
+      #babel(
+        en: [
+          Create a custom symbol with modifiers.
+        ],
+      )
 
-        ```example
-        #let envelope = symbol(
-          "🖂",
-          ("stamped", "🖃"),
-          ("stamped.pen", "🖆"),
-          ("lightning", "🖄"),
-          ("fly", "🖅"),
-        )
+      ```example
+      #let envelope = symbol(
+        "🖂",
+        ("stamped", "🖃"),
+        ("stamped.pen", "🖆"),
+        ("lightning", "🖄"),
+        ("fly", "🖅"),
+      )
 
-        #envelope
-        #envelope.stamped
-        #envelope.stamped.pen
-        #envelope.lightning
-        #envelope.fly
-        ```
-      ],
-    ),
+      #envelope
+      #envelope.stamped
+      #envelope.stamped.pen
+      #envelope.lightning
+      #envelope.fly
+      ```
+    ],
   ),
   "Symbol::construct::variants": (
     221,

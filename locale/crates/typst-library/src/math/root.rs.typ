@@ -2,15 +2,17 @@
 #let live-item-data = (
   "sqrt": (
     6,
-    babel(
-      en: [
-        A square root.
+    [
+      #babel(
+        en: [
+          A square root.
+        ],
+      )
 
-        ```example
-        $ sqrt(3 - 2 sqrt(2)) = sqrt(2) - 1 $
-        ```
-      ],
-    ),
+      ```example
+      $ sqrt(3 - 2 sqrt(2)) = sqrt(2) - 1 $
+      ```
+    ],
   ),
   "sqrt::radicand": (
     14,
@@ -22,15 +24,17 @@
   ),
   "RootElem": (
     20,
-    babel(
-      en: [
-        A general root.
+    [
+      #babel(
+        en: [
+          A general root.
+        ],
+      )
 
-        ```example
-        $ root(3, x) $
-        ```
-      ],
-    ),
+      ```example
+      $ root(3, x) $
+      ```
+    ],
   ),
   "RootElem::index": (
     27,

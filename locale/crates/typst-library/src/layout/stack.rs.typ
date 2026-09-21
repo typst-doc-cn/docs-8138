@@ -2,29 +2,35 @@
 #let live-item-data = (
   "StackElem": (
     6,
-    babel(
-      en: [
-        Arranges content and spacing horizontally or vertically.
+    [
+      #babel(
+        en: [
+          Arranges content and spacing horizontally or vertically.
 
-        The stack places a list of items along an axis, with optional spacing
-        between each item.
+          The stack places a list of items along an axis, with optional spacing
+          between each item.
+        ],
+      )
 
-        = Example <example>
-        ```example
-        #stack(
-          dir: ttb,
-          rect(width: 40pt),
-          rect(width: 120pt),
-          rect(width: 90pt),
-        )
-        ```
+      = #babel(en: [Example]) <example>
+      ```example
+      #stack(
+        dir: ttb,
+        rect(width: 40pt),
+        rect(width: 120pt),
+        rect(width: 90pt),
+      )
+      ```
 
-        = Accessibility <accessibility>
-        Stacks do not carry any special semantics. The contents of the stack are
-        read by Assistive Technology (AT) in the order in which they have been
-        passed to this function.
-      ],
-    ),
+      = #babel(en: [Accessibility]) <accessibility>
+      #babel(
+        en: [
+          Stacks do not carry any special semantics. The contents of the stack are
+          read by Assistive Technology (AT) in the order in which they have been
+          passed to this function.
+        ],
+      )
+    ],
   ),
   "StackElem::dir": (
     27,

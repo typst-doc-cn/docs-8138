@@ -2,23 +2,29 @@
 #let live-item-data = (
   "FracElem": (
     11,
-    babel(
-      en: [
-        A mathematical fraction.
+    [
+      #babel(
+        en: [
+          A mathematical fraction.
+        ],
+      )
 
-        = Example <example>
-        ```example
-        $ 1/2 < (x+1)/2 $
-        $ ((x+1)) / 2 = frac(a, b) $
-        ```
+      = #babel(en: [Example]) <example>
+      ```example
+      $ 1/2 < (x+1)/2 $
+      $ ((x+1)) / 2 = frac(a, b) $
+      ```
 
-        = Syntax <syntax>
-        This function also has dedicated syntax: Use a slash to turn neighbouring
-        expressions into a fraction. Multiple atoms can be grouped into a single
-        expression using round grouping parentheses. Such parentheses are removed
-        from the output, but you can nest multiple to force them.
-      ],
-    ),
+      = #babel(en: [Syntax]) <syntax>
+      #babel(
+        en: [
+          This function also has dedicated syntax: Use a slash to turn neighbouring
+          expressions into a fraction. Multiple atoms can be grouped into a single
+          expression using round grouping parentheses. Such parentheses are removed
+          from the output, but you can nest multiple to force them.
+        ],
+      )
+    ],
   ),
   "FracElem::num": (
     26,
@@ -38,85 +44,89 @@
   ),
   "FracElem::style": (
     34,
-    babel(
-      en: [
-        How the fraction should be laid out.
+    [
+      #babel(
+        en: [
+          How the fraction should be laid out.
+        ],
+      )
 
-        #example(
-          title: "Styles",
-          ```
-          $ frac(x, y, style: "vertical") $
-          $ frac(x, y, style: "skewed") $
-          $ frac(x, y, style: "horizontal") $
-          ```,
-        )
+      #example(
+        title: "Styles",
+        ```
+        $ frac(x, y, style: "vertical") $
+        $ frac(x, y, style: "skewed") $
+        $ frac(x, y, style: "horizontal") $
+        ```,
+      )
 
-        #example(
-          title: "Setting the default",
-          ```
-          #set math.frac(style: "skewed")
-          $ a / b $
-          ```,
-        )
+      #example(
+        title: "Setting the default",
+        ```
+        #set math.frac(style: "skewed")
+        $ a / b $
+        ```,
+      )
 
-        #example(
-          title: "Handling of grouping parentheses",
-          ```
-          // Grouping parentheses are removed.
-          #set math.frac(style: "vertical")
-          $ (a + b) / b $
+      #example(
+        title: "Handling of grouping parentheses",
+        ```
+        // Grouping parentheses are removed.
+        #set math.frac(style: "vertical")
+        $ (a + b) / b $
 
-          // Grouping parentheses are removed.
-          #set math.frac(style: "skewed")
-          $ (a + b) / b $
+        // Grouping parentheses are removed.
+        #set math.frac(style: "skewed")
+        $ (a + b) / b $
 
-          // Grouping parentheses are retained.
-          #set math.frac(style: "horizontal")
-          $ (a + b) / b $
-          ```,
-        )
+        // Grouping parentheses are retained.
+        #set math.frac(style: "horizontal")
+        $ (a + b) / b $
+        ```,
+      )
 
-        #example(
-          title: "Different styles in inline vs block equations",
-          ```
-          // This changes the style for inline equations only.
-          #show math.equation.where(block: false): set math.frac(style: "horizontal")
+      #example(
+        title: "Different styles in inline vs block equations",
+        ```
+        // This changes the style for inline equations only.
+        #show math.equation.where(block: false): set math.frac(style: "horizontal")
 
-          This $(x-y)/z = 3$ is inline math, and this is block math:
-          $ (x-y)/z = 3 $
-          ```,
-        )
+        This $(x-y)/z = 3$ is inline math, and this is block math:
+        $ (x-y)/z = 3 $
+        ```,
+      )
 
-        #example(
-          title: "Use LaTeX-like convention",
-          ```
-          // Change the default style.
-          #set math.frac(style: "horizontal")
-          // Define a shorthand with the original style.
-          #let frac = math.frac.with(style: "vertical")
+      #example(
+        title: "Use LaTeX-like convention",
+        ```
+        // Change the default style.
+        #set math.frac(style: "horizontal")
+        // Define a shorthand with the original style.
+        #let frac = math.frac.with(style: "vertical")
 
-          $ p/q = frac(p, q) $
+        $ p/q = frac(p, q) $
 
-          // The shadowed definition can still be accessed.
-          #assert.eq($p/q$, $std.math.frac(p, q)$)
-          ```,
-        )
-      ],
-    ),
+        // The shadowed definition can still be accessed.
+        #assert.eq($p/q$, $std.math.frac(p, q)$)
+        ```,
+      )
+    ],
   ),
   "BinomElem": (
     126,
-    babel(
-      en: [
-        A binomial expression.
+    [
+      #babel(
+        en: [
+          A binomial expression.
+        ],
+      )
 
-        = Example <example>
-        ```example
-        $ binom(n, k) $
-        $ binom(n, k_1, k_2, k_3, ..., k_m) $
-        ```
-      ],
-    ),
+      = #babel(en: [Example]) <example>
+      ```example
+      $ binom(n, k) $
+      $ binom(n, k_1, k_2, k_3, ..., k_m) $
+      ```
+    ],
   ),
   "BinomElem::upper": (
     135,

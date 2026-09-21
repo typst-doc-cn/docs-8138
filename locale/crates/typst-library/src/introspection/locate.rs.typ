@@ -2,28 +2,34 @@
 #let live-item-data = (
   "locate": (
     9,
-    babel(
-      en: [
-        Determines the location of an element in the document.
+    [
+      #babel(
+        en: [
+          Determines the location of an element in the document.
 
-        Takes a selector that must match exactly one element and returns that
-        element's @location. This location can, in particular, be used to retrieve
-        the physical @location.page[`page`] number and
-        @location.position[`position`] (page, x, y) for that element.
+          Takes a selector that must match exactly one element and returns that
+          element's @location. This location can, in particular, be used to retrieve
+          the physical @location.page[`page`] number and
+          @location.position[`position`] (page, x, y) for that element.
+        ],
+      )
 
-        = Examples <examples>
-        Locating a specific element:
+      = #babel(en: [Examples]) <examples>
+      #babel(
+        en: [
+          Locating a specific element:
+        ],
+      )
 
-        ```example
-        #context [
-          Introduction is at: \
-          #locate(<intro>).position()
-        ]
+      ```example
+      #context [
+        Introduction is at: \
+        #locate(<intro>).position()
+      ]
 
-        = Introduction <intro>
-        ```
-      ],
-    ),
+      = Introduction <intro>
+      ```
+    ],
   ),
   "locate::selector": (
     32,

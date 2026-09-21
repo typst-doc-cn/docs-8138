@@ -2,210 +2,222 @@
 #let live-item-data = (
   "ParElem": (
     15,
-    babel(
-      en: [
-        A logical subdivison of textual content.
+    [
+      #babel(
+        en: [
+          A logical subdivison of textual content.
 
-        Typst automatically collects _inline-level_ elements into paragraphs.
-        Inline-level elements include @text[text], @h[horizontal spacing],
-        @box[boxes], and @math.equation[inline equations].
+          Typst automatically collects _inline-level_ elements into paragraphs.
+          Inline-level elements include @text[text], @h[horizontal spacing],
+          @box[boxes], and @math.equation[inline equations].
 
-        To separate paragraphs, use a blank line (or an explicit @parbreak).
-        Paragraphs are also automatically interrupted by any block-level element
-        (like @block, @place, or anything that shows itself as one of these).
+          To separate paragraphs, use a blank line (or an explicit @parbreak).
+          Paragraphs are also automatically interrupted by any block-level element
+          (like @block, @place, or anything that shows itself as one of these).
 
-        The `par` element is primarily used in set rules to affect paragraph
-        properties, but it can also be used to explicitly display its argument as a
-        paragraph of its own. Then, the paragraph's body may not contain any
-        block-level content.
+          The `par` element is primarily used in set rules to affect paragraph
+          properties, but it can also be used to explicitly display its argument as a
+          paragraph of its own. Then, the paragraph's body may not contain any
+          block-level content.
+        ],
+      )
 
-        = Boxes and blocks <boxes-and-blocks>
-        As explained above, usually paragraphs only contain inline-level content.
-        However, you can integrate any kind of block-level content into a paragraph
-        by wrapping it in a @box.
+      = #babel(en: [Boxes and blocks]) <boxes-and-blocks>
+      #babel(
+        en: [
+          As explained above, usually paragraphs only contain inline-level content.
+          However, you can integrate any kind of block-level content into a paragraph
+          by wrapping it in a @box.
 
-        Conversely, you can separate inline-level content from a paragraph by
-        wrapping it in a @block. In this case, it will not become part of any
-        paragraph at all. Read the following section for an explanation of why that
-        matters and how it differs from just adding paragraph breaks around the
-        content.
+          Conversely, you can separate inline-level content from a paragraph by
+          wrapping it in a @block. In this case, it will not become part of any
+          paragraph at all. Read the following section for an explanation of why that
+          matters and how it differs from just adding paragraph breaks around the
+          content.
+        ],
+      )
 
-        = What becomes a paragraph? <what-becomes-a-paragraph>
-        When you add inline-level content to your document, Typst will automatically
-        wrap it in paragraphs. However, a typical document also contains some text
-        that is not semantically part of a paragraph, for example in a heading or
-        caption.
+      = #babel(en: [What becomes a paragraph?]) <what-becomes-a-paragraph>
+      #babel(
+        en: [
+          When you add inline-level content to your document, Typst will automatically
+          wrap it in paragraphs. However, a typical document also contains some text
+          that is not semantically part of a paragraph, for example in a heading or
+          caption.
 
-        The rules for when Typst wraps inline-level content in a paragraph are as
-        follows:
+          The rules for when Typst wraps inline-level content in a paragraph are as
+          follows:
 
-        - All text at the root of a document is wrapped in paragraphs.
+          - All text at the root of a document is wrapped in paragraphs.
 
-        - Text in a container (like a `block`) is only wrapped in a paragraph if the
-          container holds any block-level content. If all of the contents are
-          inline-level, no paragraph is created.
+          - Text in a container (like a `block`) is only wrapped in a paragraph if the
+            container holds any block-level content. If all of the contents are
+            inline-level, no paragraph is created.
 
-        In the laid-out document, it's not immediately visible whether text became
-        part of a paragraph. However, it is still important for various reasons:
+          In the laid-out document, it's not immediately visible whether text became
+          part of a paragraph. However, it is still important for various reasons:
 
-        - Certain paragraph styling like `first-line-indent` will only apply to
-          proper paragraphs, not any text. Similarly, `par` show rules of course
-          only trigger on paragraphs.
+          - Certain paragraph styling like `first-line-indent` will only apply to
+            proper paragraphs, not any text. Similarly, `par` show rules of course
+            only trigger on paragraphs.
 
-        - A proper distinction between paragraphs and other text helps people who
-          rely on Assistive Technology (AT) (such as screen readers) navigate and
-          understand the document properly.
+          - A proper distinction between paragraphs and other text helps people who
+            rely on Assistive Technology (AT) (such as screen readers) navigate and
+            understand the document properly.
 
-        - PDF export will generate a `P` tag only for paragraphs.
+          - PDF export will generate a `P` tag only for paragraphs.
 
-        - HTML export will generate a `<p>` tag only for paragraphs.
+          - HTML export will generate a `<p>` tag only for paragraphs.
 
-        When creating custom reusable components, you can and should take charge
-        over whether Typst creates paragraphs. By wrapping text in a @block instead
-        of just adding paragraph breaks around it, you can force the absence of a
-        paragraph. Conversely, by adding a @parbreak after some content in a
-        container, you can force it to become a paragraph even if it's just one
-        word. This is, for example, what @list.tight[non-`tight`] lists do to force
-        their items to become paragraphs.
+          When creating custom reusable components, you can and should take charge
+          over whether Typst creates paragraphs. By wrapping text in a @block instead
+          of just adding paragraph breaks around it, you can force the absence of a
+          paragraph. Conversely, by adding a @parbreak after some content in a
+          container, you can force it to become a paragraph even if it's just one
+          word. This is, for example, what @list.tight[non-`tight`] lists do to force
+          their items to become paragraphs.
+        ],
+      )
 
-        = Example <example>
-        ```example
-        #set par(
-          first-line-indent: 1em,
-          spacing: 0.65em,
-          justify: true,
-        )
+      = #babel(en: [Example]) <example>
+      ```example
+      #set par(
+        first-line-indent: 1em,
+        spacing: 0.65em,
+        justify: true,
+      )
 
-        We proceed by contradiction.
-        Suppose that there exists a set
-        of positive integers $a$, $b$, and
-        $c$ that satisfies the equation
-        $a^n + b^n = c^n$ for some
-        integer value of $n > 2$.
+      We proceed by contradiction.
+      Suppose that there exists a set
+      of positive integers $a$, $b$, and
+      $c$ that satisfies the equation
+      $a^n + b^n = c^n$ for some
+      integer value of $n > 2$.
 
-        Without loss of generality,
-        let $a$ be the smallest of the
-        three integers. Then, we ...
-        ```
-      ],
-    ),
+      Without loss of generality,
+      let $a$ be the smallest of the
+      three integers. Then, we ...
+      ```
+    ],
   ),
   "ParElem::leading": (
     100,
-    babel(
-      en: [
-        The spacing between lines.
+    [
+      #babel(
+        en: [
+          The spacing between lines.
 
-        Leading defines the spacing between the @text.bottom-edge[bottom edge]
-        of one line and the @text.top-edge[top edge] of the following line. By
-        default, these two properties are up to the font, but they can also be
-        configured manually with a text set rule.
+          Leading defines the spacing between the @text.bottom-edge[bottom edge]
+          of one line and the @text.top-edge[top edge] of the following line. By
+          default, these two properties are up to the font, but they can also be
+          configured manually with a text set rule.
 
-        By setting top edge, bottom edge, and leading, you can also configure a
-        consistent baseline-to-baseline distance. You could, for instance, set
-        the leading to `{1em}`, the top-edge to `{0.8em}`, and the bottom-edge
-        to `{-0.2em}` to get a baseline gap of exactly `{2em}`. The exact
-        distribution of the top- and bottom-edge values affects the bounds of
-        the first and last line.
+          By setting top edge, bottom edge, and leading, you can also configure a
+          consistent baseline-to-baseline distance. You could, for instance, set
+          the leading to `{1em}`, the top-edge to `{0.8em}`, and the bottom-edge
+          to `{-0.2em}` to get a baseline gap of exactly `{2em}`. The exact
+          distribution of the top- and bottom-edge values affects the bounds of
+          the first and last line.
+        ],
+      )
 
-        ```preview
-        // Color palette
-        #let c = (
-          par-line: aqua.transparentize(60%),
-          leading-line: blue,
-          leading-text: blue.darken(20%),
-          spacing-line: orange.mix(red).darken(15%),
-          spacing-text: orange.mix(red).darken(20%),
-        )
+      ```preview
+      // Color palette
+      #let c = (
+        par-line: aqua.transparentize(60%),
+        leading-line: blue,
+        leading-text: blue.darken(20%),
+        spacing-line: orange.mix(red).darken(15%),
+        spacing-text: orange.mix(red).darken(20%),
+      )
 
-        // A sample text for measuring font metrics.
-        #let sample-text = [A]
+      // A sample text for measuring font metrics.
+      #let sample-text = [A]
 
-        // Number of lines in each paragraph
-        #let n-lines = (4, 4, 2)
-        #let annotated-lines = (4, 8)
+      // Number of lines in each paragraph
+      #let n-lines = (4, 4, 2)
+      #let annotated-lines = (4, 8)
 
-        // The wide margin is for annotations
-        #set page(width: 350pt, margin: (x: 20%))
+      // The wide margin is for annotations
+      #set page(width: 350pt, margin: (x: 20%))
 
-        #context {
-          let text-height = measure(sample-text).height
-          let line-height = text-height + par.leading.to-absolute()
+      #context {
+        let text-height = measure(sample-text).height
+        let line-height = text-height + par.leading.to-absolute()
 
-          let jumps = n-lines
-            .map(n => ((text-height,) * n).intersperse(par.leading))
-            .intersperse(par.spacing)
-            .flatten()
+        let jumps = n-lines
+          .map(n => ((text-height,) * n).intersperse(par.leading))
+          .intersperse(par.spacing)
+          .flatten()
 
-          place(grid(
-            ..jumps
-              .enumerate()
-              .map(((i, h)) => if calc.even(i) {
-                // Draw a stripe for the line
-                block(height: h, width: 100%, fill: c.par-line)
-              } else {
-                // Put an annotation for the gap
-                let sw(a, b) = if h == par.leading { a } else { b }
+        place(grid(
+          ..jumps
+            .enumerate()
+            .map(((i, h)) => if calc.even(i) {
+              // Draw a stripe for the line
+              block(height: h, width: 100%, fill: c.par-line)
+            } else {
+              // Put an annotation for the gap
+              let sw(a, b) = if h == par.leading { a } else { b }
 
-                align(end, block(
-                  height: h,
-                  outset: (right: sw(0.5em, 1em)),
-                  stroke: (
-                    left: none,
-                    rest: 0.5pt + sw(c.leading-line, c.spacing-line),
-                  ),
-                  if i / 2 <= sw(..annotated-lines) {
-                    place(horizon, dx: 1.3em, text(
-                      0.8em,
-                      sw(c.leading-text, c.spacing-text),
-                      sw([leading], [spacing]),
-                    ))
-                  },
-                ))
-              })
-          ))
-
-          // Mark top and bottom edges
-          place(
-            // pos: top/bottom edge
-            // dy: Δy to the last mark
-            // kind: leading/spacing
-            for (pos, dy, kind) in (
-              (bottom, text-height, "leading"),
-              (top, par.leading, "leading"),
-              (bottom, (n-lines.first() - 1) * line-height - par.leading, "spacing"),
-              (top, par.spacing, "spacing"),
-            ) {
-              v(dy)
-
-              let c-text = c.at(kind + "-text")
-              let c-line = c.at(kind + "-line")
-
-              place(end, box(
-                height: 0pt,
-                grid(
-                  columns: 2,
-                  column-gutter: 0.2em,
-                  align: pos,
-                  move(
-                    // Compensate optical illusion
-                    dy: if pos == top { -0.2em } else { 0.05em },
-                    text(0.8em, c-text)[#repr(pos) edge],
-                  ),
-                  line(length: 1em, stroke: 0.5pt + c-line),
+              align(end, block(
+                height: h,
+                outset: (right: sw(0.5em, 1em)),
+                stroke: (
+                  left: none,
+                  rest: 0.5pt + sw(c.leading-line, c.spacing-line),
                 ),
+                if i / 2 <= sw(..annotated-lines) {
+                  place(horizon, dx: 1.3em, text(
+                    0.8em,
+                    sw(c.leading-text, c.spacing-text),
+                    sw([leading], [spacing]),
+                  ))
+                },
               ))
-            },
-          )
-        }
+            })
+        ))
 
-        #set par(justify: true)
-        #set text(luma(25%), overhang: false)
-        #show ". ": it => it + parbreak()
-        #lorem(55)
-        ```
-      ],
-    ),
+        // Mark top and bottom edges
+        place(
+          // pos: top/bottom edge
+          // dy: Δy to the last mark
+          // kind: leading/spacing
+          for (pos, dy, kind) in (
+            (bottom, text-height, "leading"),
+            (top, par.leading, "leading"),
+            (bottom, (n-lines.first() - 1) * line-height - par.leading, "spacing"),
+            (top, par.spacing, "spacing"),
+          ) {
+            v(dy)
+
+            let c-text = c.at(kind + "-text")
+            let c-line = c.at(kind + "-line")
+
+            place(end, box(
+              height: 0pt,
+              grid(
+                columns: 2,
+                column-gutter: 0.2em,
+                align: pos,
+                move(
+                  // Compensate optical illusion
+                  dy: if pos == top { -0.2em } else { 0.05em },
+                  text(0.8em, c-text)[#repr(pos) edge],
+                ),
+                line(length: 1em, stroke: 0.5pt + c-line),
+              ),
+            ))
+          },
+        )
+      }
+
+      #set par(justify: true)
+      #set text(luma(25%), overhang: false)
+      #show ". ": it => it + parbreak()
+      #lorem(55)
+      ```
+    ],
   ),
   "ParElem::spacing": (
     213,
@@ -248,209 +260,217 @@
   ),
   "ParElem::justification_limits": (
     244,
-    babel(
-      en: [
-        How much the spacing between words and characters may be adjusted during
-        justification.
+    [
+      #babel(
+        en: [
+          How much the spacing between words and characters may be adjusted during
+          justification.
 
-        When justifying text, Typst needs to stretch or shrink a line to the
-        full width of the measure. To achieve this, by default, it adjusts the
-        spacing between words. Additionally, it can also adjust the spacing
-        between individual characters. This property allows you to configure
-        lower and upper bounds for these adjustments.
+          When justifying text, Typst needs to stretch or shrink a line to the
+          full width of the measure. To achieve this, by default, it adjusts the
+          spacing between words. Additionally, it can also adjust the spacing
+          between individual characters. This property allows you to configure
+          lower and upper bounds for these adjustments.
 
-        The property accepts a dictionary with two entries, `spacing` and
-        `tracking`, each containing a dictionary with the keys `min` and `max`.
-        The `min` keys define down to which lower bound gaps may be shrunk while
-        the `max` keys define up to which upper bound they may be stretched.
+          The property accepts a dictionary with two entries, `spacing` and
+          `tracking`, each containing a dictionary with the keys `min` and `max`.
+          The `min` keys define down to which lower bound gaps may be shrunk while
+          the `max` keys define up to which upper bound they may be stretched.
 
-        - The `spacing` entry defines how much the width of spaces between words
-          may be adjusted. It is closely related to @text.spacing and its `min`
-          and `max` keys accept @relative[relative lengths], just like the
-          `spacing` property.
+          - The `spacing` entry defines how much the width of spaces between words
+            may be adjusted. It is closely related to @text.spacing and its `min`
+            and `max` keys accept @relative[relative lengths], just like the
+            `spacing` property.
 
-          A `min` value of `{100%}` means that spaces should retain their normal
-          size (i.e. not be shrunk), while a value of `{90% - 0.01em}` would
-          indicate that a space can be shrunk to a width of 90% of its normal
-          width minus 0.01× the current font size. Similarly, a `max` value of
-          `{100% + 0.02em}` means that a space's width can be increased by 0.02×
-          the current font size. The ratio part must always be positive. The
-          length part, meanwhile, must not be positive for `min` and not be
-          negative for `max`.
+            A `min` value of `{100%}` means that spaces should retain their normal
+            size (i.e. not be shrunk), while a value of `{90% - 0.01em}` would
+            indicate that a space can be shrunk to a width of 90% of its normal
+            width minus 0.01× the current font size. Similarly, a `max` value of
+            `{100% + 0.02em}` means that a space's width can be increased by 0.02×
+            the current font size. The ratio part must always be positive. The
+            length part, meanwhile, must not be positive for `min` and not be
+            negative for `max`.
 
-          Note that spaces may still be expanded beyond the `max` value if there
-          is no way to justify the line otherwise. However, other means of
-          justification (e.g. spacing apart characters if the `tracking` entry
-          is configured accordingly) are first used to their maximum.
+            Note that spaces may still be expanded beyond the `max` value if there
+            is no way to justify the line otherwise. However, other means of
+            justification (e.g. spacing apart characters if the `tracking` entry
+            is configured accordingly) are first used to their maximum.
 
-        - The `tracking` entry defines how much the spacing between letters may
-          be adjusted. It is closely related to @text.tracking and its `min` and
-          `max` keys accept @length[lengths], just like the `tracking` property.
-          Unlike `spacing`, it does not accept relative lengths because the base
-          of the relative length would vary for each character, leading to an
-          uneven visual appearance. The behavior compared to `spacing` is as if
-          the base was `{100%}`.
+          - The `tracking` entry defines how much the spacing between letters may
+            be adjusted. It is closely related to @text.tracking and its `min` and
+            `max` keys accept @length[lengths], just like the `tracking` property.
+            Unlike `spacing`, it does not accept relative lengths because the base
+            of the relative length would vary for each character, leading to an
+            uneven visual appearance. The behavior compared to `spacing` is as if
+            the base was `{100%}`.
 
-          Otherwise, the `min` and `max` values work just like for `spacing`. A
-          `max` value of `{0.01em}` means that additional spacing amounting to
-          0.01× of the current font size may be inserted between every pair of
-          characters. Note that this also includes the gaps between spaces and
-          characters, so for spaces the values of `tracking` act in addition to
-          the values for `spacing`.
+            Otherwise, the `min` and `max` values work just like for `spacing`. A
+            `max` value of `{0.01em}` means that additional spacing amounting to
+            0.01× of the current font size may be inserted between every pair of
+            characters. Note that this also includes the gaps between spaces and
+            characters, so for spaces the values of `tracking` act in addition to
+            the values for `spacing`.
 
-        If you only specify one of `spacing` or `tracking`, the other retains
-        its previously set value (or the default if it was not previously set).
+          If you only specify one of `spacing` or `tracking`, the other retains
+          its previously set value (or the default if it was not previously set).
 
-        If you want to enable character-level justification, a good value for
-        the `min` and `max` keys is around `{0.01em}` to `{0.02em}` (negated for
-        `min`). Using the same value for both gives a good baseline, but
-        tweaking the two values individually may produce more balanced results,
-        as demonstrated in the example below. Be careful not to set the bounds
-        too wide, as it quickly looks unnatural.
+          If you want to enable character-level justification, a good value for
+          the `min` and `max` keys is around `{0.01em}` to `{0.02em}` (negated for
+          `min`). Using the same value for both gives a good baseline, but
+          tweaking the two values individually may produce more balanced results,
+          as demonstrated in the example below. Be careful not to set the bounds
+          too wide, as it quickly looks unnatural.
 
-        Using character-level justification is an impactful microtypographical
-        technique that can improve the appearance of justified text, especially
-        in narrow columns. Note though that character-level justification does
-        not work with every font or language. For example, cursive fonts connect
-        letters. Using character-level justification would lead to jagged
-        connections.
+          Using character-level justification is an impactful microtypographical
+          technique that can improve the appearance of justified text, especially
+          in narrow columns. Note though that character-level justification does
+          not work with every font or language. For example, cursive fonts connect
+          letters. Using character-level justification would lead to jagged
+          connections.
+        ],
+      )
 
-        #example(
-          title: "Character-level justification",
-          ```
-          #let example(name) = columns(2, gutter: 10pt)[
-            #place(top, float: true, scope: "parent", strong(name))
-          >>> Anne Christine Bayley (1~June 1934 – 31~December 2024) was an
-          >>> English surgeon. She was awarded the Order of the British Empire
-          >>> for her research into HIV/AIDS patients in Zambia and for
-          >>> documenting the spread of the disease among heterosexual patients in
-          >>> Africa. In addition to her clinical work, she was a lecturer and
-          >>> head of the surgery department at the University of Zambia School of
-          >>> Medicine. In the 1990s, she returned to England, where she was
-          >>> ordained as an Anglican priest. She continued to be active in Africa
-          >>> throughout her retirement years.
-          <<<   /* Text from https://en.wikipedia.org/wiki/Anne_Bayley */
-          ]
+      #example(
+        title: "Character-level justification",
+        ```
+        #let example(name) = columns(2, gutter: 10pt)[
+          #place(top, float: true, scope: "parent", strong(name))
+        >>> Anne Christine Bayley (1~June 1934 – 31~December 2024) was an
+        >>> English surgeon. She was awarded the Order of the British Empire
+        >>> for her research into HIV/AIDS patients in Zambia and for
+        >>> documenting the spread of the disease among heterosexual patients in
+        >>> Africa. In addition to her clinical work, she was a lecturer and
+        >>> head of the surgery department at the University of Zambia School of
+        >>> Medicine. In the 1990s, she returned to England, where she was
+        >>> ordained as an Anglican priest. She continued to be active in Africa
+        >>> throughout her retirement years.
+        <<<   /* Text from https://en.wikipedia.org/wiki/Anne_Bayley */
+        ]
 
-          #set page(width: 440pt, height: 21em, margin: 15pt)
-          #set par(justify: true)
-          #set text(size: 0.8em)
+        #set page(width: 440pt, height: 21em, margin: 15pt)
+        #set par(justify: true)
+        #set text(size: 0.8em)
 
-          #grid(
-            columns: (1fr, 1fr),
-            gutter: 20pt,
-            {
-              // These are Typst's default limits.
-              set par(justification-limits: (
-                spacing: (min: 100% * 2 / 3, max: 150%),
-                tracking: (min: 0em, max: 0em),
-              ))
-              example[Word-level justification]
-            },
-            {
-              // These are our custom character-level limits.
-              set par(justification-limits: (
-                tracking: (min: -0.01em, max: 0.02em),
-              ))
-              example[Character-level justification]
-            },
-          )
-          ```,
+        #grid(
+          columns: (1fr, 1fr),
+          gutter: 20pt,
+          {
+            // These are Typst's default limits.
+            set par(justification-limits: (
+              spacing: (min: 100% * 2 / 3, max: 150%),
+              tracking: (min: 0em, max: 0em),
+            ))
+            example[Word-level justification]
+          },
+          {
+            // These are our custom character-level limits.
+            set par(justification-limits: (
+              tracking: (min: -0.01em, max: 0.02em),
+            ))
+            example[Character-level justification]
+          },
         )
-      ],
-    ),
+        ```,
+      )
+    ],
   ),
   "ParElem::linebreaks": (
     354,
-    babel(
-      en: [
-        How to determine line breaks.
+    [
+      #babel(
+        en: [
+          How to determine line breaks.
 
-        When this property is set to `{auto}`, its default value, optimized line
-        breaks will be used for justified paragraphs. Enabling optimized line
-        breaks for ragged paragraphs may also be worthwhile to improve the
-        appearance of the text.
+          When this property is set to `{auto}`, its default value, optimized line
+          breaks will be used for justified paragraphs. Enabling optimized line
+          breaks for ragged paragraphs may also be worthwhile to improve the
+          appearance of the text.
+        ],
+      )
 
-        ```example
-        #set page(width: 207pt)
-        #set par(linebreaks: "simple")
-        Some texts feature many longer
-        words. Those are often exceedingly
-        challenging to break in a visually
-        pleasing way.
+      ```example
+      #set page(width: 207pt)
+      #set par(linebreaks: "simple")
+      Some texts feature many longer
+      words. Those are often exceedingly
+      challenging to break in a visually
+      pleasing way.
 
-        #set par(linebreaks: "optimized")
-        Some texts feature many longer
-        words. Those are often exceedingly
-        challenging to break in a visually
-        pleasing way.
-        ```
-      ],
-    ),
+      #set par(linebreaks: "optimized")
+      Some texts feature many longer
+      words. Those are often exceedingly
+      challenging to break in a visually
+      pleasing way.
+      ```
+    ],
   ),
   "ParElem::first_line_indent": (
     377,
-    babel(
-      en: [
-        The indent the first line of a paragraph should have.
+    [
+      #babel(
+        en: [
+          The indent the first line of a paragraph should have.
 
-        By default, only the first line of a consecutive paragraph will be
-        indented (not the first one in the document or container, and not
-        paragraphs immediately following other block-level elements).
+          By default, only the first line of a consecutive paragraph will be
+          indented (not the first one in the document or container, and not
+          paragraphs immediately following other block-level elements).
 
-        If you want to indent all paragraphs instead, you can pass a dictionary
-        containing the `amount` of indent as a length and the pair
-        `{all: true}`. When `all` is omitted from the dictionary, it defaults to
-        `{false}`.
+          If you want to indent all paragraphs instead, you can pass a dictionary
+          containing the `amount` of indent as a length and the pair
+          `{all: true}`. When `all` is omitted from the dictionary, it defaults to
+          `{false}`.
 
-        By typographic convention, paragraph breaks are indicated either by some
-        space between paragraphs or by indented first lines. Consider
-        - reducing the @par.spacing[paragraph `spacing`] to the
-          @par.leading[`leading`] using `{set par(spacing: 0.65em)}`
-        - increasing the @block.spacing[block `spacing`] (which inherits the
-          paragraph spacing by default) to the original paragraph spacing using
-          `{set block(spacing: 1.2em)}`
+          By typographic convention, paragraph breaks are indicated either by some
+          space between paragraphs or by indented first lines. Consider
+          - reducing the @par.spacing[paragraph `spacing`] to the
+            @par.leading[`leading`] using `{set par(spacing: 0.65em)}`
+          - increasing the @block.spacing[block `spacing`] (which inherits the
+            paragraph spacing by default) to the original paragraph spacing using
+            `{set block(spacing: 1.2em)}`
+        ],
+      )
 
-        ```example
-        #set block(spacing: 1.2em)
-        #set par(
-          first-line-indent: 1.5em,
-          spacing: 0.65em,
-        )
+      ```example
+      #set block(spacing: 1.2em)
+      #set par(
+        first-line-indent: 1.5em,
+        spacing: 0.65em,
+      )
 
-        The first paragraph is not affected
-        by the indent.
+      The first paragraph is not affected
+      by the indent.
 
-        But the second paragraph is.
+      But the second paragraph is.
 
-        #line(length: 100%)
+      #line(length: 100%)
 
-        #set par(first-line-indent: (
-          amount: 1.5em,
-          all: true,
-        ))
+      #set par(first-line-indent: (
+        amount: 1.5em,
+        all: true,
+      ))
 
-        Now all paragraphs are affected
-        by the first line indent.
+      Now all paragraphs are affected
+      by the first line indent.
 
-        Even the first one.
-        ```
-      ],
-    ),
+      Even the first one.
+      ```
+    ],
   ),
   "ParElem::hanging_indent": (
     423,
-    babel(
-      en: [
-        The indent that all but the first line of a paragraph should have.
+    [
+      #babel(
+        en: [
+          The indent that all but the first line of a paragraph should have.
+        ],
+      )
 
-        ```example
-        #set par(hanging-indent: 1em)
+      ```example
+      #set par(hanging-indent: 1em)
 
-        #lorem(15)
-        ```
-      ],
-    ),
+      #lorem(15)
+      ```
+    ],
   ),
   "ParElem::body": (
     432,
@@ -462,214 +482,240 @@
   ),
   "ParbreakElem": (
     707,
-    babel(
-      en: [
-        A paragraph break.
+    [
+      #babel(
+        en: [
+          A paragraph break.
 
-        This starts a new paragraph. Especially useful when used within code like
-        @reference:scripting:loops[for loops]. Multiple consecutive paragraph breaks
-        collapse into a single one.
+          This starts a new paragraph. Especially useful when used within code like
+          @reference:scripting:loops[for loops]. Multiple consecutive paragraph breaks
+          collapse into a single one.
+        ],
+      )
 
-        = Example <example>
-        ```example
-        #for i in range(3) {
-          [Blind text #i: ]
-          lorem(5)
-          parbreak()
-        }
-        ```
+      = #babel(en: [Example]) <example>
+      ```example
+      #for i in range(3) {
+        [Blind text #i: ]
+        lorem(5)
+        parbreak()
+      }
+      ```
 
-        = Syntax <syntax>
-        Instead of calling this function, you can insert a blank line into your
-        markup to create a paragraph break.
-      ],
-    ),
+      = #babel(en: [Syntax]) <syntax>
+      #babel(
+        en: [
+          Instead of calling this function, you can insert a blank line into your
+          markup to create a paragraph break.
+        ],
+      )
+    ],
   ),
   "ParLine": (
     737,
-    babel(
-      en: [
-        A paragraph line.
+    [
+      #babel(
+        en: [
+          A paragraph line.
 
-        This element is exclusively used for line number configuration through set
-        rules and cannot be placed.
+          This element is exclusively used for line number configuration through set
+          rules and cannot be placed.
 
-        The @par.line.numbering[`numbering`] option is used to enable line numbers
-        by specifying a numbering format.
+          The @par.line.numbering[`numbering`] option is used to enable line numbers
+          by specifying a numbering format.
+        ],
+      )
 
-        ```example
-        >>> #set page(margin: (left: 3em))
-        #set par.line(numbering: "1")
+      ```example
+      >>> #set page(margin: (left: 3em))
+      #set par.line(numbering: "1")
 
-        Roses are red. \
-        Violets are blue. \
-        Typst is there for you.
-        ```
+      Roses are red. \
+      Violets are blue. \
+      Typst is there for you.
+      ```
 
-        The `numbering` option takes either a predefined
-        @numbering[numbering pattern] or a function returning styled content. You
-        can disable line numbers for text inside certain elements by setting the
-        numbering to `{none}` using show-set rules.
+      #babel(
+        en: [
+          The `numbering` option takes either a predefined
+          @numbering[numbering pattern] or a function returning styled content. You
+          can disable line numbers for text inside certain elements by setting the
+          numbering to `{none}` using show-set rules.
+        ],
+      )
 
-        ```example
-        >>> #set page(margin: (left: 3em))
-        // Styled red line numbers.
-        #set par.line(
-          numbering: n => text(red)[#n]
-        )
+      ```example
+      >>> #set page(margin: (left: 3em))
+      // Styled red line numbers.
+      #set par.line(
+        numbering: n => text(red)[#n]
+      )
 
-        // Disable numbers inside figures.
-        #show figure: set par.line(
-          numbering: none
-        )
+      // Disable numbers inside figures.
+      #show figure: set par.line(
+        numbering: none
+      )
 
-        Roses are red. \
-        Violets are blue.
+      Roses are red. \
+      Violets are blue.
 
-        #figure(
-          caption: [Without line numbers.]
-        )[
-          Lorem ipsum \
-          dolor sit amet
-        ]
+      #figure(
+        caption: [Without line numbers.]
+      )[
+        Lorem ipsum \
+        dolor sit amet
+      ]
 
-        The text above is a sample \
-        originating from distant times.
-        ```
+      The text above is a sample \
+      originating from distant times.
+      ```
 
-        This element exposes further options which may be used to control other
-        aspects of line numbering, such as its @par.line.number-align[alignment] or
-        @par.line.number-margin[margin]. In addition, you can control whether the
-        numbering is reset on each page through the
-        @par.line.numbering-scope[`numbering-scope`] option.
-      ],
-    ),
+      #babel(
+        en: [
+          This element exposes further options which may be used to control other
+          aspects of line numbering, such as its @par.line.number-align[alignment] or
+          @par.line.number-margin[margin]. In addition, you can control whether the
+          numbering is reset on each page through the
+          @par.line.numbering-scope[`numbering-scope`] option.
+        ],
+      )
+    ],
   ),
   "ParLine::numbering": (
     792,
-    babel(
-      en: [
-        How to number each line. Accepts a
-        @numbering[numbering pattern or function] taking a single number.
+    [
+      #babel(
+        en: [
+          How to number each line. Accepts a
+          @numbering[numbering pattern or function] taking a single number.
+        ],
+      )
 
-        ```example
-        >>> #set page(margin: (left: 3em))
-        #set par.line(numbering: "I")
+      ```example
+      >>> #set page(margin: (left: 3em))
+      #set par.line(numbering: "I")
 
-        Roses are red. \
-        Violets are blue. \
-        Typst is there for you.
-        ```
+      Roses are red. \
+      Violets are blue. \
+      Typst is there for you.
+      ```
 
-        ```example
-        >>> #set page(width: 200pt, margin: (left: 3em))
-        #set par.line(
-          numbering: i => if calc.rem(i, 5) == 0 or i == 1 { i },
-        )
+      ```example
+      >>> #set page(width: 200pt, margin: (left: 3em))
+      #set par.line(
+        numbering: i => if calc.rem(i, 5) == 0 or i == 1 { i },
+      )
 
-        #lorem(60)
-        ```
-      ],
-    ),
+      #lorem(60)
+      ```
+    ],
   ),
   "ParLine::number_align": (
     815,
-    babel(
-      en: [
-        The alignment of line numbers associated with each line.
+    [
+      #babel(
+        en: [
+          The alignment of line numbers associated with each line.
 
-        The default of `{auto}` indicates a smart default where numbers grow
-        horizontally away from the text, considering the margin they're in and
-        the current text direction.
+          The default of `{auto}` indicates a smart default where numbers grow
+          horizontally away from the text, considering the margin they're in and
+          the current text direction.
+        ],
+      )
 
-        ```example
-        >>> #set page(margin: (left: 3em))
-        #set par.line(
-          numbering: "I",
-          number-align: left,
-        )
+      ```example
+      >>> #set page(margin: (left: 3em))
+      #set par.line(
+        numbering: "I",
+        number-align: left,
+      )
 
-        Hello world! \
-        Today is a beautiful day \
-        For exploring the world.
-        ```
-      ],
-    ),
+      Hello world! \
+      Today is a beautiful day \
+      For exploring the world.
+      ```
+    ],
   ),
   "ParLine::number_margin": (
     835,
-    babel(
-      en: [
-        The margin at which line numbers appear.
+    [
+      #babel(
+        en: [
+          The margin at which line numbers appear.
 
-        _Note:_ In a multi-column document, the line numbers for paragraphs
-        inside the last column will always appear on the `{end}` margin (right
-        margin for left-to-right text and left margin for right-to-left),
-        regardless of this configuration. That behavior cannot be changed at
-        this moment.
+          _Note:_ In a multi-column document, the line numbers for paragraphs
+          inside the last column will always appear on the `{end}` margin (right
+          margin for left-to-right text and left margin for right-to-left),
+          regardless of this configuration. That behavior cannot be changed at
+          this moment.
+        ],
+      )
 
-        ```example
-        >>> #set page(margin: (right: 3em))
-        #set par.line(
-          numbering: "1",
-          number-margin: right,
-        )
+      ```example
+      >>> #set page(margin: (right: 3em))
+      #set par.line(
+        numbering: "1",
+        number-margin: right,
+      )
 
-        = Report
-        - Brightness: Dark, yet darker
-        - Readings: Negative
-        ```
-      ],
-    ),
+      = Report
+      - Brightness: Dark, yet darker
+      - Readings: Negative
+      ```
+    ],
   ),
   "ParLine::number_clearance": (
     858,
-    babel(
-      en: [
-        The distance between line numbers and text.
+    [
+      #babel(
+        en: [
+          The distance between line numbers and text.
 
-        The default value of `{auto}` results in a clearance that is adaptive to
-        the page width and yields reasonable results in most cases.
+          The default value of `{auto}` results in a clearance that is adaptive to
+          the page width and yields reasonable results in most cases.
+        ],
+      )
 
-        ```example
-        >>> #set page(margin: (left: 3em))
-        #set par.line(
-          numbering: "1",
-          number-clearance: 4pt,
-        )
+      ```example
+      >>> #set page(margin: (left: 3em))
+      #set par.line(
+        numbering: "1",
+        number-clearance: 4pt,
+      )
 
-        Typesetting \
-        Styling \
-        Layout
-        ```
-      ],
-    ),
+      Typesetting \
+      Styling \
+      Layout
+      ```
+    ],
   ),
   "ParLine::numbering_scope": (
     878,
-    babel(
-      en: [
-        Controls when to reset line numbering.
+    [
+      #babel(
+        en: [
+          Controls when to reset line numbering.
 
-        _Note:_ The line numbering scope must be uniform across each page run (a
-        page run is a sequence of pages without an explicit pagebreak in
-        between). For this reason, set rules for it should be defined before any
-        page content, typically at the very start of the document.
+          _Note:_ The line numbering scope must be uniform across each page run (a
+          page run is a sequence of pages without an explicit pagebreak in
+          between). For this reason, set rules for it should be defined before any
+          page content, typically at the very start of the document.
+        ],
+      )
 
-        ```example
-        >>> #set page(margin: (left: 3em))
-        #set par.line(
-          numbering: "1",
-          numbering-scope: "page",
-        )
+      ```example
+      >>> #set page(margin: (left: 3em))
+      #set par.line(
+        numbering: "1",
+        numbering-scope: "page",
+      )
 
-        First line \
-        Second line
-        #pagebreak()
-        First line again \
-        Second line again
-        ```
-      ],
-    ),
+      First line \
+      Second line
+      #pagebreak()
+      First line again \
+      Second line again
+      ```
+    ],
   ),
 )

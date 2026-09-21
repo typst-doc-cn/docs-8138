@@ -2,175 +2,189 @@
 #let live-item-data = (
   "AccentElem": (
     20,
-    babel(
-      en: [
-        Attaches an accent to a base.
+    [
+      #babel(
+        en: [
+          Attaches an accent to a base.
 
-        In math mode, common accents are also available as named @symbol[symbols]
-        that can be directly called (like @function[functions]) to attach them to
-        some content.
+          In math mode, common accents are also available as named @symbol[symbols]
+          that can be directly called (like @function[functions]) to attach them to
+          some content.
+        ],
+      )
 
-        = Example <example>
-        ```example
-        $grave(a) = accent(a, `)$ \
-        $arrow(a) = accent(a, arrow)$ \
-        $tilde(a) = accent(a, \u{0303})$
-        ```
-      ],
-    ),
+      = #babel(en: [Example]) <example>
+      ```example
+      $grave(a) = accent(a, `)$ \
+      $arrow(a) = accent(a, arrow)$ \
+      $tilde(a) = accent(a, \u{0303})$
+      ```
+    ],
   ),
   "AccentElem::base": (
     34,
-    babel(
-      en: [
-        The base to which the accent is applied. May consist of multiple
-        letters.
+    [
+      #babel(
+        en: [
+          The base to which the accent is applied. May consist of multiple
+          letters.
+        ],
+      )
 
-        ```example
-        $arrow(A B C)$
-        ```
-      ],
-    ),
+      ```example
+      $arrow(A B C)$
+      ```
+    ],
   ),
   "AccentElem::accent": (
     43,
-    babel(
-      en: [
-        The accent to apply to the base.
+    [
+      #babel(
+        en: [
+          The accent to apply to the base.
 
-        Supported accents include:
+          Supported accents include:
+        ],
+      )
 
-        #docs-table(
-          table.header[Accent][Name][Codepoint],
+      #docs-table(
+        table.header[Accent][Name][Codepoint],
 
-          [Grave],
-          [`grave`],
-          [``` ` ```],
+        [Grave],
+        [`grave`],
+        [``` ` ```],
 
-          [Acute],
-          [`acute`],
-          [`´`],
+        [Acute],
+        [`acute`],
+        [`´`],
 
-          [Circumflex],
-          [`hat`],
-          [`^`],
+        [Circumflex],
+        [`hat`],
+        [`^`],
 
-          [Tilde],
-          [`tilde`],
-          [`~`],
+        [Tilde],
+        [`tilde`],
+        [`~`],
 
-          [Macron],
-          [`macron`],
-          [`¯`],
+        [Macron],
+        [`macron`],
+        [`¯`],
 
-          [Dash],
-          [`dash`],
-          [`‾`],
+        [Dash],
+        [`dash`],
+        [`‾`],
 
-          [Breve],
-          [`breve`],
-          [`˘`],
+        [Breve],
+        [`breve`],
+        [`˘`],
 
-          [Dot],
-          [`dot`],
-          [`.`],
+        [Dot],
+        [`dot`],
+        [`.`],
 
-          [Double dot, Diaeresis],
-          [`dot.double`, `diaer`],
-          [`¨`],
+        [Double dot, Diaeresis],
+        [`dot.double`, `diaer`],
+        [`¨`],
 
-          [Triple dot],
-          [`dot.triple`],
-          raw(lang: "typ", "\\u{20db}"),
+        [Triple dot],
+        [`dot.triple`],
+        raw(lang: "typ", "\\u{20db}"),
 
-          [Quadruple dot],
-          [`dot.quad`],
-          raw(lang: "typ", "\\u{20dc}"),
+        [Quadruple dot],
+        [`dot.quad`],
+        raw(lang: "typ", "\\u{20dc}"),
 
-          [Circle],
-          [`circle`],
-          [`∘`],
+        [Circle],
+        [`circle`],
+        [`∘`],
 
-          [Double acute],
-          [`acute.double`],
-          [`˝`],
+        [Double acute],
+        [`acute.double`],
+        [`˝`],
 
-          [Caron],
-          [`caron`],
-          [`ˇ`],
+        [Caron],
+        [`caron`],
+        [`ˇ`],
 
-          [Right arrow],
-          [`arrow`, `->`],
-          [`→`],
+        [Right arrow],
+        [`arrow`, `->`],
+        [`→`],
 
-          [Left arrow],
-          [`arrow.l`, `<-`],
-          [`←`],
+        [Left arrow],
+        [`arrow.l`, `<-`],
+        [`←`],
 
-          [Left/Right arrow],
-          [`arrow.l.r`],
-          [`↔`],
+        [Left/Right arrow],
+        [`arrow.l.r`],
+        [`↔`],
 
-          [Right harpoon],
-          [`harpoon`],
-          [`⇀`],
+        [Right harpoon],
+        [`harpoon`],
+        [`⇀`],
 
-          [Left harpoon],
-          [`harpoon.lt`],
-          [`↼`],
-        )
-      ],
-    ),
+        [Left harpoon],
+        [`harpoon.lt`],
+        [`↼`],
+      )
+    ],
   ),
   "AccentElem::size": (
     129,
-    babel(
-      en: [
-        The size of the accent, relative to the width of the base.
+    [
+      #babel(
+        en: [
+          The size of the accent, relative to the width of the base.
+        ],
+      )
 
-        #example(
-          title: "Basic usage",
-          ```
-          $dash(A, size: #150%)$
-          ```,
-        )
+      #example(
+        title: "Basic usage",
+        ```
+        $dash(A, size: #150%)$
+        ```,
+      )
 
-        Note that the resulting accent may not have the exact desired size. For
-        example, an arrow may be either a pre-defined short glyph, or a long
-        glyph assembled from building blocks (arrowhead + line) provided by the
-        font. The sizes of the two possibilities may not cover the entire span.
-        Consequently, arrows of certain intermediate sizes cannot be
-        constructed.
+      #babel(
+        en: [
+          Note that the resulting accent may not have the exact desired size. For
+          example, an arrow may be either a pre-defined short glyph, or a long
+          glyph assembled from building blocks (arrowhead + line) provided by the
+          font. The sizes of the two possibilities may not cover the entire span.
+          Consequently, arrows of certain intermediate sizes cannot be
+          constructed.
+        ],
+      )
 
-        #example(
-          title: "Size of arrow growing discontinuously",
-          ```
-          >>> #set par(spacing: 0.3em)
-          #for i in range(6) {
-            $ arrow(#box(
-              width: 0.4em + 0.3em * i,
-              fill: aqua,
-              height: 0.4em,
-            )) $
-          }
-          ```,
-        )
-      ],
-    ),
+      #example(
+        title: "Size of arrow growing discontinuously",
+        ```
+        >>> #set par(spacing: 0.3em)
+        #for i in range(6) {
+          $ arrow(#box(
+            width: 0.4em + 0.3em * i,
+            fill: aqua,
+            height: 0.4em,
+          )) $
+        }
+        ```,
+      )
+    ],
   ),
   "AccentElem::dotless": (
     161,
-    babel(
-      en: [
-        Whether to remove the dot on top of lowercase i and j when adding a top
-        accent.
+    [
+      #babel(
+        en: [
+          Whether to remove the dot on top of lowercase i and j when adding a top
+          accent.
 
-        This enables the `dtls` OpenType feature.
+          This enables the `dtls` OpenType feature.
+        ],
+      )
 
-        ```example
-        $hat(dotless: #false, i)$
-        ```
-      ],
-    ),
+      ```example
+      $hat(dotless: #false, i)$
+      ```
+    ],
   ),
 )

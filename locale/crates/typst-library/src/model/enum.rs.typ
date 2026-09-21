@@ -2,169 +2,193 @@
 #let live-item-data = (
   "EnumElem": (
     9,
-    babel(
-      en: [
-        A numbered list.
+    [
+      #babel(
+        en: [
+          A numbered list.
 
-        Displays a sequence of items vertically and numbers them consecutively.
+          Displays a sequence of items vertically and numbers them consecutively.
+        ],
+      )
 
-        = Example <example>
-        ```example
-        Automatically numbered:
-        + Preparations
-        + Analysis
-        + Conclusions
+      = #babel(en: [Example]) <example>
+      ```example
+      Automatically numbered:
+      + Preparations
+      + Analysis
+      + Conclusions
 
-        Manually numbered:
-        2. What is the first step?
-        5. I am confused.
-        +  Moving on ...
+      Manually numbered:
+      2. What is the first step?
+      5. I am confused.
+      +  Moving on ...
 
-        Multiple lines:
-        + This enum item has multiple
-          lines because the next line
-          is indented.
+      Multiple lines:
+      + This enum item has multiple
+        lines because the next line
+        is indented.
 
-        Function call.
-        #enum[First][Second]
-        ```
+      Function call.
+      #enum[First][Second]
+      ```
 
-        You can easily switch all your enumerations to a different numbering style
-        with a set rule.
+      #babel(
+        en: [
+          You can easily switch all your enumerations to a different numbering style
+          with a set rule.
+        ],
+      )
 
-        ```example
-        #set enum(numbering: "a)")
+      ```example
+      #set enum(numbering: "a)")
 
-        + Starting off ...
-        + Don't forget step two
-        ```
+      + Starting off ...
+      + Don't forget step two
+      ```
 
-        You can also use @enum.item to programmatically customize the number of each
-        item in the enumeration:
+      #babel(
+        en: [
+          You can also use @enum.item to programmatically customize the number of each
+          item in the enumeration:
+        ],
+      )
 
-        ```example
-        #enum(
-          enum.item(1)[First step],
-          enum.item(5)[Fifth step],
-          enum.item(10)[Tenth step]
-        )
-        ```
+      ```example
+      #enum(
+        enum.item(1)[First step],
+        enum.item(5)[Fifth step],
+        enum.item(10)[Tenth step]
+      )
+      ```
 
-        = Syntax <syntax>
-        This functions also has dedicated syntax:
+      = #babel(en: [Syntax]) <syntax>
+      #babel(
+        en: [
+          This functions also has dedicated syntax:
 
-        - Starting a line with a plus sign creates an automatically numbered
-          enumeration item.
-        - Starting a line with a number followed by a dot creates an explicitly
-          numbered enumeration item.
+          - Starting a line with a plus sign creates an automatically numbered
+            enumeration item.
+          - Starting a line with a number followed by a dot creates an explicitly
+            numbered enumeration item.
 
-        Enumeration items can contain multiple paragraphs and other block-level
-        content. All content that is indented more than an item's marker becomes
-        part of that item.
-      ],
-    ),
+          Enumeration items can contain multiple paragraphs and other block-level
+          content. All content that is indented more than an item's marker becomes
+          part of that item.
+        ],
+      )
+    ],
   ),
   "EnumElem::tight": (
     68,
-    babel(
-      en: [
-        Defines the default @enum.spacing[spacing] of the enumeration. If it is
-        `{false}`, the items are spaced apart with
-        @par.spacing[paragraph spacing]. If it is `{true}`, they use
-        @par.leading[paragraph leading] instead. This makes the list more
-        compact, which can look better if the items are short.
+    [
+      #babel(
+        en: [
+          Defines the default @enum.spacing[spacing] of the enumeration. If it is
+          `{false}`, the items are spaced apart with
+          @par.spacing[paragraph spacing]. If it is `{true}`, they use
+          @par.leading[paragraph leading] instead. This makes the list more
+          compact, which can look better if the items are short.
 
-        In markup mode, the value of this parameter is determined based on
-        whether items are separated with a blank line. If items directly follow
-        each other, this is set to `{true}`; if items are separated by a blank
-        line, this is set to `{false}`. The markup-defined tightness cannot be
-        overridden with set rules.
+          In markup mode, the value of this parameter is determined based on
+          whether items are separated with a blank line. If items directly follow
+          each other, this is set to `{true}`; if items are separated by a blank
+          line, this is set to `{false}`. The markup-defined tightness cannot be
+          overridden with set rules.
+        ],
+      )
 
-        ```example
-        + If an enum has a lot of text, and
-          maybe other inline content, it
-          should not be tight anymore.
+      ```example
+      + If an enum has a lot of text, and
+        maybe other inline content, it
+        should not be tight anymore.
 
-        + To make an enum wide, simply
-          insert a blank line between the
-          items.
-        ```
-      ],
-    ),
+      + To make an enum wide, simply
+        insert a blank line between the
+        items.
+      ```
+    ],
   ),
   "EnumElem::numbering": (
     92,
-    babel(
-      en: [
-        How to number the enumeration. Accepts a
-        @numbering[numbering pattern or function].
+    [
+      #babel(
+        en: [
+          How to number the enumeration. Accepts a
+          @numbering[numbering pattern or function].
 
-        If the numbering pattern contains multiple counting symbols, they apply
-        to nested enums. If given a function, the function receives one argument
-        if `full` is `{false}` and multiple arguments if `full` is `{true}`.
+          If the numbering pattern contains multiple counting symbols, they apply
+          to nested enums. If given a function, the function receives one argument
+          if `full` is `{false}` and multiple arguments if `full` is `{true}`.
+        ],
+      )
 
-        ```example
-        #set enum(numbering: "1.a)")
-        + Different
-        + Numbering
-          + Nested
-          + Items
-        + Style
+      ```example
+      #set enum(numbering: "1.a)")
+      + Different
+      + Numbering
+        + Nested
+        + Items
+      + Style
 
-        #set enum(numbering: n => super[#n])
-        + Superscript
-        + Numbering!
-        ```
-      ],
-    ),
+      #set enum(numbering: n => super[#n])
+      + Superscript
+      + Numbering!
+      ```
+    ],
   ),
   "EnumElem::start": (
     114,
-    babel(
-      en: [
-        Which number to start the enumeration with.
+    [
+      #babel(
+        en: [
+          Which number to start the enumeration with.
+        ],
+      )
 
-        ```example
-        #enum(
-          start: 3,
-          [Skipping],
-          [Ahead],
-        )
-        ```
-      ],
-    ),
+      ```example
+      #enum(
+        start: 3,
+        [Skipping],
+        [Ahead],
+      )
+      ```
+    ],
   ),
   "EnumElem::full": (
     125,
-    babel(
-      en: [
-        Whether to display the full numbering, including the numbers of all
-        parent enumerations.
+    [
+      #babel(
+        en: [
+          Whether to display the full numbering, including the numbers of all
+          parent enumerations.
+        ],
+      )
 
-        ```example
-        #set enum(numbering: "1.a)", full: true)
-        + Cook
-          + Heat water
-          + Add ingredients
-        + Eat
-        ```
-      ],
-    ),
+      ```example
+      #set enum(numbering: "1.a)", full: true)
+      + Cook
+        + Heat water
+        + Add ingredients
+      + Eat
+      ```
+    ],
   ),
   "EnumElem::reversed": (
     138,
-    babel(
-      en: [
-        Whether to reverse the numbering for this enumeration.
+    [
+      #babel(
+        en: [
+          Whether to reverse the numbering for this enumeration.
+        ],
+      )
 
-        ```example
-        #set enum(reversed: true)
-        + Coffee
-        + Tea
-        + Milk
-        ```
-      ],
-    ),
+      ```example
+      #set enum(reversed: true)
+      + Coffee
+      + Tea
+      + Milk
+      ```
+    ],
   ),
   "EnumElem::indent": (
     149,
@@ -196,8 +220,8 @@
   ),
   "EnumElem::number_align": (
     163,
-    babel(
-      en: [
+    [
+      #babel(en: [
         The alignment that enum numbers should have.
 
         By default, this is set to `{end}`, which aligns enum numbers
@@ -214,45 +238,49 @@
 
         As for vertical alignment, it can be overridden if baseline alignment is
         not desired. For example, an alignment of `{end + top}` would always
-        place the marker vertically near the top of the item, whereas `{end +
-bottom}` would move it near the bottom.
+        place the marker vertically near the top of the item, whereas
+      ]) `{end +
+bottom}` #babel(en: [
+        would move it near the bottom.
 
         Also to note is that the @list[unordered list] possesses a similar
         option named `marker-align` instead, which also controls both axes of
         marker alignment in the exact same way as `enum` numbers.
+      ])
 
-        ```example
-        #set enum(number-align: start + bottom)
+      ```example
+      #set enum(number-align: start + bottom)
 
-        Here are some powers of two:
-        1. One
-        2. Two
-        4. Four
-        8. Eight
-        16. Sixteen
-        32. Thirty two
-        ```
-      ],
-    ),
+      Here are some powers of two:
+      1. One
+      2. Two
+      4. Four
+      8. Eight
+      16. Sixteen
+      32. Thirty two
+      ```
+    ],
   ),
   "EnumElem::children": (
     200,
-    babel(
-      en: [
-        The numbered list's items.
+    [
+      #babel(
+        en: [
+          The numbered list's items.
 
-        When using the enum syntax, adjacent items are automatically collected
-        into enumerations, even through constructs like for loops.
+          When using the enum syntax, adjacent items are automatically collected
+          into enumerations, even through constructs like for loops.
+        ],
+      )
 
-        ```example
-        #for phase in (
-           "Launch",
-           "Orbit",
-           "Descent",
-        ) [+ #phase]
-        ```
-      ],
-    ),
+      ```example
+      #for phase in (
+         "Launch",
+         "Orbit",
+         "Descent",
+      ) [+ #phase]
+      ```
+    ],
   ),
   "EnumItem": (
     228,

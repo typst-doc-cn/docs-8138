@@ -2,21 +2,23 @@
 #let live-item-data = (
   "Angle": (
     12,
-    babel(
-      en: [
-        An angle describing a rotation.
+    [
+      #babel(
+        en: [
+          An angle describing a rotation.
 
-        Typst supports the following angular units:
+          Typst supports the following angular units:
 
-        - Degrees: `{180deg}`
-        - Radians: `{3.14rad}`
+          - Degrees: `{180deg}`
+          - Radians: `{3.14rad}`
+        ],
+      )
 
-        = Example <example>
-        ```example
-        #rotate(10deg)[Hello there!]
-        ```
-      ],
-    ),
+      = #babel(en: [Example]) <example>
+      ```example
+      #rotate(10deg)[Hello there!]
+      ```
+    ],
   ),
   "Angle::to_rad": (
     142,

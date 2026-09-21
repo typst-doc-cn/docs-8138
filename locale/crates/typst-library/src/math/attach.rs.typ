@@ -2,21 +2,27 @@
 #let live-item-data = (
   "AttachElem": (
     8,
-    babel(
-      en: [
-        A base with optional attachments.
+    [
+      #babel(
+        en: [
+          A base with optional attachments.
+        ],
+      )
 
-        ```example
-        $ attach(
-          Pi, t: alpha, b: beta,
-          tl: 1, tr: 2+3, bl: 4+5, br: 6,
-        ) $
-        ```
+      ```example
+      $ attach(
+        Pi, t: alpha, b: beta,
+        tl: 1, tr: 2+3, bl: 4+5, br: 6,
+      ) $
+      ```
 
-        If you want to add accents (hats, tildes, arrows, etc.) instead of scripts
-        or corner attachments, use the @math.accent[`accent`] function instead.
-      ],
-    ),
+      #babel(
+        en: [
+          If you want to add accents (hats, tildes, arrows, etc.) instead of scripts
+          or corner attachments, use the @math.accent[`accent`] function instead.
+        ],
+      )
+    ],
   ),
   "AttachElem::base": (
     21,
@@ -83,20 +89,26 @@
   ),
   "PrimesElem": (
     51,
-    babel(
-      en: [
-        Grouped primes.
+    [
+      #babel(
+        en: [
+          Grouped primes.
+        ],
+      )
 
-        ```example
-        $ a'''_b = a^'''_b $
-        ```
+      ```example
+      $ a'''_b = a^'''_b $
+      ```
 
-        = Syntax <syntax>
-        This function has dedicated syntax: use apostrophes instead of primes. They
-        will automatically attach to the previous element, moving superscripts to
-        the next level.
-      ],
-    ),
+      = #babel(en: [Syntax]) <syntax>
+      #babel(
+        en: [
+          This function has dedicated syntax: use apostrophes instead of primes. They
+          will automatically attach to the previous element, moving superscripts to
+          the next level.
+        ],
+      )
+    ],
   ),
   "PrimesElem::count": (
     63,
@@ -108,15 +120,17 @@
   ),
   "ScriptsElem": (
     68,
-    babel(
-      en: [
-        Forces a base to display attachments as scripts.
+    [
+      #babel(
+        en: [
+          Forces a base to display attachments as scripts.
+        ],
+      )
 
-        ```example
-        $ scripts(sum)_1^2 != sum_1^2 $
-        ```
-      ],
-    ),
+      ```example
+      $ scripts(sum)_1^2 != sum_1^2 $
+      ```
+    ],
   ),
   "ScriptsElem::body": (
     75,
@@ -128,15 +142,17 @@
   ),
   "LimitsElem": (
     80,
-    babel(
-      en: [
-        Forces a base to display attachments as limits.
+    [
+      #babel(
+        en: [
+          Forces a base to display attachments as limits.
+        ],
+      )
 
-        ```example
-        $ limits(A)_1^2 != A_1^2 $
-        ```
-      ],
-    ),
+      ```example
+      $ limits(A)_1^2 != A_1^2 $
+      ```
+    ],
   ),
   "LimitsElem::body": (
     87,
@@ -159,25 +175,27 @@
   ),
   "StretchElem": (
     99,
-    babel(
-      en: [
-        Stretches a glyph.
+    [
+      #babel(
+        en: [
+          Stretches a glyph.
 
-        This function can also be used to automatically stretch the base of an
-        attachment, so that it fits the top and bottom attachments.
+          This function can also be used to automatically stretch the base of an
+          attachment, so that it fits the top and bottom attachments.
 
-        Note that only some glyphs can be stretched, and which ones can depend on
-        the math font being used. However, most math fonts are the same in this
-        regard.
+          Note that only some glyphs can be stretched, and which ones can depend on
+          the math font being used. However, most math fonts are the same in this
+          regard.
+        ],
+      )
 
-        ```example
-        $ H stretch(=)^"define" U + p V $
-        $ f : X stretch(->>, size: #150%)_"surjective" Y $
-        $ x stretch(harpoons.ltrb, size: #3em) y
-            stretch(\[, size: #150%) z $
-        ```
-      ],
-    ),
+      ```example
+      $ H stretch(=)^"define" U + p V $
+      $ f : X stretch(->>, size: #150%)_"surjective" Y $
+      $ x stretch(harpoons.ltrb, size: #3em) y
+          stretch(\[, size: #150%) z $
+      ```
+    ],
   ),
   "StretchElem::body": (
     116,
@@ -189,32 +207,34 @@
   ),
   "StretchElem::size": (
     120,
-    babel(
-      en: [
-        The size to stretch to, relative to the maximum size of the glyph and
-        its attachments.
+    [
+      #babel(
+        en: [
+          The size to stretch to, relative to the maximum size of the glyph and
+          its attachments.
 
-        Note that the resulting glyph may not have the exact desired size. A
-        stretched glyph may be either a pre-defined glyph, or a glyph assembled
-        from building blocks provided by the font. The possible sizes may not
-        cover the entire span. In the example below, when the `size` parameter
-        is increased from `{101%}` to `{200%}`, the selected glyph remains the
-        same, so the actual size does not change.
+          Note that the resulting glyph may not have the exact desired size. A
+          stretched glyph may be either a pre-defined glyph, or a glyph assembled
+          from building blocks provided by the font. The possible sizes may not
+          cover the entire span. In the example below, when the `size` parameter
+          is increased from `{101%}` to `{200%}`, the selected glyph remains the
+          same, so the actual size does not change.
+        ],
+      )
 
-        #example(
-          title: "Size of ∫ growing discontinuously",
-          ```
-          >>> #set align(center)
-          #for size in (
-            100%, // short
-            101%, 200%, // tall
-            201%, 300%, 400%, 500%, 600%, // taller
-          ) {
-            $stretch(integral, size: #size)$
-          }
-          ```,
-        )
-      ],
-    ),
+      #example(
+        title: "Size of ∫ growing discontinuously",
+        ```
+        >>> #set align(center)
+        #for size in (
+          100%, // short
+          101%, 200%, // tall
+          201%, 300%, 400%, 500%, 600%, // taller
+        ) {
+          $stretch(integral, size: #size)$
+        }
+        ```,
+      )
+    ],
   ),
 )

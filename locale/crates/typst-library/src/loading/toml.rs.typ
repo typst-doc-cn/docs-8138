@@ -2,93 +2,103 @@
 #let live-item-data = (
   "toml": (
     9,
-    babel(
-      en: [
-        Reads structured data from a TOML file.
+    [
+      #babel(
+        en: [
+          Reads structured data from a TOML file.
 
-        The file must contain a valid TOML table. The TOML values will be converted
-        into corresponding Typst values as listed in the
-        @toml:conversion[table below].
+          The file must contain a valid TOML table. The TOML values will be converted
+          into corresponding Typst values as listed in the
+          @toml:conversion[table below].
 
-        The function returns a dictionary representing the TOML table.
+          The function returns a dictionary representing the TOML table.
 
-        The TOML file in the example consists of a table with the keys `title`,
-        `version`, and `authors`.
+          The TOML file in the example consists of a table with the keys `title`,
+          `version`, and `authors`.
+        ],
+      )
 
-        = Example <example>
-        ```example
-        #let details = toml("details.toml")
+      = #babel(en: [Example]) <example>
+      ```example
+      #let details = toml("details.toml")
 
-        Title: #details.title \
-        Version: #details.version \
-        Authors: #(details.authors
-          .join(", ", last: " and "))
-        ```
+      Title: #details.title \
+      Version: #details.version \
+      Authors: #(details.authors
+        .join(", ", last: " and "))
+      ```
 
-        = #short-or-long[Conversion][Conversion details] <conversion>
-        First of all, TOML documents are tables. Other values must be put in a table
-        to be encoded or decoded.
+      = #babel(en: short-or-long[Conversion][Conversion details]) <conversion>
+      #babel(
+        en: [
+          First of all, TOML documents are tables. Other values must be put in a table
+          to be encoded or decoded.
+        ],
+      )
 
-        #docs-table(
-          table.header[TOML value][Converted into Typst],
+      #docs-table(
+        table.header[TOML value][Converted into Typst],
 
-          [string],
-          [@str],
+        [string],
+        [@str],
 
-          [integer],
-          [@int],
+        [integer],
+        [@int],
 
-          [float],
-          [@float],
+        [float],
+        [@float],
 
-          [boolean],
-          [@bool],
+        [boolean],
+        [@bool],
 
-          [datetime],
-          [@datetime],
+        [datetime],
+        [@datetime],
 
-          [array],
-          [@array],
+        [array],
+        [@array],
 
-          [table],
-          [@dictionary],
-        )
+        [table],
+        [@dictionary],
+      )
 
-        #docs-table(
-          table.header[Typst value][Converted into TOML],
+      #docs-table(
+        table.header[Typst value][Converted into TOML],
 
-          [types that can be converted from TOML],
-          [corresponding TOML value],
+        [types that can be converted from TOML],
+        [corresponding TOML value],
 
-          [`{none}`],
-          [ignored],
+        [`{none}`],
+        [ignored],
 
-          [@bytes],
-          [string via @repr],
+        [@bytes],
+        [string via @repr],
 
-          [@symbol],
-          [string],
+        [@symbol],
+        [string],
 
-          [@content],
-          [a table describing the content],
+        [@content],
+        [a table describing the content],
 
-          [other types (@length, etc.)],
-          [string via @repr],
-        )
+        [other types (@length, etc.)],
+        [string via @repr],
+      )
 
-        == Notes <notes>
-        - Be aware that TOML integers larger than 2#super[63]-1 or smaller
-          than -2#super[63] cannot be represented losslessly in Typst, and an error
-          will be thrown according to the
-          #link("https://toml.io/en/v1.0.0#integer")[specification].
+      == #babel(en: [Notes]) <notes>
+      #babel(
+        en: [
+          - Be aware that TOML integers larger than 2#super[63]-1 or smaller
+            than -2#super[63] cannot be represented losslessly in Typst, and an error
+            will be thrown according to the
+            #link("https://toml.io/en/v1.0.0#integer")[specification].
 
-        - Bytes are not encoded as TOML arrays for performance and readability
-          reasons. Consider using @cbor.encode for binary data.
+          - Bytes are not encoded as TOML arrays for performance and readability
+            reasons. Consider using @cbor.encode for binary data.
 
-        - The `repr` function is @repr:debugging-only[for debugging purposes only],
-          and its output is not guaranteed to be stable across Typst versions.
-      ],
-    ),
+          - The `repr` function is @repr:debugging-only[for debugging purposes only],
+            and its output is not guaranteed to be stable across Typst versions.
+        ],
+      )
+    ],
   ),
   "toml::source": (
     95,

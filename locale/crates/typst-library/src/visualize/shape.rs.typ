@@ -2,23 +2,25 @@
 #let live-item-data = (
   "RectElem": (
     6,
-    babel(
-      en: [
-        A rectangle with optional content.
+    [
+      #babel(
+        en: [
+          A rectangle with optional content.
+        ],
+      )
 
-        = Example <example>
-        ```example
-        // Without content.
-        #rect(width: 35%, height: 30pt)
+      = #babel(en: [Example]) <example>
+      ```example
+      // Without content.
+      #rect(width: 35%, height: 30pt)
 
-        // With content.
-        #rect[
-          Automatically sized \
-          to fit the content.
-        ]
-        ```
-      ],
-    ),
+      // With content.
+      #rect[
+        Automatically sized \
+        to fit the content.
+      ]
+      ```
+    ],
   ),
   "RectElem::width": (
     21,
@@ -38,100 +40,106 @@
   ),
   "RectElem::fill": (
     27,
-    babel(
-      en: [
-        How to fill the rectangle.
+    [
+      #babel(
+        en: [
+          How to fill the rectangle.
 
-        When setting a fill, the default stroke disappears. To create a
-        rectangle with both fill and stroke, you have to configure both.
+          When setting a fill, the default stroke disappears. To create a
+          rectangle with both fill and stroke, you have to configure both.
+        ],
+      )
 
-        ```example
-        #rect(fill: blue)
-        ```
-      ],
-    ),
+      ```example
+      #rect(fill: blue)
+      ```
+    ],
   ),
   "RectElem::stroke": (
     37,
-    babel(
-      en: [
-        How to stroke the rectangle. This can be:
+    [
+      #babel(
+        en: [
+          How to stroke the rectangle. This can be:
 
-        - `{none}` to disable stroking
+          - `{none}` to disable stroking
 
-        - `{auto}` for a stroke of `{1pt + black}` if and only if no fill is
-          given.
+          - `{auto}` for a stroke of `{1pt + black}` if and only if no fill is
+            given.
 
-        - Any kind of @stroke[stroke]
+          - Any kind of @stroke[stroke]
 
-        - A dictionary describing the stroke for each side individually. The
-          dictionary can contain the following keys in order of precedence:
+          - A dictionary describing the stroke for each side individually. The
+            dictionary can contain the following keys in order of precedence:
 
-          - `top`: The top stroke.
-          - `right`: The right stroke.
-          - `bottom`: The bottom stroke.
-          - `left`: The left stroke.
-          - `x`: The left and right stroke.
-          - `y`: The top and bottom stroke.
-          - `rest`: The stroke on all sides except those for which the
-            dictionary explicitly sets a size.
+            - `top`: The top stroke.
+            - `right`: The right stroke.
+            - `bottom`: The bottom stroke.
+            - `left`: The left stroke.
+            - `x`: The left and right stroke.
+            - `y`: The top and bottom stroke.
+            - `rest`: The stroke on all sides except those for which the
+              dictionary explicitly sets a size.
 
-          All keys are optional; omitted keys will use their previously set
-          value, or the default stroke if never set.
+            All keys are optional; omitted keys will use their previously set
+            value, or the default stroke if never set.
+        ],
+      )
 
-        ```example
-        #stack(
-          dir: ltr,
-          spacing: 1fr,
-          rect(stroke: red),
-          rect(stroke: 2pt),
-          rect(stroke: 2pt + red),
-        )
-        ```
-      ],
-    ),
+      ```example
+      #stack(
+        dir: ltr,
+        spacing: 1fr,
+        rect(stroke: red),
+        rect(stroke: 2pt),
+        rect(stroke: 2pt + red),
+      )
+      ```
+    ],
   ),
   "RectElem::radius": (
     73,
-    babel(
-      en: [
-        How much to round the rectangle's corners, relative to the minimum of
-        the width and height divided by two. This can be:
+    [
+      #babel(
+        en: [
+          How much to round the rectangle's corners, relative to the minimum of
+          the width and height divided by two. This can be:
 
-        - A relative length for a uniform corner radius.
+          - A relative length for a uniform corner radius.
 
-        - A dictionary: With a dictionary, the stroke for each side can be set
-          individually. The dictionary can contain the following keys in order
-          of precedence:
-          - `top-left`: The top-left corner radius.
-          - `top-right`: The top-right corner radius.
-          - `bottom-right`: The bottom-right corner radius.
-          - `bottom-left`: The bottom-left corner radius.
-          - `left`: The top-left and bottom-left corner radii.
-          - `top`: The top-left and top-right corner radii.
-          - `right`: The top-right and bottom-right corner radii.
-          - `bottom`: The bottom-left and bottom-right corner radii.
-          - `rest`: The radii for all corners except those for which the
-            dictionary explicitly sets a size.
+          - A dictionary: With a dictionary, the stroke for each side can be set
+            individually. The dictionary can contain the following keys in order
+            of precedence:
+            - `top-left`: The top-left corner radius.
+            - `top-right`: The top-right corner radius.
+            - `bottom-right`: The bottom-right corner radius.
+            - `bottom-left`: The bottom-left corner radius.
+            - `left`: The top-left and bottom-left corner radii.
+            - `top`: The top-left and top-right corner radii.
+            - `right`: The top-right and bottom-right corner radii.
+            - `bottom`: The bottom-left and bottom-right corner radii.
+            - `rest`: The radii for all corners except those for which the
+              dictionary explicitly sets a size.
+        ],
+      )
 
-        ```example
-        #set rect(stroke: 4pt)
-        #rect(
-          radius: (
-            left: 5pt,
-            top-right: 20pt,
-            bottom-right: 10pt,
-          ),
-          stroke: (
-            left: red,
-            top: yellow,
-            right: green,
-            bottom: blue,
-          ),
-        )
-        ```
-      ],
-    ),
+      ```example
+      #set rect(stroke: 4pt)
+      #rect(
+        radius: (
+          left: 5pt,
+          top-right: 20pt,
+          bottom-right: 10pt,
+        ),
+        stroke: (
+          left: red,
+          top: yellow,
+          right: green,
+          bottom: blue,
+        ),
+      )
+      ```
+    ],
   ),
   "RectElem::inset": (
     111,
@@ -164,23 +172,25 @@
   ),
   "SquareElem": (
     130,
-    babel(
-      en: [
-        A square with optional content.
+    [
+      #babel(
+        en: [
+          A square with optional content.
+        ],
+      )
 
-        = Example <example>
-        ```example
-        // Without content.
-        #square(size: 40pt)
+      = #babel(en: [Example]) <example>
+      ```example
+      // Without content.
+      #square(size: 40pt)
 
-        // With content.
-        #square[
-          Automatically \
-          sized to fit.
-        ]
-        ```
-      ],
-    ),
+      // With content.
+      #square[
+        Automatically \
+        sized to fit.
+      ]
+      ```
+    ],
   ),
   "SquareElem::size": (
     145,
@@ -272,24 +282,26 @@
   ),
   "EllipseElem": (
     207,
-    babel(
-      en: [
-        An ellipse with optional content.
+    [
+      #babel(
+        en: [
+          An ellipse with optional content.
+        ],
+      )
 
-        = Example <example>
-        ```example
-        // Without content.
-        #ellipse(width: 35%, height: 30pt)
+      = #babel(en: [Example]) <example>
+      ```example
+      // Without content.
+      #ellipse(width: 35%, height: 30pt)
 
-        // With content.
-        #ellipse[
-          #set align(center)
-          Automatically sized \
-          to fit the content.
-        ]
-        ```
-      ],
-    ),
+      // With content.
+      #ellipse[
+        #set align(center)
+        Automatically sized \
+        to fit the content.
+      ]
+      ```
+    ],
   ),
   "EllipseElem::width": (
     223,
@@ -356,24 +368,26 @@
   ),
   "CircleElem": (
     257,
-    babel(
-      en: [
-        A circle with optional content.
+    [
+      #babel(
+        en: [
+          A circle with optional content.
+        ],
+      )
 
-        = Example <example>
-        ```example
-        // Without content.
-        #circle(radius: 25pt)
+      = #babel(en: [Example]) <example>
+      ```example
+      // Without content.
+      #circle(radius: 25pt)
 
-        // With content.
-        #circle[
-          #set align(center + horizon)
-          Automatically \
-          sized to fit.
-        ]
-        ```
-      ],
-    ),
+      // With content.
+      #circle[
+        #set align(center + horizon)
+        Automatically \
+        sized to fit.
+      ]
+      ```
+    ],
   ),
   "CircleElem::radius": (
     273,

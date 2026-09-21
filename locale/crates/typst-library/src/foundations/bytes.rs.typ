@@ -2,57 +2,61 @@
 #let live-item-data = (
   "Bytes": (
     16,
-    babel(
-      en: [
-        A sequence of bytes.
+    [
+      #babel(
+        en: [
+          A sequence of bytes.
 
-        This is conceptually similar to an array of @int[integers] between `{0}` and
-        `{255}`, but represented much more efficiently. You can iterate over it
-        using a @reference:scripting:loops[for loop].
+          This is conceptually similar to an array of @int[integers] between `{0}` and
+          `{255}`, but represented much more efficiently. You can iterate over it
+          using a @reference:scripting:loops[for loop].
 
-        You can convert
-        - a @str[string] or an @array[array] of integers to bytes with the @bytes
-          constructor
-        - bytes to a string with the @str constructor, with UTF-8 encoding
-        - bytes to an array of integers with the @array constructor
+          You can convert
+          - a @str[string] or an @array[array] of integers to bytes with the @bytes
+            constructor
+          - bytes to a string with the @str constructor, with UTF-8 encoding
+          - bytes to an array of integers with the @array constructor
 
-        When @read[reading] data from a file, you can decide whether to load it as a
-        string or as raw bytes.
+          When @read[reading] data from a file, you can decide whether to load it as a
+          string or as raw bytes.
+        ],
+      )
 
-        ```example
-        #bytes((123, 160, 22, 0)) \
-        #bytes("Hello 😃")
+      ```example
+      #bytes((123, 160, 22, 0)) \
+      #bytes("Hello 😃")
 
-        #let data = read(
-          "rhino.png",
-          encoding: none,
-        )
+      #let data = read(
+        "rhino.png",
+        encoding: none,
+      )
 
-        // Magic bytes.
-        #array(data.slice(0, 4)) \
-        #str(data.slice(1, 4))
-        ```
-      ],
-    ),
+      // Magic bytes.
+      #array(data.slice(0, 4)) \
+      #str(data.slice(1, 4))
+      ```
+    ],
   ),
   "Bytes::construct": (
     230,
-    babel(
-      en: [
-        Converts a value to bytes.
+    [
+      #babel(
+        en: [
+          Converts a value to bytes.
 
-        - Strings are encoded in UTF-8.
-        - Arrays of integers between `{0}` and `{255}` are converted directly.
-          The dedicated byte representation is much more efficient than the
-          array representation and thus typically used for large byte buffers
-          (e.g. image data).
+          - Strings are encoded in UTF-8.
+          - Arrays of integers between `{0}` and `{255}` are converted directly.
+            The dedicated byte representation is much more efficient than the
+            array representation and thus typically used for large byte buffers
+            (e.g. image data).
+        ],
+      )
 
-        ```example
-        #bytes("Hello 😃") \
-        #bytes((123, 160, 22, 0))
-        ```
-      ],
-    ),
+      ```example
+      #bytes("Hello 😃") \
+      #bytes((123, 160, 22, 0))
+      ```
+    ],
   ),
   "Bytes::construct::value": (
     244,

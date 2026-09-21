@@ -2,52 +2,62 @@
 #let live-item-data = (
   "Label": (
     7,
-    babel(
-      en: [
-        A label for an element.
+    [
+      #babel(
+        en: [
+          A label for an element.
 
-        Inserting a label into content attaches it to the closest preceding element
-        that is not a space. The preceding element must be in the same scope as the
-        label, which means that `[Hello #[<label>]]`, for instance, wouldn't work.
+          Inserting a label into content attaches it to the closest preceding element
+          that is not a space. The preceding element must be in the same scope as the
+          label, which means that `[Hello #[<label>]]`, for instance, wouldn't work.
 
-        A labelled element can be @ref[referenced], @query[queried] for, and
-        @reference:styling[styled] through its label.
+          A labelled element can be @ref[referenced], @query[queried] for, and
+          @reference:styling[styled] through its label.
 
-        Once constructed, you can get the name of a label using
-        @str.constructor[`str`].
+          Once constructed, you can get the name of a label using
+          @str.constructor[`str`].
+        ],
+      )
 
-        = Example <example>
-        ```example
-        #show <a>: set text(blue)
-        #show label("b"): set text(red)
+      = #babel(en: [Example]) <example>
+      ```example
+      #show <a>: set text(blue)
+      #show label("b"): set text(red)
 
-        = Heading <a>
-        *Strong* #label("b")
-        ```
+      = Heading <a>
+      *Strong* #label("b")
+      ```
 
-        = Syntax <syntax>
-        This function also has dedicated syntax: You can create a label by enclosing
-        its name in angle brackets. This works both in markup and code. A label's
-        name can contain letters, numbers, `_`, `-`, `:`, and `.`. A label cannot be
-        empty.
+      = #babel(en: [Syntax]) <syntax>
+      #babel(
+        en: [
+          This function also has dedicated syntax: You can create a label by enclosing
+          its name in angle brackets. This works both in markup and code. A label's
+          name can contain letters, numbers, `_`, `-`, `:`, and `.`. A label cannot be
+          empty.
 
-        Note that there is a syntactical difference when using the dedicated syntax
-        for this function. In the code below, the `[<a>]` terminates the heading and
-        thus attaches to the heading itself, whereas the `[#label("b")]` is part of
-        the heading and thus attaches to the heading's text.
+          Note that there is a syntactical difference when using the dedicated syntax
+          for this function. In the code below, the `[<a>]` terminates the heading and
+          thus attaches to the heading itself, whereas the `[#label("b")]` is part of
+          the heading and thus attaches to the heading's text.
+        ],
+      )
 
-        ```typ
-        // Equivalent to `#heading[Introduction] <a>`.
-        = Introduction <a>
+      ```typ
+      // Equivalent to `#heading[Introduction] <a>`.
+      = Introduction <a>
 
-        // Equivalent to `#heading[Conclusion #label("b")]`.
-        = Conclusion #label("b")
-        ```
+      // Equivalent to `#heading[Conclusion #label("b")]`.
+      = Conclusion #label("b")
+      ```
 
-        Currently, labels can only be attached to elements in markup mode, not in
-        code mode. This might change in the future.
-      ],
-    ),
+      #babel(
+        en: [
+          Currently, labels can only be attached to elements in markup mode, not in
+          code mode. This might change in the future.
+        ],
+      )
+    ],
   ),
   "Label::construct": (
     75,

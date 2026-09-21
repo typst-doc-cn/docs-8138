@@ -2,23 +2,25 @@
 #let live-item-data = (
   "PadElem": (
     4,
-    babel(
-      en: [
-        Adds spacing around content.
+    [
+      #babel(
+        en: [
+          Adds spacing around content.
 
-        The spacing can be specified for each side individually, or for all sides at
-        once by specifying a positional argument.
+          The spacing can be specified for each side individually, or for all sides at
+          once by specifying a positional argument.
+        ],
+      )
 
-        = Example <example>
-        ```example
-        #set align(center)
+      = #babel(en: [Example]) <example>
+      ```example
+      #set align(center)
 
-        #pad(x: 16pt, image("typing.jpg"))
-        _Typing speeds can be
-         measured in words per minute._
-        ```
-      ],
-    ),
+      #pad(x: 16pt, image("typing.jpg"))
+      _Typing speeds can be
+       measured in words per minute._
+      ```
+    ],
   ),
   "PadElem::left": (
     19,

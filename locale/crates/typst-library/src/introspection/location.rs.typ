@@ -2,68 +2,76 @@
 #let live-item-data = (
   "Location": (
     18,
-    babel(
-      en: [
-        Identifies an element in the document.
+    [
+      #babel(
+        en: [
+          Identifies an element in the document.
 
-        A location uniquely identifies an element in the document and lets you
-        access its absolute position on the pages. You can retrieve the current
-        location with the @here function and the location of a queried or shown
-        element with the @content.location[`location()`] method on content.
+          A location uniquely identifies an element in the document and lets you
+          access its absolute position on the pages. You can retrieve the current
+          location with the @here function and the location of a queried or shown
+          element with the @content.location[`location()`] method on content.
+        ],
+      )
 
-        = #short-or-long[Locatable][Locatable elements] <locatable>
-        Elements that are automatically assigned a location are called _locatable_
-        and can be found with @query[queries]:
+      = #babel(en: short-or-long[Locatable][Locatable elements]) <locatable>
+      #babel(
+        en: [
+          Elements that are automatically assigned a location are called _locatable_
+          and can be found with @query[queries]:
 
-        - In the @reference:model[Model category], the following elements are
-          locatable: @asset, @bibliography, @cite, @document, @emph, @enum, @figure,
-          @figure.caption, @footnote, @footnote.entry, @heading, @link, @list,
-          @outline, @outline.entry, @par, @quote, @ref, @strong, @table, @terms, and
-          @title. Most of the elements in the _Model_ category are locatable because
-          semantic elements like headings and figures are often
-          used with introspection.
+          - In the @reference:model[Model category], the following elements are
+            locatable: @asset, @bibliography, @cite, @document, @emph, @enum, @figure,
+            @figure.caption, @footnote, @footnote.entry, @heading, @link, @list,
+            @outline, @outline.entry, @par, @quote, @ref, @strong, @table, @terms, and
+            @title. Most of the elements in the _Model_ category are locatable because
+            semantic elements like headings and figures are often
+            used with introspection.
 
-        - In the @reference:text[Text category], the @raw element and the
-          decoration elements @underline, @overline, @strike, and @highlight are
-          locatable as these are also quite semantic in nature.
+          - In the @reference:text[Text category], the @raw element and the
+            decoration elements @underline, @overline, @strike, and @highlight are
+            locatable as these are also quite semantic in nature.
 
-        - In the @reference:introspection[Introspection category], the @metadata
-          element is locatable as being queried for is its primary purpose.
+          - In the @reference:introspection[Introspection category], the @metadata
+            element is locatable as being queried for is its primary purpose.
 
-        - In the other categories, most elements are not locatable. Exceptions are
-          @math.equation, @image, and @pdf.attach.
+          - In the other categories, most elements are not locatable. Exceptions are
+            @math.equation, @image, and @pdf.attach.
 
-        To find out whether a specific element is locatable, you can try to @query
-        for it.
+          To find out whether a specific element is locatable, you can try to @query
+          for it.
 
-        Note that you can still observe elements that are not locatable in queries
-        through other means, for instance, when they have a label attached to them.
-      ],
-    ),
+          Note that you can still observe elements that are not locatable in queries
+          through other means, for instance, when they have a label attached to them.
+        ],
+      )
+    ],
   ),
   "Location::page": (
     79,
-    babel(
-      en: [
-        Returns the page number for this location.
+    [
+      #babel(
+        en: [
+          Returns the page number for this location.
 
-        Note that this does not return the value of the @counter[page counter]
-        at this location, but the true page number (starting from one).
+          Note that this does not return the value of the @counter[page counter]
+          at this location, but the true page number (starting from one).
 
-        If you want to know the value of the page counter, use
-        `{counter(page).at(loc)}` instead.
+          If you want to know the value of the page counter, use
+          `{counter(page).at(loc)}` instead.
 
-        Can be used with @here to retrieve the physical page position of the
-        current context:
+          Can be used with @here to retrieve the physical page position of the
+          current context:
+        ],
+      )
 
-        ```example
-        #context [
-          I am located on
-          page #here().page()
-        ]
-        ```
-      ],
-    ),
+      ```example
+      #context [
+        I am located on
+        page #here().page()
+      ]
+      ```
+    ],
   ),
   "Location::position": (
     101,

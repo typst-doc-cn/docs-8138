@@ -2,23 +2,25 @@
 #let live-item-data = (
   "LineElem": (
     5,
-    babel(
-      en: [
-        A line from one point to another.
+    [
+      #babel(
+        en: [
+          A line from one point to another.
+        ],
+      )
 
-        = Example <example>
-        ```example
-        #set page(height: 100pt)
+      = #babel(en: [Example]) <example>
+      ```example
+      #set page(height: 100pt)
 
-        #line(length: 100%)
-        #line(end: (50%, 50%))
-        #line(
-          length: 4cm,
-          stroke: 2pt + maroon,
-        )
-        ```
-      ],
-    ),
+      #line(length: 100%)
+      #line(end: (50%, 50%))
+      #line(
+        length: 4cm,
+        stroke: 2pt + maroon,
+      )
+      ```
+    ],
   ),
   "LineElem::start": (
     20,
@@ -57,21 +59,23 @@
   ),
   "LineElem::stroke": (
     36,
-    babel(
-      en: [
-        How to @stroke[stroke] the line.
+    [
+      #babel(
+        en: [
+          How to @stroke[stroke] the line.
+        ],
+      )
 
-        ```example
-        #set line(length: 100%)
-        #stack(
-          spacing: 1em,
-          line(stroke: 2pt + red),
-          line(stroke: (paint: blue, thickness: 4pt, cap: "round")),
-          line(stroke: (paint: blue, thickness: 1pt, dash: "dashed")),
-          line(stroke: (paint: blue, thickness: 1pt, dash: ("dot", 2pt, 4pt, 2pt))),
-        )
-        ```
-      ],
-    ),
+      ```example
+      #set line(length: 100%)
+      #stack(
+        spacing: 1em,
+        line(stroke: 2pt + red),
+        line(stroke: (paint: blue, thickness: 4pt, cap: "round")),
+        line(stroke: (paint: blue, thickness: 1pt, dash: "dashed")),
+        line(stroke: (paint: blue, thickness: 1pt, dash: ("dot", 2pt, 4pt, 2pt))),
+      )
+      ```
+    ],
   ),
 )

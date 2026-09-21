@@ -2,30 +2,32 @@
 #let live-item-data = (
   "MetadataElem": (
     3,
-    babel(
-      en: [
-        Exposes a value to the query system without producing visible content.
+    [
+      #babel(
+        en: [
+          Exposes a value to the query system without producing visible content.
 
-        This element can be retrieved with the @query function and from the command
-        line with @query:command-line-queries[`typst query`]. Its purpose is to
-        expose an arbitrary value to the introspection system. To identify a
-        metadata value among others, you can attach a @label to it and query for
-        that label.
+          This element can be retrieved with the @query function and from the command
+          line with @query:command-line-queries[`typst query`]. Its purpose is to
+          expose an arbitrary value to the introspection system. To identify a
+          metadata value among others, you can attach a @label to it and query for
+          that label.
 
-        The `metadata` element is especially useful for command line queries because
-        it allows you to expose arbitrary values to the outside world.
+          The `metadata` element is especially useful for command line queries because
+          it allows you to expose arbitrary values to the outside world.
+        ],
+      )
 
-        ```example
-        // Put metadata somewhere.
-        #metadata("This is a note") <note>
+      ```example
+      // Put metadata somewhere.
+      #metadata("This is a note") <note>
 
-        // And find it from anywhere else.
-        #context {
-          query(<note>).first().value
-        }
-        ```
-      ],
-    ),
+      // And find it from anywhere else.
+      #context {
+        query(<note>).first().value
+      }
+      ```
+    ],
   ),
   "MetadataElem::value": (
     25,

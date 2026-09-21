@@ -2,167 +2,197 @@
 #let live-item-data = (
   "GridElem": (
     23,
-    babel(
-      en: [
-        Arranges content in a grid.
+    [
+      #babel(
+        en: [
+          Arranges content in a grid.
 
-        The grid element allows you to arrange content in a grid. You can define the
-        number of rows and columns, as well as the size of the gutters between them.
-        There are multiple sizing modes for columns and rows that can be used to
-        create complex layouts.
+          The grid element allows you to arrange content in a grid. You can define the
+          number of rows and columns, as well as the size of the gutters between them.
+          There are multiple sizing modes for columns and rows that can be used to
+          create complex layouts.
 
-        While the grid and table elements work very similarly, they are intended for
-        different use cases and carry different semantics. The grid element is
-        intended for presentational and layout purposes, while the @table element is
-        intended for, in broad terms, presenting multiple related data points. Set
-        and show rules on one of these elements do not affect the other. Refer to
-        the @grid:accessibility[Accessibility Section] to learn how grids and tables
-        are presented to users of Assistive Technology (AT) like screen readers.
+          While the grid and table elements work very similarly, they are intended for
+          different use cases and carry different semantics. The grid element is
+          intended for presentational and layout purposes, while the @table element is
+          intended for, in broad terms, presenting multiple related data points. Set
+          and show rules on one of these elements do not affect the other. Refer to
+          the @grid:accessibility[Accessibility Section] to learn how grids and tables
+          are presented to users of Assistive Technology (AT) like screen readers.
+        ],
+      )
 
-        = #short-or-long[Track Size][Sizing the tracks] <track-size>
-        A grid's sizing is determined by the track sizes specified in the arguments.
-        There are multiple sizing parameters: @grid.columns[`columns`],
-        @grid.rows[`rows`] and @grid.gutter[`gutter`]. Because each of the sizing
-        parameters accepts the same values, we will explain them just once, here.
-        Each sizing argument accepts an array of individual track sizes. A track
-        size is either:
+      = #babel(en: short-or-long[Track Size][Sizing the tracks]) <track-size>
+      #babel(
+        en: [
+          A grid's sizing is determined by the track sizes specified in the arguments.
+          There are multiple sizing parameters: @grid.columns[`columns`],
+          @grid.rows[`rows`] and @grid.gutter[`gutter`]. Because each of the sizing
+          parameters accepts the same values, we will explain them just once, here.
+          Each sizing argument accepts an array of individual track sizes. A track
+          size is either:
 
-        - `{auto}`: The track will be sized to fit its contents. It will be at most
-          as large as the remaining space. If there is more than one `{auto}` track
-          width, and together they claim more than the available space, the `{auto}`
-          tracks will fairly distribute the available space among themselves.
+          - `{auto}`: The track will be sized to fit its contents. It will be at most
+            as large as the remaining space. If there is more than one `{auto}` track
+            width, and together they claim more than the available space, the `{auto}`
+            tracks will fairly distribute the available space among themselves.
 
-        - A fixed or relative length (e.g. `{10pt}` or `{20% - 1cm}`): The track
-          will be exactly of this size.
+          - A fixed or relative length (e.g. `{10pt}` or `{20% - 1cm}`): The track
+            will be exactly of this size.
 
-        - A fractional length (e.g. `{1fr}`): Once all other tracks have been sized,
-          the remaining space will be divided among the fractional tracks according
-          to their fractions. For example, if there are two fractional tracks, each
-          with a fraction of `{1fr}`, they will each take up half of the remaining
-          space.
+          - A fractional length (e.g. `{1fr}`): Once all other tracks have been sized,
+            the remaining space will be divided among the fractional tracks according
+            to their fractions. For example, if there are two fractional tracks, each
+            with a fraction of `{1fr}`, they will each take up half of the remaining
+            space.
 
-        To specify a single track, the array can be omitted in favor of a single
-        value. To specify multiple `{auto}` tracks, enter the number of tracks
-        instead of an array. For example, `columns:` `{3}` is equivalent to
-        `columns:` `{(auto, auto, auto)}`.
+          To specify a single track, the array can be omitted in favor of a single
+          value. To specify multiple `{auto}` tracks, enter the number of tracks
+          instead of an array. For example, `columns:` `{3}` is equivalent to
+          `columns:` `{(auto, auto, auto)}`.
+        ],
+      )
 
-        = Examples <examples>
-        The example below demonstrates the different track sizing options. It also
-        shows how you can use @grid.cell to make an individual cell span two grid
-        tracks.
+      = #babel(en: [Examples]) <examples>
+      #babel(
+        en: [
+          The example below demonstrates the different track sizing options. It also
+          shows how you can use @grid.cell to make an individual cell span two grid
+          tracks.
+        ],
+      )
 
-        ```example
-        // We use `rect` to emphasize the
-        // area of cells.
-        #set rect(
-          inset: 8pt,
-          fill: rgb("e4e5ea"),
-          width: 100%,
-        )
+      ```example
+      // We use `rect` to emphasize the
+      // area of cells.
+      #set rect(
+        inset: 8pt,
+        fill: rgb("e4e5ea"),
+        width: 100%,
+      )
 
-        #grid(
-          columns: (60pt, 1fr, 2fr),
-          rows: (auto, 60pt),
-          gutter: 3pt,
-          rect[Fixed width, auto height],
-          rect[1/3 of the remains],
-          rect[2/3 of the remains],
-          rect(height: 100%)[Fixed height],
-          grid.cell(
-            colspan: 2,
-            image("tiger.jpg", width: 100%),
-          ),
-        )
-        ```
+      #grid(
+        columns: (60pt, 1fr, 2fr),
+        rows: (auto, 60pt),
+        gutter: 3pt,
+        rect[Fixed width, auto height],
+        rect[1/3 of the remains],
+        rect[2/3 of the remains],
+        rect(height: 100%)[Fixed height],
+        grid.cell(
+          colspan: 2,
+          image("tiger.jpg", width: 100%),
+        ),
+      )
+      ```
 
-        You can also @arguments:spreading[spread] an array of strings or content
-        into a grid to populate its cells.
+      #babel(
+        en: [
+          You can also @arguments:spreading[spread] an array of strings or content
+          into a grid to populate its cells.
+        ],
+      )
 
-        ```example
-        #grid(
-          columns: 5,
-          gutter: 5pt,
-          ..range(25).map(str)
-        )
-        ```
+      ```example
+      #grid(
+        columns: 5,
+        gutter: 5pt,
+        ..range(25).map(str)
+      )
+      ```
 
-        = #short-or-long[Styling][Styling the grid] <styling>
-        The grid and table elements work similarly. For a hands-on explanation,
-        refer to the @guides:tables:fills[Table Guide]; for a quick overview,
-        continue reading.
+      = #babel(en: short-or-long[Styling][Styling the grid]) <styling>
+      #babel(
+        en: [
+          The grid and table elements work similarly. For a hands-on explanation,
+          refer to the @guides:tables:fills[Table Guide]; for a quick overview,
+          continue reading.
 
-        The grid's appearance can be customized through different parameters. These
-        are the most important ones:
+          The grid's appearance can be customized through different parameters. These
+          are the most important ones:
 
-        - @grid.align[`align`] to change how cells are aligned
-        - @grid.inset[`inset`] to optionally add internal padding to cells
-        - @grid.fill[`fill`] to give cells a background
-        - @grid.stroke[`stroke`] to optionally enable grid lines with a certain
-          stroke
+          - @grid.align[`align`] to change how cells are aligned
+          - @grid.inset[`inset`] to optionally add internal padding to cells
+          - @grid.fill[`fill`] to give cells a background
+          - @grid.stroke[`stroke`] to optionally enable grid lines with a certain
+            stroke
 
-        To meet different needs, there are various ways to set them.
+          To meet different needs, there are various ways to set them.
 
-        If you need to override the above options for individual cells, you can use
-        the @grid.cell element. Likewise, you can override individual grid lines
-        with the @grid.hline and @grid.vline elements.
+          If you need to override the above options for individual cells, you can use
+          the @grid.cell element. Likewise, you can override individual grid lines
+          with the @grid.hline and @grid.vline elements.
 
-        To configure an overall style for a grid, you may instead specify the option
-        in any of the following fashions:
+          To configure an overall style for a grid, you may instead specify the option
+          in any of the following fashions:
 
-        - As a single value that applies to all cells.
-        - As an array of values corresponding to each column. The array will be
-          cycled if there are more columns than the array has items.
-        - As a function in the form of `(x, y) => value`. It receives the cell's
-          column and row indices (both starting from zero) and should return the
-          value to apply to that cell.
+          - As a single value that applies to all cells.
+          - As an array of values corresponding to each column. The array will be
+            cycled if there are more columns than the array has items.
+          - As a function in the form of `(x, y) => value`. It receives the cell's
+            column and row indices (both starting from zero) and should return the
+            value to apply to that cell.
+        ],
+      )
 
-        ```example
-        #grid(
-          columns: 5,
+      ```example
+      #grid(
+        columns: 5,
 
-          // By a single value
-          align: center,
-          // By a single but more complicated value
-          inset: (x: 2pt, y: 3pt),
-          // By an array of values (cycling)
-          fill: (rgb("#239dad50"), none),
-          // By a function that returns a value
-          stroke: (x, y) => if calc.rem(x + y, 3) == 0 { 0.5pt },
+        // By a single value
+        align: center,
+        // By a single but more complicated value
+        inset: (x: 2pt, y: 3pt),
+        // By an array of values (cycling)
+        fill: (rgb("#239dad50"), none),
+        // By a function that returns a value
+        stroke: (x, y) => if calc.rem(x + y, 3) == 0 { 0.5pt },
 
-          ..range(5 * 3).map(n => numbering("A", n + 1))
-        )
-        ```
+        ..range(5 * 3).map(n => numbering("A", n + 1))
+      )
+      ```
 
-        On top of that, you may @reference:styling[apply styling rules] to @grid and
-        @grid.cell. Especially, the @grid.cell.x[`x`] and @grid.cell.y[`y`] fields
-        of `grid.cell` can be used in a @function.where[`where`] selector, making it
-        possible to style cells at specific columns or rows, or individual
-        positions.
+      #babel(
+        en: [
+          On top of that, you may @reference:styling[apply styling rules] to @grid and
+          @grid.cell. Especially, the @grid.cell.x[`x`] and @grid.cell.y[`y`] fields
+          of `grid.cell` can be used in a @function.where[`where`] selector, making it
+          possible to style cells at specific columns or rows, or individual
+          positions.
+        ],
+      )
 
-        == Stroke styling precedence <stroke-styling-precedence>
-        As explained above, there are three ways to set the stroke of a grid cell:
-        through @grid.cell.stroke[`{grid.cell}`'s `stroke` field], by using
-        @grid.hline[`{grid.hline}`] and @grid.vline[`{grid.vline}`], or by setting
-        the @grid.stroke[`{grid}`'s `stroke` field]. When multiple of these settings
-        are present and conflict, the `hline` and `vline` settings take the highest
-        precedence, followed by the `cell` settings, and finally the `grid`
-        settings.
+      == #babel(en: [Stroke styling precedence]) <stroke-styling-precedence>
+      #babel(
+        en: [
+          As explained above, there are three ways to set the stroke of a grid cell:
+          through @grid.cell.stroke[`{grid.cell}`'s `stroke` field], by using
+          @grid.hline[`{grid.hline}`] and @grid.vline[`{grid.vline}`], or by setting
+          the @grid.stroke[`{grid}`'s `stroke` field]. When multiple of these settings
+          are present and conflict, the `hline` and `vline` settings take the highest
+          precedence, followed by the `cell` settings, and finally the `grid`
+          settings.
 
-        Furthermore, strokes of a repeated grid header or footer will take
-        precedence over regular cell strokes.
+          Furthermore, strokes of a repeated grid header or footer will take
+          precedence over regular cell strokes.
+        ],
+      )
 
-        = Accessibility <accessibility>
-        Grids do not carry any special semantics. Assistive Technology (AT) does not
-        offer the ability to navigate two-dimensionally by cell in grids. If you
-        want to present tabular data, use the @table element instead.
+      = #babel(en: [Accessibility]) <accessibility>
+      #babel(
+        en: [
+          Grids do not carry any special semantics. Assistive Technology (AT) does not
+          offer the ability to navigate two-dimensionally by cell in grids. If you
+          want to present tabular data, use the @table element instead.
 
-        AT will read the grid cells in their semantic order. Usually, this is the
-        order in which you passed them to the grid. However, if you manually
-        positioned them using @grid.cell.x[`grid.cell`'s `x` and `y` arguments],
-        cells will be read row by row, from left to right (in left-to-right
-        documents). A cell will be read when its position is first reached.
-      ],
-    ),
+          AT will read the grid cells in their semantic order. Usually, this is the
+          order in which you passed them to the grid. However, if you manually
+          positioned them using @grid.cell.x[`grid.cell`'s `x` and `y` arguments],
+          cells will be read row by row, from left to right (in left-to-right
+          documents). A cell will be read when its position is first reached.
+        ],
+      )
+    ],
   ),
   "GridElem::columns": (
     182,
@@ -265,169 +295,173 @@
   ),
   "GridElem::fill": (
     253,
-    babel(
-      en: [
-        How to fill the cells.
+    [
+      #babel(
+        en: [
+          How to fill the cells.
 
-        This can be:
-        - a single color for all cells
-        - an array of colors corresponding to each column
-        - a function that maps a cell's position to its color
+          This can be:
+          - a single color for all cells
+          - an array of colors corresponding to each column
+          - a function that maps a cell's position to its color
 
-        Most notably, arrays and functions are useful for creating striped
-        grids. See the @grid:styling[styling section] above for more details.
+          Most notably, arrays and functions are useful for creating striped
+          grids. See the @grid:styling[styling section] above for more details.
+        ],
+      )
 
-        ```example
-        #grid(
-          fill: (x, y) =>
-            if calc.even(x + y) { luma(230) }
-            else { white },
-          align: center + horizon,
-          columns: 4,
-          inset: 2pt,
-          [X], [O], [X], [O],
-          [O], [X], [O], [X],
-          [X], [O], [X], [O],
-          [O], [X], [O], [X],
-        )
-        ```
-      ],
-    ),
+      ```example
+      #grid(
+        fill: (x, y) =>
+          if calc.even(x + y) { luma(230) }
+          else { white },
+        align: center + horizon,
+        columns: 4,
+        inset: 2pt,
+        [X], [O], [X], [O],
+        [O], [X], [O], [X],
+        [X], [O], [X], [O],
+        [O], [X], [O], [X],
+      )
+      ```
+    ],
   ),
   "GridElem::stroke": (
     279,
-    babel(
-      en: [
-        How to @stroke[stroke] the cells.
+    [
+      #babel(
+        en: [
+          How to @stroke[stroke] the cells.
 
-        Grids have no strokes by default, which can be changed by setting this
-        option to the desired stroke.
+          Grids have no strokes by default, which can be changed by setting this
+          option to the desired stroke.
 
-        If it is necessary to place lines which can cross spacing between cells
-        produced by the @grid.gutter[`gutter`] option, or to override the stroke
-        between multiple specific cells, consider specifying one or more of
-        @grid.hline and @grid.vline alongside your grid cells.
+          If it is necessary to place lines which can cross spacing between cells
+          produced by the @grid.gutter[`gutter`] option, or to override the stroke
+          between multiple specific cells, consider specifying one or more of
+          @grid.hline and @grid.vline alongside your grid cells.
 
-        To specify the same stroke for all cells, you can use a single
-        @stroke[stroke] for all sides, or a dictionary of @stroke[strokes] for
-        individual sides. See the @rect.stroke[rectangle's documentation] for
-        more details.
+          To specify the same stroke for all cells, you can use a single
+          @stroke[stroke] for all sides, or a dictionary of @stroke[strokes] for
+          individual sides. See the @rect.stroke[rectangle's documentation] for
+          more details.
 
-        To specify varying strokes for different cells, you can:
-        - use a single stroke for all cells
-        - use an array of strokes corresponding to each column
-        - use a function that maps a cell's position to its stroke
+          To specify varying strokes for different cells, you can:
+          - use a single stroke for all cells
+          - use an array of strokes corresponding to each column
+          - use a function that maps a cell's position to its stroke
 
-        See the @grid:styling[styling section] above for more details.
+          See the @grid:styling[styling section] above for more details.
+        ],
+      )
 
-        #example(
-          title: "Passing a function to set a stroke based on position",
-          ```
-          #set page(width: 420pt)
-          #set text(number-type: "old-style")
-          #show grid.cell.where(y: 0): set text(size: 1.3em)
+      #example(
+        title: "Passing a function to set a stroke based on position",
+        ```
+        #set page(width: 420pt)
+        #set text(number-type: "old-style")
+        #show grid.cell.where(y: 0): set text(size: 1.3em)
 
-          #grid(
-            columns: (1fr, 2fr, 2fr),
-            row-gutter: 1.5em,
-            inset: (left: 0.5em),
-            stroke: (x, y) => if x > 0 { (left: 0.5pt + gray) },
-            align: horizon,
+        #grid(
+          columns: (1fr, 2fr, 2fr),
+          row-gutter: 1.5em,
+          inset: (left: 0.5em),
+          stroke: (x, y) => if x > 0 { (left: 0.5pt + gray) },
+          align: horizon,
 
-            [Winter \ 2007 \ Season],
-            [Aaron Copland \ *The Tender Land* \ January 2007],
-            [Eric Satie \ *Gymnopedie 1, 2* \ February 2007],
+          [Winter \ 2007 \ Season],
+          [Aaron Copland \ *The Tender Land* \ January 2007],
+          [Eric Satie \ *Gymnopedie 1, 2* \ February 2007],
 
-            [],
-            [Jan 12 \ *Middlebury College \ Center for the Arts* \ 20:00],
-            [Feb 2 \ *Johnson State College Dibden Center for the Arts* \ 19:30],
+          [],
+          [Jan 12 \ *Middlebury College \ Center for the Arts* \ 20:00],
+          [Feb 2 \ *Johnson State College Dibden Center for the Arts* \ 19:30],
 
-            [],
-            [Skip a week \ #text(0.8em)[_Prepare your exams!_]],
-            [Feb 9 \ *Castleton State College \ Fine Arts Center* \ 19:30],
+          [],
+          [Skip a week \ #text(0.8em)[_Prepare your exams!_]],
+          [Feb 9 \ *Castleton State College \ Fine Arts Center* \ 19:30],
 
-            [],
-            [Jan 26, 27 \ *Lyndon State College Alexander Twilight Theater* \ 20:00],
-            [
-              Feb 17 --- #smallcaps[Anniversary] \
-              *Middlebury College \ Center for the Arts* \
-              19:00 #text(0.7em)[(for a special guest)]
-            ],
-          )
-          ```,
+          [],
+          [Jan 26, 27 \ *Lyndon State College Alexander Twilight Theater* \ 20:00],
+          [
+            Feb 17 --- #smallcaps[Anniversary] \
+            *Middlebury College \ Center for the Arts* \
+            19:00 #text(0.7em)[(for a special guest)]
+          ],
         )
+        ```,
+      )
 
-        #example(
-          title: "Folding the stroke dictionary",
-          ```
-          #set page(height: 13em, width: 26em)
+      #example(
+        title: "Folding the stroke dictionary",
+        ```
+        #set page(height: 13em, width: 26em)
 
-          #let cv(..jobs) = grid(
-            columns: 2,
-            inset: 5pt,
-            stroke: (x, y) => if x == 0 and y > 0 {
-              (right: (
-                paint: luma(180),
-                thickness: 1.5pt,
-                dash: "dotted",
-              ))
-            },
-            grid.header(grid.cell(colspan: 2)[
-              *Professional Experience*
-              #box(width: 1fr, line(length: 100%, stroke: luma(180)))
-            ]),
-            ..{
-              let last = none
-              for job in jobs.pos() {
-                (
-                  if job.year != last [*#job.year*],
-                  [
-                    *#job.company* - #job.role _(#job.timeframe)_ \
-                    #job.details
-                  ]
-                )
-                last = job.year
-              }
+        #let cv(..jobs) = grid(
+          columns: 2,
+          inset: 5pt,
+          stroke: (x, y) => if x == 0 and y > 0 {
+            (right: (
+              paint: luma(180),
+              thickness: 1.5pt,
+              dash: "dotted",
+            ))
+          },
+          grid.header(grid.cell(colspan: 2)[
+            *Professional Experience*
+            #box(width: 1fr, line(length: 100%, stroke: luma(180)))
+          ]),
+          ..{
+            let last = none
+            for job in jobs.pos() {
+              (
+                if job.year != last [*#job.year*],
+                [
+                  *#job.company* - #job.role _(#job.timeframe)_ \
+                  #job.details
+                ]
+              )
+              last = job.year
             }
-          )
-
-          #cv(
-            (
-              year: 2012,
-              company: [Pear Seed & Co.],
-              role: [Lead Engineer],
-              timeframe: [Jul - Dec],
-              details: [
-                - Raised engineers from 3x to 10x
-                - Did a great job
-              ],
-            ),
-            (
-              year: 2012,
-              company: [Mega Corp.],
-              role: [VP of Sales],
-              timeframe: [Mar - Jun],
-              details: [- Closed tons of customers],
-            ),
-            (
-              year: 2013,
-              company: [Tiny Co.],
-              role: [CEO],
-              timeframe: [Jan - Dec],
-              details: [- Delivered 4x more shareholder value],
-            ),
-            (
-              year: 2014,
-              company: [Glorbocorp Ltd],
-              role: [CTO],
-              timeframe: [Jan - Mar],
-              details: [- Drove containerization forward],
-            ),
-          )
-          ```,
+          }
         )
-      ],
-    ),
+
+        #cv(
+          (
+            year: 2012,
+            company: [Pear Seed & Co.],
+            role: [Lead Engineer],
+            timeframe: [Jul - Dec],
+            details: [
+              - Raised engineers from 3x to 10x
+              - Did a great job
+            ],
+          ),
+          (
+            year: 2012,
+            company: [Mega Corp.],
+            role: [VP of Sales],
+            timeframe: [Mar - Jun],
+            details: [- Closed tons of customers],
+          ),
+          (
+            year: 2013,
+            company: [Tiny Co.],
+            role: [CEO],
+            timeframe: [Jan - Dec],
+            details: [- Delivered 4x more shareholder value],
+          ),
+          (
+            year: 2014,
+            company: [Glorbocorp Ltd],
+            role: [CTO],
+            timeframe: [Jan - Mar],
+            details: [- Drove containerization forward],
+          ),
+        )
+        ```,
+      )
+    ],
   ),
   "GridElem::children": (
     414,
@@ -676,49 +710,55 @@
   ),
   "GridCell": (
     728,
-    babel(
-      en: [
-        A cell in the grid. You can use this function in the argument list of a grid
-        to override grid style properties for an individual cell or manually
-        positioning it within the grid. You can also use this function in show rules
-        to apply certain styles to multiple cells at once.
+    [
+      #babel(
+        en: [
+          A cell in the grid. You can use this function in the argument list of a grid
+          to override grid style properties for an individual cell or manually
+          positioning it within the grid. You can also use this function in show rules
+          to apply certain styles to multiple cells at once.
 
-        For example, you can override the position and stroke for a single cell:
+          For example, you can override the position and stroke for a single cell:
+        ],
+      )
 
-        ```example
-        >>> #set page(width: auto)
-        >>> #set text(15pt, font: "Noto Sans Symbols 2", bottom-edge: -.2em)
-        <<< #set text(15pt, font: "Noto Sans Symbols 2")
-        #show regex("[♚-♟︎]"): set text(fill: rgb("21212A"))
-        #show regex("[♔-♙]"): set text(fill: rgb("111015"))
+      ```example
+      >>> #set page(width: auto)
+      >>> #set text(15pt, font: "Noto Sans Symbols 2", bottom-edge: -.2em)
+      <<< #set text(15pt, font: "Noto Sans Symbols 2")
+      #show regex("[♚-♟︎]"): set text(fill: rgb("21212A"))
+      #show regex("[♔-♙]"): set text(fill: rgb("111015"))
 
-        #grid(
-          fill: (x, y) => rgb(
-            if calc.odd(x + y) { "7F8396" }
-            else { "EFF0F3" }
-          ),
-          columns: (1em,) * 8,
-          rows: 1em,
-          align: center + horizon,
+      #grid(
+        fill: (x, y) => rgb(
+          if calc.odd(x + y) { "7F8396" }
+          else { "EFF0F3" }
+        ),
+        columns: (1em,) * 8,
+        rows: 1em,
+        align: center + horizon,
 
-          [♖], [♘], [♗], [♕], [♔], [♗], [♘], [♖],
-          [♙], [♙], [♙], [♙], [],  [♙], [♙], [♙],
-          grid.cell(
-            x: 4, y: 3,
-            stroke: blue.transparentize(60%)
-          )[♙],
+        [♖], [♘], [♗], [♕], [♔], [♗], [♘], [♖],
+        [♙], [♙], [♙], [♙], [],  [♙], [♙], [♙],
+        grid.cell(
+          x: 4, y: 3,
+          stroke: blue.transparentize(60%)
+        )[♙],
 
-          ..(grid.cell(y: 6)[♟],) * 8,
-          ..([♜], [♞], [♝], [♛], [♚], [♝], [♞], [♜])
-            .map(grid.cell.with(y: 7)),
-        )
-        ```
+        ..(grid.cell(y: 6)[♟],) * 8,
+        ..([♜], [♞], [♝], [♛], [♚], [♝], [♞], [♜])
+          .map(grid.cell.with(y: 7)),
+      )
+      ```
 
-        You may also apply a show rule on `grid.cell` to style all cells at once,
-        which allows you, for example, to apply styles based on a cell's position.
-        Refer to the examples of the @table.cell element to learn more about this.
-      ],
-    ),
+      #babel(
+        en: [
+          You may also apply a show rule on `grid.cell` to style all cells at once,
+          which allows you, for example, to apply styles based on a cell's position.
+          Refer to the examples of the @table.cell element to learn more about this.
+        ],
+      )
+    ],
   ),
   "GridCell::body": (
     769,
@@ -730,73 +770,77 @@
   ),
   "GridCell::x": (
     773,
-    babel(
-      en: [
-        The cell's column (zero-indexed). This field may be used in show rules
-        to style a cell depending on its column.
+    [
+      #babel(
+        en: [
+          The cell's column (zero-indexed). This field may be used in show rules
+          to style a cell depending on its column.
 
-        You may override this field to pick in which column the cell must be
-        placed. If no row (`y`) is chosen, the cell will be placed in the first
-        row (starting at row 0) with that column available (or a new row if
-        none). If both `x` and `y` are chosen, however, the cell will be placed
-        in that exact position. An error is raised if that position is not
-        available (thus, it is usually wise to specify cells with a custom
-        position before cells with automatic positions).
+          You may override this field to pick in which column the cell must be
+          placed. If no row (`y`) is chosen, the cell will be placed in the first
+          row (starting at row 0) with that column available (or a new row if
+          none). If both `x` and `y` are chosen, however, the cell will be placed
+          in that exact position. An error is raised if that position is not
+          available (thus, it is usually wise to specify cells with a custom
+          position before cells with automatic positions).
+        ],
+      )
 
-        ```example
-        #let circ(c) = circle(
-          fill: c,
-          width: 5mm,
-        )
+      ```example
+      #let circ(c) = circle(
+        fill: c,
+        width: 5mm,
+      )
 
-        #grid(
-          columns: 4,
-          rows: 7mm,
-          stroke: .5pt + blue,
-          align: center + horizon,
-          inset: 1mm,
+      #grid(
+        columns: 4,
+        rows: 7mm,
+        stroke: .5pt + blue,
+        align: center + horizon,
+        inset: 1mm,
 
-          grid.cell(x: 2, y: 2, circ(aqua)),
-          circ(yellow),
-          grid.cell(x: 3, circ(green)),
-          circ(black),
-        )
-        ```
-      ],
-    ),
+        grid.cell(x: 2, y: 2, circ(aqua)),
+        circ(yellow),
+        grid.cell(x: 3, circ(green)),
+        circ(black),
+      )
+      ```
+    ],
   ),
   "GridCell::y": (
     805,
-    babel(
-      en: [
-        The cell's row (zero-indexed). This field may be used in show rules to
-        style a cell depending on its row.
+    [
+      #babel(
+        en: [
+          The cell's row (zero-indexed). This field may be used in show rules to
+          style a cell depending on its row.
 
-        You may override this field to pick in which row the cell must be
-        placed. If no column (`x`) is chosen, the cell will be placed in the
-        first column (starting at column 0) available in the chosen row. If all
-        columns in the chosen row are already occupied, an error is raised.
+          You may override this field to pick in which row the cell must be
+          placed. If no column (`x`) is chosen, the cell will be placed in the
+          first column (starting at column 0) available in the chosen row. If all
+          columns in the chosen row are already occupied, an error is raised.
+        ],
+      )
 
-        ```example
-        #let tri(c) = polygon.regular(
-          fill: c,
-          size: 5mm,
-          vertices: 3,
-        )
+      ```example
+      #let tri(c) = polygon.regular(
+        fill: c,
+        size: 5mm,
+        vertices: 3,
+      )
 
-        #grid(
-          columns: 2,
-          stroke: blue,
-          inset: 1mm,
+      #grid(
+        columns: 2,
+        stroke: blue,
+        inset: 1mm,
 
-          tri(black),
-          grid.cell(y: 1, tri(teal)),
-          grid.cell(y: 1, tri(red)),
-          grid.cell(y: 2, tri(orange))
-        )
-        ```
-      ],
-    ),
+        tri(black),
+        grid.cell(y: 1, tri(teal)),
+        grid.cell(y: 1, tri(red)),
+        grid.cell(y: 2, tri(orange))
+      )
+      ```
+    ],
   ),
   "GridCell::colspan": (
     833,

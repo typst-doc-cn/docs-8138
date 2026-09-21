@@ -10,22 +10,24 @@
   ),
   "Duration::construct": (
     38,
-    babel(
-      en: [
-        Creates a new duration.
+    [
+      #babel(
+        en: [
+          Creates a new duration.
 
-        You can specify the @duration[duration] using weeks, days, hours,
-        minutes and seconds. You can also get a duration by subtracting two
-        @datetime[datetimes].
+          You can specify the @duration[duration] using weeks, days, hours,
+          minutes and seconds. You can also get a duration by subtracting two
+          @datetime[datetimes].
+        ],
+      )
 
-        ```example
-        #duration(
-          days: 3,
-          hours: 12,
-        ).hours()
-        ```
-      ],
-    ),
+      ```example
+      #duration(
+        days: 3,
+        hours: 12,
+      ).hours()
+      ```
+    ],
   ),
   "Duration::construct::seconds": (
     52,

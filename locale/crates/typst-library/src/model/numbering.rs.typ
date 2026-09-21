@@ -2,51 +2,57 @@
 #let live-item-data = (
   "numbering": (
     13,
-    babel(
-      en: [
-        Applies a numbering to a sequence of numbers.
+    [
+      #babel(
+        en: [
+          Applies a numbering to a sequence of numbers.
 
-        A numbering defines how a sequence of numbers should be displayed as
-        content. It is defined either through a pattern string or an arbitrary
-        function.
+          A numbering defines how a sequence of numbers should be displayed as
+          content. It is defined either through a pattern string or an arbitrary
+          function.
 
-        A numbering pattern consists of counting symbols, for which the actual
-        number is substituted, their prefixes, and one suffix. The prefixes and the
-        suffix are displayed as-is.
+          A numbering pattern consists of counting symbols, for which the actual
+          number is substituted, their prefixes, and one suffix. The prefixes and the
+          suffix are displayed as-is.
+        ],
+      )
 
-        = Example <example>
-        ```example
-        #numbering("1.1)", 1, 2, 3) \
-        #numbering("1.a.i", 1, 2) \
-        #numbering("I – 1", 12, 2) \
-        #numbering(
-          (..nums) => nums
-            .pos()
-            .map(str)
-            .join(".") + ")",
-          1, 2, 3,
-        )
-        ```
+      = #babel(en: [Example]) <example>
+      ```example
+      #numbering("1.1)", 1, 2, 3) \
+      #numbering("1.a.i", 1, 2) \
+      #numbering("I – 1", 12, 2) \
+      #numbering(
+        (..nums) => nums
+          .pos()
+          .map(str)
+          .join(".") + ")",
+        1, 2, 3,
+      )
+      ```
 
-        = Numbering patterns and numbering functions <patterns-and-functions>
-        There are multiple instances where you can provide a numbering pattern or
-        function in Typst. For example, when defining how to number
-        @heading[headings] or @figure[figures]. Every time, the expected format is
-        the same as the one described below for the
-        @numbering.numbering[`numbering`] parameter.
+      = #babel(en: [Numbering patterns and numbering functions]) <patterns-and-functions>
+      #babel(
+        en: [
+          There are multiple instances where you can provide a numbering pattern or
+          function in Typst. For example, when defining how to number
+          @heading[headings] or @figure[figures]. Every time, the expected format is
+          the same as the one described below for the
+          @numbering.numbering[`numbering`] parameter.
 
-        The following example illustrates that a numbering function is just a
-        regular @function[function] that accepts numbers and returns @content.
+          The following example illustrates that a numbering function is just a
+          regular @function[function] that accepts numbers and returns @content.
+        ],
+      )
 
-        ```example
-        #let unary(.., last) = "|" * last
-        #set heading(numbering: unary)
-        = First heading
-        = Second heading
-        = Third heading
-        ```
-      ],
-    ),
+      ```example
+      #let unary(.., last) = "|" * last
+      #set heading(numbering: unary)
+      = First heading
+      = Second heading
+      = Third heading
+      ```
+    ],
   ),
   "numbering::numbering": (
     59,

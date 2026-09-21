@@ -2,200 +2,242 @@
 #let live-item-data = (
   "Counter": (
     27,
-    babel(
-      en: [
-        Counts through pages, elements, and more.
+    [
+      #babel(
+        en: [
+          Counts through pages, elements, and more.
 
-        With the counter function, you can access and modify counters for pages,
-        headings, figures, and more. Moreover, you can define custom counters for
-        other things you want to count.
+          With the counter function, you can access and modify counters for pages,
+          headings, figures, and more. Moreover, you can define custom counters for
+          other things you want to count.
 
-        Since counters change throughout the course of the document, their current
-        value is _contextual._ It is recommended to read the chapter on
-        @reference:context[context] before continuing here.
+          Since counters change throughout the course of the document, their current
+          value is _contextual._ It is recommended to read the chapter on
+          @reference:context[context] before continuing here.
+        ],
+      )
 
-        = #short-or-long[Accessing][Accessing a counter] <accessing>
-        To access the raw value of a counter, we can use the @counter.get[`get`]
-        function. This function returns an @array[array]: Counters can have multiple
-        levels (in the case of headings for sections, subsections, and so on), and
-        each item in the array corresponds to one level.
+      = #babel(en: short-or-long[Accessing][Accessing a counter]) <accessing>
+      #babel(
+        en: [
+          To access the raw value of a counter, we can use the @counter.get[`get`]
+          function. This function returns an @array[array]: Counters can have multiple
+          levels (in the case of headings for sections, subsections, and so on), and
+          each item in the array corresponds to one level.
+        ],
+      )
 
-        ```example
-        #set heading(numbering: "1.")
+      ```example
+      #set heading(numbering: "1.")
 
-        = Introduction
-        Raw value of heading counter is
-        #context counter(heading).get()
-        ```
+      = Introduction
+      Raw value of heading counter is
+      #context counter(heading).get()
+      ```
 
-        = #short-or-long[Displaying][Displaying a counter] <displaying>
-        Often, we want to display the value of a counter in a more human-readable
-        way. To do that, we can call the @counter.display[`display`] function on the
-        counter. This function retrieves the current counter value and formats it
-        either with a provided or with an automatically inferred
-        @numbering[numbering].
+      = #babel(en: short-or-long[Displaying][Displaying a counter]) <displaying>
+      #babel(
+        en: [
+          Often, we want to display the value of a counter in a more human-readable
+          way. To do that, we can call the @counter.display[`display`] function on the
+          counter. This function retrieves the current counter value and formats it
+          either with a provided or with an automatically inferred
+          @numbering[numbering].
+        ],
+      )
 
-        ```example
-        #set heading(numbering: "1.")
+      ```example
+      #set heading(numbering: "1.")
 
-        = Introduction
-        Some text here.
+      = Introduction
+      Some text here.
 
-        = Background
-        The current value is: #context {
-          counter(heading).display()
-        }
+      = Background
+      The current value is: #context {
+        counter(heading).display()
+      }
 
-        Or in roman numerals: #context {
-          counter(heading).display("I")
-        }
-        ```
+      Or in roman numerals: #context {
+        counter(heading).display("I")
+      }
+      ```
 
-        = #short-or-long[Modifying][Modifying a counter] <modifying>
-        To modify a counter, you can use the `step` and `update` methods:
+      = #babel(en: short-or-long[Modifying][Modifying a counter]) <modifying>
+      #babel(
+        en: [
+          To modify a counter, you can use the `step` and `update` methods:
 
-        - The `step` method increases the value of the counter by one. Because
-          counters can have multiple levels , it optionally takes a `level`
-          argument. If given, the counter steps at the given depth.
+          - The `step` method increases the value of the counter by one. Because
+            counters can have multiple levels , it optionally takes a `level`
+            argument. If given, the counter steps at the given depth.
 
-        - The `update` method allows you to arbitrarily modify the counter. In its
-          basic form, you give it an integer (or an array for multiple levels). For
-          more flexibility, you can instead also give it a function that receives
-          the current value and returns a new value.
+          - The `update` method allows you to arbitrarily modify the counter. In its
+            basic form, you give it an integer (or an array for multiple levels). For
+            more flexibility, you can instead also give it a function that receives
+            the current value and returns a new value.
 
-        The heading counter is stepped before the heading is displayed, so
-        `Analysis` gets the number seven even though the counter is at six after the
-        second update.
+          The heading counter is stepped before the heading is displayed, so
+          `Analysis` gets the number seven even though the counter is at six after the
+          second update.
+        ],
+      )
 
-        ```example
-        #set heading(numbering: "1.")
+      ```example
+      #set heading(numbering: "1.")
 
-        = Introduction
-        #counter(heading).step()
+      = Introduction
+      #counter(heading).step()
 
-        = Background
-        #counter(heading).update(3)
-        #counter(heading).update(n => n * 2)
+      = Background
+      #counter(heading).update(3)
+      #counter(heading).update(n => n * 2)
 
-        = Analysis
-        Let's skip 7.1.
-        #counter(heading).step(level: 2)
+      = Analysis
+      Let's skip 7.1.
+      #counter(heading).step(level: 2)
 
-        == Analysis
-        Still at #context {
-          counter(heading).display()
-        }
-        ```
+      == Analysis
+      Still at #context {
+        counter(heading).display()
+      }
+      ```
 
-        = Element counters <element-counters>
-        Above, there are various examples of using the @heading counter. Headings
-        are just one kind of element that can be counted. In general, counters can
-        count through any kind of @location:locatable[_locatable_ element].
+      = #babel(en: [Element counters]) <element-counters>
+      #babel(
+        en: [
+          Above, there are various examples of using the @heading counter. Headings
+          are just one kind of element that can be counted. In general, counters can
+          count through any kind of @location:locatable[_locatable_ element].
 
-        Additionally, a counter can also count just those elements that match a
-        specific @selector. For example, `{counter(figure.where(kind: image))}`
-        counts figures containing images, but ignores other kinds of figures.
+          Additionally, a counter can also count just those elements that match a
+          specific @selector. For example, `{counter(figure.where(kind: image))}`
+          counts figures containing images, but ignores other kinds of figures.
+        ],
+      )
 
-        = Page counter <page-counter>
-        The page counter is special. It is automatically stepped at each pagebreak.
-        But like other counters, you can also step it manually. For example, you
-        could have Roman page numbers for your preface, then switch to Arabic page
-        numbers for your main content and reset the page counter to one.
+      = #babel(en: [Page counter]) <page-counter>
+      #babel(
+        en: [
+          The page counter is special. It is automatically stepped at each pagebreak.
+          But like other counters, you can also step it manually. For example, you
+          could have Roman page numbers for your preface, then switch to Arabic page
+          numbers for your main content and reset the page counter to one.
+        ],
+      )
 
-        ```example
-        >>> #set page(
-        >>>   height: 100pt,
-        >>>   margin: (bottom: 24pt, rest: 16pt),
-        >>> )
-        #set page(numbering: "(i)")
+      ```example
+      >>> #set page(
+      >>>   height: 100pt,
+      >>>   margin: (bottom: 24pt, rest: 16pt),
+      >>> )
+      #set page(numbering: "(i)")
 
-        = Preface
-        The preface is numbered with
-        roman numerals.
+      = Preface
+      The preface is numbered with
+      roman numerals.
 
-        #set page(numbering: "1 / 1")
-        #counter(page).update(1)
+      #set page(numbering: "1 / 1")
+      #counter(page).update(1)
 
-        = Main text
-        Here, the counter is reset to one.
-        We also display both the current
-        page and total number of pages in
-        Arabic numbers.
-        ```
+      = Main text
+      Here, the counter is reset to one.
+      We also display both the current
+      page and total number of pages in
+      Arabic numbers.
+      ```
 
-        = Custom counters <custom-counters>
-        To define your own counter, call the `counter` function with a string as a
-        key. This key identifies the counter globally.
+      = #babel(en: [Custom counters]) <custom-counters>
+      #babel(
+        en: [
+          To define your own counter, call the `counter` function with a string as a
+          key. This key identifies the counter globally.
+        ],
+      )
 
-        ```example
-        #let mine = counter("mycounter")
-        #context mine.display() \
-        #mine.step()
-        #context mine.display() \
-        #mine.update(c => c * 3)
-        #context mine.display()
-        ```
+      ```example
+      #let mine = counter("mycounter")
+      #context mine.display() \
+      #mine.step()
+      #context mine.display() \
+      #mine.update(c => c * 3)
+      #context mine.display()
+      ```
 
-        = How to step <how-to-step>
-        When you define and use a custom counter, in general, you should first step
-        the counter and then display it. This way, the stepping behaviour of a
-        counter can depend on the element it is stepped for. If you were writing a
-        counter for, let's say, theorems, your theorem's definition would thus first
-        include the counter step and only then display the counter and the theorem's
-        contents.
+      = #babel(en: [How to step]) <how-to-step>
+      #babel(
+        en: [
+          When you define and use a custom counter, in general, you should first step
+          the counter and then display it. This way, the stepping behaviour of a
+          counter can depend on the element it is stepped for. If you were writing a
+          counter for, let's say, theorems, your theorem's definition would thus first
+          include the counter step and only then display the counter and the theorem's
+          contents.
+        ],
+      )
 
-        ```example
-        #let c = counter("theorem")
-        #let theorem(it) = block[
-          #c.step()
-          *Theorem #context c.display():*
-          #it
-        ]
+      ```example
+      #let c = counter("theorem")
+      #let theorem(it) = block[
+        #c.step()
+        *Theorem #context c.display():*
+        #it
+      ]
 
-        #theorem[$1 = 1$]
-        #theorem[$2 < 3$]
-        ```
+      #theorem[$1 = 1$]
+      #theorem[$2 < 3$]
+      ```
 
-        The rationale behind this is best explained on the example of the heading
-        counter: An update to the heading counter depends on the heading's level. By
-        stepping directly before the heading, we can correctly step from `1` to
-        `1.1` when encountering a level 2 heading. If we were to step after the
-        heading, we wouldn't know what to step to.
+      #babel(
+        en: [
+          The rationale behind this is best explained on the example of the heading
+          counter: An update to the heading counter depends on the heading's level. By
+          stepping directly before the heading, we can correctly step from `1` to
+          `1.1` when encountering a level 2 heading. If we were to step after the
+          heading, we wouldn't know what to step to.
 
-        Because counters should always be stepped before the elements they count,
-        they always start at zero. This way, they are at one for the first display
-        (which happens after the first step).
+          Because counters should always be stepped before the elements they count,
+          they always start at zero. This way, they are at one for the first display
+          (which happens after the first step).
+        ],
+      )
 
-        = Time travel <time-travel>
-        Counters can travel through time! You can find out the final value of the
-        counter before it is reached and even determine what the value was at any
-        particular location in the document.
+      = #babel(en: [Time travel]) <time-travel>
+      #babel(
+        en: [
+          Counters can travel through time! You can find out the final value of the
+          counter before it is reached and even determine what the value was at any
+          particular location in the document.
+        ],
+      )
 
-        ```example
-        #let mine = counter("mycounter")
+      ```example
+      #let mine = counter("mycounter")
 
-        = Values
-        #context [
-          Value here: #mine.get() \
-          At intro: #mine.at(<intro>) \
-          Final value: #mine.final()
-        ]
+      = Values
+      #context [
+        Value here: #mine.get() \
+        At intro: #mine.at(<intro>) \
+        Final value: #mine.final()
+      ]
 
-        #mine.update(n => n + 3)
+      #mine.update(n => n + 3)
 
-        = Introduction <intro>
-        #lorem(10)
+      = Introduction <intro>
+      #lorem(10)
 
-        #mine.step()
-        #mine.step()
-        ```
+      #mine.step()
+      #mine.step()
+      ```
 
-        = #short-or-long[Other State][Other kinds of state] <other-state>
-        The `counter` type is closely related to @state[state] type. Read its
-        documentation for more details on state management in Typst and why it
-        doesn't just use normal variables for counters.
-      ],
-    ),
+      = #babel(en: short-or-long[Other State][Other kinds of state]) <other-state>
+      #babel(
+        en: [
+          The `counter` type is closely related to @state[state] type. Read its
+          documentation for more details on state management in Typst and why it
+          doesn't just use normal variables for counters.
+        ],
+      )
+    ],
   ),
   "Counter::construct": (
     338,

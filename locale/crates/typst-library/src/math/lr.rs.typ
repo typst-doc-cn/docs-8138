@@ -29,15 +29,17 @@
   ),
   "MidElem": (
     40,
-    babel(
-      en: [
-        Scales delimiters vertically to the nearest surrounding `{lr()}` group.
+    [
+      #babel(
+        en: [
+          Scales delimiters vertically to the nearest surrounding `{lr()}` group.
+        ],
+      )
 
-        ```example
-        $ { x mid(|) sum_(i=1)^n w_i abs(f_i (x)) < 1 } $
-        ```
-      ],
-    ),
+      ```example
+      $ { x mid(|) sum_(i=1)^n w_i abs(f_i (x)) < 1 } $
+      ```
+    ],
   ),
   "MidElem::body": (
     47,
@@ -49,15 +51,17 @@
   ),
   "floor": (
     52,
-    babel(
-      en: [
-        Floors an expression.
+    [
+      #babel(
+        en: [
+          Floors an expression.
+        ],
+      )
 
-        ```example
-        $ floor(x/2) $
-        ```
-      ],
-    ),
+      ```example
+      $ floor(x/2) $
+      ```
+    ],
   ),
   "floor::size": (
     59,
@@ -79,15 +83,17 @@
   ),
   "ceil": (
     70,
-    babel(
-      en: [
-        Ceils an expression.
+    [
+      #babel(
+        en: [
+          Ceils an expression.
+        ],
+      )
 
-        ```example
-        $ ceil(x/2) $
-        ```
-      ],
-    ),
+      ```example
+      $ ceil(x/2) $
+      ```
+    ],
   ),
   "ceil::size": (
     77,
@@ -109,15 +115,17 @@
   ),
   "round": (
     88,
-    babel(
-      en: [
-        Rounds an expression.
+    [
+      #babel(
+        en: [
+          Rounds an expression.
+        ],
+      )
 
-        ```example
-        $ round(x/2) $
-        ```
-      ],
-    ),
+      ```example
+      $ round(x/2) $
+      ```
+    ],
   ),
   "round::size": (
     95,
@@ -139,15 +147,17 @@
   ),
   "abs": (
     106,
-    babel(
-      en: [
-        Takes the absolute value of an expression.
+    [
+      #babel(
+        en: [
+          Takes the absolute value of an expression.
+        ],
+      )
 
-        ```example
-        $ abs(x/2) $
-        ```
-      ],
-    ),
+      ```example
+      $ abs(x/2) $
+      ```
+    ],
   ),
   "abs::size": (
     113,
@@ -169,15 +179,17 @@
   ),
   "norm": (
     124,
-    babel(
-      en: [
-        Takes the norm of an expression.
+    [
+      #babel(
+        en: [
+          Takes the norm of an expression.
+        ],
+      )
 
-        ```example
-        $ norm(x/2) $
-        ```
-      ],
-    ),
+      ```example
+      $ norm(x/2) $
+      ```
+    ],
   ),
   "norm::size": (
     131,

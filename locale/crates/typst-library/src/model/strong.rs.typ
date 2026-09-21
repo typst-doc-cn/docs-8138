@@ -2,41 +2,49 @@
 #let live-item-data = (
   "StrongElem": (
     3,
-    babel(
-      en: [
-        Strongly emphasizes content by increasing the font weight.
+    [
+      #babel(
+        en: [
+          Strongly emphasizes content by increasing the font weight.
 
-        Increases the current font weight by a given `delta`.
+          Increases the current font weight by a given `delta`.
+        ],
+      )
 
-        = Example <example>
-        ```example
-        This is *strong.* \
-        This is #strong[too.] \
+      = #babel(en: [Example]) <example>
+      ```example
+      This is *strong.* \
+      This is #strong[too.] \
 
-        #show strong: set text(red)
-        And this is *evermore.*
-        ```
+      #show strong: set text(red)
+      And this is *evermore.*
+      ```
 
-        = Syntax <syntax>
-        This function also has dedicated syntax: To strongly emphasize content,
-        simply enclose it in stars/asterisks (`*`). Note that this only works at
-        word boundaries. To strongly emphasize part of a word, you have to use the
-        function.
-      ],
-    ),
+      = #babel(en: [Syntax]) <syntax>
+      #babel(
+        en: [
+          This function also has dedicated syntax: To strongly emphasize content,
+          simply enclose it in stars/asterisks (`*`). Note that this only works at
+          word boundaries. To strongly emphasize part of a word, you have to use the
+          function.
+        ],
+      )
+    ],
   ),
   "StrongElem::delta": (
     23,
-    babel(
-      en: [
-        The delta to apply on the font weight.
+    [
+      #babel(
+        en: [
+          The delta to apply on the font weight.
+        ],
+      )
 
-        ```example
-        #set strong(delta: 0)
-        No *effect!*
-        ```
-      ],
-    ),
+      ```example
+      #set strong(delta: 0)
+      No *effect!*
+      ```
+    ],
   ),
   "StrongElem::body": (
     32,
