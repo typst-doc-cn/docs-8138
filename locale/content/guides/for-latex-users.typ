@@ -78,7 +78,7 @@ output is shown to the right.
   ],
   zh-status: "need proofread",
   zh: [
-    如果你想直接从原有的LaTeX文档迁移过来，你可以使用#link("https://pandoc.org")[Pandocs]将其转换为Typst格式。这个转换的工具也集成进了Typst的Web App中，你可以直接上传你的LaTeX文件，然后在上面继续编写。
+    如果你想直接从原有的LaTeX文档迁移过来，你可以使用#link("https://pandoc.org")[Pandoc]将其转换为Typst格式。这个转换的工具也集成进了Typst的Web App中，你可以直接上传你的LaTeX文件，然后在上面继续编写。
   ],
 )
 
@@ -143,12 +143,12 @@ output is shown to the right.
   [`[<intro>]`],
   [@label],
 
-  babel(en: [Reference], zh-status: "need proofread", zh: [交叉引用]),
+  babel(en: [Reference], zh-status: "proofread", zh: [交叉引用]),
   [`\ref{intro}`],
   [`[@intro]`],
   [@ref],
 
-  babel(en: [Citation], zh-status: "need proofread", zh: [文献引用]),
+  babel(en: [Citation], zh-status: "proofread", zh: [文献引用]),
   [`\cite{humphrey97}`],
   [`[@humphrey97]`],
   [@cite],
@@ -168,32 +168,32 @@ output is shown to the right.
   [``` [`#typst-code()`]```],
   [@raw],
 
-  babel(en: [Bullet list], zh-status: "need proofread", zh: [无序列表]),
+  babel(en: [Bullet list], zh-status: "proofread", zh: [项目符号列表]),
   babel(en: [`itemize` environment], zh-status: "need proofread", zh: [`itemize`环境]),
   [`[- List]`],
   [@list],
 
-  babel(en: [Numbered list], zh-status: "need proofread", zh: [有序列表]),
+  babel(en: [Numbered list], zh-status: "proofread", zh: [编号列表]),
   babel(en: [`enumerate` environment], zh-status: "need proofread", zh: [`enumerate`环境]),
   [`[+ List]`],
   [@enum],
 
-  babel(en: [Term list], zh-status: "need proofread", zh: [术语列表]),
+  babel(en: [Term list], zh-status: "proofread", zh: [术语列表]),
   babel(en: [`description` environment], zh-status: "need proofread", zh: [`description`环境]),
   [`[/ Term: List]`],
   [@terms],
 
-  babel(en: [Figure], zh-status: "need proofread", zh: [图片]),
+  babel(en: [Figure], zh-status: "need proofread", zh: [图表]),
   babel(en: [`figure` environment], zh-status: "need proofread", zh: [`figure`环境]),
   [`figure` function],
   [@figure],
 
-  babel(en: [Table], zh-status: "need proofread", zh: [表格]),
+  babel(en: [Table], zh-status: "proofread", zh: [表格]),
   babel(en: [`table` environment], zh-status: "need proofread", zh: [`table`环境]),
   [`table` function],
   [@table],
 
-  babel(en: [Equation], zh-status: "need proofread", zh: [公式]),
+  babel(en: [Equation], zh-status: "proofread", zh: [公式]),
   babel(
     en: [`$x$`, `align` / `equation` environments],
     zh-status: "need proofread",

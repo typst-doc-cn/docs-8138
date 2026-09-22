@@ -92,28 +92,27 @@ Once you have entered code mode with `#`, you don't need to use further hashes u
   [`[<intro>]`],
   [@label],
 
-  // TODO: for-latex-user译作交叉引用，需统一
-  babel(en: [Reference], zh-status: "need proofread", zh: [引用]),
+  babel(en: [Reference], zh-status: "proofread", zh: [交叉引用]),
   [`[@intro]`],
   [@ref],
 
-  babel(en: [Heading], zh-status: "need proofread", zh: [标题]),
+  babel(en: [Heading], zh-status: "proofread", zh: [章节标题]),
   [`[= Heading]`],
   [@heading],
 
-  babel(en: [Bullet list], zh-status: "need proofread", zh: [无序列表]),
+  babel(en: [Bullet list], zh-status: "proofread", zh: [项目符号列表]),
   [`[- item]`],
   [@list],
 
-  babel(en: [Numbered list], zh-status: "need proofread", zh: [有序列表]),
+  babel(en: [Numbered list], zh-status: "proofread", zh: [编号列表]),
   [`[+ item]`],
   [@enum],
 
-  babel(en: [Term list], zh-status: "need proofread", zh: [术语列表]),
+  babel(en: [Term list], zh-status: "proofread", zh: [术语列表]),
   [`[/ Term: description]`],
   [@terms],
 
-  babel(en: [Math], zh-status: "need proofread", zh: [数学公式]),
+  babel(en: [Math], zh-status: "proofread", zh: [数学公式]),
   [`[$x^2$]`],
   [@math[Math]],
 
@@ -156,19 +155,19 @@ Once you have entered code mode with `#`, you don't need to use further hashes u
 #docs-table(
   i18n--table-header,
 
-  babel(en: [Inline math], zh-status: "need proofread", zh: [行内数学公式]),
+  babel(en: [Inline math], zh-status: "proofread", zh: [行内公式]),
   [`[$x^2$]`],
   [@math[Math]],
 
-  babel(en: [Block-level math], zh-status: "need proofread", zh: [块级数学公式]),
+  babel(en: [Block-level math], zh-status: "proofread", zh: [独行公式]),
   [`[$ x^2 $]`],
   [@math[Math]],
 
-  babel(en: [Bottom attachment], zh-status: "need proofread", zh: [底部附缀]),
+  babel(en: [Bottom attachment], zh-status: "proofread", zh: [下标]),
   [`[$x_1$]`],
   [@math:attach[`attach`]],
 
-  babel(en: [Top attachment], zh-status: "need proofread", zh: [顶部附缀]),
+  babel(en: [Top attachment], zh-status: "proofread", zh: [上标]),
   [`[$x^2$]`],
   [@math:attach[`attach`]],
 
@@ -192,7 +191,7 @@ Once you have entered code mode with `#`, you don't need to use further hashes u
   [`[$arrow.r.long$]`],
   [@reference:scripting:fields[Scripting]],
 
-  babel(en: [Implied multiplication], zh-status: "need proofread", zh: [隐式乘积]),
+  babel(en: [Implied multiplication], zh-status: "proofread", zh: [隐式表达的乘积]),
   [`[$x y$]`],
   [@math[Math]],
 
@@ -221,7 +220,7 @@ Once you have entered code mode with `#`, you don't need to use further hashes u
   [@reference:syntax:comments[Below]],
 )
 
-= #babel(en: short-or-long[Code][Code mode], zh-status: "need proofread", zh: [代码模式]) <code>
+= #babel(en: short-or-long[Code][Code mode], zh-status: "proofread", zh: [脚本模式]) <code>
 #babel(
   en: [
     Within code blocks and expressions, new expressions can start without a leading `#` character. Many syntactic elements are specific to expressions. Below is a table listing all syntax that is available in code mode:

@@ -55,10 +55,8 @@ just serve
 
 - 准备typst-docs CLI下载页面和PR机器人。
 
-- 处理roadmap和community页面
-
-  > Move roadmap and community pages out of this repository ([#4688](https://github.com/typst/typst/pull/4688))
-  >
-  > This lets us update them more quickly instead of waiting for a compiler release.
-
 - 统一术语。目前语法大表格、LaTeX指南、术语表并不一致。
+
+- [镜像链接](https://typst-doc-cn.github.io/guide/dev/mirror-link.html)
+
+- 翻译`stdx.describe`的`title`

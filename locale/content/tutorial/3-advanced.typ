@@ -4,7 +4,7 @@
 #show: docs-chapter.with(
   title: babel(
     en: "Advanced Styling",
-    zh-status: "need proofread",
+    zh-status: "proofread",
     zh: "高级样式",
   ),
   route: "/tutorial/advanced-styling",
@@ -744,7 +744,7 @@ We provide the rule with a function that takes the heading as a parameter. This 
   width: 400,
 )
 
-= #babel(en: [Review], zh-status: "need proofread", zh: [回顾]) <review>
+= #babel(en: [Review], zh-status: "proofread", zh: [小结]) <review>
 #babel(
   en: [
     You have now learned how to create titles, headers, and footers, how to use functions, show-set rules, and scopes to locally override styles, how to create more complex layouts with the @grid function, how to access element properties with context, and how to write show rules for individual functions, and the whole document. You also learned how to use the @reference:styling:show-rules[`where` selector] to filter the headings by their level.

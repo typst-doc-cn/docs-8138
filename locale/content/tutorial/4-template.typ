@@ -4,7 +4,7 @@
 #show: docs-chapter.with(
   title: babel(
     en: "Making a Template",
-    zh-status: "need proofread",
+    zh-status: "proofread",
     zh: "制作模板",
   ),
   route: "/tutorial/making-a-template",
@@ -539,7 +539,7 @@ Another thing that you can do to make applying templates just a bit more elegant
   ],
 )
 
-= #babel(en: [Review], zh-status: "need proofread", zh: [回顾]) <review>
+= #babel(en: [Review], zh-status: "proofread", zh: [总结]) <review>
 #babel(
   en: [
     Congratulations, you have completed Typst's Tutorial! In this section, you have learned how to define your own functions and how to create and apply templates that define reusable document styles. You've made it far and learned a lot. You can now use Typst to write your own documents and share them with others.

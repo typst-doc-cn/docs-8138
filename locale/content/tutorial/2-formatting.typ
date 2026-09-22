@@ -4,14 +4,14 @@
 #show: docs-chapter.with(
   title: babel(
     en: "Formatting",
-    zh-status: "need proofread",
-    zh: "格式",
+    zh-status: "proofread",
+    zh: "基本格式",
   ),
   route: "/tutorial/formatting",
   description: babel(
     en: "Typst's tutorial.",
     zh-status: "proofread",
-    zh: "Typst 的教程。",
+    zh: "Typst的教程。",
   ),
 )
 
@@ -349,7 +349,7 @@ project of the Artos Institute.
   ],
 )
 
-= #babel(en: [Review], zh-status: "need proofread", zh: [回顾]) <review>
+= #babel(en: [Review], zh-status: "proofread", zh: [小结]) <review>
 #babel(
   en: [
     You now know how to apply basic formatting to your Typst documents. You learned how to set the font, justify your paragraphs, change the page dimensions, and add numbering to your headings with set rules. You also learned how to use a basic show rule to change how text appears throughout your document.
