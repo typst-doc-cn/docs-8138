@@ -100,9 +100,11 @@ build: (docit "compile" "--format=pdf" "--deny-warnings") (docit "compile" "--fo
 [arg("BASE", pattern='/|(/.+/)')]
 ci-build BASE="/base/":
     sd --fixed-strings '#let base = "/"' '#let base = "{{ BASE }}"' patches/main.typ
+    sd --fixed-strings '#let enable-pagefind = false' '#let enable-pagefind = true' patches/i18n-translation.typ
     just build
     mv target/dist/site{{ BASE }}* target/dist/
     mv target/dist/docs.pdf target/dist/typst-documentation.pdf
+    pagefind_extended --site target/dist/
 
 # Build and setup the babelize Wasm plugin
 [group("for maintainers")]

@@ -6,6 +6,8 @@
 
 #import "i18n-babel.typ": babel
 
+#let enable-pagefind = false
+
 /// Translation dictionary for UI attributes and aria labels.
 #let translation = (
   htmlLang: babel(
@@ -43,12 +45,36 @@
   //   zh-status: "validated",
   //   zh: "关闭菜单",
   // ),
-  search: babel(
-    en: "Search",
-    ja-status: "validated",
-    ja: "検索",
-    zh-status: "validated",
-    zh: "搜索",
+  search: if enable-pagefind {
+    // The original search does not work well after localization. Therefore, pagefind is introduced.
+    // - `search`: the original search.
+    // - `searchPagefindShort`: pagefind-modal-trigger; the available width is about 3em.
+    // - `searchPagefindLong`: pagefind-find; there is plenty of space.
+    babel(
+      en: "Search identifiers",
+      ja-status: "need update",
+      ja: "検索",
+      zh-status: "validated",
+      zh: "搜符号",
+    )
+  } else {
+    babel(
+      en: "Search (S)",
+      ja-status: "validated",
+      ja: "検索（S）",
+      zh-status: "validated",
+      zh: "搜索（S）",
+    )
+  },
+  searchPagefindShort: babel(
+    en: "Search texts",
+    zh-status: "proofread",
+    zh: "搜全文",
+  ),
+  searchPagefindLong: babel(
+    en: "Full-text search",
+    zh-status: "proofread",
+    zh: "全文搜索",
   ),
   // openSearch: babel(
   //   en: "Open search",

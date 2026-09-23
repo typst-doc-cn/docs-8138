@@ -1,5 +1,5 @@
 diff --git a/docs/components/base.typ b/docs/components/base.typ
-index c1252dac94..2a8f261e79 100644
+index c1252dac94..9d211aa423 100644
 --- a/docs/components/base.typ
 +++ b/docs/components/base.typ
 @@ -31,6 +31,8 @@
@@ -11,6 +11,23 @@ index c1252dac94..2a8f261e79 100644
    } else {
      body
    }
+@@ -174,7 +176,7 @@
+   // TODO: The tooltip counter could be replaced with a label-based mechanism.
+   let id = "tooltip-" + str(tooltip-counter.get().first())
+   html.span(aria-describedby: id, body)
+-  html.div(class: "tooltip-context", {
++  html.elem("div", attrs: (class: "tooltip-context", data-pagefind-ignore: ""), {
+     use-icon(12, "tooltip", "Question mark")
+     html.div(
+       id: id,
+@@ -228,6 +230,7 @@
+ #let search-box(..props) = html.div(class: "search", {
+   icon(16, "search-gray", "Search")
+   html.input(type: "search", ..props)
++  context stdx.config.insertions.at("after-search-box", default: none) // We should use `insertion` defined below if possible.
+ })
+ 
+ // Displays an informational callout.
 diff --git a/docs/components/category.typ b/docs/components/category.typ
 index 61df84c069..b6d143e6c2 100644
 --- a/docs/components/category.typ
@@ -333,7 +350,7 @@ index 34d06a7dd3..05db2ff671 100644
    "https://github.com/typst/typst/blob/" + stdx.commit + file + "#L" + str(line)
  }
 diff --git a/docs/components/nav.typ b/docs/components/nav.typ
-index 970e70646c..42c97a8c91 100644
+index 970e70646c..e8144f3dee 100644
 --- a/docs/components/nav.typ
 +++ b/docs/components/nav.typ
 @@ -1,3 +1,4 @@
@@ -346,7 +363,7 @@ index 970e70646c..42c97a8c91 100644
  #let nav-folding(current) = html.nav(class: "folding", context {
    html.button(class: "close", icon(16, "close", "Close"))
 -  search-box(id: "docs-search", placeholder: "Search (S)")
-+  search-box(id: "docs-search", placeholder: translation.search + " (S)")
++  insertion("before-nav-items") + search-box(id: "docs-search", placeholder: translation.search)
    html.ul(id: "search-results", class: "search-results hidden")
    let items = query(selector.or(
      <metadata-page>,
@@ -414,7 +431,7 @@ index 8ea050c623..b187e8739e 100644
    v(1fr)
  })
 diff --git a/docs/components/section.typ b/docs/components/section.typ
-index 58463d1257..6d91f1b43a 100644
+index 58463d1257..748beb83db 100644
 --- a/docs/components/section.typ
 +++ b/docs/components/section.typ
 @@ -1,3 +1,4 @@
@@ -475,7 +492,8 @@ index 58463d1257..6d91f1b43a 100644
        html.div(class: "main-grid", {
          nav-folding(route)
          context {
-           html.main({
+-          html.main({
++          html.elem("main", attrs: (data-pagefind-body: ""), {
              nav-breadcrumbs(route)
 +            insertion-fn("main-before-body", route: baseless-route, keywords: keywords)
              labelled(std.title(title-content), if has-summary { <summary> })

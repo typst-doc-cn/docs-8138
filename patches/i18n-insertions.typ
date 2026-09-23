@@ -1,4 +1,4 @@
-#import "i18n-translation.typ": Translation, translation
+#import "i18n-translation.typ": Translation, enable-pagefind, translation
 
 #let _icon = (
   // https://simpleicons.org/?q=git
@@ -193,6 +193,48 @@
     array.zip(SiteTitle, SiteNoticeBanner).map(v => v.join())
   },
 
+  ..if enable-pagefind {
+    (
+      after-search-box: (
+        // Align the native search box with pagefind-modal-trigger https://pagefind.app/docs/components/modal-trigger/
+        html.span(class: "pf-trigger-shortcut", aria-hidden: true, style: "margin-left: -2em", {
+          html.span(class: "pf-trigger-key")[S]
+        }),
+        ```css
+        pagefind-modal-trigger button {
+          padding-left: 0.5em !important; /* More important than pagefind's id selectors */
+        }
+        ```.text,
+      ),
+      before-nav-items: (
+        // See https://pagefind.app/docs/search-ui/
+        {
+          let pagefind(tag, ..args) = html.elem("pagefind-" + tag, ..args)
+
+          context pagefind("config", attrs: (bundle-path: stdx.config.content-base + "pagefind/", faceted: ""))
+
+          pagefind("modal-trigger", attrs: (placeholder: translation.searchPagefindShort, style: "width: 100%"))
+          pagefind("modal", {
+            pagefind("modal-header", {
+              pagefind("input", attrs: (placeholder: translation.searchPagefindLong))
+            })
+            pagefind("modal-body", {
+              pagefind("summary")
+              pagefind("results")
+            })
+            pagefind("modal-footer", {
+              pagefind("keyboard-hints")
+            })
+          })
+        },
+        context {
+          html.link(href: stdx.config.content-base + "pagefind/pagefind-component-ui.css", rel: "stylesheet")
+          html.script(src: stdx.config.content-base + "pagefind/pagefind-component-ui.js", type: "module")
+        },
+      ),
+    )
+  },
+
   after-nav-items: (
     // Show only when the PDF is put properly by `just ci-build`
     context if stdx.config.content-base != "/" {
@@ -219,7 +261,7 @@
       if "community-added" in keywords {
         return
       }
-      html.p(class: ("link-official", class).join(" "), html.a(
+      html.elem("p", attrs: (class: ("link-official", class).join(" "), data-pagefind-ignore: ""), html.a(
         href: "https://typst.app/docs/" + route,
         target: "_blank",
         rel: "noopener",
@@ -315,11 +357,18 @@
 )
 
 #let insertions = {
+  let extra-head = ()
   let extra-css = ()
-  for (key, (body, css)) in insertions {
-    if css != none { extra-css.push(css) }
+  for (key, (body, extra)) in insertions {
+    if extra != none {
+      if type(extra) == str {
+        extra-css.push(extra)
+      } else {
+        extra-head.push(extra)
+      }
+    }
 
     ((key): body)
   }
-  (extra-head: html.style(extra-css.join("\n")))
+  (extra-head: html.style(extra-css.join("\n")) + extra-head.join())
 }
