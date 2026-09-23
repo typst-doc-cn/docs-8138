@@ -91,7 +91,7 @@ serve: (docit "watch" "--format=website" "--open")
 
 # Compile the docs as PDF and website to target/dist/
 [group("for contributors")]
-build: (docit "compile" "--format=pdf") (docit "compile" "--format=website")
+build: (docit "compile" "--format=pdf" "--deny-warnings") (docit "compile" "--format=website" "--deny-warnings")
     -rm -rf target/dist/
     mv target/typst/docs/dist/ target/
     # ✅ Now you can view or deploy target/dist/
