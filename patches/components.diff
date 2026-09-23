@@ -29,7 +29,7 @@ index c1252dac94..9d211aa423 100644
  
  // Displays an informational callout.
 diff --git a/docs/components/category.typ b/docs/components/category.typ
-index 61df84c069..b6d143e6c2 100644
+index 61df84c069..8461592892 100644
 --- a/docs/components/category.typ
 +++ b/docs/components/category.typ
 @@ -1,3 +1,4 @@
@@ -119,7 +119,7 @@ index 61df84c069..b6d143e6c2 100644
    }
  }
  
-@@ -342,15 +334,11 @@
+@@ -342,19 +334,15 @@
    set text(0.75em)
    if info.element {
      gap
@@ -137,6 +137,20 @@ index 61df84c069..b6d143e6c2 100644
    }
    if info.since != none {
      gap
+-    small[Since: #info.since]
++    small((Translation.since)(info.since))
+   } else {
+     panic("missing `since` for function " + info.def-site.key + " (" + stdx.str-from-path(info.def-site.path) + ")")
+   }
+@@ -370,7 +358,7 @@
+   set text(0.75em)
+   if ty-info.since != none {
+     gap
+-    small[Since: #ty-info.since]
++    small((Translation.since)(ty-info.since))
+   } else {
+     panic("missing `since` for type " + ty-info.def-site.key + " (" + stdx.str-from-path(ty-info.def-site.path) + ")")
+   }
 @@ -427,7 +415,7 @@
  
    {

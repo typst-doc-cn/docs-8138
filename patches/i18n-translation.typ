@@ -195,6 +195,12 @@
     zh-status: "proofread",
     zh: [上下文相关函数只能在确定上下文之后使用。],
   ),
+  since: since => babel(
+    // `since` will be `"forever"`, `"unreleased"`, or a Typst version, e.g., `version(0, 15, 0)`.
+    en: [Since: #since],
+    zh-status: "proofread",
+    zh: if since == "unreleased" [尚未发布] else if since == "forever" [自始可用] else [#since;起可用],
+  ),
 
   // Section tooltips
   constructor: babel(
