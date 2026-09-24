@@ -9,7 +9,7 @@ on:
         description: |
           The branch, tag or SHA in https://github.com/typst/typst.
           It does not need to match `TYPST_REF` in justfile exactly.
-        default: 586e1bd43fae6c9a973218163d3165c53ab8d16d
+        default: 9f2b6e8715237cb086899a42873660fe744622e8
         type: string
     outputs:
       key:
@@ -57,22 +57,6 @@ jobs:
           -docit = "run --profile dev-fast --package=typst-docs --"
           +# We use the `release` profile to optimize the resulting binary.
           +docit = "run --profile release --package=typst-docs --"
-          diff --git a/docs/src/main.rs b/docs/src/main.rs
-          index 4e509ac43..8242f57cf 100644
-          --- a/docs/src/main.rs
-          +++ b/docs/src/main.rs
-          @@ -37,11 +37,6 @@ const SITE_PATH: &str = "docs/dist/site";
-
-           /// Entry point.
-           fn main() -> ExitCode {
-          -    // Make all paths relative to the workspace.
-          -    let workspace_dir =
-          -        Path::new(env!("CARGO_MANIFEST_DIR")).join(std::path::Component::ParentDir);
-          -    std::env::set_current_dir(workspace_dir).unwrap();
-          -
-               match &ARGS.command {
-                   Command::Compile(command) => compile(command),
-                   Command::Watch(command) => watch(command),
           EOF
       - run: cargo docit --help
         if: steps.restore.outputs.cache-hit != 'true'

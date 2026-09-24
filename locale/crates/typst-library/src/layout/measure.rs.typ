@@ -49,14 +49,16 @@
 
       #babel(
         en: [
-          The measure function returns a dictionary with the entries `width` and
-          `height`, both of type @length.
+          The measure function returns a dictionary with the entries `width`, `height`,
+          and `baseline`, all of type @length. The `baseline` entry is the vertical
+          position of the content's baseline relative to its top edge, with positive
+          values extending downwards.
         ],
       )
     ],
   ),
   "measure::width": (
-    51,
+    53,
     [
       #babel(
         en: [
@@ -79,7 +81,7 @@
     ],
   ),
   "measure::height": (
-    68,
+    70,
     babel(
       en: [
         The height available to layout the content.
@@ -89,7 +91,7 @@
     ),
   ),
   "measure::content": (
-    74,
+    76,
     babel(
       en: [
         The content whose size to measure.

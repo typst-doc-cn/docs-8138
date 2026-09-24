@@ -1,7 +1,7 @@
 #import "/i18n-scope.typ": *
 #let live-item-data = (
   "ClassElem": (
-    124,
+    209,
     [
       #babel(
         en: [
@@ -27,7 +27,7 @@
     ],
   ),
   "ClassElem::class": (
-    143,
+    228,
     babel(
       en: [
         The class to apply to the content.
@@ -35,7 +35,7 @@
     ),
   ),
   "ClassElem::body": (
-    147,
+    232,
     babel(
       en: [
         The content to which the class is applied.

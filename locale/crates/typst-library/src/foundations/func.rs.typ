@@ -155,7 +155,7 @@
     ],
   ),
   "Func::with": (
-    395,
+    403,
     babel(
       en: [
         Returns a new function that has the given arguments pre-applied.
@@ -163,7 +163,7 @@
     ),
   ),
   "Func::with::arguments": (
-    400,
+    408,
     babel(
       en: [
         The arguments to apply to the function.
@@ -171,7 +171,7 @@
     ),
   ),
   "Func::where_": (
-    412,
+    420,
     [
       #babel(
         en: [
@@ -189,7 +189,7 @@
     ],
   ),
   "Func::where_::fields": (
-    425,
+    433,
     babel(
       en: [
         The fields to filter for.

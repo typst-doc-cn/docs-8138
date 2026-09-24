@@ -1,7 +1,7 @@
 #import "/i18n-scope.typ": *
 #let live-item-data = (
   "Location": (
-    18,
+    19,
     [
       #babel(
         en: [
@@ -48,20 +48,22 @@
     ],
   ),
   "Location::page": (
-    79,
+    80,
     [
       #babel(
         en: [
           Returns the page number for this location.
 
           Note that this does not return the value of the @counter[page counter]
-          at this location, but the true page number (starting from one).
-
-          If you want to know the value of the page counter, use
+          at this location, but the true page number (starting from one). If you
+          want to know the value of the page counter, use
           `{counter(page).at(loc)}` instead.
 
-          Can be used with @here to retrieve the physical page position of the
-          current context:
+          In an HTML document, Typst cannot know where content will end up, so
+          this function returns `{none}`.
+
+          This method can be used in combination with @here to retrieve the
+          physical page position of the current context:
         ],
       )
 
@@ -73,21 +75,8 @@
       ```
     ],
   ),
-  "Location::position": (
-    101,
-    babel(
-      en: [
-        Returns a dictionary with the page number and the x, y position for this
-        location. The page number starts at one and the coordinates are measured
-        from the top-left of the page.
-
-        If you only need the page number, use `page()` instead as it allows
-        Typst to skip unnecessary work.
-      ],
-    ),
-  ),
   "Location::page_numbering": (
-    112,
+    104,
     babel(
       en: [
         Returns the page numbering pattern of the page at this location. This
@@ -97,6 +86,25 @@
 
         If the page numbering is set to `{none}` at that location, this function
         returns `{none}`.
+      ],
+    ),
+  ),
+  "Location::position": (
+    116,
+    babel(
+      en: [
+        Returns a dictionary with the page number and the x, y position for this
+        location. The page number starts at one and the coordinates are measured
+        from the top-left of the page.
+
+        If you only need the page number, use @location.page[`page()`] instead
+        as it allows Typst to skip unnecessary work.
+
+        In an HTML document, Typst cannot know where content will end up, so
+        this function returns `{none}`. The contents of an @html.frame form an
+        exception as these are laid out using Typst's layout engine. For
+        locations within such frames, this function returns a dictionary with
+        just the `x` and `y` coordinates within the frame, but no `page` key.
       ],
     ),
   ),

@@ -93,7 +93,7 @@
         (
           name: "typed",
           title: "Typed HTML",
-          items: dictionary(stdx.describe(html).scope).filter(val => "typed-html" in stdx.describe(val).keywords),
+          definitions: dictionary(stdx.describe(html).scope).filter(val => "typed-html" in stdx.describe(val).keywords),
           description: "Documentation for the typed HTML API.",
           docs: [
             A typed layer over raw HTML elements.

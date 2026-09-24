@@ -1,6 +1,4 @@
-// `docit` does not support `--input` yet, so we use a plain variable for now.
-#let mode = "import-l10n"
-#assert(mode in ("export-i18n", "import-l10n"))
+#import "i18n-inputs.typ": mode
 
 /// Results of `stdx.live-item-data` to be exported for i18n.
 #let _export-live = state("i18n--export-live", (:))
