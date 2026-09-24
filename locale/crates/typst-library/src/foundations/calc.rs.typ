@@ -1,7 +1,7 @@
 #import "/i18n-scope.typ": *
 #let live-item-data = (
   "abs": (
-    65,
+    134,
     [
       #babel(
         en: [
@@ -18,7 +18,7 @@
     ],
   ),
   "abs::value": (
-    75,
+    144,
     babel(
       en: [
         The value whose absolute value to calculate.
@@ -26,7 +26,7 @@
     ),
   ),
   "pow": (
-    96,
+    165,
     [
       #babel(
         en: [
@@ -41,7 +41,7 @@
     ],
   ),
   "pow::base": (
-    105,
+    174,
     babel(
       en: [
         The base of the power.
@@ -51,7 +51,7 @@
     ),
   ),
   "pow::exponent": (
-    109,
+    178,
     babel(
       en: [
         The exponent of the power.
@@ -59,7 +59,7 @@
     ),
   ),
   "exp": (
-    158,
+    227,
     [
       #babel(
         en: [
@@ -73,7 +73,7 @@
     ],
   ),
   "exp::exponent": (
-    166,
+    235,
     babel(
       en: [
         The exponent of the power.
@@ -81,7 +81,7 @@
     ),
   ),
   "sqrt": (
-    187,
+    256,
     [
       #babel(
         en: [
@@ -96,7 +96,7 @@
     ],
   ),
   "sqrt::value": (
-    195,
+    264,
     babel(
       en: [
         The number whose square root to calculate. Must be non-negative.
@@ -104,7 +104,7 @@
     ),
   ),
   "root": (
-    204,
+    273,
     [
       #babel(
         en: [
@@ -121,7 +121,7 @@
     ],
   ),
   "root::radicand": (
-    214,
+    283,
     babel(
       en: [
         The expression to take the root of.
@@ -129,7 +129,7 @@
     ),
   ),
   "root::index": (
-    216,
+    285,
     babel(
       en: [
         The value of $n$.
@@ -137,7 +137,7 @@
     ),
   ),
   "sin": (
-    235,
+    304,
     [
       #babel(
         en: [
@@ -154,7 +154,7 @@
     ],
   ),
   "sin::angle": (
-    245,
+    314,
     babel(
       en: [
         The angle whose sine to calculate.
@@ -162,7 +162,7 @@
     ),
   ),
   "cos": (
-    255,
+    324,
     [
       #babel(
         en: [
@@ -179,7 +179,7 @@
     ],
   ),
   "cos::angle": (
-    265,
+    334,
     babel(
       en: [
         The angle whose cosine to calculate.
@@ -187,7 +187,7 @@
     ),
   ),
   "tan": (
-    275,
+    344,
     [
       #babel(
         en: [
@@ -204,7 +204,7 @@
     ],
   ),
   "tan::angle": (
-    285,
+    354,
     babel(
       en: [
         The angle whose tangent to calculate.
@@ -212,7 +212,7 @@
     ),
   ),
   "asin": (
-    295,
+    364,
     [
       #babel(
         en: [
@@ -227,7 +227,7 @@
     ],
   ),
   "asin::value": (
-    303,
+    372,
     babel(
       en: [
         The number whose arcsine to calculate. Must be between $-1$ and $1$.
@@ -235,7 +235,7 @@
     ),
   ),
   "acos": (
-    313,
+    382,
     [
       #babel(
         en: [
@@ -250,7 +250,7 @@
     ],
   ),
   "acos::value": (
-    321,
+    390,
     babel(
       en: [
         The number whose arccosine to calculate. Must be between $-1$ and $1$.
@@ -258,7 +258,7 @@
     ),
   ),
   "atan": (
-    331,
+    400,
     [
       #babel(
         en: [
@@ -273,7 +273,7 @@
     ],
   ),
   "atan::value": (
-    339,
+    408,
     babel(
       en: [
         The number whose arctangent to calculate.
@@ -281,7 +281,7 @@
     ),
   ),
   "atan2": (
-    345,
+    414,
     [
       #babel(
         en: [
@@ -303,7 +303,7 @@
     ],
   ),
   "atan2::x": (
-    360,
+    429,
     babel(
       en: [
         The $x$ coordinate.
@@ -311,7 +311,7 @@
     ),
   ),
   "atan2::y": (
-    362,
+    431,
     babel(
       en: [
         The $y$ coordinate.
@@ -319,7 +319,7 @@
     ),
   ),
   "sinh": (
-    368,
+    437,
     [
       #babel(
         en: [
@@ -337,7 +337,7 @@
     ],
   ),
   "sinh::value": (
-    379,
+    448,
     babel(
       en: [
         The hyperbolic angle whose hyperbolic sine to calculate.
@@ -345,7 +345,7 @@
     ),
   ),
   "cosh": (
-    385,
+    454,
     [
       #babel(
         en: [
@@ -363,7 +363,7 @@
     ],
   ),
   "cosh::value": (
-    396,
+    465,
     babel(
       en: [
         The hyperbolic angle whose hyperbolic cosine to calculate.
@@ -371,7 +371,7 @@
     ),
   ),
   "tanh": (
-    402,
+    471,
     [
       #babel(
         en: [
@@ -389,7 +389,7 @@
     ],
   ),
   "tanh::value": (
-    413,
+    482,
     babel(
       en: [
         The hyperbolic angle whose hyperbolic tangent to calculate.
@@ -397,7 +397,7 @@
     ),
   ),
   "asinh": (
-    419,
+    488,
     [
       #babel(
         en: [
@@ -415,7 +415,7 @@
     ],
   ),
   "asinh::value": (
-    430,
+    499,
     babel(
       en: [
         The number whose inverse hyperbolic sine to calculate.
@@ -423,7 +423,7 @@
     ),
   ),
   "acosh": (
-    436,
+    505,
     [
       #babel(
         en: [
@@ -441,7 +441,7 @@
     ],
   ),
   "acosh::value": (
-    447,
+    516,
     babel(
       en: [
         The number whose inverse hyperbolic cosine to calculate. Must be greater
@@ -450,7 +450,7 @@
     ),
   ),
   "atanh": (
-    458,
+    527,
     [
       #babel(
         en: [
@@ -468,7 +468,7 @@
     ],
   ),
   "atanh::value": (
-    469,
+    538,
     babel(
       en: [
         The number whose inverse hyperbolic tangent to calculate. Must be
@@ -477,7 +477,7 @@
     ),
   ),
   "log": (
-    480,
+    549,
     [
       #babel(
         en: [
@@ -493,7 +493,7 @@
     ],
   ),
   "log::value": (
-    490,
+    559,
     babel(
       en: [
         The number whose logarithm to calculate. Must be strictly positive.
@@ -501,7 +501,7 @@
     ),
   ),
   "log::base": (
-    492,
+    561,
     babel(
       en: [
         The base of the logarithm. May not be zero.
@@ -509,7 +509,7 @@
     ),
   ),
   "ln": (
-    523,
+    592,
     [
       #babel(
         en: [
@@ -523,7 +523,7 @@
     ],
   ),
   "ln::value": (
-    531,
+    600,
     babel(
       en: [
         The number whose logarithm to calculate. Must be strictly positive.
@@ -531,7 +531,7 @@
     ),
   ),
   "erf": (
-    547,
+    616,
     [
       #babel(
         en: [
@@ -548,7 +548,7 @@
     ],
   ),
   "erf::value": (
-    557,
+    626,
     babel(
       en: [
         The number at which to calculate the error function.
@@ -556,7 +556,7 @@
     ),
   ),
   "fact": (
-    563,
+    632,
     [
       #babel(
         en: [
@@ -570,7 +570,7 @@
     ],
   ),
   "fact::number": (
-    570,
+    639,
     babel(
       en: [
         The number whose factorial to calculate. Must be non-negative.
@@ -578,7 +578,7 @@
     ),
   ),
   "perm": (
-    576,
+    645,
     [
       #babel(
         en: [
@@ -601,7 +601,7 @@
     ],
   ),
   "perm::base": (
-    592,
+    661,
     babel(
       en: [
         The value of $n$: The number of items to choose from. Must be
@@ -610,7 +610,7 @@
     ),
   ),
   "perm::numbers": (
-    595,
+    664,
     babel(
       en: [
         The value of $k$: The number of items to choose. Must be non-negative.
@@ -618,7 +618,7 @@
     ),
   ),
   "binom": (
-    623,
+    692,
     [
       #babel(
         en: [
@@ -641,7 +641,7 @@
     ],
   ),
   "binom::n": (
-    639,
+    708,
     babel(
       en: [
         The value of $n$: The numbers of items to choose from. Must be
@@ -650,7 +650,7 @@
     ),
   ),
   "binom::k": (
-    642,
+    711,
     babel(
       en: [
         The value of $k$: The number of items to choose. Must be non-negative.
@@ -658,7 +658,7 @@
     ),
   ),
   "gcd": (
-    670,
+    739,
     [
       #babel(
         en: [
@@ -675,7 +675,7 @@
     ],
   ),
   "gcd::a": (
-    680,
+    749,
     babel(
       en: [
         The first integer.
@@ -683,7 +683,7 @@
     ),
   ),
   "gcd::b": (
-    682,
+    751,
     babel(
       en: [
         The second integer.
@@ -691,7 +691,7 @@
     ),
   ),
   "lcm": (
-    695,
+    764,
     [
       #babel(
         en: [
@@ -705,7 +705,7 @@
     ],
   ),
   "lcm::a": (
-    702,
+    771,
     babel(
       en: [
         The first integer.
@@ -713,7 +713,7 @@
     ),
   ),
   "lcm::b": (
-    704,
+    773,
     babel(
       en: [
         The second integer.
@@ -721,7 +721,7 @@
     ),
   ),
   "floor": (
-    717,
+    786,
     [
       #babel(
         en: [
@@ -744,7 +744,7 @@
     ],
   ),
   "floor::value": (
-    733,
+    802,
     babel(
       en: [
         The number to round down.
@@ -752,7 +752,7 @@
     ),
   ),
   "ceil": (
-    744,
+    813,
     [
       #babel(
         en: [
@@ -775,7 +775,7 @@
     ],
   ),
   "ceil::value": (
-    760,
+    829,
     babel(
       en: [
         The number to round up.
@@ -783,7 +783,7 @@
     ),
   ),
   "trunc": (
-    771,
+    840,
     [
       #babel(
         en: [
@@ -806,7 +806,7 @@
     ],
   ),
   "trunc::value": (
-    787,
+    856,
     babel(
       en: [
         The number to truncate.
@@ -814,7 +814,7 @@
     ),
   ),
   "fract": (
-    798,
+    867,
     [
       #babel(
         en: [
@@ -832,7 +832,7 @@
     ],
   ),
   "fract::value": (
-    809,
+    878,
     babel(
       en: [
         The number to truncate.
@@ -840,7 +840,7 @@
     ),
   ),
   "round": (
-    819,
+    888,
     [
       #babel(
         en: [
@@ -861,7 +861,7 @@
 
           In addition, this function can error if there is an attempt to round beyond
           the maximum or minimum integer or `decimal`. If the number is a `float`,
-          such an attempt will cause `{float.inf}` or `{-float.inf}` to be returned
+          such an attempt will cause @calc.inf or `{-calc.inf}` to be returned
           for maximum and minimum respectively.
         ],
       )
@@ -883,7 +883,7 @@
     ],
   ),
   "round::value": (
-    855,
+    924,
     babel(
       en: [
         The number to round.
@@ -891,7 +891,7 @@
     ),
   ),
   "round::digits": (
-    857,
+    926,
     babel(
       en: [
         If positive, the number of decimal places.
@@ -902,7 +902,7 @@
     ),
   ),
   "clamp": (
-    879,
+    948,
     [
       #babel(
         en: [
@@ -920,7 +920,7 @@
     ],
   ),
   "clamp::value": (
-    891,
+    960,
     babel(
       en: [
         The number to clamp.
@@ -928,7 +928,7 @@
     ),
   ),
   "clamp::min": (
-    893,
+    962,
     babel(
       en: [
         The inclusive minimum value.
@@ -936,7 +936,7 @@
     ),
   ),
   "clamp::max": (
-    895,
+    964,
     babel(
       en: [
         The inclusive maximum value.
@@ -944,7 +944,7 @@
     ),
   ),
   "min": (
-    914,
+    983,
     [
       #babel(
         en: [
@@ -959,7 +959,7 @@
     ],
   ),
   "min::values": (
-    923,
+    992,
     babel(
       en: [
         The sequence of values from which to extract the minimum. Must not be
@@ -968,7 +968,7 @@
     ),
   ),
   "max": (
-    931,
+    1000,
     [
       #babel(
         en: [
@@ -983,7 +983,7 @@
     ],
   ),
   "max::values": (
-    940,
+    1009,
     babel(
       en: [
         The sequence of values from which to extract the maximum. Must not be
@@ -992,7 +992,7 @@
     ),
   ),
   "even": (
-    969,
+    1038,
     [
       #babel(
         en: [
@@ -1008,7 +1008,7 @@
     ],
   ),
   "even::value": (
-    978,
+    1047,
     babel(
       en: [
         The number to check for evenness.
@@ -1016,7 +1016,7 @@
     ),
   ),
   "odd": (
-    984,
+    1053,
     [
       #babel(
         en: [
@@ -1032,7 +1032,7 @@
     ],
   ),
   "odd::value": (
-    993,
+    1062,
     babel(
       en: [
         The number to check for oddness.
@@ -1040,7 +1040,7 @@
     ),
   ),
   "rem": (
-    999,
+    1068,
     [
       #babel(
         en: [
@@ -1064,7 +1064,7 @@
     ],
   ),
   "rem::dividend": (
-    1017,
+    1086,
     babel(
       en: [
         The dividend of the remainder.
@@ -1072,7 +1072,7 @@
     ),
   ),
   "rem::divisor": (
-    1019,
+    1088,
     babel(
       en: [
         The divisor of the remainder.
@@ -1080,7 +1080,7 @@
     ),
   ),
   "div_euclid": (
-    1041,
+    1110,
     [
       #babel(
         en: [
@@ -1106,7 +1106,7 @@
     ],
   ),
   "div_euclid::dividend": (
-    1061,
+    1130,
     babel(
       en: [
         The dividend of the division.
@@ -1114,7 +1114,7 @@
     ),
   ),
   "div_euclid::divisor": (
-    1063,
+    1132,
     babel(
       en: [
         The divisor of the division.
@@ -1122,7 +1122,7 @@
     ),
   ),
   "rem_euclid": (
-    1083,
+    1152,
     [
       #babel(
         en: [
@@ -1150,7 +1150,7 @@
     ],
   ),
   "rem_euclid::dividend": (
-    1105,
+    1174,
     babel(
       en: [
         The dividend of the remainder.
@@ -1158,7 +1158,7 @@
     ),
   ),
   "rem_euclid::divisor": (
-    1107,
+    1176,
     babel(
       en: [
         The divisor of the remainder.
@@ -1166,7 +1166,7 @@
     ),
   ),
   "quo": (
-    1129,
+    1198,
     [
       #babel(
         en: [
@@ -1186,7 +1186,7 @@
     ],
   ),
   "quo::dividend": (
-    1143,
+    1212,
     babel(
       en: [
         The dividend of the quotient.
@@ -1194,7 +1194,7 @@
     ),
   ),
   "quo::divisor": (
-    1145,
+    1214,
     babel(
       en: [
         The divisor of the quotient.
@@ -1202,7 +1202,7 @@
     ),
   ),
   "norm": (
-    1175,
+    1244,
     [
       #babel(
         en: [
@@ -1226,7 +1226,7 @@
     ],
   ),
   "norm::p": (
-    1192,
+    1261,
     babel(
       en: [
         The value of $p$. Must be greater than zero.
@@ -1237,7 +1237,7 @@
     ),
   ),
   "norm::values": (
-    1199,
+    1268,
     babel(
       en: [
         The sequence of values to calculate the $p$-norm of. Returns `{0.0}`

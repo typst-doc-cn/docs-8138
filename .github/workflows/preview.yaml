@@ -1,13 +1,11 @@
-name: Deploy to GitHub Pages
+name: Preview a pull request
 on:
-  push:
-    branches:
-      - locale
+  pull_request:
   workflow_dispatch:
 
-concurrency:
-  group: pages
-  cancel-in-progress: false
+permissions:
+  contents: read
+  deployments: write
 
 jobs:
   docit:
@@ -50,25 +48,40 @@ jobs:
           path: target/typst-docs
           fail-on-cache-miss: true
 
-      - run: just ci-build "/docs-8138/"
-      - uses: actions/upload-pages-artifact@v5
+      - run: just ci-build "/"
+      - uses: actions/upload-artifact@v7
         with:
+          name: dist-cloudflare
           path: target/dist/
 
-  deploy:
+  deploy-cloudflare:
+    name: Deploy to Cloudflare
     needs: build
-
-    # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
-    permissions:
-      pages: write # to deploy to Pages
-      id-token: write # to verify the deployment originates from an appropriate source
-
-    # Deploy to the github-pages environment
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
     steps:
-      - id: deployment
-        uses: actions/deploy-pages@v5
+      - uses: actions/download-artifact@v8
+        with:
+          name: dist-cloudflare
+          path: target/dist/
+      - name: Configure wrangler
+        run: |
+          cat >wrangler.jsonc <<'EOF'
+          {
+            "name": "docs-8138",
+            "compatibility_date": "2026-09-21",
+            "assets": {
+              "directory": "./target/dist"
+            },
+            "previews": {},
+          }
+          EOF
+      - uses: cloudflare/wrangler-action@v4
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          wranglerVersion: "4.136.3"
+          command: preview --name pr-${{ github.event.pull_request.number }}
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}

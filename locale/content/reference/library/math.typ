@@ -27,7 +27,7 @@
         zh-status: "need proofread",
         zh: "变体",
       ),
-      items: math-items("serif", "sans", "frak", "mono", "bb", "cal", "scr"),
+      definitions: math-items("serif", "sans", "frak", "mono", "bb", "cal", "scr"),
       description: "Documentation for functions which allow switching to alternative math typefaces.",
       docs: babel(
         en: [
@@ -50,7 +50,7 @@
         zh-status: "need proofread",
         zh: "样式",
       ),
-      items: math-items("upright", "italic", "bold"),
+      definitions: math-items("upright", "italic", "bold"),
       description: "Documentation for functions which allow switching to alternative math letterforms.",
       docs: babel(
         en: [
@@ -73,7 +73,7 @@
         zh-status: "need proofread",
         zh: "大小",
       ),
-      items: math-items("display", "inline", "script", "sscript"),
+      definitions: math-items("display", "inline", "script", "sscript"),
       description: "Documentation for functions which allow switching to alternative math text sizes.",
       docs: babel(
         en: [
@@ -96,7 +96,7 @@
         zh-status: "need proofread",
         zh: "下方/上方",
       ),
-      items: math-items(
+      definitions: math-items(
         "underline",
         "overline",
         "underbrace",
@@ -114,8 +114,10 @@
           Delimiters above or below parts of an equation.
 
           The braces and brackets further allow you to add an optional annotation below or above themselves.
+
+          These functions are intended specifically for adding delimiters. If you want to place two arbitrary parts of an equation over or under one another, without delimiters, use the @math.attach[`attach`] function instead.
         ],
-        zh-status: "need proofread",
+        zh-status: "need update",
         zh: [
           方程的部分上方或下方的定界符。
 
@@ -130,7 +132,7 @@
         zh-status: "need proofread",
         zh: "根",
       ),
-      items: math-items("root", "sqrt"),
+      definitions: math-items("root", "sqrt"),
       description: "Documentation for functions that typeset mathematical roots.",
       docs: [
         #babel(
@@ -157,7 +159,7 @@
         zh-status: "need proofread",
         zh: "附加",
       ),
-      items: math-items("attach", "scripts", "limits"),
+      definitions: math-items("attach", "scripts", "limits"),
       description: "Documentation for functions that allows to precisely attach sub-, superscripts, and limits to parts of an equation.",
       docs: [
         #babel(
@@ -200,7 +202,7 @@
         zh-status: "need proofread",
         zh: "左/右",
       ),
-      items: math-items("lr", "mid", "abs", "norm", "floor", "ceil", "round"),
+      definitions: math-items("lr", "mid", "abs", "norm", "floor", "ceil", "round"),
       description: "Documentation for functions that enable typesetting of matched, potentially scaled, delimiters.",
       docs: [
         #babel(
@@ -228,6 +230,15 @@
         #set math.lr(size: 1em)
         $ { (a / b), a, b in (0; 1/2] } $
         ```
+      ],
+    ),
+    (
+      name: "spaces",
+      title: "Spaces",
+      definitions: math-items("thin", "med", "thick", "quad", "wide"),
+      description: "Documentation for math spaces.",
+      docs: [
+        Predefined mathematical spaces of various widths.
       ],
     ),
   ),

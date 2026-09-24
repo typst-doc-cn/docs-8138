@@ -12,9 +12,6 @@
           @int[integer].
 
           You can convert a value to a float with this type's constructor.
-
-          NaN and positive infinity are available as `{float.nan}` and `{float.inf}`
-          respectively.
         ],
       )
 
@@ -26,8 +23,37 @@
       ```
     ],
   ),
+  "f64::INF": (
+    31,
+    [
+      #babel(
+        en: [
+          Infinity ($+oo$) as a value.
+
+          This value is greater than every real number.
+
+          Negative infinity ($-oo$) can be obtained by negating this:
+          `{-float.inf}`.
+        ],
+      )
+
+      ```example
+      #(9999999 < float.inf) \
+      #(-float.inf < -9999999)
+      ```
+    ],
+  ),
+  "f64::NAN": (
+    45,
+    babel(
+      en: [
+        A NaN value, as defined by the
+        #link("https://en.wikipedia.org/wiki/IEEE_754")[IEEE 754 standard].
+      ],
+    ),
+  ),
   "f64::construct": (
-    41,
+    50,
     [
       #babel(
         en: [
@@ -54,7 +80,7 @@
     ],
   ),
   "f64::construct::value": (
-    61,
+    70,
     babel(
       en: [
         The value that should be converted to a float.
@@ -62,14 +88,14 @@
     ),
   ),
   "f64::is_nan": (
-    67,
+    76,
     [
       #babel(
         en: [
           Checks if a float is not a number.
 
           In IEEE 754, more than one bit pattern represents a NaN. This function
-          returns `true` if the float is any of those bit patterns.
+          returns `{true}` if the float is any of those bit patterns.
         ],
       )
 
@@ -81,7 +107,7 @@
     ],
   ),
   "f64::is_infinite": (
-    82,
+    91,
     [
       #babel(
         en: [
@@ -100,7 +126,7 @@
     ],
   ),
   "f64::signum": (
-    97,
+    106,
     [
       #babel(
         en: [
@@ -108,7 +134,7 @@
 
           - If the number is positive (including `{+0.0}`), returns `{1.0}`.
           - If the number is negative (including `{-0.0}`), returns `{-1.0}`.
-          - If the number is NaN, returns `{float.nan}`.
+          - If the number is NaN, returns @float.nan.
         ],
       )
 
@@ -121,7 +147,7 @@
     ],
   ),
   "f64::from_bytes": (
-    114,
+    123,
     [
       #babel(
         en: [
@@ -136,7 +162,7 @@
     ],
   ),
   "f64::from_bytes::bytes": (
-    122,
+    131,
     babel(
       en: [
         The bytes that should be converted to a float.
@@ -149,7 +175,7 @@
     ),
   ),
   "f64::from_bytes::endian": (
-    129,
+    138,
     babel(
       en: [
         The endianness of the conversion.
@@ -157,7 +183,7 @@
     ),
   ),
   "f64::to_bytes": (
-    151,
+    160,
     [
       #babel(
         en: [
@@ -172,7 +198,7 @@
     ],
   ),
   "f64::to_bytes::endian": (
-    160,
+    169,
     babel(
       en: [
         The endianness of the conversion.
@@ -180,7 +206,7 @@
     ),
   ),
   "f64::to_bytes::size": (
-    164,
+    173,
     babel(
       en: [
         The size of the resulting bytes.

@@ -15,9 +15,7 @@
         en: [
           Typst stores signed integers with the #wiki("Two%27s_complement")[two's
             complement] representation in 64 bits. This allows storing numbers up to
-          $2^63-1$ or `{9223372036854775807}`, and down to $-2^63$ or
-          `{-9223372036854775808}`. These values are accessible as `{int.max}` and
-          `{int.min}`.
+          $2^63-1$ (@int.max), and down to $-2^63$ (@int.min).
 
           Integers can also be specified as hexadecimal, octal, or binary by starting
           with the prefixes: `0x`, `0o`, or `0b`.
@@ -53,17 +51,16 @@
 
           Hexadecimal numbers use the letters a--f or A--F for the values 10--15.
 
-          Typst will error if an integer is written that is larger than `int.max` or
-          smaller than `int.min`. If this happens, you may want to use a
-          @float[floating point number] instead by appending a period to the end of
-          the number.
+          Typst will error if an integer is written that is larger than @int.max. If
+          this happens, you may want to use a @float[floating point number] instead by
+          appending a period to the end of the number.
 
           Typst differs from some other programming languages by not treating negative
           integers as individual tokens in its syntax. Instead, input like `{-6}` is
           treated as the negation operator applied to the positive integer `6`. This
           may cause an issue when trying to write the minimum negative integer
           `{-9223372036854775808}`, as `{9223372036854775808}` is larger than
-          `{int.max}`. To write the minimum negative integer, use `{int.min}` instead.
+          @int.max. To write the minimum negative integer, use @int.min instead.
 
           This also means that if you want to embed a negative integer in markup, you
           will need to use parentheses to group the negation operator: `[#(-6)]`.
@@ -71,8 +68,42 @@
       )
     ],
   ),
+  "i64::MAX": (
+    70,
+    [
+      #babel(
+        en: [
+          The maximum value that can be represented as a Typst integer: $2^63-1$.
+        ],
+      )
+
+      ```example
+      #int.max \
+      // In hexadecimal:
+      #0x7FFFFFFFFFFFFFFF
+      ```
+    ],
+  ),
+  "i64::MIN": (
+    80,
+    [
+      #babel(
+        en: [
+          The minimum value that can be represented as a Typst integer: $-2^63$.
+
+          Trying to write this integer explicitly as `{-9223372036854775808}`
+          instead of using `{int.min}` will result in an error. For more
+          information, read the @int:syntax section.
+        ],
+      )
+
+      ```example
+      #int.min
+      ```
+    ],
+  ),
   "i64::construct": (
-    81,
+    92,
     [
       #babel(
         en: [
@@ -98,7 +129,7 @@
     ],
   ),
   "i64::construct::value": (
-    100,
+    111,
     babel(
       en: [
         The value that should be converted to an integer.
@@ -106,7 +137,7 @@
     ),
   ),
   "i64::construct::base": (
-    102,
+    113,
     babel(
       en: [
         The base (radix) for parsing strings, between 2 and 36.
@@ -117,7 +148,7 @@
     ),
   ),
   "i64::signum": (
-    148,
+    159,
     [
       #babel(
         en: [
@@ -137,7 +168,7 @@
     ],
   ),
   "i64::bit_not": (
-    164,
+    175,
     [
       #babel(
         en: [
@@ -155,7 +186,7 @@
     ],
   ),
   "i64::bit_and": (
-    178,
+    189,
     [
       #babel(
         en: [
@@ -172,7 +203,7 @@
     ],
   ),
   "i64::bit_and::rhs": (
-    189,
+    200,
     babel(
       en: [
         The right-hand operand of the bitwise AND.
@@ -180,7 +211,7 @@
     ),
   ),
   "i64::bit_or": (
-    195,
+    206,
     [
       #babel(
         en: [
@@ -197,7 +228,7 @@
     ],
   ),
   "i64::bit_or::rhs": (
-    206,
+    217,
     babel(
       en: [
         The right-hand operand of the bitwise OR.
@@ -205,7 +236,7 @@
     ),
   ),
   "i64::bit_xor": (
-    212,
+    223,
     [
       #babel(
         en: [
@@ -222,7 +253,7 @@
     ],
   ),
   "i64::bit_xor::rhs": (
-    223,
+    234,
     babel(
       en: [
         The right-hand operand of the bitwise XOR.
@@ -230,7 +261,7 @@
     ),
   ),
   "i64::bit_lshift": (
-    229,
+    240,
     [
       #babel(
         en: [
@@ -249,7 +280,7 @@
     ],
   ),
   "i64::bit_lshift::shift": (
-    242,
+    253,
     babel(
       en: [
         The amount of bits to shift. Must not be negative.
@@ -257,7 +288,7 @@
     ),
   ),
   "i64::bit_rshift": (
-    248,
+    259,
     [
       #babel(
         en: [
@@ -279,7 +310,7 @@
     ],
   ),
   "i64::bit_rshift::shift": (
-    264,
+    275,
     babel(
       en: [
         The amount of bits to shift. Must not be negative.
@@ -294,7 +325,7 @@
     ),
   ),
   "i64::bit_rshift::logical": (
-    273,
+    284,
     babel(
       en: [
         Toggles whether a logical (unsigned) right shift should be performed
@@ -306,7 +337,7 @@
     ),
   ),
   "i64::from_bytes": (
-    309,
+    320,
     [
       #babel(
         en: [
@@ -321,7 +352,7 @@
     ],
   ),
   "i64::from_bytes::bytes": (
-    317,
+    328,
     babel(
       en: [
         The bytes that should be converted to an integer.
@@ -332,7 +363,7 @@
     ),
   ),
   "i64::from_bytes::endian": (
-    322,
+    333,
     babel(
       en: [
         The endianness of the conversion.
@@ -340,7 +371,7 @@
     ),
   ),
   "i64::from_bytes::signed": (
-    326,
+    337,
     babel(
       en: [
         Whether the bytes should be treated as a signed integer. If this is
@@ -350,7 +381,7 @@
     ),
   ),
   "i64::to_bytes": (
-    375,
+    386,
     [
       #babel(
         en: [
@@ -365,7 +396,7 @@
     ],
   ),
   "i64::to_bytes::endian": (
-    384,
+    395,
     babel(
       en: [
         The endianness of the conversion.
@@ -373,7 +404,7 @@
     ),
   ),
   "i64::to_bytes::size": (
-    388,
+    399,
     babel(
       en: [
         The size in bytes of the resulting bytes (must be at least zero). If
