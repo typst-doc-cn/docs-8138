@@ -465,6 +465,48 @@
       A short alias of `nlm-citation-sequence-superscript`
     ],
   ),
+  "calc.e": babel(
+    en: [
+      Euler's number ($e$).
+
+      This is the base of the natural logarithm and the exponential function.
+
+      ```example
+      #calc.e
+      ```
+    ],
+  ),
+  "calc.inf": babel(
+    en: [
+      Infinity ($+oo$) as a value.
+
+      This is the same value as @float.inf. See the corresponding
+      documentation for more details.
+    ],
+  ),
+  "calc.pi": babel(
+    en: [
+      Archimedes' constant ($pi$).
+
+      This is the ratio of a circle's circumference to its diameter.
+
+      ```example
+      #calc.pi
+      ```
+    ],
+  ),
+  "calc.tau": babel(
+    en: [
+      The circumference of a unit circle ($tau$).
+
+      The constant $tau$ is defined by the relation $tau = 2 pi$.
+
+      ```example
+      #calc.tau \
+      #(2 * calc.pi)
+      ```
+    ],
+  ),
   "cite.form.author": babel(
     en: [
       Shows only the cited work's author(s).
@@ -1282,6 +1324,64 @@
   "math.frac.style.vertical": babel(
     en: [
       Stacked numerator and denominator with a bar.
+    ],
+  ),
+  "math.med": babel(
+    en: [
+      A mathematical space of width two ninths of an em.
+
+      ```example
+      $ (lambda x. x) med y $
+      ```
+    ],
+  ),
+  "math.quad": babel(
+    en: [
+      A one-em wide mathematical space.
+
+      ```example
+      $
+        f(x) = cases(
+          1/x quad &"if" x != 0,
+          0 quad &"otherwise",
+        )
+      $
+      ```
+    ],
+  ),
+  "math.thick": babel(
+    en: [
+      A mathematical space of width five eighteenths of an em.
+
+      ```example
+      $ x thick y $
+      ```
+    ],
+  ),
+  "math.thin": babel(
+    en: [
+      A mathematical space of width one sixth of an em.
+
+      ```example
+      $
+        x y \
+        x thin y
+      $
+      ```
+    ],
+  ),
+  "math.wide": babel(
+    en: [
+      A two-em wide mathematical space.
+
+      ```example
+      $
+        f(x) = cases(
+          1/x wide &"if" x != 0,
+          0 wide &"otherwise",
+        )
+      $
+      ```
     ],
   ),
   "page.paper.a0": babel(
@@ -2609,6 +2709,27 @@
   "stroke.constructor.join.round": babel(
     en: [
       Segments are joined with circular corners.
+    ],
+  ),
+  "sys.inputs": babel(
+    en: [
+      Makes external inputs available to the project.
+
+      An input specified in the command line as `--input key=value` becomes
+      available under `{sys.inputs.key}` as `{"value"}`. To include spaces in
+      the value, it may be enclosed with single or double quotes.
+
+      The value is always of type @str[string]. More complex data may be
+      parsed manually using functions like @json.
+    ],
+  ),
+  "sys.version": babel(
+    en: [
+      The currently active Typst compiler version.
+
+      ```example
+      #sys.version
+      ```
     ],
   ),
   "text.bottom-edge.baseline": babel(

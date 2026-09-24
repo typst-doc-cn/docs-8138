@@ -216,13 +216,6 @@
     zh-status: "validated",
     zh: [若某类型提供构造函数，可调用它生成该类型的新实例。],
   ),
-  definitionsOn: name => babel(
-    en: [Definitions on #raw(name)],
-    ja-status: "need update", // When it was translated, en uses _of_ instead of _on_.
-    ja: [#raw(name)の定義],
-    zh-status: "proofread",
-    zh: [#raw(name)上的定义],
-  ),
   definitions: babel(
     en: [Definitions],
     ja-status: "validated",
@@ -230,13 +223,36 @@
     zh-status: "validated",
     zh: [定义],
   ),
-  definitionsDescription: babel(
-    en: [Functions and types can have associated definitions. These are accessed by specifying the function or type, followed by a period, and then the definition's name.],
-    ja-status: "need update", // When it was translated, the wording of en was slightly different.
-    ja: [これらの関数や型には、関連する定義を持たせることができます。定義にアクセスするには、対象の関数や型の名前を指定した後に、ピリオド区切りで定義名を記述します。],
-    zh-status: "validated",
-    zh: [这些函数和类型带有附属定义。要访问这种定义，请先写上函数或类型的名称，再加上定义的名称，并用句点在中间分隔。],
-  ),
+  definitionsOn: (kind, parent: none) => {
+    // `parent` only exists for nested definitions.
+    assert(kind in ("constant", "function", "type"))
+    babel(
+      en: {
+        (constant: [Constants], function: [Functions], type: [Types]).at(kind)
+        if parent != none [ on #raw(parent)]
+      },
+      ja-status: "need update", // When it was translated, en used _of_ instead of _on_, and `kind` was always _Definitions_.
+      ja: if parent == none [定義] else [#raw(parent)の定義],
+      zh-status: "proofread",
+      zh: {
+        let kind = (constant: [常量], function: [函数], type: [类型]).at(kind)
+        if parent == none { kind } else [#raw(parent)上的#kind]
+      },
+    )
+  },
+  definitionsDescription: kind => {
+    assert(kind in ("constant", "function", "type"))
+    babel(
+      en: [Functions and types can have associated #{ kind + "s" }. These are accessed by specifying the function or type, followed by a period, and then the #kind's name.],
+      ja-status: "need update", // When it was translated, the wording of en was slightly different, and `kind` was always _Definitions_.
+      ja: [これらの関数や型には、関連する定義を持たせることができます。定義にアクセスするには、対象の関数や型の名前を指定した後に、ピリオド区切りで定義名を記述します。],
+      zh-status: "validated",
+      zh: {
+        let kind = (constant: [常量], function: [函数], type: [类型]).at(kind)
+        [这些函数和类型带有附属#kind。要访问这种#kind，请先写上函数或类型的名称，再加上附属#kind;的名称，并用句点在中间分隔。]
+      },
+    )
+  },
   functions: babel(
     en: [Functions],
     ja-status: "validated",

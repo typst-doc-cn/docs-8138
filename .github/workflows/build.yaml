@@ -92,11 +92,12 @@ jobs:
           name: babelize-wasm
           path: scripts/babelize/target/wasm32-unknown-unknown/release/babelize.wasm
 
+      - name: Make sure `just export-i18n` does not depend on locale/
+        run: rm -r locale/
       - run: just export-i18n
       - name: Make sure locale/ is up to date
         if: ${{ github.base_ref == 'base' || github.ref_name == 'base' }}
         run: |
-          rm -r locale/
           mv target/i18n-export/ locale/
           git add --all
           git diff --exit-code --staged

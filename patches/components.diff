@@ -29,7 +29,7 @@ index c1252dac94..9d211aa423 100644
  
  // Displays an informational callout.
 diff --git a/docs/components/category.typ b/docs/components/category.typ
-index 61df84c069..8461592892 100644
+index 67056904b1..3170433c7b 100644
 --- a/docs/components/category.typ
 +++ b/docs/components/category.typ
 @@ -1,3 +1,4 @@
@@ -102,7 +102,16 @@ index 61df84c069..8461592892 100644
        } else {
          t
        }
-@@ -324,12 +318,10 @@
+@@ -316,7 +310,7 @@
+ 
+   if info.since != none {
+     gap
+-    small[Since: #info.since]
++    small((Translation.since)(info.since))
+   } else {
+     panic("missing `since` for " + repr(info))
+   }
+@@ -332,12 +326,10 @@
  
    if info.deprecation != none {
      gap
@@ -119,7 +128,7 @@ index 61df84c069..8461592892 100644
    }
  }
  
-@@ -342,19 +334,15 @@
+@@ -367,15 +359,11 @@
    set text(0.75em)
    if info.element {
      gap
@@ -135,23 +144,18 @@ index 61df84c069..8461592892 100644
 -    ])
 +    small(with-tooltip(Translation.contextFunction, Translation.contextFunctionDescription))
    }
-   if info.since != none {
-     gap
--    small[Since: #info.since]
-+    small((Translation.since)(info.since))
-   } else {
-     panic("missing `since` for function " + info.def-site.key + " (" + stdx.str-from-path(info.def-site.path) + ")")
-   }
-@@ -370,7 +358,7 @@
-   set text(0.75em)
-   if ty-info.since != none {
-     gap
--    small[Since: #ty-info.since]
-+    small((Translation.since)(ty-info.since))
-   } else {
-     panic("missing `since` for type " + ty-info.def-site.key + " (" + stdx.str-from-path(ty-info.def-site.path) + ")")
-   }
-@@ -427,7 +415,7 @@
+   if binding-info != none {
+     definition-info(binding-info)
+@@ -442,7 +430,7 @@
+ 
+   show raw.where(lang: "example"): example.with(folding: true, open: true)
+   prose-styling(
+-    live-docs(binding-info.docs, binding-info.def-site),
++    live-docs(binding-info.docs, binding-info.def-site, i18n--extra: (key: str(canonical-name), muted: false)),
+     base-target: value,
+   )
+ }
+@@ -494,7 +482,7 @@
  
    {
      show raw.where(lang: "example"): example.with(folding: true, open: true)
@@ -160,7 +164,7 @@ index 61df84c069..8461592892 100644
    }
  
    let params = info.params
-@@ -465,11 +453,8 @@
+@@ -532,11 +520,8 @@
    let base-label = <constructor>
  
    let title = short-or-long(
@@ -174,25 +178,25 @@ index 61df84c069..8461592892 100644
    )
  
    {
-@@ -563,12 +548,11 @@
+@@ -643,12 +628,11 @@
  
-   let nested = base-label != <definitions>
-   let title = short-or-long(
--    [Definitions] + if nested [ on #parent],
--    with-tooltip[Definitions #if nested [on #raw(parent)]][
--      Functions and types can have associated definitions. These are
--      accessed by specifying the function or type, followed by a period,
--      and then the definition's name.
--    ],
-+    if nested { (Translation.definitionsOn)(parent) } else { Translation.definitions },
-+    with-tooltip(
-+      if nested { (Translation.definitionsOn)(parent) } else { Translation.definitions },
-+      Translation.definitionsDescription,
-+    ),
-   )
- 
-   labelled(heading(title), base-label)
-@@ -625,19 +609,27 @@
+   let section(label, heading-kinds, sentence-kinds, sentence-kind) = {
+     let body = short-or-long(
+-      heading-kinds + if nested [ on #parent],
+-      with-tooltip[#heading-kinds #if nested [on #raw(parent)]][
+-        Functions and types can have associated #sentence-kinds. These are
+-        accessed by specifying the function or type, followed by a period,
+-        and then the #sentence-kind's name.
+-      ],
++      (Translation.definitionsOn)(sentence-kind.text, parent: if nested { parent }),
++      with-tooltip(
++        (Translation.definitionsOn)(sentence-kind.text, parent: if nested { parent }),
++        (Translation.definitionsDescription)(sentence-kind.text),
++      ),
+     )
+     labelled(heading(body), label)
+   }
+@@ -723,19 +707,27 @@
      description: "Documentation for the `" + name + "` function.",
    )
  
@@ -222,16 +226,16 @@ index 61df84c069..8461592892 100644
      )
    }
  
-@@ -705,7 +697,7 @@
- 
-   if info.items.len() > 0 {
+@@ -825,7 +817,7 @@
+   let functions = info.definitions.filter(is-function)
+   if functions.len() > 0 {
      let base-label = <functions>
 -    labelled(heading[Functions], base-label)
 +    labelled(heading(Translation.functions), base-label)
-     for (key, value) in info.items {
+     for (key, value) in functions {
        func-member(
          value,
-@@ -791,12 +783,12 @@
+@@ -911,12 +903,12 @@
      }
  
      outline(
@@ -246,7 +250,7 @@ index 61df84c069..8461592892 100644
      html.ul(class: "subgridded catgrid", lis.join())
    }
  }
-@@ -844,7 +836,11 @@
+@@ -967,7 +959,11 @@
      sub-categories.pairs().map(((k, v)) => ("category", k, v, stdx.describe(v)))
    }
  
@@ -259,7 +263,7 @@ index 61df84c069..8461592892 100644
  }
  
  // Show a list of category definitions built by `build-category-definitions()`.
-@@ -923,7 +919,10 @@
+@@ -1046,7 +1042,10 @@
  
        {
          let base-label = <parameters>

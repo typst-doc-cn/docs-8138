@@ -7,11 +7,8 @@
         en: [
           The four directions into which content can be laid out.
 
-          Possible values are:
-          - `{ltr}`: Left to right.
-          - `{rtl}`: Right to left.
-          - `{ttb}`: Top to bottom.
-          - `{btt}`: Bottom to top.
+          Possible values are: @direction.ltr[`ltr`], @direction.rtl[`rtl`],
+          @direction.ttb[`ttb`], and @direction.btt[`btt`].
 
           These values are available globally and also in the direction type's scope,
           so you can write either of the following two:
@@ -24,8 +21,88 @@
       ```
     ],
   ),
+  "Dir::LTR": (
+    45,
+    [
+      #babel(
+        en: [
+          Left to right.
+        ],
+      )
+
+      ```example
+      #stack(
+        dir: ltr,
+        spacing: 0.2cm,
+        circle(),
+        line(),
+        square(),
+      )
+      ```
+    ],
+  ),
+  "Dir::RTL": (
+    59,
+    [
+      #babel(
+        en: [
+          Right to left.
+        ],
+      )
+
+      ```example
+      #stack(
+        dir: rtl,
+        spacing: 0.2cm,
+        circle(),
+        line(),
+        square(),
+      )
+      ```
+    ],
+  ),
+  "Dir::TTB": (
+    73,
+    [
+      #babel(
+        en: [
+          Top to bottom.
+        ],
+      )
+
+      ```example
+      #stack(
+        dir: ttb,
+        spacing: 0.2cm,
+        circle(),
+        line(),
+        square(),
+      )
+      ```
+    ],
+  ),
+  "Dir::BTT": (
+    87,
+    [
+      #babel(
+        en: [
+          Bottom to top.
+        ],
+      )
+
+      ```example
+      #stack(
+        dir: btt,
+        spacing: 0.2cm,
+        circle(),
+        line(),
+        square(),
+      )
+      ```
+    ],
+  ),
   "Dir::from": (
-    57,
+    101,
     [
       #babel(
         en: [
@@ -44,7 +121,7 @@
     ],
   ),
   "Dir::from::side": (
-    69,
+    113,
     babel(
       en: [
         The starting point for the direction.
@@ -54,7 +131,7 @@
     ),
   ),
   "Dir::to": (
-    82,
+    126,
     [
       #babel(
         en: [
@@ -73,7 +150,7 @@
     ],
   ),
   "Dir::to::side": (
-    94,
+    138,
     babel(
       en: [
         The end point for the direction.
@@ -83,7 +160,7 @@
     ),
   ),
   "Dir::axis": (
-    107,
+    151,
     [
       #babel(
         en: [
@@ -99,7 +176,7 @@
     ],
   ),
   "Dir::sign": (
-    122,
+    166,
     [
       #babel(
         en: [
@@ -119,7 +196,7 @@
     ],
   ),
   "Dir::start": (
-    141,
+    185,
     [
       #babel(
         en: [
@@ -138,7 +215,7 @@
     ],
   ),
   "Dir::end": (
-    161,
+    205,
     [
       #babel(
         en: [
@@ -157,7 +234,7 @@
     ],
   ),
   "Dir::inv": (
-    181,
+    225,
     [
       #babel(
         en: [

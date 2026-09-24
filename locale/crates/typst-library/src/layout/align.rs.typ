@@ -131,15 +131,12 @@
           Where to align something along an axis.
 
           Possible values are:
-          - `start`: Aligns at the @direction.start[start] of the
-            @text.dir[text direction].
-          - `end`: Aligns at the @direction.end[end] of the @text.dir[text direction].
-          - `left`: Align at the left.
-          - `center`: Aligns in the middle, horizontally.
-          - `right`: Aligns at the right.
-          - `top`: Aligns at the top.
-          - `horizon`: Aligns in the middle, vertically.
-          - `bottom`: Align at the bottom.
+          - Horizontal alignments: @alignment.start[`start`], @alignment.end[`end`],
+            @alignment.left[`left`], @alignment.center[`center`], and
+            @alignment.right[`right`].
+          - Vertical alignments: @alignment.top[`top`], @alignment.horizon[`horizon`],
+            and @alignment.bottom[`bottom`].
+          - @alignment:2d-alignments[2D alignments], like `{center + horizon}`.
 
           These values are available globally and also in the alignment type's scope,
           so you can write either of the following two:
@@ -155,8 +152,8 @@
       #babel(
         en: [
           To align along both axes at the same time, add the two alignments using the
-          `+` operator. For example, `top + right` aligns the content to the top right
-          corner.
+          `+` operator. For example, `{top + right}` aligns the content to the top
+          right corner.
         ],
       )
 
@@ -180,8 +177,133 @@
       ```
     ],
   ),
+  "Alignment::START": (
+    175,
+    [
+      #babel(
+        en: [
+          Horizontal alignment to the @direction.start[start] of the
+          @text.dir[text direction].
+        ],
+      )
+
+      ```example
+      #set text(dir: ltr)
+      #align(start, emoji.arrow.r)
+
+      #set text(dir: rtl)
+      #align(start, emoji.arrow.l)
+      ```
+    ],
+  ),
+  "Alignment::END": (
+    188,
+    [
+      #babel(
+        en: [
+          Horizontal alignment to the @direction.end[end] of the
+          @text.dir[text direction].
+        ],
+      )
+
+      ```example
+      #set text(dir: ltr)
+      #align(end, emoji.arrow.r)
+
+      #set text(dir: rtl)
+      #align(end, emoji.arrow.l)
+      ```
+    ],
+  ),
+  "Alignment::LEFT": (
+    201,
+    [
+      #babel(
+        en: [
+          Left horizontal alignment.
+        ],
+      )
+
+      ```example
+      #align(left)[Left]
+      ```
+    ],
+  ),
+  "Alignment::CENTER": (
+    209,
+    [
+      #babel(
+        en: [
+          Center horizontal alignment.
+        ],
+      )
+
+      ```example
+      #align(center)[Center]
+      ```
+    ],
+  ),
+  "Alignment::RIGHT": (
+    217,
+    [
+      #babel(
+        en: [
+          Right horizontal alignment.
+        ],
+      )
+
+      ```example
+      #align(right)[Right]
+      ```
+    ],
+  ),
+  "Alignment::TOP": (
+    225,
+    [
+      #babel(
+        en: [
+          Top vertical alignment.
+        ],
+      )
+
+      ```example
+      #set page(height: 3cm)
+      #align(top)[Top]
+      ```
+    ],
+  ),
+  "Alignment::HORIZON": (
+    234,
+    [
+      #babel(
+        en: [
+          Middle vertical alignment.
+        ],
+      )
+
+      ```example
+      #set page(height: 3cm)
+      #align(horizon)[Horizon]
+      ```
+    ],
+  ),
+  "Alignment::BOTTOM": (
+    243,
+    [
+      #babel(
+        en: [
+          Bottom vertical alignment.
+        ],
+      )
+
+      ```example
+      #set page(height: 3cm)
+      #align(bottom)[Bottom]
+      ```
+    ],
+  ),
   "Alignment::axis": (
-    195,
+    252,
     [
       #babel(
         en: [
@@ -199,7 +321,7 @@
     ],
   ),
   "Alignment::inv": (
-    213,
+    270,
     [
       #babel(
         en: [
