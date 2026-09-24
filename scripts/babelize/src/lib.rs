@@ -124,7 +124,7 @@ fn babelize_heading(heading: &SyntaxNode, label: &SyntaxNode) -> Result<String, 
 /// Check if a `SyntaxNode::Raw` is a raw block.
 fn is_raw_block(raw: &SyntaxNode) -> bool {
     raw.children()
-        .any(|c| c.kind() == SyntaxKind::RawTrimmed && c.leaf_text() == "\n")
+        .any(|c| c.kind() == SyntaxKind::RawTrimmed && c.leaf_text().starts_with("\n"))
 }
 
 /// Wrap localizable texts with the `babel` function.
@@ -494,7 +494,7 @@ The raw text.
   ```
   ````,
 )
-            "#,
+"#,
             r#"
 [
 #babel(
@@ -521,6 +521,32 @@ The raw text.
   ```
   ````,
 )
+]
+"#,
+        );
+    }
+    #[test]
+    fn test_static() {
+        // Docs in `BindingDocumentation` are written as Rust strings, so they have unusual indentation.
+        assert_babelize(
+            r#"
+            Euler's number ($e$).
+
+            ```example
+            #calc.e
+            ```
+"#,
+            r#"
+[
+#babel(
+  en: [
+Euler's number ($e$).
+  ],
+)
+
+            ```example
+            #calc.e
+            ```
 ]
 "#,
         );
