@@ -19,19 +19,26 @@ jobs:
       - uses: taiki-e/install-action@v2
         with:
           tool: just
-      - name: Install pagefind
+      - name: Install pagefind and pdfcpu
         shell: bash
         run: |
           set -euxo pipefail
           mkdir -p ~/.local/bin/
-          curl -LO https://github.com/Pagefind/pagefind/releases/download/${PAGEFIND_VERSION}/pagefind_extended-${PAGEFIND_VERSION}-x86_64-unknown-linux-musl.tar.gz
-          tar -xf pagefind_extended-${PAGEFIND_VERSION}-x86_64-unknown-linux-musl.tar.gz
-          rm pagefind_extended-${PAGEFIND_VERSION}-x86_64-unknown-linux-musl.tar.gz
+
+          curl -L https://github.com/Pagefind/pagefind/releases/download/${PAGEFIND_VERSION}/pagefind_extended-${PAGEFIND_VERSION}-x86_64-unknown-linux-musl.tar.gz | tar -xz
           chmod u+x pagefind_extended
           mv pagefind_extended ~/.local/bin/
+
+          curl -L https://github.com/pdfcpu/pdfcpu/releases/download/${PDFCPU_VERSION}/pdfcpu_${PDFCPU_VERSION#v}_Linux_x86_64.tar.xz | tar -xJ
+          mv pdfcpu_${PDFCPU_VERSION#v}_Linux_x86_64/pdfcpu ~/.local/bin/
+          chmod u+x ~/.local/bin/pdfcpu
+          rm -r pdfcpu_${PDFCPU_VERSION#v}_Linux_x86_64
+
           pagefind_extended --version
+          pdfcpu version
         env:
           PAGEFIND_VERSION: v1.5.2
+          PDFCPU_VERSION: v0.15.0
 
       - run: just setup
       - name: Setup docit
@@ -59,11 +66,6 @@ jobs:
         with:
           name: dist-cloudflare
           path: target/dist/
-      - name: Remove large files
-        # Cloudflare Workers supports assets with sizes of up to 25 MiB. We found a file …/typst-documentation.pdf with a size of 26.9 MiB.
-        # TODO: Compress the PDF in an archive in the future.
-        run:
-          rm target/dist/typst-documentation.pdf
       - name: Configure wrangler
         run: |
           cat >wrangler.jsonc <<'EOF'

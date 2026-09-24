@@ -103,7 +103,11 @@ ci-build BASE="/base/":
     just build --input "i18n--base={{ BASE }}" --input i18n--link-pdf-docs=true --input i18n--enable-pagefind=true
     mv target/dist/site{{ BASE }}* target/dist/
     mv target/dist/docs.pdf target/dist/typst-documentation.pdf
+    pdfcpu optimize target/dist/typst-documentation.pdf
     pagefind_extended --site target/dist/
+# Cloudflare Workers supports assets with sizes of up to 25 MiB, but the raw PDF is about 27 MiB.
+# 7-Zip reduces it to 11 MiB, while pdfcpu reduces it to 15 MiB.
+# Both are acceptable, but *.pdf is easier to access than *.pdf.zip, so we choose pdfcpu.
 
 # Build and setup the babelize Wasm plugin
 [group("for maintainers")]
