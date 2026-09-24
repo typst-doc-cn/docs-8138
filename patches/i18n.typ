@@ -1,5 +1,15 @@
 #import "i18n-inputs.typ": mode
 
+/// Load the `babelize` function
+#let get-babelize() = if mode == "export-i18n" {
+  let babelize(markup) = str(plugin("babelize.wasm").babelize_bytes(bytes(markup)))
+  babelize
+} else {
+  panic(
+    "`get-babelize` is called, but the current mode is import-l10n; to make contributing easier, this project should work without `babelize.wasm` in the import-l10n mode",
+  )
+}
+
 /// Results of `stdx.live-item-data` to be exported for i18n.
 #let _export-live = state("i18n--export-live", (:))
 
@@ -35,7 +45,7 @@
 }
 
 #let asset-live() = {
-  let babelize(markup) = str(plugin("babelize.wasm").babelize_bytes(bytes(markup)))
+  let babelize = get-babelize()
 
   for (path, live) in _export-live.get().pairs() {
     assert(path.starts-with("/crates/")) // Ensure it does not conflict with content/ and static.typ.
@@ -102,6 +112,8 @@
 #let asset-static() = asset(
   "/i18n-export/static.typ",
   {
+    let babelize = get-babelize()
+
     ```typst
     #import "/i18n-scope.typ": babel
     ```.text
@@ -112,17 +124,13 @@
     for (key, markup) in query(<i18n--export-static>).map(meta => meta.value).sorted(key: array.first) {
       assert(("{key}", "{markup}").all(magic => magic not in markup))
       // `key` must be quoted, because it always contains periods.
-      // `markup` must be preceded and followed by newlines; otherwise, the output of typstyle will look odd. Note that we don't have to consider indentation, because typstyle will handle it properly.
+      // `markup` must be babelized, because some of them contain examples. Note that we don't have to consider the indentations, because typstyle will handle it properly.
       ```typst
-      "{key}": babel(
-        en: [
-          {markup}
-        ],
-      ),
+      "{key}": {markup},
       ```
         .text
         .replace("{key}", key)
-        .replace("{markup}", markup.trim())
+        .replace("{markup}", babelize(markup))
     }
     ")"
   },
