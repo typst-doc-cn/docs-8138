@@ -31,7 +31,7 @@ jobs:
       - name: Prepare to upload
         run: |
           cd target/
-          tar cJf docit.tar.xz typst-docs
+          tar --use-compress-program='xz --threads=0' -cf docit.tar.xz typst-docs
       - name: Upload docit for human contributors
         uses: actions/upload-artifact@v7
         with:
