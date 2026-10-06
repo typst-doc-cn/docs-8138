@@ -110,7 +110,11 @@ Variables are not limited to storing content: they can store any data type Typst
 
 In this chapter of the tutorial, you will leverage variables and your own functions to build templates that can be reused across multiple documents.
 
-= #babel(en: short-or-long[Toy Template][A toy template], zh-status: "need proofread", zh: short-or-long[玩具模板][一个玩具模板]) <toy-template>
+= #babel(
+  en: short-or-long[Toy Template][A toy template],
+  zh-status: "need proofread",
+  zh: short-or-long[玩具模板][一个玩具模板],
+) <toy-template>
 #babel(
   en: [
     In Typst, templates are functions in which you can wrap your whole document. To learn how to do that, let's first review how to write your very own functions. They can do anything you want them to, so why not go a bit crazy?
