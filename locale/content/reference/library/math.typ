@@ -15,7 +15,7 @@
   description: babel(
     en: "Documentation for math mode and the `math` module, which together enable high-quality math typesetting.",
     zh-status: "need proofread",
-    zh: "Typst中与数学有关联的函数族的文档",
+    zh: "数学模式与`math`模块的文档，二者共同实现高质量的数学排版。",
   ),
   category: "math",
   scope: scope(std, "math"),
@@ -83,9 +83,9 @@
         ],
         zh-status: "need proofread",
         zh: [
-          强制公式中表达式的大小样式。
+          强制设置公式中表达式的大小样式。
 
-          这些函数允许手动配置方程元素的大小，使其看起来像在显示/行内方程中使用或像在根或上/下标中使用一样。
+          这些函数可以手动配置公式元素的大小，让它们看起来像是在显示公式或行内公式中，或是像在根式、上/下标中一样。
         ],
       ),
     ),
@@ -117,11 +117,13 @@
 
           These functions are intended specifically for adding delimiters. If you want to place two arbitrary parts of an equation over or under one another, without delimiters, use the @math.attach[`attach`] function instead.
         ],
-        zh-status: "need update",
+        zh-status: "need proofread",
         zh: [
-          方程的部分上方或下方的定界符。
+          公式中部分内容上方或下方的定界符。
 
-          大括号和方括号还允许在它们自己的下方或上方添加可选的注释。
+          大括号和方括号还允许在其下方或上方添加可选的注解。
+
+          这些函数专用于添加定界符。如果您想把公式中任意两部分上下叠放而不使用定界符，请改用@math.attach[`attach`]函数。
         ],
       ),
     ),
@@ -130,7 +132,7 @@
       title: babel(
         en: "Roots",
         zh-status: "need proofread",
-        zh: "根",
+        zh: "根式",
       ),
       definitions: math-items("root", "sqrt"),
       description: "Documentation for functions that typeset mathematical roots.",
@@ -170,11 +172,13 @@
 
             If you want the base to stretch to fit long top and bottom attachments (for example, an arrow with text above it), use the @math.stretch[`stretch`] function.
           ],
-          zh-status: "need update",
+          zh-status: "need proofread",
           zh: [
-            下标、上标和限制。
+            下标、上标和上下限。
 
-            附件可以显示为上/下标或限制。Typst会根据基数自动决定哪个更适合，但您还可以使用`scripts`和`limits`函数手动控制。
+            附加内容既可以显示为下标/上标，也可以显示为上下限。Typst会根据基底自动决定哪种更合适，但您也可以使用`scripts`和`limits`函数手动控制。
+
+            如果您想让基底拉伸以容纳较长的上下附加内容（例如上方带文字的箭头），请使用@math.stretch[`stretch`]函数。
           ],
         )
 
@@ -190,7 +194,7 @@
           ],
           zh-status: "need proofread",
           zh: [
-            此函数还具有用于在基数之后附加的专用语法：使用下划线（`_`）表示下标，即底部附件，使用脱帽（`^`）表示上标，即顶部附件。
+            此函数还具有用于在基底之后附加的专用语法：使用下划线（`_`）表示下标，即底部附加；使用脱字符（`^`）表示上标，即顶部附加。
           ],
         )
       ],
@@ -217,7 +221,9 @@
           zh: [
             定界符匹配。
 
-            `lr`函数允许您匹配两个定界符并按其包含的内容缩放它们。虽然在语法上匹配的定界符也会自动进行，但`lr`允许您匹配两个任意的定界符并精确控制它们的大小。除了`lr`函数外，Typst还提供了一些创建绝对值、上取整和下取整值以及范数的定界符配对的其他函数。
+            `lr`函数允许您匹配两个定界符，并让它们随所包含的内容一同缩放。对于语法上本就成对的定界符，Typst也会自动缩放；而`lr`允许您匹配任意两个定界符并精确控制其大小。除`lr`之外，Typst还提供了一些函数，用于创建绝对值、向上取整值、向下取整值以及范数的定界符配对。
+
+            要防止Typst匹配某个定界符（从而自动缩放它），请用反斜杠将其转义。如果想完全禁用自动缩放，请使用`{set math.lr(size: 1em)}`。
           ],
         )
 

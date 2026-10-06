@@ -421,9 +421,9 @@ $ a arrow.squiggly b $
 
     For the moment, you have completed writing your report. You have already saved a PDF by clicking on the download button in the top right corner. However, you think the report could look a bit less plain. In the next section, we'll learn how to customize the look of our document.
   ],
-  zh-status: "proofread",
+  zh-status: "need proofread",
   zh: [
-    现在您已经了解了如何在Typst中编写基本文档，包括如何强调文本、编写列表、插入图片、对齐内容和排版数学公式。您还了解了Typst的函数机制。其实Typst还允许您往文档插入许多种内容，例如@table[表格]、@reference:visualize[图形]和@raw[代码块]。您可查阅@reference[参考手册]进一步了解各种功能。
+    现在您已经了解了如何在Typst中编写基本文档，包括如何强调文本、编写列表、插入图片、对齐内容和排版数学公式。您还了解了Typst的函数机制。其实Typst还允许您往文档插入许多种内容，例如@table[表格]、@reference:visualize[图形]和@raw[代码段]。您可查阅@reference[参考手册]进一步了解各种功能。
 
     目前您已写完报告，并单击右上角的下载按钮保存了PDF。不过，您可能认为报告看起来不该那么朴素。下一章我们将学习如何定制文档的外观格式。
   ],

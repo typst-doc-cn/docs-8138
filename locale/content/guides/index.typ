@@ -18,9 +18,9 @@
     en: [
       Welcome to the Guides section! Here, you'll find helpful material for specific user groups or use cases. Please see the list below for the available guides. Feel free to propose other topics for guides!
     ],
-    zh-status: "need update",
+    zh-status: "need proofread",
     zh: [
-      欢迎来到指南部分！在这里，您可以找到针对特定用户组或使用案例的有用资料。目前，仅有两个指南：面向LaTeX用户的Typst介绍，以及页面设置指南。欢迎为指南部分提出其他话题！
+      欢迎来到指南部分！在这里，您可以找到针对特定用户组或使用场景的有用资料。现有指南请见下方列表。欢迎提议其他指南话题！
     ],
   )
 

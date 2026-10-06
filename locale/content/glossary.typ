@@ -67,7 +67,11 @@
 
   [code block],
   [脚本块],
-  [出现于@tutorial:formatting:show-rules，应与raw block区分],
+  [出现于@tutorial:formatting:show-rules，指`{{…}}`，应与代码段区分],
+
+  [raw (text, block, element)],
+  [代码段],
+  [详见@raw，指反引号包裹的`raw`元素，应与脚本块区分],
 
   [math (mode)],
   [数学公式 / 数学模式],
@@ -195,6 +199,10 @@
   [font size],
   [字号],
   [出现于@tutorial:formatting:page-setup；即使不采用号数制，也称「字号」],
+
+  [small caps, small capitals],
+  [小型大写字母],
+  [出现于@tutorial:advanced-styling，详见@smallcaps],
 
   [OpenType feature],
   [OpenType特性],

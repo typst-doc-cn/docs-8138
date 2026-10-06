@@ -11,7 +11,7 @@
   description: babel(
     en: "An in-depth guide to setting page dimensions, margins, and page numbers in Typst. Learn how to create appealing and clear layouts and get there quickly.",
     zh-status: "need proofread",
-    zh: "在Typst中设置页面尺寸、边距和页码的深入指南。了解如何创建吸引人且清晰的布局并快速实现目标。",
+    zh: "深入讲解如何在Typst中设置页面尺寸、页边距和页码。了解如何创建美观清晰的版式并快速上手。",
   ),
 )
 
@@ -23,9 +23,9 @@
   ],
   zh-status: "need proofread",
   zh: [
-    你的页面设置在文档的第一印象中起着重要作用。行长度、页边距和栏目布局影响着文档的#link("https://practicaltypography.com/page-margins.html")[外观]和#link("https://designregression.com/article/line-length-revisited-following-the-research")[易读性]，而合适的页眉、页脚可以帮助读者轻松地导航文档。本指南将帮助您自定义页面、页边距、页眉、页脚和页码，使其与你的内容完美匹配，让你能够开始写作。
+    页面设置在很大程度上决定了文档给人的第一印象。行长、页边距和栏数影响着文档的#link("https://practicaltypography.com/page-margins.html")[外观]和#link("https://designregression.com/article/line-length-revisited-following-the-research")[易读性]，而合适的页眉、页脚则能帮助读者轻松浏览文档。本指南将帮助您自定义页面、页边距、页眉、页脚和页码，使其贴合您的内容，让您能顺利开始写作。
 
-    在Typst中，每个页面都有宽度、高度以及四个方向上的页边距。顶部和底部的页边距可以包含页眉和页脚。页面元素的设置规则是你控制页面设置的地方。如果你在这个设置规则中进行了更改，Typst会确保在之后插入一个新的符合规范的空白页面，因此可能会插入分页符。因此，最好在文档开始或模板中指定你的@page[`{page}`]设置规则。
+    在Typst中，每个页面都有宽度、高度和四边的页边距。顶部和底部页边距可以放置页眉和页脚。页面的页面设置都由@page[`{page}`]元素的set规则控制。若用这条set规则更改设置，Typst会确保其后出现一个符合新设置的空白页，因此可能会插入分页符。所以，最好在文档开头或模板中指定@page[`{page}`]的set规则。
   ],
 )
 
@@ -56,9 +56,9 @@
   ],
   zh-status: "need proofread",
   zh: [
-    这个示例可视化了页面内容、页眉和页脚的尺寸。页面内容是页面尺寸（ISO B7）减去每个边的默认页边距。在顶部和底部边距中，用绘制的矩形来可视化页眉和页脚。它们不接触主要内容，而是通过各自边距的30%偏移。你可以通过指定@page.header-ascent[`header-ascent`]和@page.footer-descent[`footer-descent`]参数来控制这个偏移量。
+    下例展示了页面内容、页眉和页脚的尺寸。页面内容即页面尺寸（ISO B7）减去各边的默认页边距。顶部和底部页边距中用描边矩形示意页眉和页脚；它们不与主体内容相接，而是分别偏移各自页边距的30%。您可以指定@page.header-ascent[`header-ascent`]和@page.footer-descent[`footer-descent`]参数来控制这一偏移量。
 
-    接下来，本指南将更详细地介绍如何通过示例来满足常见的页面设置要求。
+    下文将结合示例，更详细地介绍如何满足常见的页面设置需求。
   ],
 )
 
@@ -73,7 +73,7 @@
   ],
   zh-status: "need proofread",
   zh: [
-    Typst的默认页面大小是A4纸张。根据你所在的地区和使用情况，你可能希望进行更改。你可以通过使用@page[`{page}`]设置规则，并传递一个字符串参数来使用常见的页面大小来实现这一点。选项包括完整的ISO 216系列（例如`"iso-a4"`、`"iso-c2"`）、美国习惯格式如`"us-legal"`或`"us-letter"`，以及其他选项。查阅有关@page.paper[page的paper参数]的参考文档，了解所有可用选项。
+    Typst的默认页面尺寸是A4纸。视所在地区和使用场景，您可能想更改它。只需使用@page[`{page}`]的set规则，传入一个字符串参数来指定常用页面尺寸即可。可选项包括完整的ISO 216系列（如`"a4"`和`"iso-c2"`）、美制惯例尺寸如`"us-legal"`或`"us-letter"`等。所有可用选项请查阅@page.paper[page的`paper`参数]的参考文档。
   ],
 )
 
@@ -90,7 +90,7 @@ This page likes freedom.
   ],
   zh-status: "need proofread",
   zh: [
-    如果你需要根据特定尺寸自定义页面大小，可以使用命名参数@page.width[`width`]和@page.height[`height`]进行指定。
+    如果您需要把页面尺寸自定义为特定大小，可以改用命名参数@page.width[`width`]和@page.height[`height`]来指定。
   ],
 )
 
@@ -114,9 +114,9 @@ This page is a square.
   ],
   zh-status: "need proofread",
   zh: [
-    边距是一个良好排版的重要组成部分：#link("http://webtypography.net/2.1.2")[排版师认为每行容纳45到75个字符的长度最适合易读性]，而边距和@guides:page-setup:columns[栏目]则有助于定义行宽。默认情况下，Typst将根据文档的页面大小创建比例适当的边距。要设置自定义边距，你可以在@page[`{page}`]设置规则中使用@page.margin[`margin`]参数。
+    页边距是优秀排版的关键一环：#link("https://webtypography.net/2.1.2")[排版师认为，每行容纳45到75个字符最利于阅读]，而页边距和@guides:page-setup:columns[栏]共同决定行宽。默认情况下，Typst会按文档的页面尺寸成比例地生成页边距。要自定义页边距，请在@page[`{page}`]的set规则中使用@page.margin[`margin`]参数。
 
-    如果你想将所有边距设置为相同的宽度，`margin`参数接受一个长度值。然而，通常情况下你可能希望在每个边上设置不同的边距。为了实现这一点，你可以传递一个字典：
+    若想把所有页边距设为同一宽度，`margin`参数可接受一个长度值。不过，您往往需要为各边设置不同的页边距，这时可以传入一个字典：
   ],
 )
 
@@ -139,16 +139,16 @@ This page is a square.
   ],
   zh-status: "need proofread",
   zh: [
-    页边距字典可以有每个边的键（`top`、`bottom`、`left`、`right`），但你也可以通过设置页边距字典的`x`键来同时控制左右边距，就像示例中所示。同样地，通过设置`y`键，可以同时调整顶部和底部边距。
+    页边距字典可以为每条边设置键（`top`、`bottom`、`left`、`right`），但您也可以像示例中那样，通过设置边距字典的`x`键同时控制左右页边距。类似地，设置`y`键可同时调整上下页边距。
 
-    如果在页边距字典中没有为所有边指定边距，那么未设置的边将保持原有的边距设置。为了防止这种情况，并将所有剩余的边距设置为相同的大小，你可以使用`rest`键。例如，`[#set page(margin: (left: 1.5in, rest: 1in))]` 将把左边距设置为1.5英寸，其余边距设置为1英寸。
+    如果页边距字典没有为所有边指定页边距，未指定的边会沿用原有页边距。若想避免这种情况，把所有剩余页边距设为同一尺寸，可以使用`rest`键。例如，`[#set page(margin: (left: 1.5in, rest: 1in))]`会把左边距设为1.5英寸，其余页边距设为1英寸。
   ],
 )
 
 == #babel(
   en: short-or-long[Alternating Margins][Different margins on alternating pages],
   zh-status: "need proofread",
-  zh: [在交替的页面上设置不同的边距],
+  zh: [在奇偶页设置不同的页边距],
 ) <alternating-margins>
 #babel(
   en: [
@@ -156,7 +156,7 @@ This page is a square.
   ],
   zh-status: "need proofread",
   zh: [
-    有时候，你需要在奇偶页之间交替设置水平边距，例如，在书籍的内侧（靠近书脊）需要更多的空间，而在页面的外侧需要较小的边距。Typst会跟踪每个页面是在书脊的左侧还是右侧。你可以利用这个信息，并设置边距字典的`inside`或`outside`键。`inside`边距是指向书脊的边距，`outside`边距是指向装订书籍边缘的边距。
+    有时您需要为偶数页和奇数页交替设置水平页边距，例如让靠近书脊的一侧比页面外侧留出更多空间。Typst会跟踪页面位于装订线的左侧还是右侧。您可以利用这一信息，设置页边距字典的`inside`或`outside`键。`inside`页边距指向书脊，`outside`页边距指向装订书籍的外缘。
   ],
 )
 
@@ -170,7 +170,7 @@ This page is a square.
   ],
   zh-status: "need proofread",
   zh: [
-    Typst假设从左到右书写的文档左侧装订，而从右到左书写的书籍右侧装订。然而，在某些情况下，你需要进行更改：如果你的第一页由其他应用程序生成，则从Typst的角度来看，装订方式会相反。此外，一些书籍，如英语漫画，尽管使用从左到右的写作顺序，但习惯上是右侧装订。为了改变装订的一侧并明确设置`inside`和`outside`的位置，你可以在@page[`{page}`]设置规则中使用@page.binding[`binding`]参数。
+    Typst假定用从左到右文字书写的文档在左侧装订，而用从右到左文字书写的书籍在右侧装订。但在某些情况下您需要更改这一设定：如果您的第一页由其它应用输出，那么从Typst的角度看，装订方向就是相反的。此外，有些书籍如英文漫画，尽管英文从左到右书写，却习惯上在右侧装订。要更改装订侧，明确指定`inside`和`outside`的位置，请在@page[`{page}`]的set规则中设置@page.binding[`binding`]参数。
   ],
 )
 
@@ -187,7 +187,7 @@ This page is a square.
   ],
   zh-status: "need proofread",
   zh: [
-    如果`binding`参数设置为`left`,则在奇数页上，`inside`边距将位于左侧，而偶数页上则相反。
+    如果`binding`为`left`，`inside`页边距在奇数页位于左侧，反之亦然。
   ],
 )
 
@@ -204,9 +204,9 @@ This page is a square.
   ],
   zh-status: "need proofread",
   zh: [
-    每个页面的顶部和底部边距中都可以插入页眉和页脚。你可以添加自定义的页眉和页脚，或者只插入页码。
+    页眉和页脚插入每一页的顶部和底部页边距中。您可以添加自定义的页眉和页脚，也可以只插入页码。
 
-    如果你需要更多内容而不仅仅是页码，最好的方法是使用@page[`{page}`]设置规则中的@page.header[`header`]和@page.footer[`footer`]参数来插入页眉和页脚。你可以传递任何内容作为它们的值：
+    如果除了页码还需要其它内容，插入页眉和页脚的最佳方式是使用@page[`{page}`]set规则中的@page.header[`header`]和@page.footer[`footer`]参数。它们的值可以是任意内容：
   ],
 )
 
@@ -227,14 +227,14 @@ This page is a square.
   ],
   zh-status: "need proofread",
   zh: [
-    默认情况下，页眉是底部对齐的，以避免与页面顶部边缘发生冲突。如果你想修改对齐方式，可以将页眉内容包裹在@align[`{align}`]函数中。
+    页眉默认底部对齐，以免与页面顶端相撞。您可以把页眉内容包在@align[`{align}`]函数中改变对齐方式。
   ],
 )
 
 == #babel(
   en: short-or-long[Specific Pages][Different header and footer on specific pages],
   zh-status: "need proofread",
-  zh: [在特定页面上使用不同的页眉和页脚],
+  zh: [为特定页面设置不同的页眉和页脚],
 ) <specific-pages>
 #babel(
   en: [
@@ -242,7 +242,7 @@ This page is a square.
   ],
   zh-status: "need proofread",
   zh: [
-    你可能需要在某些页面上使用不同的页眉和页脚。例如，你可能不希望在标题页上显示页眉和页脚。下面的示例展示了如何根据条件在第一页上移除页眉：
+    有些页面需要使用不同的页眉和页脚。例如，您可能不希望标题页出现页眉和页脚。下面的示例展示了如何按条件移除第一页的页眉：
   ],
 )
 
@@ -266,16 +266,16 @@ This page is a square.
   ],
   zh-status: "need proofread",
   zh: [
-    这个示例可能看起来有点复杂，但我们来逐步解释一下：我们告诉Typst页眉取决于当前的@locate[位置]。`loc`值允许其他函数了解我们当前所在页面的位置。然后，我们询问Typst当前位置的页面计数器是否大于1。页面计数器从1开始，所以我们在只有一页的情况下跳过页眉。计数器可以有多个级别。这个功能用于类似标题的项目，但页面计数器始终只有一个级别，所以我们只需要查看第一个级别。
+    这个示例看起来可能有些吓人，我们逐步拆解一下：通过`{context}`关键字，我们告诉Typst页眉取决于文档中的当前位置。然后我们询问Typst：在（依上下文确定的）当前位置，页面@counter[计数器]是否大于1。页面计数器从1开始，所以这样可以跳过某一页的页眉。计数器可以有多个层级，例如章节标题就用到这一特性，但页面计数器始终只有一个层级，因此只需看第一个。
 
-    当然，你可以在这个示例中添加一个`else`语句，以在第一页上添加不同的页眉。
+    当然，您也可以在这个示例中加上`else`，改为给第一页设置不同的页眉。
   ],
 )
 
 == #babel(
   en: short-or-long[Specific Elements][Adapt headers and footers on pages with specific elements],
   zh-status: "need proofread",
-  zh: [根据特定元素在页面上调整页眉和页脚],
+  zh: [在包含特定元素的页面上调整页眉和页脚],
 ) <specific-elements>
 #babel(
   en: [
@@ -283,7 +283,7 @@ This page is a square.
   ],
   zh-status: "need proofread",
   zh: [
-    先前指南中描述的一种技术，可以根据Typst的标签执行更高级的任务。例如，具有大型表格的页面可以省略页眉，以减少混乱。我们可以使用`<big-table>`@label[标签]来标记我们的表格，并使用@query[查询系统]来判断当前页面是否存在这样的标签：
+    上一节介绍的方法可以借助Typst的标签完成更高级的任务。例如，含大型表格的页面可以省略页眉，以减少杂乱。我们将用`<big-table>`@label[标签]标记表格，再用@query[查询系统]判断当前页面上是否存在这样的标签：
   ],
 )
 
@@ -318,7 +318,7 @@ This page is a square.
   ],
   zh-status: "need proofread",
   zh: [
-    在这个示例中，我们查询所有`<big-table>`标签的实例。然后，我们检查当前位置的页面上是否有任何表格。如果没有，则打印页眉。这个示例还使用了变量以使代码更简洁。就像之前一样，你可以添加一个`else`语句来添加另一个页眉，而不是删除它。
+    这里我们查询`<big-table>`标签的所有实例，然后检查没有表格位于当前位置所在的页面上。如果没有，就打印页眉。这个示例还用变量让代码更简洁。和上面一样，您可以加上`else`来添加另一个页眉，而不是把它删掉。
   ],
 )
 
@@ -333,7 +333,7 @@ This page is a square.
   ],
   zh-status: "need proofread",
   zh: [
-    页码可以帮助读者更轻松地跟踪和引用你的文档。插入脚注的最简单方法是使用@page[`{page}`]设置规则的@page.numbering[`numbering`]参数。你可以传递一个表示页码格式的@numbering.numbering[_编号模式_]字符串。
+    页码能帮助读者更方便地跟踪和引用您的文档。插入页码最简单的方法是使用@page[`{page}`]set规则中的@page.numbering[`numbering`]参数。您可以传入一个@numbering.numbering[_编号模式_]字符串，指定页码的编号方式。
   ],
 )
 
@@ -350,7 +350,7 @@ This is a numbered page.
   ],
   zh-status: "need proofread",
   zh: [
-    在上面的示例中，你可以看到最简单的示例。它在页脚的中央添加了一个阿拉伯数字的页码。你可以指定除了`"1"`之外的其他字符来获取其他数字形式。例如，使用`"i"`将生成小写的罗马数字。任何不被解释为数字的字符都将按原样输出。例如，要在页码周围加上破折号，可以输入以下内容：
+    上面的示例是最简单的例子：它在页脚中央添加一个阿拉伯数字页码。除了`"1"`，您还可以指定其它字符来得到别的数字形式。例如，`"i"`会生成小写罗马数字。任何不被解释为数字的字符都会原样输出。例如，在页码两侧加上破折号可以这样写：
   ],
 )
 
@@ -367,7 +367,7 @@ This is a — numbered — page.
   ],
   zh-status: "need proofread",
   zh: [
-    你可以通过在字符串中添加第二个数字字符来添加总页数。
+    在字符串中再写一个数字字符，即可添加总页数。
   ],
 )
 
@@ -386,9 +386,9 @@ This is one of many numbered pages.
   ],
   zh-status: "need proofread",
   zh: [
-    要了解可以在此处传递的参数，请查阅@numbering.numbering[`{numbering}`]函数的参考文档。
+    关于此处可传入的参数，请查阅@numbering.numbering[`{numbering}`函数的参考文档]。
 
-    如果你需要将页码右对齐或左对齐，可以使用@page[`{page}`]设置规则的@page.number-align[`number-align`]参数。然而，请注意，目前无法使用此属性实现偶数页和奇数页之间的交替对齐。要实现这一点，你需要指定一个自定义的页脚，并按照在有关有条件省略页眉和页脚的部分中描述的方式查询页面计数器。
+    如果您需要将页码右对齐或左对齐，请使用@page[`{page}`]set规则中的@page.number-align[`number-align`]参数。目前还不支持用该属性在偶数页和奇数页之间交替对齐。要做到这一点，您需要自定义页脚，并按「有条件地省略页眉和页脚」一节所述查询页面计数器。
   ],
 )
 
@@ -403,7 +403,7 @@ This is one of many numbered pages.
   ],
   zh-status: "need proofread",
   zh: [
-    有时候，你需要在页脚中添加除了页码以外的其他内容。然而，一旦指定了页脚，@page[`{page}`]设置规则的@page.numbering[`numbering`]参数将被忽略。本节将向你展示如何添加带有页码和其他内容的自定义页脚。
+    有时您需要在页脚中添加页码以外的其它内容。不过，一旦指定了页脚，@page[`{page}`]set规则中的@page.numbering[`numbering`]参数就会被忽略。本节将介绍如何添加带有页码及其它内容的自定义页脚。
   ],
 )
 
@@ -429,9 +429,9 @@ This page has a custom footer.
   ],
   zh-status: "need proofread",
   zh: [
-    首先，我们在左侧添加了一些强调文本，并添加了自由空间来填充行。然后，我们调用`counter(page)`来获取页面计数器，并使用其`display`函数来显示当前值。我们还将`both`设置为`{true}`，以便我们的编号模式适用于当前页码和最终页码。
+    首先，我们在左侧添加一段加粗强调的文本，再用弹性空白填满整行。然后，我们调用`counter(page)`获取页面计数器，并用它的`display`函数显示当前值。我们还将`both`设为`{true}`，让编号模式同时作用于当前页码_和_末页页码。
 
-    我们还可以对页码进行更有创意的处理。例如，让我们为每个页面插入一个圆圈。
+    我们还可以把页码做得更有创意。例如，为每一页插入一个圆圈。
   ],
 )
 
@@ -464,16 +464,16 @@ This page has a custom footer.
   ],
   zh-status: "need proofread",
   zh: [
-    在这个示例中，我们根据页面数量创建了一个包含@circle[圆圈]的数组。圆圈被包装在一个@box[box]中，这样它们就可以出现在同一行上，因为它们是块级元素，否则会创建段落换行。该数组的长度取决于当前页码。
+    在这个示例中，我们用页数创建一个由@circle[圆圈]组成的数组。由于圆圈是块级元素，否则会产生段落换行，所以要把它们包在@box[box]里，使它们能出现在同一行上。这个@array[数组]的长度取决于当前页码。
 
-    然后，我们将圆圈插入到页脚的右侧，并在它们之间留出1pt的空间。数组的@reference:scripting:blocks[`join`]方法将尝试将数组的不同值连接成一个单一的值，并以其参数为间隔插入。在我们的示例中，我们获得了一个带有圆圈和它们之间空格的单一内容值，我们可以将其与`align`函数一起使用。最后，我们使用另一个`box`来确保文本和圆圈可以共享一行，并使用@box.inset[`inset`]参数将圆圈稍微提高，以便与文本对齐。
+    然后，我们将这些圆圈插到页脚右侧，彼此间隔1pt。数组的join方法会尝试把数组的不同值@reference:scripting:blocks[_连接_]成单个值，并在其间插入其参数。在此例中，我们得到一个由圆圈和间隔组成的内容值，可以传给`align`函数。最后，我们再用一个`box`确保文本和圆圈能位于同一行，并用@box.inset[`inset`参数]将圆圈稍微抬高，使它们与文本对齐。
   ],
 )
 
 == #babel(
   en: short-or-long[Skip Pages][Reset the page number and skip pages],
   zh-status: "need proofread",
-  zh: [重置页码或跳过页码],
+  zh: [重置页码并跳过页面],
 ) <skip-pages>
 #babel(
   en: [
@@ -483,9 +483,9 @@ This page has a custom footer.
   ],
   zh-status: "need proofread",
   zh: [
-    你是否需要在文档中的某个地方重置页码？也许你想在标题页之后开始。或者你需要跳过一些页码，因为你将在最终的打印产品中插入页面。
+    您是否需要在文档中的某处重置页码？也许您想让第一页从标题页之后才开始，或者因为要在最终印刷品中插入页面而需要跳过几个页码。
 
-    正确修改页码的方式是操作页面计数器@counter。最简单的操作是将计数器设置回1。
+    修改页码的正确做法是操作页面@counter[计数器]。最简单的操作是把计数器设回1。
   ],
 )
 
@@ -499,7 +499,7 @@ This page has a custom footer.
   ],
   zh-status: "need proofread",
   zh: [
-    这行代码将页码计数器重置为1。它应该放置在页面的开头，否则会创建一个页面分隔。你也可以通过传递一个函数来更新计数器，给定其先前的值：
+    这一行会把页面计数器重置为1。它应放在页面开头，否则会制造一个分页符。您也可以根据计数器的先前值更新它，只需传入一个函数：
   ],
 )
 
@@ -515,9 +515,9 @@ This page has a custom footer.
   ],
   zh-status: "need proofread",
   zh: [
-    在这个示例中，我们跳过了五页。`n`是页面计数器的当前值，`n+5`是我们函数的返回值。
+    在这个示例中，我们跳过了五页。`n`是页面计数器的当前值，`n + 5`是函数的返回值。
 
-    如果你需要获取实际的页码而不是页面计数器的值，你可以在`locate`闭包的参数上使用@page[`{page}`]方法：
+    如果您需要获取实际页码而不是页面计数器的值，可以对@here\函数的返回值调用@location.page[`page`]方法：
   ],
 )
 
@@ -535,7 +535,7 @@ This page has a custom footer.
   ],
   zh-status: "need proofread",
   zh: [
-    你还可以通过`locate`闭包参数使用@locate[`page-numbering`]方法获取页码编号模式。
+    您还可以用@location.page-numbering[`page-numbering`]方法，从`here`返回的位置获取页码编号模式。
   ],
 )
 
@@ -546,11 +546,11 @@ This page has a custom footer.
 
     To lay out your content in columns, just specify the desired number of columns in a @page.columns[`{page}`] set rule. To adjust the amount of space between the columns, add a set rule on the @columns[`columns` function], specifying the `gutter` parameter.
   ],
-  zh-status: "need update",
+  zh-status: "need proofread",
   zh: [
-    要在文档中保持易读行长度的同时适应更多内容，请使用栏。栏是由一些空白分隔的垂直文本块。这个空白区域被称为gutter（装订线）。
+    在文档中添加栏，可以在保持行长易读的同时让一页容纳更多内容。栏是由空白分隔的竖直文本块，这些空白称为栏间距（gutter）。
 
-    如果你的所有内容都需要以栏的方式布局，你可以在@page.columns[`{page}`]设置规则中指定所需的栏数：
+    要让内容分栏排版，只需在@page.columns[`{page}`]的set规则中指定所需的栏数。要调整栏与栏之间的空白大小，请对@columns[`columns`函数]添加set规则，指定`gutter`参数：
   ],
 )
 
@@ -566,9 +566,9 @@ This page has a custom footer.
   en: [
     Very commonly, scientific papers have a single-column title and abstract, while the main body is set in two-columns. To achieve this effect, Typst's @place[`place` function] can temporarily escape the two-column layout by specifying `{float: true}` and `{scope: "parent"}`:
   ],
-  zh-status: "need update",
+  zh-status: "need proofread",
   zh: [
-    在科学论文中，非常常见的是标题和摘要以单栏形式呈现，而正文以双栏形式呈现。为了实现这种效果，Typst包含了一个独立的@columns[`{columns}`]函数，可以在页面的任何位置插入栏。
+    很常见的情况是，科学论文的标题和摘要采用单栏，而正文采用双栏。要实现这种效果，可以使用Typst的@place[`place`函数]，通过指定`{float: true}`和`{scope: "parent"}`暂时脱离双栏版式：
   ],
 )
 
@@ -606,9 +606,9 @@ _Floating placement_ refers to elements being pushed to the top or bottom of the
   en: [
     To create columns within a nested layout, e.g. within a rectangle, you can use the @columns[`columns` function] directly. However, it really should only be used within nested layouts. At the page-level, the page set rule is preferable because it has better interactions with things like page-level floats, footnotes, and line numbers.
   ],
-  zh-status: "need update",
+  zh-status: "need proofread",
   zh: [
-    `columns` 函数的另一个用法是在类似矩形的容器内创建栏，或者自定义装订线的大小：
+    要在嵌套版式（例如矩形）内创建栏，可以直接使用@columns[`columns`函数]。不过它实际上只应在嵌套版式中使用。在页面层面，更推荐使用页面set规则，因为它与页面级浮动体、脚注和行号等特性的配合更好：
   ],
 )
 
@@ -627,25 +627,25 @@ _Floating placement_ refers to elements being pushed to the top or bottom of the
 )
 ```
 
-== #babel(en: [Balanced columns], zh-status: "need proofread", zh: [平衡栏的长度])<balanced-columns>
+== #babel(en: [Balanced columns], zh-status: "need proofread", zh: [平衡栏])<balanced-columns>
 #babel(
   en: [
     If the columns on the last page of a document differ greatly in length, they may create a lopsided and unappealing layout. That's why typographers will often equalize the length of columns on the last page. This effect is called balancing columns. Typst cannot yet balance columns automatically. However, you can balance columns manually by placing @colbreak[`[#colbreak()]`] at an appropriate spot in your markup, creating the desired column break manually.
   ],
   zh-status: "need proofread",
   zh: [
-    如果文档的最后一页上的栏长度差异很大，可能会产生不平衡和不吸引人的布局。这就是为什么排版师经常会在最后一页上平衡栏的长度。这种效果称为平衡栏。Typst目前无法自动平衡栏。然而，你可以通过在你的标记中适当的位置放置@colbreak[`[#colbreak()]`]来手动平衡栏，从而手动创建所需的栏分隔。
+    如果文档最后一页各栏的长度相差很大，版面会显得歪斜难看。因此，排版师常常会把最后一页各栏的长度调匀，这种效果称为平衡栏。Typst目前还不能自动平衡栏。不过，您可以在标记的适当位置放置@colbreak[`[#colbreak()]`]，手动制造所需的分栏，从而手动平衡栏。
   ],
 )
 
-= #babel(en: [One-off modifications], zh-status: "need proofread", zh: [单次修改]) <one-off-modifications>
+= #babel(en: [One-off modifications], zh-status: "need proofread", zh: [一次性修改]) <one-off-modifications>
 #babel(
   en: [
     You do not need to override your page settings if you need to insert a single page with a different setup. For example, you may want to insert a page that's flipped to landscape to insert a big table or change the margin and columns for your title page. In this case, you can call @page[`{page}`] as a function with your content as an argument and the overrides as the other arguments. This will insert enough new pages with your overridden settings to place your content on them. Typst will revert to the page settings from the set rule after the call.
   ],
   zh-status: "need proofread",
   zh: [
-    如果你只需要插入一个具有不同设置的单独页面，就无需覆盖整个页面设置。例如，你可能想插入一个横向页面以插入一个大表格，或者为标题页更改边距和列数。在这种情况下，你可以将@page[`{page}`]作为一个带有内容作为参数和其他参数为覆盖设置的函数进行调用。这将插入足够多的新页面，并使用你的覆盖设置来放置你的内容。在调用结束后，Typst将恢复到设置规则中的页面设置。
+    如果只需插入一个设置不同的页面，您不必覆盖整个页面设置。例如，您可能想插入一个翻转为横向的页面来放一张大表格，或者为标题页更改页边距和栏数。在这种情况下，您可以像调用函数那样调用@page[`{page}`]，把内容作为参数传入，把要覆盖的设置作为其它参数传入。这样会插入足够多的、采用覆盖设置的新页面来容纳您的内容。调用之后，Typst会恢复set规则中的页面设置。
   ],
 )
 
