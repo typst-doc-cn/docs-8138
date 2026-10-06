@@ -11,7 +11,7 @@
   description: babel(
     en: "Are you a LaTeX user? This guide explains the differences and similarities between Typst and LaTeX so you can get started quickly.",
     zh-status: "need proofread",
-    zh: "您是LaTeX用户吗？本指南解释了Typst和LaTeX之间的差异和相似之处，以便您可以快速入门。",
+    zh: "您是LaTeX用户吗？本指南介绍了Typst与LaTeX的异同，助您快速上手。",
   ),
 )
 
@@ -25,11 +25,11 @@
   ],
   zh-status: "need proofread",
   zh: [
-    如果你已经使用过LaTeX，并想要尝试Typst,这篇文章是个很好的入门指南。我们将从用户的角度出发，解释这两套系统之间主要的不同点。虽然Typst并不基于LaTeX，语法也完全不同，但通过这篇文章，你可以方便地将LaTeX的使用经验转化过来。
+    如果您使用过LaTeX并想尝试Typst，这篇文章是个很好的入门指南。我们将从用户的角度出发，探讨这两套系统之间的主要区别。虽然Typst并不基于LaTeX，语法也完全不同，但您将学会如何利用已有的LaTeX经验快速上手。
 
-    跟LaTeX一样，Typst是一门「基于标记的排版系统」。首先在纯文本里编写文档，然后通过一系列命令和语法对其进行修饰，最后使用编译器将源文件排版并渲染成PDF文件。然而，Typst跟LaTeX之间也在以下几个方面存在区别：首先，在日常任务上，Typst使用更专用的语法(这一点可以类比Markdown)。Typst的命令也更加统一：在LaTeX中，你可能需要为不同软件包学习不同的语法和约定，但在Typst中，命令总是保持一致，所以你只需要理解一些基本的概念。此外Typst比LaTeX快得多：Typst文件的编译通常只需要几毫秒，而不是几秒，正因如此Typst的网页版和编译器可以实现实时增量渲染。
+    跟LaTeX一样，Typst是一门基于标记的排版系统：您在文本文件中撰写文档，并用命令和其他语法为其添加标记；然后使用编译器将源文件排版为PDF。不过，Typst在以下几个方面与LaTeX有所不同。其一，对于常见任务，Typst使用更专用的语法（您可能从Markdown中有所了解）。Typst的命令也更有章法：它们的工作方式完全一致，因此不同于LaTeX，您只需理解少量通用概念，而不必为每个包学习不同的约定。此外，Typst比LaTeX编译得更快：编译通常只需几毫秒，而非几秒，所以在线应用和编译器都能提供即时预览。
 
-    在接下来的部分里，我们将回答从LaTeX切换到Typst时一些常见的问题。如果你更喜欢从头了解Typst，请阅读我们的@tutorial[教程]。
+    下面，我们将回答从LaTeX转向Typst的用户在排版文档时会遇到的一些常见问题。如果您更喜欢循序渐进的Typst入门介绍，请阅读我们的@tutorial[教程]。
   ],
 )
 
@@ -42,9 +42,9 @@
   ],
   zh-status: "need proofread",
   zh: [
-    你有两种方式使用Typst：在#link("https://typst.app/signup/")[我们的Web应用程序]中，或者在你的计算机上#link("https://github.com/typst/typst/releases")[安装编译器]。当你使用Web应用程序时，我们提供一个内置的协作编辑器，并在你的浏览器中运行Typst，无需安装。
+    您有两种使用Typst的方式：在#link("https://typst.app/signup/")[我们的在线应用]中，或在计算机上#link("https://github.com/typst/typst/releases")[安装编译器]。使用在线应用时，我们会提供一个功能齐全的协作编辑器，并在您的浏览器中运行Typst，无需安装。
 
-    如果你选择在你的计算机上使用Typst，你可以将编译器作为一个单独的小二进制文件下载，任何用户都可以运行，无需root权限。与LaTeX不同，包在你第一次使用时下载，然后在本地缓存，保持你的Typst安装精简。你可以使用你自己的编辑器，并决定在本地编译器中存储文件的位置。
+    如果您选择改用计算机上的Typst，可以下载一个单独的、小巧的二进制文件形式的编译器，任何用户都能运行，无需root权限。与TeX Live等流行的LaTeX发行版不同，Typst的包在首次使用时才会下载，随后缓存在本地，从而让您的Typst安装保持精简。使用本地编译器时，您可以使用自己的编辑器，并自行决定文件的存储位置。
   ],
 )
 
@@ -57,11 +57,9 @@
   en: [
     That's easy. You just create a new, empty text file (the file extension is `.typ`). No boilerplate is needed to get started. Simply start by writing your text. It will be set on an empty A4-sized page. If you are using the web app, click "+ Empty document" to create a new project with a file and enter the editor. @parbreak[Paragraph breaks] work just as they do in LaTeX, just use a blank line.
   ],
-  zh-status: "need update",
+  zh-status: "need proofread",
   zh: [
-    很简单，你只需要创建一个空的文本文档（文件后缀是`.typ`），无需额外的模板，你就可以直接开始编写，默认使用A4纸张大小。如果您使用的是Web App，可以单击 "+ Empty document"，创建一个带有文件的新项目，然后进入编辑器。
-
-    @parbreak[段落分隔符]和LaTeX相同，空一行即可：
+    很简单。您只需新建一个空的文本文件（文件扩展名为`.typ`），无需任何样板代码即可开始。直接开始输入文本，内容会排在空白的A4页面上。如果您使用在线应用，请单击"+ Empty document"新建一个含文件的项目并进入编辑器。@parbreak[分段]与LaTeX中的用法一样，只需空一行：
   ],
 )
 
@@ -78,14 +76,14 @@ output is shown to the right.
   ],
   zh-status: "need proofread",
   zh: [
-    如果你想直接从原有的LaTeX文档迁移过来，你可以使用#link("https://pandoc.org")[Pandoc]将其转换为Typst格式。这个转换的工具也集成进了Typst的Web App中，你可以直接上传你的LaTeX文件，然后在上面继续编写。
+    如果您想改为以现有的LaTeX文档为起点，可以使用#link("https://pandoc.org")[Pandoc]将源代码转换为Typst标记。我们的在线应用也内置了这一转换功能，因此您可以上传`.tex`文件，直接在Typst中开始您的项目。
   ],
 )
 
 = #babel(
   en: short-or-long[Elements][How do I create section headings, emphasis, ...?],
   zh-status: "need proofread",
-  zh: [我如何创建章节标题，强调，...？],
+  zh: [如何创建章节标题、强调……？],
 ) <elements>
 #babel(
   en: [
@@ -99,19 +97,19 @@ output is shown to the right.
   ],
   zh-status: "need proofread",
   zh: [
-    LaTeX使用`\section`命令创建章节标题。多级标题分别用`\subsection`、`\subsection`等表示。根据文档种类的不同，还有`\part`和`\chapter`。
+    LaTeX使用`\section`命令创建章节标题。嵌套标题分别用`\subsection`、`\subsubsection`等表示。视文档类而定，还有`\part`或`\chapter`。
 
-    在Typst中，标题没那么啰嗦：在标题所在的行，前面加上等号和空格，就得到了一级标题：`[= Introduction]`。  如果你需要一个二级标题，使用两个等号：`[== In this paper]`。  在前面加上更多的等号，你可以嵌套任意层级的标题。
+    在Typst中，@heading[标题]没那么啰嗦：在标题所在行的行首加上等号和空格，就得到一级标题：`[= Introduction]`。如果您需要二级标题，使用两个等号：`[== In this paper]`。添加更多的等号，就可以嵌套任意层级的标题。
 
     #info[
       *译者注：*
 
-      类比Markdown中`#`的作用，在接下来的阅读中你会不断看到这种「Markdown+LaTeX」杂糅的产物，结合这两者分别的痛点，可以更加深入了解Typst设计这些语法的原因。
+      类比Markdown中`#`的作用，在接下来的阅读中您会不断看到这种「Markdown+LaTeX」杂糅的产物，结合这两者分别的痛点，可以更深入地了解Typst设计这些语法的原因。
     ]
 
-    强调（通常以斜体字呈现）是通过用`[_underscores_]`来表达，而着重的强调（通常以黑体字呈现）是通过使用`[*Star*]`来表达。
+    强调通常渲染为斜体，通过在文本两侧添加`[_下划线_]`来表达；而粗体强调则改用`[*星号*]`，通常渲染为粗体。
 
-    下面是LaTeX中使用的常见标记命令，以及Typst中对应的表示方式。你也可以查看@reference:syntax[完整的语法备忘单]。
+    下面列出LaTeX中常用的标记命令及其在Typst中的对应写法。您还可以查看@reference:syntax[完整语法速查表]。
   ],
 )
 
@@ -123,7 +121,7 @@ output is shown to the right.
     [See],
   ),
 
-  babel(en: [Strong emphasis], zh-status: "need proofread", zh: [着重强调]),
+  babel(en: [Strong emphasis], zh-status: "need proofread", zh: [粗体强调]),
   [`\textbf{strong}`],
   [`[*strong*]`],
   [@strong],
@@ -153,7 +151,7 @@ output is shown to the right.
   [`[@humphrey97]`],
   [@cite],
 
-  babel(en: [Monospace (typewriter)], zh-status: "need proofread", zh: [等宽文字 / 代码]),
+  babel(en: [Monospace (typewriter)], zh-status: "need proofread", zh: [等宽（打字机）]),
   [`\texttt{mono}`],
   [`text` or `mono` functions],
   [@text, @math.mono[`mono`]],
@@ -209,7 +207,7 @@ output is shown to the right.
   ],
   zh-status: "need proofread",
   zh: [
-    在Typst中，使用@list[列表]并不需要创建「环境」，而采用一种更为轻量的语法。只需要在每行开头前，加入连字符`-`，就可以创建一个无序列表（`itemize`）：
+    在Typst中，@list[列表]并不依赖「环境」，而是像标题一样采用轻量语法。要创建无序列表（`itemize`），只需在每一项的行首添加连字符`-`：
   ],
 )
 
@@ -240,9 +238,9 @@ To write this list in Typst...
   ],
   zh-status: "need proofread",
   zh: [
-    通过正确的缩进，可以实现列表间嵌套。在每项间添加空行，可以得到一个行间距更大的列表。
+    列表的嵌套只需正确缩进即可。在各项之间添加空行，会得到一个@list.tight[间距更宽松]的列表。
 
-    用`+`代替连字符`-`，可以得到@enum[有序列表]（`enumerate`）。用`[/Term: Description]`，可以得到@terms[术语列表]（`description`）。
+    想要@enum[编号列表]（`enumerate`）时，改用`+`代替连字符。要得到@terms[术语列表]（`description`），则改写`[/ Term: Description]`。
   ],
 )
 
@@ -258,7 +256,7 @@ Note that the @raw[`raw` function] and syntax (e.g. ``` [`raw`]```) only work fo
 = #babel(
   en: short-or-long[Commands][How do I use a command?],
   zh-status: "need proofread",
-  zh: [我如何使用一个命令？],
+  zh: [如何使用命令？],
 ) <commands>
 #babel(
   en: [
@@ -270,11 +268,11 @@ Note that the @raw[`raw` function] and syntax (e.g. ``` [`raw`]```) only work fo
   ],
   zh-status: "need proofread",
   zh: [
-    LaTeX十分依赖以反斜杠`\`开头的命令，它需要通过这些_宏_来排版、插入或改变内容。有些命令接受参数，通常使用大括号括起来。`\cite{rasmus}`
+    LaTeX非常依赖以反斜杠开头的命令。它用这些_宏_来影响排版过程，以及插入和操作内容。有些命令接受参数，参数通常括在大括号中：`\cite{rasmus}`。
 
-    Typst区分两种模式：@reference:scripting:blocks[「标记模式」和「脚本模式」]。默认处在「标记模式」下。此模式中，你可以直接编排文本、使用不同的语法结构，如`*使用星号标记粗体文本*`。而「脚本模式」下，则提供一个类似Python的编程语言，提供了输入、执行代码的选项。
+    Typst区分两种模式：@reference:scripting:blocks[标记模式和脚本模式]。默认是标记模式，您在其中撰写文本并使用诸如`[*星号表示粗体文本*]`这样的语法结构。而脚本模式则类似Python等编程语言，让您可以输入并执行代码片段。
 
-    在Typst的标记模式中，你可以使用井号（`#`）来使用单个命令（或者_表达式_）。例如，你可以通过这种方式来分割不同的@reference:scripting:modules[文件]，或者基于某些@reference:scripting:conditionals[条件]渲染文字。在「脚本模式」下，也可以通过方括号来包含正常的@content[内容块]，这些内容如同其他变量一样，被视作一种值。
+    在Typst的标记中，您可以用井号（`#`）为单个命令（更确切地说，是_表达式_）切换到脚本模式。这样就能调用函数，例如把项目拆分到不同的@reference:scripting:modules[文件]中，或根据某些@reference:scripting:conditionals[条件]渲染文本。在脚本模式中，还可以用方括号包含普通的标记@content[_内容_]；在脚本模式中，这些内容与其他变量一样，被视作普通的值。
   ],
 )
 
@@ -303,20 +301,20 @@ And finally a little loop:
     #info[
       *译者注：*
 
-      这段英文原文就表述的很不清晰，这里提供一点解释。
+      这段英文原文表述得很不清晰，这里提供一点解释。
 
-      标记模式，如同Markdown，不需要额外的内容，默认就处在这个标记模式下：可以直接使用`_text_`或者`*text*`来实现斜体/粗体（参考上文）。
+      标记模式，如同Markdown，不需要额外标记，默认就处在这个模式下：可以直接使用`_text_`或者`*text*`来实现斜体/粗体（参考上文）。
 
-      脚本模式，以`#`开头（类比LaTeX中以`\`开头来书写命令），仅仅存在于一个命令（表达式）中，当这个表达式结束之后，一切又回到标记模式中。在脚本模式中，无需额外使用`#`（命令/关键字会直接识别，不同于LaTeX），同时在命令中也可以使用标记模式（使用`[]`，比如例子给出的`[Hi #x]`）。
+      脚本模式，以`#`开头（类比LaTeX中以`\`开头来书写命令），仅存在于一个命令（表达式）中；表达式结束之后，一切又回到标记模式中。在脚本模式中，无需额外使用`#`（命令/关键字会直接识别，不同于LaTeX），同时在命令中也可以使用标记模式（使用`[]`，比如例子给出的`[Hi #x]`）。
 
       此外：
 
-      - 在标记模式中，可以引用脚本模式的函数、值，都通过`#`进行标记。
-      - 在脚本模式中，函数返回值为`content`的会在当前位置渲染出来，如果没有显示指明返回值，则默认会将函数体内的所有内容块相加并返回。
-      - 在脚本模式中，使用标记模式的内容（`Content`），也可以作为变量的值。
+      - 在标记模式中，可以通过`#`来引用脚本模式的函数、值。
+      - 在脚本模式中，返回值为`content`的函数会直接在当前位置渲染出来；如果没有显式指明返回值，则默认会将函数体内的所有内容块相加并返回。
+      - 在脚本模式中，标记模式的内容（`Content`）也可以作为变量的值。
     ]
 
-    不同于LaTeX，Typst中函数定义总是要求函数名（@rect, @underline, @calc.max, @array.range[`range`]）+ 括号的形式（而LaTeX中，没有参数的情况下，@[]和{}都是可以忽略的）。需要向函数传递的具体参数可以在@reference[参考]中找到。
+    函数调用总是以函数名（@rect、@underline、@calc.max、@array.range[`range`]）开头，后跟圆括号（而不像LaTeX——若宏不需要参数，方括号和花括号都可省略）。圆括号中应传入哪些参数取决于具体的函数，并在@reference[参考]中说明。
   ],
 )
 
@@ -327,7 +325,7 @@ And finally a little loop:
   ],
   zh-status: "need proofread",
   zh: [
-    一个函数可以有多个参数，有些参数是位置参数，只需提供变量的值即可(不需要提供参数名称),例如：函数`[#lower("SCREAM")]`以全小写的方式返回其传入值。很多函数使用命名参数来提高可读性，例如创建一个指定大小和描边的正方形，可以使用如下命名参数：
+    一个函数可以有多个参数。有些参数是位置参数，即只需提供值：函数`[#lower("SCREAM")]`会以全小写形式返回其参数。许多函数使用命名参数代替位置参数，以提高可读性。例如，矩形的尺寸和描边就是用命名参数定义的：
   ],
 )
 
@@ -347,9 +345,9 @@ And finally a little loop:
   ],
   zh-status: "need proofread",
   zh: [
-    指定一个命名参数时，首先输入参数名（上面的`width`、`height`和`stroke`），然后是冒号和对应的值（`2cm`、`1cm`、`red`）。你可以在「函数的参考页」或者「自动补全」中找到可用的命名参数。命名参数类似于一些LaTeX环境的配置方式，例如，你可以输入`\begin{enumerate}[label={alph*)}]`来启动一个带有标签`a)`、`b)`等的列表。
+    指定命名参数时，先输入参数名（上面是`width`、`height`和`stroke`），然后是冒号，再跟上值（`2cm`、`1cm`、`red`）。您可以在每个函数的@reference[参考页]中找到可用的命名参数，也可以在输入时查看自动补全面板。命名参数类似于某些LaTeX环境的配置方式，例如，您可以输入`\begin{enumerate}[label={\alph*)}]`来创建一个标签依次为`a)`、`b)`等的列表。
 
-    多数情况，你会想要向函数传递一些@content[内容块]。例如，在LaTeX中的命令`\underline{Alternative A}`，在Typst中可以写成`#underline([Alternative A])`。方括号表示其中的值是一个@content[内容块]。在这些方括号中，你可以使用正常的标记语法。不过这样写的话，需要的括号还是太多了，因此你可以把「位于尾部的内容块」移到括号外（如果没有其他参数，可以忽略`()`）：
+    您常常需要向函数传入一些@content[内容]。例如，LaTeX命令`\underline{Alternative A}`在Typst中应写成`[#underline([Alternative A])]`。方括号表示其中的值是一个@content[内容]。在这些方括号中，您可以照常使用标记语法。不过，对于这样一个相当简单的结构来说，括号还是太多了。正因如此，您也可以把位于尾部的内容参数移到圆括号之后（如果圆括号最后是空的，也可以省略）：
   ],
 )
 
@@ -367,7 +365,7 @@ to LaTeX.
   ],
   zh-status: "need proofread",
   zh: [
-    你可能已经注意到了，上文提到的这些参数有着不同的数据类型。Typst支持多种@type[数据类型]，下表是其中一些比较重要的类型和以及他们的声明办法。只有处在脚本模式中才能声明这些类型：
+    您可能已经注意到，这些参数有着不同的数据类型。Typst支持许多@type[数据类型]。下表列出其中一些最重要的类型及其写法。要指定这些类型的值，您必须处于脚本模式中！
   ],
 )
 
@@ -377,22 +375,22 @@ to LaTeX.
     babel(en: [Example], zh-status: "need proofread", zh: [示例]),
   ),
 
-  babel(en: [@content[Content]], zh-status: "need proofread", zh: [@content[内容块 (content)]]),
+  babel(en: [@content[Content]], zh-status: "need proofread", zh: [@content[内容]]),
   [`{[*fast* typesetting]}`],
 
-  babel(en: [@str[String]], zh-status: "need proofread", zh: [@str[字符串 (str)]]),
+  babel(en: [@str[String]], zh-status: "need proofread", zh: [@str[字符串]]),
   [`{"Pietro S. Author"}`],
 
-  babel(en: [@int[Integer]], zh-status: "need proofread", zh: [@int[整型 (int)]]),
+  babel(en: [@int[Integer]], zh-status: "need proofread", zh: [@int[整数]]),
   [`{23}`],
 
-  babel(en: [@float[Floating point number]], zh-status: "need proofread", zh: [@float[浮点数 (float)]]),
+  babel(en: [@float[Floating point number]], zh-status: "need proofread", zh: [@float[浮点数]]),
   [`{1.459}`],
 
-  babel(en: [@length[Absolute length]], zh-status: "need proofread", zh: [@length[绝对长度 (absolute length)]]),
+  babel(en: [@length[Absolute length]], zh-status: "need proofread", zh: [@length[绝对长度]]),
   [`{12pt}`, `{5in}`, `{0.3cm}`, ...],
 
-  babel(en: [@ratio[Relative length]], zh-status: "need proofread", zh: [@ratio[相对长度 (relative length)]]),
+  babel(en: [@ratio[Relative length]], zh-status: "need proofread", zh: [@ratio[相对长度]]),
   [`{65%}`],
 )
 
@@ -406,11 +404,11 @@ to LaTeX.
   ],
   zh-status: "need proofread",
   zh: [
-    内容块和字符串的区别在于，内容可以包含标记，包括函数调用，而字符串实际上只是一个普通的字符序列。
+    内容与字符串的区别在于，内容可以包含标记（包括函数调用），而字符串实际上只是一个普通的字符序列。
 
-    Typst提供了@reference:scripting:conditionals[条件分支、循环结构]，以及常用的@reference:scripting:operators[运算符]，例如`+`和`==`。
+    Typst提供了@reference:scripting:conditionals[控制流结构]和@reference:scripting:operators[运算符]，例如用`+`相加，用`==`检查两个变量是否相等。
 
-    你也可以在你定义的@reference:scripting:bindings[变量]中存储值（包括函数）。在计算、流程复用或者需要反复使用一个值的时候可能会用到。创建新变量的关键字是`let`，和LaTeX中`\newcommand`类似。
+    您还可以在自己定义的@reference:scripting:bindings[变量]中存储值（包括函数）。这样做有助于对其进行计算、创建可复用的自动化流程，或多次引用同一个值。变量绑定通过`let`关键字完成，其用法与`\newcommand`类似：
   ],
 )
 
@@ -432,7 +430,7 @@ If I had one more, I'd have
 == #babel(
   en: short-or-long[Rules][Commands to affect the remaining document],
   zh-status: "need proofread",
-  zh: short-or-long[规则][影响后续内容的命令],
+  zh: short-or-long[规则][影响文档其余部分的命令],
 ) <rules>
 #babel(
   en: [
@@ -442,9 +440,9 @@ If I had one more, I'd have
   ],
   zh-status: "need proofread",
   zh: [
-    在LaTeX中，例如 `\textbf{bold text}` 的命令通过大括号传入参数，并且只影响括号内的内容。而有些命令，比如 `\bfseries bold text`「起到开关的作用」(在LaTeX中这被叫做声明)，在这行命令后的所有内容都会受这个命令的影响。
+    在LaTeX中，像`\textbf{bold text}`这样的命令接受放在大括号中的参数，并且只影响该参数。而像`\bfseries bold text`这样的命令则起开关作用（LaTeX称之为声明），会改变文档或当前作用域中后续所有内容的外观。
 
-    在Typst中，一个函数既可以用来影响文档的剩余部分，也可以只影响传入的参数。举例来说，`[#text(weight: "bold")[bold text]]` 仅仅会加粗传入的参数，而 `#set text(weight: "bold")` 的影响会持续「到当前块结束」（或者，如果不在内容块中，影响文档的剩余部分）。根据使用方式的不同（直接调用/在@reference:styling:set-rules[setrule]）可以直观的表示函数的作用方式。
+    在Typst中，同一个函数既可以影响文档的剩余部分，也可以影响某个块（或作用域），或者只影响它的参数。例如，`[#text(weight: "bold")[bold text]]`只会加粗它的参数，而`[#set text(weight: "bold")]`会加粗直到当前块结束为止的所有文本；若不在任何块中，则直到文档结束。函数的作用范围一眼就能看出：它是被用作调用，还是用作@reference:styling:set-rules[set规则]。
   ],
 )
 
@@ -463,7 +461,7 @@ don't you think?
   ],
   zh-status: "need proofread",
   zh: [
-    Set rules 可以出现在文档的任何部分。它们的作用方式可以类比向函数传递默认参数。
+    set规则可以出现在文档的任何位置，可以将其视为对应函数的默认参数值：
   ],
 )
 
@@ -485,9 +483,9 @@ Good results can only be obtained by
   ],
   zh-status: "need proofread",
   zh: [
-    `+`是调用 @enum[`{enum}`] 函数的语法糖（可以把它看作是一种简写），我们在上面应用了一个set rule。从这个意义上讲，@reference:syntax[大多数的特殊语法都是只是某一个函数的简写]。如果你需要重新定义一个组件的样式（仅修改传递参数无法实现），你可以通过@reference:styling:show-rules\完全重定义其样式（与LaTeX中`\renewcommand`相似，类似于定义了一个_宏_）.
+    `+`是对@enum[`{enum}`]函数调用的语法糖（可以把它看作一种简写），我们在上面为它应用了一条set规则。@reference:syntax[大多数语法都以这种方式与某个函数关联。]如果您需要的样式超出了参数所能表达的范围，还可以用@reference:styling:show-rules[show规则]完全重新定义元素的外观（有点类似于`\renewcommand`）。
 
-    你可以通过@text.font[`font`]、@text.style[`style`]和@text.weight[`weight`]参数来实现LaTeX命令`\textbf`,`\textsf`,`\rmfamily`,`\mdseries`,和`\itshape`的效果。`text`函数可以在set规则（声明风格）中使用，也可以带有内容参数。为了替换`\textsc`，你可以使用`smallcaps`函数，它会将其内容参数渲染为小型大写字母。如果你想要使用它的声明风格（类似于`\scshape`），你可以使用一个@reference:styling:show-rules[_everything_ show规则]来将这个函数应用到作用域的其余部分：
+    借助`text`函数的@text.font[`font`]、@text.style[`style`]和@text.weight[`weight`]参数，您可以实现`\textbf`、`\textsf`、`\rmfamily`、`\mdseries`和`\itshape`等LaTeX命令的效果。`text`函数既可以用在set规则中（声明式），也可以带内容参数使用。若要替代`\textsc`，可以使用@smallcaps\函数，它会把其内容参数渲染为小型大写字母。如果您想以声明式使用它（类似`\scshape`），可以用@reference:styling:show-rules[_everything_ show规则]把该函数应用到作用域的其余部分：
   ],
 )
 
@@ -500,7 +498,7 @@ Boisterous Accusations
 = #babel(
   en: short-or-long[Templates][How do I load a document class?],
   zh-status: "need proofread",
-  zh: [如何加载一个文档类 / 模板？],
+  zh: [如何加载文档类？],
 ) <templates>
 #babel(
   en: [
@@ -510,9 +508,9 @@ Boisterous Accusations
   ],
   zh-status: "need proofread",
   zh: [
-    在LaTeX中，`.tex`文件通常以`\documentclass{article}`开头，来定义文档的样式。在这个命令中，你也可以把`article`替换为`report`和`amsart`来更改文档的样式。
+    在LaTeX中，您会在主`.tex`文件开头使用`\documentclass{article}`命令来定义文档应有的外观。在该命令中，您可能已将`article`替换为`report`、`amsart`等其他值，以选择不同的外观。
 
-    在Typst中，你可以通过@function[函数]来修改文档的样式。通常情况下，你可以使用模板中提供的函数来修改整个文档。首先，你可以通过`#import`来导入模板函数。然后你使用这个函数来对文档使用样式。具体的做法是通过@reference:styling:show-rules\来将整个文档包装在这个函数中，具体如下：
+    在Typst中，您用@function[函数]来设置文档的样式。通常您会使用一个模板，它提供一个可以为整个文档设置样式的函数。首先从模板文件中导入该函数，然后将其应用到整个文档。具体做法是用@reference:styling:show-rules[show规则]把后面的文档包装进给定的函数中。下面的例子展示了它的用法：
   ],
 )
 
@@ -629,28 +627,30 @@ Boisterous Accusations
   ],
   zh-status: "need proofread",
   zh: [
-    这里的@reference:scripting:modules[`import`]命令，导入了在其他文件中声明的函数，从而可以在当前文件中使用。在这个例子中，它从`conf.typ`中导入了`conf`函数。这个函数会将整个文章的样式整理成一个会议论文。我们通过show rule把这个样式应用到全局，同时也设置了文档的一些元数据。在应用show rule之后，我们就可以开始写文章了。
+    @reference:scripting:modules[`{import}`]语句让另一个文件中的@function[函数]（以及其他定义）可供使用。在本例中，它从`conf.typ`文件导入了`conf`函数。该函数把文档排版成会议论文的格式。我们用一条show规则把它应用到文档上，并配置文章的一些元数据。应用show规则之后，我们就能直接开始撰写文章了！
+
+    您也可以使用如下import语句来使用Typst Universe上的模板（相当于Typst的CTAN）：`[#import "@preview/elsearticle:0.2.1": elsearticle]`。请查阅各个模板的文档，了解其模板函数的名称。首次使用Typst Universe的模板和包时，它们会自动下载。
 
     #info[
-      在Typst中，函数被称为"命令"，它们可以将其参数转化为输出值，包括文档_内容_。函数是"纯"的，这意味着它们除了创建一个输出值/输出内容外，不能产生任何副作用。这与LaTeX的宏形成了鲜明的对比，后者可以对你的文档产生任意的效果。
+      在Typst中，函数被称为「命令」，它们可以将其参数转化为输出值，包括文档_内容_。函数是「纯」的，这意味着它们除了产生输出值／输出内容之外，不会有任何其他效果。这与LaTeX的宏形成了鲜明的对比，后者可以对您的文档产生任意的效果。
 
-      为了使一个函数应用到整个文档，showrule会处理其后的所有内容，并将其结果作为参数传递给指定的函数。`.with`是一个_方法_，它接受`conf`函数，并在将其传递给show规则之前预先配置一些参数。
+      为了让函数为整个文档设置样式，show规则会处理其后的所有内容，并把处理结果作为参数，调用冒号后指定的函数。`.with`部分是一个_方法_，它接收`conf`函数并预先配置它的部分参数，然后再把它交给show规则。
 
       *译者注：*
 
       `#show: conf.with(title: [标题])` 等价于Lambda表达式形式的 `#show: it => conf(title: [标题], it)`
     ]
 
-    在Web App中，你可以选择一些预先定义好的模板，甚至可以通过模板向导创建自己的模板。在本地命令行中，你也可以使用`typst init`来从模板创建项目。查看发布在TypstUniverse上的#link("https://typst.app/universe/search?kind=templates")[模板列表], 这是官方的包管理库。你也可以访问#link("https://github.com/qjcg/awesome-typst")[Awesome Typst 仓库]来查看一些社区提供，尚没有以包发布的模板。
+    在在线应用中，您可以选择基于Typst Universe上的模板创建项目，甚至可以用模板向导创建自己的模板。在本地，您可以使用`typst init`命令行工具从模板创建新项目。看看Typst Universe上发布的#link("https://typst.app/universe/search/?kind=templates")[模板列表]。您还可以翻阅#link("https://github.com/qjcg/awesome-typst")[`awesome-typst`仓库]，寻找无法从Universe获得的社区模板。
 
-    你也可以@tutorial:making-a-template[创建你自己的自定义的模板]。它们比相应的LaTeX的`.sty`文件短得多，可读性也高得多，所以不妨一试！
+    您也可以@tutorial:making-a-template[创建自己的自定义模板]。它们比对应的LaTeX`.sty`文件简短、易读好几个数量级，不妨一试！
   ],
 )
 
 = #babel(
   en: short-or-long[Packages][How do I load packages?],
   zh-status: "need proofread",
-  zh: [如何导入包？],
+  zh: [如何加载包？],
 ) <packages>
 #babel(
   en: [
@@ -658,24 +658,24 @@ Boisterous Accusations
   ],
   zh-status: "need proofread",
   zh: [
-    Typst就像那种自带电池的玩具，许多流行的LaTeX包的对应功能是直接内置到Typst里的。在下面我们列出一些LaTeX中常用的包，和他们对应的Typst命令：
+    Typst「开箱即用」，许多流行的LaTeX包的功能都直接内置其中。下面我们整理了一张表，列出常用的LaTeX包及其对应的Typst函数。
   ],
 )
 
 #docs-table(
   table.header(
     babel(en: [LaTeX Package], zh-status: "need proofread", zh: [LaTeX包]),
-    babel(en: [Typst Alternative], zh-status: "need proofread", zh: [Typst替代]),
+    babel(en: [Typst Alternative], zh-status: "need proofread", zh: [Typst替代方案]),
   ),
 
   [graphicx, svg],
-  babel(en: [@image function], zh-status: "need proofread", zh: [@image 函数]),
+  babel(en: [@image function], zh-status: "need proofread", zh: [@image\函数]),
 
   [tabularx, tabularray],
-  babel(en: [@table, @grid functions], zh-status: "need proofread", zh: [@table, @grid 函数]),
+  babel(en: [@table, @grid functions], zh-status: "need proofread", zh: [@table、@grid\函数]),
 
   [fontenc, inputenc, unicode-math],
-  babel(en: [Just start writing!], zh-status: "need proofread", zh: [直接编写！]),
+  babel(en: [Just start writing!], zh-status: "need proofread", zh: [直接开始编写！]),
 
   [babel, polyglossia],
   babel(
@@ -691,7 +691,7 @@ Boisterous Accusations
   babel(
     en: [@reference:symbols[`sym`] module and @reference:syntax:math[syntax]],
     zh-status: "need proofread",
-    zh: [@reference:symbols[`sym`]模块和@reference:syntax:math[syntax]],
+    zh: [@reference:symbols[`sym`]模块和@reference:syntax:math[语法]],
   ),
 
   [geometry, fancyhdr],
@@ -705,7 +705,7 @@ Boisterous Accusations
   ),
 
   [hyperref],
-  babel(en: [@link function], zh-status: "need proofread", zh: [@link 函数]),
+  babel(en: [@link function], zh-status: "need proofread", zh: [@link\函数]),
 
   [bibtex, biblatex, natbib],
   babel(en: [@cite, @bibliography functions], zh-status: "need proofread", zh: [@cite、@bibliography\函数]),
@@ -724,7 +724,7 @@ Boisterous Accusations
   babel(
     en: [Set the @text.lang[`text`] language and type `["]` or `[']`],
     zh-status: "need proofread",
-    zh: [设置@text.lang[`text`]语言，并输入`["]`or`[']`],
+    zh: [设置@text.lang[`text`]语言，并输入`["]`或`[']`],
   ),
 
   [caption],
@@ -743,7 +743,7 @@ Boisterous Accusations
   ],
   zh-status: "need proofread",
   zh: [
-    尽管_很多_东西是内置的，但并非所有东西都可以内置。这也是Typst提供一个内置的@link("https://typst.app/universe/")[包管理器]的原因，社区成员可以在其中共享他们的工作和自动化工具。以_CeTZ_包为例，这个包允许你绘制复杂图形和函数图像。要在文档中使用CeTZ，你只需要编写：
+    尽管_很多_功能都是内置的，但并非所有功能都能内置。正因如此，Typst有自己的一片#link("https://typst.app/universe")[包生态系统]，社区成员在其中分享自己的作品和自动化工具。以_CeTZ_包为例：这个包让您可以绘制复杂的图形和绘图。要在文档中使用CeTZ，只需编写：
   ],
 )
 
@@ -761,11 +761,11 @@ Boisterous Accusations
   ],
   zh-status: "need proofread",
   zh: [
-    （`@preview`是一个_namespace_，在包管理器还处于早期和实验状态时使用，它将在将来被替换。）
+    （`@preview`是一个_命名空间_，在包管理器仍处于早期实验阶段时使用，将来会被替换。）
 
-    除了官方的软件包存储库，您可能还会想看 #link("https://github.com/qjcg/awesome-typst")[Awesome Typst 仓库]，其中集合了为 Typst 创建的资源精选列表。
+    除了官方包仓库，您可能还想看看#link("https://github.com/qjcg/awesome-typst")[awesome-typst仓库]，其中汇总了一份为Typst创建的精选资源列表。
 
-    如果您需要从项目中的另一个文档加载函数和变量，例如使用模板，则可以使用相同的 @reference:scripting:modules[`{import}`] 语句，其中应该包含文档名，而不是特定的包。  要包含另一个文档的文本内容，您可以使用 @reference:scripting:modules[`{include}`] 语句。它将读取指定文档的内容，并将其直接置入文档中。
+    如果您需要加载项目中另一个文件里的函数和变量，例如使用模板，可以使用同样的@reference:scripting:modules[`{import}`]语句，只是把包名换成文件名。若要改为包含另一个文件的文本内容，可以使用@reference:scripting:modules[`{include}`]语句，它会取出指定文件的内容并放进您的文档中。
 
   ],
 )
@@ -777,7 +777,7 @@ Boisterous Accusations
   ],
   zh-status: "need proofread",
   zh: [
-    在Typst中，把公式包含在`$`记号中即可，在两个`$$`中添加额外的空格/换行符可以创建块状公式。
+    在Typst中，只需把公式括在美元符号中即可进入数学模式。在公式内容与两侧的美元符号之间添加空格或换行，即可进入独行公式模式。
   ],
 )
 
@@ -800,13 +800,13 @@ $ sum_(k=1)^n k = (n(n+1))/2 $
   ],
   zh-status: "need proofread",
   zh: [
-    @math[数学模式]的工作方式与普通标记或代码模式不同。数字和单个字符被逐字显示，而多个连续（非数字）字符将被解释为Typst变量。
+    @math[数学模式]的工作方式与普通标记或脚本模式不同。数字和单个字符会原样显示，而多个连续（非数字）字符将被解释为Typst变量。
 
-    Typst在数学模式下预先定义了很多有用的变量。所有希腊字母（`alpha`, `beta`, ...）和一些希伯来字母（`alef`, `bet`, ...）都可以通过它们的名字直接使用。一些符号还可以通过缩写轻松使用，如`<=`、`>=`和`->`。
+    Typst在数学模式下预定义了许多有用的变量。所有希腊字母（`alpha`、`beta`、……）和一些希伯来字母（`aleph`、`beth`、……）都可以通过名称直接使用。有些符号还可以用简写输入，例如`<=`、`>=`和`->`。
 
-    符号的完整列表请参考@symbol[符号页面]。如果缺少某些符号，你也可以通过@reference:syntax:escapes[Unicode转义序列]访问它。
+    符号的完整列表请参考@reference:symbols[符号页面]。如果某个符号不存在，也可以通过@reference:syntax:escapes[Unicode转义序列]来输入它。
 
-    符号的变体通常可以通过在句点后附加一个@symbol[`.`点修饰符]来选择。例如，`arrow.l.squiggly`插入了一个向左倾斜的箭头。如果你想在你的表达式中插入多字母纯文本，可以用双引号将其括起来：
+    符号的变体及相关形式，通常可以通过在句点后@symbol[附加一个修饰符]来选择。例如，`arrow.l.squiggly`会插入一个波浪形向左的箭头。如果您想在表达式中插入多个字母的文本，请把它括在双引号中：
   ],
 )
 
@@ -822,9 +822,9 @@ $ delta "if" x <= 5 $
   ],
   zh-status: "need proofread",
   zh: [
-    在 Typst 中，定界符将根据内部表达式自动缩放大小，就像在 LaTeX 中自动添加了隐藏的 `\left` 和 `\right` 命令一样。  你可以使用 @math.lr[`lr`] 函数自定义定界符的行为。如果你不需要对定界符进行缩放，你可以用反斜线转义定界符。
+    在Typst中，定界符会随其内部表达式自动缩放，就像LaTeX中隐式插入了`\left`和`\right`命令一样。您可以使用@math.lr[`lr`]函数自定义定界符的行为。要阻止一对定界符缩放，可以用反斜杠将其转义。
 
-    在不破坏运算优先级的前提下，Typst 会自动将斜线 `/` 的两端内容识别成分数。所有没必要的括号将不会出现在编译结果中：
+    在遵从运算符优先级的前提下，Typst会自动把斜线`/`两侧的项排版为分数。凡是因分数而变得多余的圆括号都不会出现在输出中；其余的圆括号则照常显示。分数默认竖直排版，除非用@math.frac.style[`frac.style`]自定义。您也可以用反斜杠转义斜线（`\/`），直接输出一个斜线：
   ],
 )
 
@@ -840,9 +840,9 @@ $ f(x) = (x + 1) / x $
   ],
   zh-status: "need proofread",
   zh: [
-    @math.attach[下标和上标] 在 Typst 和 LaTeX 中的作用是相似的。`{$x^2$}` 将产生一个上标，`{$x_2$}` 产生一个下标。  如果你想在下标或上标中包含一个以上的值，请把它们的内容放在括号里：`$x_(a -> epsilon)$`。
+    @math.attach[下标和上标]在Typst和LaTeX中用法相似。`{$x^2$}`会生成上标，`{$x_2$}`会生成下标。如果您想在下标或上标中包含多个值，请将其内容放在圆括号中：`{$x_(a -> epsilon)$}`。
 
-    由于数学模式下的变量不需要在前面加上 `#` 或 `/` ，所以你也可以无需额外的井号字符来调用函数：
+    数学模式下的变量无需以`#`（或LaTeX中的`\`）开头，因此您也可以不加这些特殊字符直接调用函数：
   ],
 )
 
@@ -861,7 +861,7 @@ $ f(x, y) := cases(
   ],
   zh-status: "need proofread",
   zh: [
-    上面的例子用@math.cases[`cases`]函数来表述`f`。在`cases`函数中，参数用逗号来分隔，参数也被解释为数学模式下的内容。如果你需要传递Typst变量，可以用`#`号作为前缀使用：
+    上面的例子用@math.cases[`cases`函数]来定义`f`。在`cases`函数中，参数用逗号分隔，并且参数也按数学内容解释。如果您希望把参数解释为Typst值，请在参数前加上`#`：
   ],
 )
 
@@ -878,7 +878,7 @@ $ (a + b)^2
   ],
   zh-status: "need proofread",
   zh: [
-    在数学模式下，你可以使用任意的Typst函数或者任何内容，如果你希望他们正常工作，只需要使用`#`前缀，没人可以阻止你把长方体或者emoji表情作为参数传入：
+    在数学模式下，您可以使用任何Typst函数，也可以插入任何内容。如果您希望它们正常工作（参数列表处于脚本模式），只需要在调用前加上`#`。现在没人能阻止您用矩形或emoji当变量了：
   ],
 )
 
@@ -896,9 +896,9 @@ $ sum^10_(🤓=1)
   ],
   zh-status: "need proofread",
   zh: [
-    如果你希望直接以Unicode形式输入数学符号，也是可以的。
+    您也可以直接用Unicode输入数学符号！
 
-    数学调用可以有二维参数列表，使用`;`作为分隔符。这方面最常见的用途是使用@math.mat[`mat`]函数创建矩阵：
+    数学调用可以带有二维参数列表，用`;`作为分隔符。最常见的用途是使用@math.mat[`mat`函数]创建矩阵：
   ],
 )
 
@@ -914,7 +914,7 @@ $ mat(
 = #babel(
   en: short-or-long[Latex Look][How do I get the "LaTeX look?"],
   zh-status: "need proofread",
-  zh: [如何获得 "LaTeX 外观"？],
+  zh: [如何获得「LaTeX外观」？],
 ) <latex-look>
 #babel(
   en: [
@@ -930,13 +930,14 @@ $ mat(
   ],
   zh-status: "need proofread",
   zh: [
-    用LaTeX编写的论文有一种美观且易于识别的外观。这主要是由于它们的字体#link("https://zh.wikipedia.org/wiki/Computer_Modern")[Computer Modern]、对齐方式、窄行距和宽边距。
+    用LaTeX排版的论文有一种一眼就能认出的外观。这主要是由于它们的字体#link("https://zh.wikipedia.org/wiki/Computer_Modern")[Computer Modern]、两端对齐、窄行距和宽边距。
 
     下面是一个示例：
 
     - 设置宽@page.margin[边距]
-    - 启用@par.justify[两端对齐],@par.leading[更紧密的行间距]和@par.first-line-indent[首行缩进]
-    - 设置@text.font[字体]为"New Computer Modern"，这是一个适用于文本和@raw[代码块]的OpenType变体
+    - 启用@par.justify[两端对齐]、@par.leading[更紧凑的行距]和@par.first-line-indent[首行缩进]
+    - 将@text.font[字体]设为"New Computer Modern"，它是Computer Modern的OpenType衍生版本，适用于文本和@raw[代码段]
+    - 降低数学模式下的@text.weight[字体粗细]
     - 禁用段落@block.spacing[间距]
     - 增加@heading[标题]周围的@block.spacing[间距]
   ],
@@ -957,11 +958,11 @@ $ mat(
   ],
   zh-status: "need proofread",
   zh: [
-    这应该是一个很好的起点！如果你想更进一步，为什么不创建一个可重复使用的模板呢？
+    这应该是个不错的起点！如果您想更进一步，何不创建一个可复用的模板呢？
   ],
 )
 
-= #babel(en: [Bibliographies], zh-status: "need proofread", zh: [参考文献]) <bibliographies>
+= #babel(en: [Bibliographies], zh-status: "need proofread", zh: [文献列表]) <bibliographies>
 #babel(
   en: [
     Typst includes a fully-featured bibliography system that is compatible with BibTeX files. You can continue to use your `.bib` literature libraries by loading them with the @bibliography function. Another possibility is to use #link("https://github.com/typst/hayagriva/blob/main/docs/file-format.md")[Typst's YAML-based native format].
@@ -976,22 +977,22 @@ $ mat(
   ],
   zh-status: "need proofread",
   zh: [
-    Typst 的参考文献系统与 BibTeX 文件兼容。你可以通过 @bibliography 函数加载你的 `.bib` 文献库。  也可以使用 #link("https://github.com/typst/hayagriva/blob/main/docs/file-format.md")[Typst 原生基于 YAML 的格式].
+    Typst内置了功能完善的文献列表系统，兼容BibTeX文件。您可以继续用@bibliography\函数加载`.bib`文献库。另一种选择是使用#link("https://github.com/typst/hayagriva/blob/main/docs/file-format.md")[Typst原生的基于YAML的格式]。
 
-    Typst 使用引文样式语言（Citation Style Language）来定义和处理引文和参考文献样式。你可以将 CSL 文件与 BibLaTeX 的 `.bbx` 文件进行类比。  编译器已经包含了 @bibliography.style[80 多种引文样式]，但你可以使用 #link("https://github.com/citation-style-language/styles")[CSL 仓库] 中的任何符合 CSL 标准的样式，或者编写自己的样式。
+    Typst使用Citation Style Language（引文样式语言，CSL）来定义和处理文献引用与文献列表样式。您可以把CSL文件类比为BibLaTeX的`.bbx`文件。编译器已经内置了@bibliography.style[80多种引文样式]，但您也可以使用#link("https://github.com/citation-style-language/styles")[CSL仓库]中任何符合CSL规范的样式，或者编写自己的样式。
 
-    你可以通过相同的语法 `[@key]` 来引用参考文献中的条目或者引用文档中的标签（这将引用一个名为 `key` 的条目）。  或者，你可以使用 @cite 函数。
+    您可以用相同的语法`[@key]`引用文献列表中的条目，或交叉引用文档中的标签（这里会引用一个名为`key`的条目）。或者，您也可以使用@cite\函数。
 
-    你可以使用 @cite.form[`[#cite(<key>, form: "prose")]`] 来引用你的引文的其他形式，比如仅年份或者用于自然语言的引文（类似于 `\citet` 和 `\textcite`）。
+    文献引用的其他形式，例如仅显示年份，以及在正文中自然使用的引用（参见`\citet`和`\textcite`），可以通过@cite.form[`[#cite(<key>, form: "prose")]`]获得。
 
-    你可以在 @bibliography 函数的文档页面上找到更多信息。
+    更多信息请见@bibliography\函数的文档页面。
   ],
 )
 
 = #babel(
   en: short-or-long[Limitations][What limitations does Typst currently have compared to LaTeX?],
   zh-status: "need proofread",
-  zh: [与LaTeX相比，Typst目前有哪些不足？],
+  zh: [与LaTeX相比，Typst目前有哪些局限？],
 ) <limitations>
 #babel(
   en: [
@@ -1001,12 +1002,12 @@ $ mat(
 
     - *Change page margins without a pagebreak.* In LaTeX, margins can always be adjusted, even without a pagebreak. To change margins in Typst, you use the @page[`page` function] which will force a page break. If you just want a few paragraphs to stretch into the margins, then reverting to the old margins, you can use the @pad[`pad` function] with negative padding.
   ],
-  zh-status: "need update",
+  zh-status: "need proofread",
   zh: [
-    对于大多数人，Typst现在已经是一个很好的LaTeX替代品。然而，如果你是一个重度LaTeX用户，你可能会发现Typst还缺少一些功能：
+    尽管如今Typst对许多人来说已经可以替代LaTeX，但仍有一些功能是Typst（还）不支持的。下面列出这些功能，并在适用处给出可能的变通方案。
 
-    - *原生图表和绘图。*LaTeX用户通常会在PGF/TikZ中创建图表。Typst目前还没有包含绘图工具，但社区正在提供解决方案，比如#link("https://github.com/johannes-wolf/typst-canva")[`cetz`]。你可以将这些添加到你的文档中绘制图表。
+    - *成熟的绘图生态系统。*LaTeX用户常使用PGF/TikZ在文档中绘制精细的图表。Typst的生态系统尚未提供同样丰富的选择，但围绕#link("https://typst.app/universe/package/cetz")[`cetz`包]的生态正在迅速赶上。
 
-    - *更改页面边距而不换页。*在LaTeX中，你可以在不换页的前提下，调整页边距。你可以使用@page[`page`函数]，但这将强制换页。如果你只是需要调整几个段落的边距，你可以使用@pad[`pad`函数]来进行负填充。
+    - *在不分页的情况下更改页面边距。*在LaTeX中，页边距随时都能调整，甚至无需分页。而在Typst中更改页边距需要使用@page[`page`函数]，这会强制分页。如果您只是想让几个段落伸进页边距、之后再恢复原来的边距，可以使用@pad[`pad`函数]并设置负的内边距。
   ],
 )

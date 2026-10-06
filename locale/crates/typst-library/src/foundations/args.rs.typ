@@ -14,9 +14,13 @@
           Additionally, named arguments can be accessed with @arguments.at[field
             syntax] similar to @dictionary[dictionaries].
         ],
-        zh-status: "need update",
+        zh-status: "need proofread",
         zh: [
-          捕获的函数参数。
+          函数捕获的参数。
+
+          参数要么是_位置参数_，要么是_命名参数_，可以通过@arguments.pos[`pos`]、@arguments.named[`named`]和@arguments.at[`at`]方法访问。
+
+          此外，命名参数还可以像@dictionary[字典]一样，用@arguments.at[字段语法]访问。
         ],
       )
 
@@ -30,7 +34,7 @@
         ],
         zh-status: "need proofread",
         zh: [
-          与内置函数一样，自定义函数也可以接受可变数量的参数。您可以指定一个_参数收集器_，将所有多余参数收集为`..sink`。生成的`sink`值的类型为`arguments`。它暴露了访问位置参数和「通过名称传入的」（named）参数的方法。
+          与内置函数一样，自定义函数也可以接受可变数量的参数。您可以指定一个_参数收集器_，将所有多余参数收集到`..sink`中。生成的`sink`值是`arguments`类型。它提供了一些方法，用于访问位置参数和命名参数。
         ],
       )
 
@@ -54,7 +58,7 @@
         ],
         zh-status: "need proofread",
         zh: [
-          与参数收集器相反，您可以_展开_参数、数组和字典，使用`..spread`运算符：
+          与参数收集器相反，您可以使用`..spread`运算符，将参数、数组和字典_展开_到函数调用中：
         ],
       )
 
@@ -77,7 +81,7 @@
         ],
         zh-status: "need proofread",
         zh: [
-          在原地构造「可展开」（spreadable）的「参数」（argument）。
+          就地构造可展开的参数。
 
           此函数的行为类似于`{let args(..sink) = sink}`。
         ],
@@ -97,7 +101,7 @@
       ],
       zh-status: "need proofread",
       zh: [
-        构造的参数。
+        要构造的参数。
       ],
     ),
   ),
@@ -127,9 +131,11 @@
       ],
       zh-status: "need proofread",
       zh: [
-        返回指定索引处的「位置参数」，或具有指定名称的「命名参数」。
+        返回指定索引处的位置参数，或指定名称的命名参数。
 
-        如果键是@int[整数]，这相当于先调用@arguments.pos[`pos`]，然后调用@array.at。如果是@str[字符串]，这相当于先调用@arguments.named[`named`]，然后调用@dictionary.at。
+        如果键是@int[整数]，这相当于先调用@arguments.pos[`pos`]，再调用@array.at；如果是@str[字符串]，则相当于先调用@arguments.named[`named`]，再调用@dictionary.at。
+
+        如果不需要默认值，命名参数还可以用字段语法访问（例如`{arguments(key: 42).key}`）。与@dictionary[字典]不同，参数上的字段无法修改。
       ],
     ),
   ),
@@ -161,7 +167,7 @@
       ],
       zh-status: "need proofread",
       zh: [
-        将捕获的「位置参数」作为数组返回。
+        将捕获的位置参数以数组形式返回。
       ],
     ),
   ),
@@ -173,7 +179,7 @@
       ],
       zh-status: "need proofread",
       zh: [
-        将捕获的「命名参数」作为「字典」返回。
+        将捕获的命名参数以字典形式返回。
       ],
     ),
   ),

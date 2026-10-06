@@ -10,7 +10,7 @@
   description: babel(
     en: "Documentation for foundational definitions that make up the bedrock of Typst.",
     zh-status: "need proofread",
-    zh: "Typst中与基础有关联的函数族的文档",
+    zh: "构成Typst基石的基础定义的文档。",
   ),
   category: "foundations",
   scope-additions: (
@@ -37,9 +37,9 @@
         ],
         zh-status: "need proofread",
         zh: [
-          用于计算和处理数字值的模块。
+          用于计算和处理数值的模块。
 
-          这些定义是`calc`模块的一部分，不会默认导入。
+          这些定义属于`calc`模块，默认不会导入。
         ],
       ),
     ),
@@ -110,6 +110,7 @@
   zh-status: "need proofread",
   zh: [
     基础类型和函数。
-    在这里，您将找到有关基本数据类型（如@int[整数]和@str[字符串]）以及核心计算功能的详细信息。
+
+    在这里，您可以找到基本数据类型（如@int[整数]和@str[字符串]）的文档，以及核心计算函数的详细信息。
   ],
 )

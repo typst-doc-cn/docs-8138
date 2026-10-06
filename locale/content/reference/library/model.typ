@@ -9,8 +9,8 @@
   ),
   description: babel(
     en: "Documentation for definitions related to document structure and semantics.",
-    zh-status: "need update",
-    zh: "Typst中与模型有关联的函数族的文档",
+    zh-status: "need proofread",
+    zh: "文档结构与语义相关定义的文档。",
   ),
   category: "model",
 )
@@ -23,8 +23,8 @@
   ],
   zh-status: "need proofread",
   zh: [
-    文档结构。
+    文档结构化。
 
-    在这里，您可以找到用于构建文档结构并与该结构进行交互的函数。包括章节标题、图表、文献管理、交叉引用等内容。
+    在这里，您可以找到用于组织文档结构并与该结构交互的函数，包括章节标题、图表、文献管理、交叉引用等。
   ],
 )

@@ -10,7 +10,7 @@
   description: babel(
     en: "Documentation for data loading functionality.",
     zh-status: "need proofread",
-    zh: "Typst中与数据加载有关联的函数族的文档",
+    zh: "数据加载功能的文档。",
   ),
   category: "data-loading",
 )
@@ -25,7 +25,7 @@
   zh: [
     从外部文件加载数据。
 
-    这些函数可以帮助您加载和嵌入数据，例如从实验结果中获取数据。
+    这些函数可帮助您加载和嵌入数据，例如实验中产生的数据。
   ],
 )
 
