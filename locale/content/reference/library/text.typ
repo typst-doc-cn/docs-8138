@@ -9,8 +9,8 @@
   ),
   description: babel(
     en: "Documentation for text styling functionality.",
-    zh-status: "need update",
-    zh: "Typst中与文本有关联的函数族的文档",
+    zh-status: "need proofread",
+    zh: "文本样式功能的文档。",
   ),
   category: "text",
 )
@@ -25,6 +25,6 @@
   zh: [
     文本样式。
 
-    其中@text[文本函数]尤其有趣。
+    其中@text[`text`函数]尤其值得关注。
   ],
 )

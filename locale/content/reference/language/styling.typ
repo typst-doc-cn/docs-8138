@@ -11,7 +11,7 @@
   description: babel(
     en: "All concepts needed to style your document with Typst.",
     zh-status: "need proofread",
-    zh: "Typst中所有有关文档样式设置概念。",
+    zh: "使用Typst设置文档样式所需的全部概念。",
   ),
 )
 
@@ -21,7 +21,7 @@
   ],
   zh-status: "need proofread",
   zh: [
-    Typst有一个自由的样式设置系统，可以按需自动格式化文档。_set规则_可以配置文档元素的基本属性，用来设置大多常用文档样式，但是有些样式设置并没有属性可设，因此Typst引入_show规则_，进而可以彻底的重设文档元素外观。
+    Typst有一套灵活的样式系统，会自动把您选择的样式应用到文档中。利用_set规则_，您可以配置文档元素的基本属性，借此设置大多数常见样式。然而，您想要实现的效果未必都有内置属性可用，因此Typst还支持可彻底重新定义元素外观的_show规则_。
   ],
 )
 
@@ -32,7 +32,7 @@
   ],
   zh-status: "need proofread",
   zh: [
-    使用set规则，可以自定义文档元素的外观，这些规则以`{set}`关键字作为开始标记（在标记模式下使用`[#set]`），紧随一个文档元素的@function[函数调用]，set函数调用时，仅有特定参数可被允许使用，可以参考该函数文档查看有那些参数可以用于set规则。下面示例，使用了两个set规则来改变@text.font[文档字体]和@heading.numbering[标题数字]。
+    利用set规则，您可以自定义元素的外观。set规则以`{set}`关键字开头（标记模式下为`[#set]`），后接对某个@function:element-functions[元素函数]的@function[函数调用]。只有该函数的可选参数才能提供给set规则；哪些参数是可选参数，请参阅各函数的文档。在下面的示例中，我们用两个set规则改变@text.font[字体]和@heading.numbering[章节标题编号]。
   ],
 )
 
@@ -53,7 +53,7 @@ your document.
   ],
   zh-status: "need proofread",
   zh: [
-    顶层set规则一直作用到文件结束，当在块内使用时，只作用到块结束。这样使用块，可以限制set规则只总用于文档的特定片段。下面示例使用了文档内容块来限制列表样式设置只作用于特定列表。
+    顶层set规则会一直生效到文件末尾。若嵌套在脚本块或内容块内，则只生效到该块末尾。因此，利用块就能把规则的作用范围限制在文档的特定片段内。下面，我们用内容块把列表样式限制在某个列表上。
   ],
 )
 
@@ -73,7 +73,7 @@ This one is not:
   ],
   zh-status: "need proofread",
   zh: [
-    有时，想要实现特定条件下set规则才有效，可以使用_set-if_规则。
+    有时，您希望有条件地应用set规则。为此，可以使用_set-if_规则。
   ],
 )
 
@@ -94,7 +94,7 @@ This one is not:
   ],
   zh-status: "need proofread",
   zh: [
-    使用show规则可以深度定制特定类型文档元素的外观，最常用的基本形式是_show-set规则_，以`{show}`关键字作为开始标记，紧随一个@selector[选择器]，一个冒号，最后是一个set规则。最常见的选择器是一个@function:element-functions[文档元素函数名]，是set规则用来选择相关文档元素的。下面示例中，标题变为深蓝色，其他文本保持黑色。
+    利用show规则，您可以深度定制某类元素的外观。最基本的形式是_show-set规则_：该规则以`{show}`关键字开头，后接@selector[选择器]、一个冒号和一条set规则。最基本的选择器就是@function:element-functions[元素函数]，它使set规则只应用于所选元素。在下面的示例中，章节标题变为深蓝色，而其它文本保持黑色。
   ],
 )
 
@@ -115,9 +115,15 @@ But this stays black.
 
     For this example, we also wanted center alignment and a different font. While we could've added these set rules into the existing show rule, we instead added them as separate show-set rules. This is good practice because now these rules can still be overridden by later show-set rules in the document, keeping styling composable. In contrast, set rules within a transformational show rule would not be overridable anymore.
   ],
-  zh-status: "need update",
+  zh-status: "need proofread",
   zh: [
-    使用show-set规则，可以混搭各种函数属性，来实现各种不同的效果，但这也仍然局限于Typst预定义的功能。为了最大限度的灵活设置，可以使用函数式show规则，用来定义如何从0开始格式化文档元素。使用一个@function[函数]来替换show-set规则中的set规则，这个函数以未知文档元素作为参数，返回任意文档内容，函数的文档元素参数有各种不同的@reference:scripting:fields[属性字段]。下面示例中用一个函数式show规则格式化一个虚构的百科全书标题。
+    利用show-set规则，您可以混用不同函数的属性，实现各种不同的效果，但仍局限于Typst预定义的内容。为了获得最大的灵活性，您可以改为编写_转换式_show规则，从头定义元素的格式。编写这类show规则时，把冒号后面的set规则替换为任意@function[函数]。该函数接收相应的元素，并可以返回任意内容。这个函数通常按@function:unnamed[匿名函数语法]内联写作`{it => ..}`，其参数按惯例通常命名为`it`。
+
+    传给该函数的元素上可用的@reference:scripting:fields[字段]与相应元素函数的参数一致。下面，我们定义一个show规则，为一本虚构的百科全书设置章节标题的格式。
+
+    该show规则本身在标题两侧各加一个波浪号（必须用反斜杠转义，否则会表示不换行空格），用斜体强调标题，然后在标题之后显示章节标题计数器。
+
+    对于这个示例，我们还想要居中对齐并使用另一种字体。我们本可以把这些set规则加进已有的show规则中，但改为把它们写成独立的show-set规则。这是很好的做法，因为这样文档中后续的show-set规则仍可覆盖它们，从而保持样式的可组合性。相反，转换式show规则内部的set规则就无法再被覆盖了。
   ],
 )
 
@@ -164,24 +170,24 @@ gets extra style points.
   ],
   zh-status: "need proofread",
   zh: [
-    与set规则类似，show规则也一直作用到文档或者当前块的结束。
+    与set规则类似，show规则会一直生效到当前块或文件的末尾。
 
-    show规则的右边部分不仅可以是一个函数，也可以是一个字符串常量或者文档内容块，用来直接替换文档元素。show规则的左边部分也可以是_下面类型的选择器_，用来定义哪些文档元素会被转换：
+    show规则的右侧除了函数，还可以是应直接替换该元素的字符串字面量或内容块。而show规则的左侧除了函数，还可以使用多种其它_选择器_，以定义要对什么应用转换：
 
-    - *所有文档：* `{show: rest => ..}` \
-      转换 show 规则后的所有文档元素，这样就免于将所有文档元素都包含在一个巨大的函数调用中，来实现更复杂的布局。
+    - *所有内容：* `{show: rest => ..}` \
+      转换show规则之后的所有内容。如果不想把所有内容都包进一个巨大的函数调用中，又想为整个文档应用更复杂的布局，这会很有用。
 
-    - *特定文本：* `{show "Text": ..}` \
-      设置特定文本样式，转变或替换特定文本。
+    - *文本：* `{show "Text": ..}` \
+      设置、转换或替换文本。
 
     - *正则表达式：* `{show regex("\w+"): ..}` \
-      更自由的选择并转换匹配特定正则表达式的文本，详见于@regex[regex 函数]文档。
+      用正则表达式选择和转换文本，以获得更大的灵活性。详见@regex[`regex`类型]的文档。
 
-    - *字段选择函数：* `{show heading.where(level: 1): ..}` \
-      转换具有特定字段的文档元素。比如，可以只设置文档一级标题样式。
+    - *带字段的函数：* `{show heading.where(level: 1): ..}` \
+      只转换具有指定字段的元素。例如，您可能只想更改一级章节标题的样式。
 
     - *标签：* `{show <intro>: ..}` \
-      选择并转换具有特定标签的文档元素，详见于@label[标签函数]文档。
+      选择和转换具有指定标签的元素。详见@label[`label`类型]的文档。
   ],
 )
 

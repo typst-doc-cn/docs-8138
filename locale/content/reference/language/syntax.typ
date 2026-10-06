@@ -11,7 +11,7 @@
   description: babel(
     en: "A compact reference for Typst's syntax. Learn more about the language within markup, math, and code mode.",
     zh-status: "need proofread",
-    zh: "Typst 语法简略参考索引。更多请参考语言的标记模式，数学公式模式和代码模式。",
+    zh: "Typst语法的简明参考。您可以在标记模式、数学模式和脚本模式中进一步了解这门语言。",
   ),
 )
 
@@ -21,7 +21,7 @@
   ],
   zh-status: "need proofread",
   zh: [
-    Typst是一种标记语言。这意味着，使用简单的语法就可以进行常用的布局操作，再辅以set和show规则，格式化文档更加简单，更加自动化，这些均是基于紧密集成在Typst内的脚本语言，其内置大量常用函数，用户亦可根据需求自定义函数。
+    Typst是一种标记语言，这意味着您可以用简单的语法完成常见的布局任务。轻量的标记语法辅以set规则和show规则，能轻松、自动地为文档设置样式。这一切都基于一门紧密集成的脚本语言，它既有内置函数，也支持用户自定义函数。
   ],
 )
 
@@ -55,7 +55,7 @@ Once you have entered code mode with `#`, you don't need to use further hashes u
   ],
   zh-status: "need proofread",
   zh: [
-    Typst为常用文档元素内置了语法标记。这些语法标记大多只是相关函数的快捷表达方式，下表列出了所有语法标记，以及它们的详细使用的链接地址。
+    Typst为最常见的文档元素提供了内置标记。大多数语法元素只是相应函数的快捷写法。下表列出了所有可用的标记，并给出链接，方便您深入了解它们的语法和用法。
   ],
 )
 
@@ -68,11 +68,11 @@ Once you have entered code mode with `#`, you don't need to use further hashes u
 #docs-table(
   i18n--table-header,
 
-  babel(en: [Paragraph break], zh-status: "need proofread", zh: [段落中断]),
+  babel(en: [Paragraph break], zh-status: "need proofread", zh: [段落分隔]),
   babel(en: [Blank line], zh-status: "proofread", zh: [空行]),
   [@parbreak],
 
-  babel(en: [Strong emphasis], zh-status: "need proofread", zh: [着重强调]),
+  babel(en: [Strong emphasis], zh-status: "need proofread", zh: [粗体强调]),
   [`[*strong*]`],
   [@strong],
 
@@ -116,7 +116,7 @@ Once you have entered code mode with `#`, you don't need to use further hashes u
   [`[$x^2$]`],
   [@math[Math]],
 
-  babel(en: [Line break], zh-status: "need proofread", zh: [行中断]),
+  babel(en: [Line break], zh-status: "need proofread", zh: [换行]),
   [`[\]`],
   [@linebreak],
 
@@ -124,7 +124,7 @@ Once you have entered code mode with `#`, you don't need to use further hashes u
   [`['single' or "double"]`],
   [@smartquote],
 
-  babel(en: [Symbol shorthand], zh-status: "need proofread", zh: [快捷符号]),
+  babel(en: [Symbol shorthand], zh-status: "need proofread", zh: [符号简写]),
   [`[~]`, `[---]`],
   [@reference:symbols:shorthands[Symbols]],
 
@@ -148,7 +148,7 @@ Once you have entered code mode with `#`, you don't need to use further hashes u
   ],
   zh-status: "need proofread",
   zh: [
-    数学模式是一种特殊的语法标记模式，专门用来输入数学公式。通过`[$]`字符包裹一个数学公式，如果这个公式头尾都至少一个空格（例如`[$ x^2 $]`），这个公式将会形成一个文档块，单独占用一行，如果头尾没有空格（例如`[$x^2$]`），这个公式将会排版在行内，下面是针对数学模式的语法概述：
+    数学模式是一种特殊的标记模式，用于排版数学公式。将公式用`[$]`字符包裹起来即可进入数学模式，这在标记模式和脚本模式中都适用。如果公式首尾都至少有一个空格（如`[$ x^2 $]`），它就会排版为独立的块，独占一行；如果首尾没有空格（如`[$x^2$]`），就会排版为行内公式。下面概述数学模式特有的语法：
   ],
 )
 
@@ -175,7 +175,7 @@ Once you have entered code mode with `#`, you don't need to use further hashes u
   [`[$1 + (a+b)/5$]`],
   [@math.frac[`frac`]],
 
-  babel(en: [Line break], zh-status: "need proofread", zh: [行中断]),
+  babel(en: [Line break], zh-status: "need proofread", zh: [换行]),
   [`[$x \ y$]`],
   [@linebreak],
 
@@ -195,15 +195,15 @@ Once you have entered code mode with `#`, you don't need to use further hashes u
   [`[$x y$]`],
   [@math[Math]],
 
-  babel(en: [Symbol shorthand], zh-status: "need proofread", zh: [快捷符号]),
+  babel(en: [Symbol shorthand], zh-status: "need proofread", zh: [符号简写]),
   [`[$->$]`, `[$!=$]`],
   [@reference:symbols:shorthands[Symbols]],
 
-  babel(en: [Text/string in math], zh-status: "need proofread", zh: [数学公式内字符串]),
+  babel(en: [Text/string in math], zh-status: "need proofread", zh: [数学模式中的文本/字符串]),
   [`[$a "is natural"$]`],
   [@math[Math]],
 
-  babel(en: [Math function call], zh-status: "need proofread", zh: [数学函数调用]),
+  babel(en: [Math function call], zh-status: "need proofread", zh: [数学模式中的函数调用]),
   [`[$floor(x)$]`],
   [@math[Math]],
 
@@ -227,7 +227,7 @@ Once you have entered code mode with `#`, you don't need to use further hashes u
   ],
   zh-status: "need proofread",
   zh: [
-    在代码块和表达式中，新的表达式不再前缀`#`字符。许多代码语法元素是表达式特有的，下面列出了代码模式下所有可用的语法：
+    在脚本块和表达式中，新表达式无须以`#`字符开头。许多语法元素是表达式特有的。下表列出了脚本模式下所有可用的语法：
   ],
 )
 
@@ -290,11 +290,11 @@ Once you have entered code mode with `#`, you don't need to use further hashes u
   [`{x}`],
   [@reference:scripting:blocks[Scripting]],
 
-  babel(en: [Code block], zh-status: "need proofread", zh: [代码块]),
+  babel(en: [Code block], zh-status: "need proofread", zh: [脚本块]),
   [`{{ let x = 1; x + 2 }}`],
   [@reference:scripting:blocks[Scripting]],
 
-  babel(en: [Content block], zh-status: "need proofread", zh: [文档内容块]),
+  babel(en: [Content block], zh-status: "need proofread", zh: [内容块]),
   [`{[*Hello*]}`],
   [@reference:scripting:blocks[Scripting]],
 
@@ -366,7 +366,7 @@ Once you have entered code mode with `#`, you don't need to use further hashes u
   [`{show raw: it => {..}}`],
   [@reference:styling:show-rules[Styling]],
 
-  babel(en: [Show-everything rule], zh-status: "need proofread", zh: [show-everything 规则]),
+  babel(en: [Show-everything rule], zh-status: "need proofread", zh: [show-everything规则]),
   [`{show: template}`],
   [@reference:styling:show-rules[Styling]],
 
@@ -374,7 +374,7 @@ Once you have entered code mode with `#`, you don't need to use further hashes u
   [`{context text.lang}`],
   [@reference:context[Context]],
 
-  babel(en: [Conditional], zh-status: "need proofread", zh: [条件表语句]),
+  babel(en: [Conditional], zh-status: "need proofread", zh: [条件语句]),
   [`{if x == 1 {..} else {..}}`],
   [@reference:scripting:conditionals[Scripting]],
 
@@ -386,11 +386,11 @@ Once you have entered code mode with `#`, you don't need to use further hashes u
   [`{while x < 10 {..}}`],
   [@reference:scripting:loops[Scripting]],
 
-  babel(en: [Loop control flow], zh-status: "need proofread", zh: [循环流程控制]),
+  babel(en: [Loop control flow], zh-status: "need proofread", zh: [循环控制流]),
   [`{break, continue}`],
   [@reference:scripting:loops[Scripting]],
 
-  babel(en: [Return from function], zh-status: "need proofread", zh: [函数返回]),
+  babel(en: [Return from function], zh-status: "need proofread", zh: [从函数返回]),
   [`{return x}`],
   [@function[Function]],
 
@@ -402,7 +402,7 @@ Once you have entered code mode with `#`, you don't need to use further hashes u
   [`{import "bar.typ"}`],
   [@reference:scripting:modules[Scripting]],
 
-  babel(en: [Import items from module], zh-status: "need proofread", zh: [从模块内import条目]),
+  babel(en: [Import items from module], zh-status: "need proofread", zh: [从模块中import条目]),
   [`{import "bar.typ": a, b, c}`],
   [@reference:scripting:modules[Scripting]],
 
@@ -418,7 +418,7 @@ Once you have entered code mode with `#`, you don't need to use further hashes u
   ],
   zh-status: "need proofread",
   zh: [
-    Typst会忽略注释，最终生成的文档不会包含它们。它们通常被用于剔除旧版本，或者添加标注说明。如果一行开头是`//`，这行就会被认为是注释：
+    注释会被Typst忽略，不会包含在输出中。这可用于排除旧版本的内容，或添加标注说明。要注释掉单行，请以`//`开头：
   ],
 )
 
@@ -437,7 +437,7 @@ significant.
   ],
   zh-status: "need proofread",
   zh: [
-    babel(en: )  也可以通过`/*`和`*/`来包裹注释，这种方式，注释可以分布于多行：
+    注释也可以用`/*`和`*/`包裹起来。这种写法下，注释可以跨越多行：
   ],
 )
 
@@ -455,7 +455,7 @@ Our study design is as follows:
   ],
   zh-status: "need proofread",
   zh: [
-    转义序列可以用来插入难于输入的特殊字符，或者Typst内有特殊含义的字符。前缀一个反斜杠转义一个字符，转移序列如果是十六进制，比如`[\u{1f600}]`，就会插入一个Unicode码点。这些类型的转义序列也作用于@str[字符串]中。
+    转义序列用于插入难以输入、或在Typst中具有其他特殊含义的字符。要转义一个字符，请在它前面加一个反斜杠。要插入任意Unicode码点，可以写成十六进制转义序列：`[\u{1f600}]`。这类转义序列在@str[字符串]中同样适用。
   ],
 )
 

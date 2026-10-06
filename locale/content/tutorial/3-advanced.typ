@@ -23,9 +23,9 @@
   ],
   zh-status: "need proofread",
   zh: [
-    在本教程的前两章中，您学习了如何在Typst中编写文档以及如何更改其格式。你在这两章写的报告得到了极佳的评价，你的导师想以此为基础写一篇会议论文！当然，这篇报告必须遵循会议的论文样式规范。让我们看看应该如何实现这一目标。
+    在本教程前两章中，您学习了如何在Typst中撰写文档、如何更改文档格式。您在前两章写的报告拿了全优，您的导师想以此为基础投一篇会议论文！当然，报告必须符合会议的样式规范。下面看看该如何做到。
 
-    在开始之前，请先让我们创建一个团队，邀请您的导师并让他们加入到团队中。您可以通过回到App的Dashboard（编辑器左上角的四圈图标）来进行这个操作。然后，选择左侧工具栏中的加号图标并创建一个团队。最后，单击新团队并通过单击团队名称旁边的“管理团队”转到其设置。现在，您可以通过电子邮件邀请您的导师了。
+    开始之前，我们先创建一个团队，邀请您的导师加入。回到在线应用首页即可操作：单击编辑器左上角的返回图标。然后，单击左侧工具栏的加号图标，新建一个团队。最后，单击新团队，再单击团队名称旁的「管理团队」进入其设置。现在就能通过电子邮件邀请您的导师了。
   ],
 )
 
@@ -43,16 +43,16 @@
   ],
   zh-status: "need proofread",
   zh: [
-    接下来，将您的项目移动到团队中：打开项目，通过选择左侧工具栏中的齿轮图标，并从所有者列表中选择您的新团队。不要忘记保存您的更改！
+    接着，把项目移入团队：打开项目，单击左侧工具栏的齿轮图标进入设置，在所有者下拉列表中选择新建的团队。别忘了保存更改！
 
-    现在，您的导师也可以编辑项目，并且你们都可以实时查看更改。您可以加入我们的#link("https://discord.gg/2uDybryKPe")[Discord server]查找具有预览访问权限的其他人，并与他们一起尝试团队功能！
+    现在，您的导师也能编辑项目了，你们双方都能实时看到更改。您可以加入我们的#link("https://discord.gg/2uDybryKPe")[Discord服务器]，结识其他用户，与他们一起试用团队功能！
   ],
 )
 
 = #babel(
   en: short-or-long[Guidelines][The conference guidelines],
   zh-status: "need proofread",
-  zh: [会议规范],
+  zh: short-or-long[规范][会议规范],
 ) <guidelines>
 #babel(
   en: [
@@ -71,25 +71,25 @@
   ],
   zh-status: "need proofread",
   zh: [
-    会议布局规范可在会议网站上找到。让我们来看一下：
+    会议的版式规范发布在会议网站上，我们来看一下：
 
     - 字体应为11pt的衬线字体
-    - 标题应为17pt的粗体
-    - 论文包含单栏摘要和两栏正文
+    - 标题应为17pt粗体
+    - 论文含单栏摘要和双栏正文
     - 摘要应居中
-    - 正文应对齐
-    - 第一级章节标题应为13pt，居中并以小写字母呈现
-    - 二级标题是短标题，斜体，与正文文本具有相同的大小
-    - 最后，页面尺寸应为US letter，编号在页脚的中心，每页的左上角应包含论文的标题
+    - 正文应两端对齐
+    - 一级章节标题应为13pt、居中，并使用小型大写字母
+    - 二级标题是同行标题，用斜体，字号与正文相同
+    - 最后，页面尺寸应为US letter，页码位于页脚中央，且每页右上角都应包含论文标题
 
-    这些要求的大部分我们已经知道应该如何实现了，但对于其中的少部分内容，我们需要学习一些新的技巧。
+    这些要求大多我们已经会做，但有几项还需要学习一些新技巧。
   ],
 )
 
 = #babel(
   en: short-or-long[Set Rules][Writing the right set rules],
   zh-status: "need proofread",
-  zh: [编写正确的Set规则],
+  zh: short-or-long[set规则][编写正确的set规则],
 ) <set-rules>
 #babel(
   en: [
@@ -97,7 +97,7 @@
   ],
   zh-status: "need proofread",
   zh: [
-    让我们从为文档编写一些Set规则开始。
+    我们先为文档编写几条set规则。
   ],
 )
 
@@ -128,28 +128,28 @@
 
     Last but not least is the `numbering` argument. Here, we can provide a @numbering[numbering pattern] that defines how to number the pages. By setting it to `{"1"}`, Typst only displays the bare page number. Setting it to `{"(1/1)"}` would have displayed the current page and total number of pages surrounded by parentheses. And we could even have provided a completely custom function here to format things to our liking.
   ],
-  zh-status: "need update",
+  zh-status: "need proofread",
   zh: [
-    你对这里的大部分内容已经很熟悉了。我们将文本大小设置为`{11pt}`，将字体设置为Linux Libertine。我们还启用了段落对齐，并将页面尺寸设置为US letter。
+    这里的大部分内容您已经很熟悉了。我们把字号设为`{11pt}`，字体设为Libertinus Serif，同时启用了段落两端对齐，并把页面尺寸设为US letter。
 
-    `header`参数是新出现的：有了它，我们可以使用填入的内容块来填充每个页面的上边距。在标题中，我们根据会议样式规范的要求将其指定为论文的标题。我们使用`align`函数将文本向右对齐。
+    `header`参数是新面孔：有了它，我们就能填入内容来填充每页的上边距。在页眉中，我们按会议样式规范的要求填入了论文标题。我们用`align`函数把文字右对齐。
 
-    最后还有`numbering`参数。在这里，我们可以提供一个@numbering[numbering pattern]来定义如何对页面进行编号。通过设置为`{"1"}`，Typst仅显示最简单的页码。将其设置为`{"(1/1)"}`将显示当前页面和用括号括起来的页总数。我们甚至可以在这里提供一个完全自定义的函数来实现我们喜欢的内容显示方式。
+    最后是`numbering`参数。在这里，我们可以提供@numbering[编号模式]来定义页码的编号方式。把它设为`{"1"}`，Typst就只显示单纯的页码；设为`{"(1/1)"}`则会显示当前页码和总页数，并用圆括号括起来。我们甚至可以在这里提供完全自定义的函数，按自己的喜好来格式化。
   ],
 )
 
 = #babel(
   en: short-or-long[Title And Abstract][Creating a title and abstract],
   zh-status: "need proofread",
-  zh: [创建标题和摘要],
+  zh: short-or-long[标题与摘要][创建标题与摘要],
 ) <title-and-abstract>
 #babel(
   en: [
     Now, let's add a title and an abstract. We'll start with the title. Typst comes with a @title function. Let's start by providing our title as an argument:
   ],
-  zh-status: "need update",
+  zh-status: "need proofread",
   zh: [
-    现在，让我们添加标题和摘要，我们将从标题开始。我们将其居中对齐，并通过将其括在`[*星号*]`中以将其加粗。
+    现在我们来添加标题和摘要。先从标题入手。Typst自带@title\函数，我们先把它要显示的标题作为参数传进去：
   ],
 )
 
@@ -201,7 +201,7 @@ Our example now looks like this:
   ],
   zh-status: "need proofread",
   zh: [
-    这看起来是正确的。我们使用`text`函数以覆盖掉之前对`text`应用的Set规则，将`text`函数参数中的`size`增加到17pt。让我们同时添加作者列表：由于我们是与我们的导师一起撰写这篇论文的，我们将添加我们自己和他们的名字。
+    看起来不错。接着添加作者列表：这篇论文是我们和导师一起写的，所以要把我们和导师的名字都加上。
   ],
 )
 
@@ -238,9 +238,11 @@ Our example now looks like this:
 
     Looking at the authors and the title, they are a bit too close together. You can address this by using another show-set rule to configure the space below the title. The title, the grid, and all other elements that Typst arranges from the top to the bottom of the page (except for paragraphs) are called _blocks._ Each block is controlled by the @block function. It controls behaviors like their distance and whether a block can contain a page break. That means that we can write another show-set rule that selects the title to set the block spacing:
   ],
-  zh-status: "need update",
+  zh-status: "need proofread",
   zh: [
-    两个作者块彼此相邻，我们使用@grid\函数来创建这种布局。使用`grid`，我们可以准确控制每列的大小以及哪些内容放到哪个单元格。`columns`参数接受@relative[relativelengths]或@fraction[fractions]的数组。在本例中，我们向它传递了两个相等的`fractions`，告诉它将可用空间分成两个相等大小的列。然后，我们将两个内容块参数传递给`grid`函数。第一个是我们自己的信息，第二个是我们的导师的信息。我们再次使用`align`函数将列内的内容居中。网格采用任意数量的内容块参数来指定单元格。行是自动添加的，但也可以使用`rows`参数手动调整它们的大小。
+    两个作者块并排排列，我们用@grid\函数实现这种布局。借助网格，我们能精确控制每列多宽、哪些内容放进哪个单元格。`columns`参数接收一个@relative[相对长度]或@fraction[比例]的数组。本例中传入了两个相等的比例，表示把可用空间等分为两列。随后我们给`grid`函数传入了两个内容块参数：第一个是我们自己的信息，第二个是导师的信息。我们再次用`align`函数让内容在列内居中。网格接收任意多个指定单元格的内容块参数；行会自动添加，也可以用`rows`参数手动指定尺寸。
+
+    看一下作者和标题，它们挨得有点近。可以再用一条show-set规则来配置标题下方的间距。标题、网格，以及Typst从上到下排列的其它元素（段落除外）都称为_块_，每个块由@block\函数控制，它管着块间距、能否跨页等行为。也就是说，我们可以再写一条show-set规则，选中标题来设置块的间距：
   ],
 )
 
@@ -277,9 +279,9 @@ Our example now looks like this:
   en: [
     With this show-set rule, we overrode the spacing below the title. We have used the `em` unit: It allows us to express lengths as multiples of the font size. Here, we used it to space the title and the author list exactly 1.2× the font size apart. Now, let's add the abstract. Remember that the conference wants the abstract to be set ragged and centered.
   ],
-  zh-status: "need update",
+  zh-status: "need proofread",
   zh: [
-    现在，让我们添加加入。请记住，会议希望摘要居中，且左右不对齐。
+    这条show-set规则覆盖了标题下方的间距。我们用了`em`单位：它让我们能以字号倍数表示长度，这里用它把标题和作者列表的间距设为字号的1.2倍。现在来添加摘要。记住，会议要求摘要居中且不两端对齐（ragged）。
   ],
 )
 
@@ -338,11 +340,11 @@ Our example now looks like this:
 
     Another tweak could be to remove the duplication between the header and the title element's argument. Since they share the title, it would be convenient to store it in a place designed to hold metadata about the document. We would then need a way to retrieve the title in both places. The `document` element can help us with the former: By using it in a set rule, we can store document metadata like title, description, and keywords.
   ],
-  zh-status: "need update",
+  zh-status: "need proofread",
   zh: [
-    干的漂亮！值得注意的是，我们在`align`的内容参数中使用了一个新的Set规则来禁用摘要的对齐。即便它是在第一个Set规则之后指定的，这也不会影响文档的其余部分。这是因为内容块拥有_局部作用域_样式。内容块中设置的任何规则只会影响该内容块中的内容。
+    干得漂亮！有一点值得注意：我们在`align`的内容参数里用了一条set规则，关闭摘要的两端对齐。尽管这条规则写在第一条set规则之后，它并不会影响文档的其余部分，因为内容块会_限定_样式作用域——在内容块里设置的任何东西只影响该块内的内容。
 
-    另一个调整可以是将论文标题保存在一个变量中，这样我们就不必多次输入标题。我们可以使用`{let}`关键字来做到这一点：
+    另一处可以改进的地方是：消除页眉与`title`元素参数之间的重复。二者都用到论文标题，把它存到专门存放文档元数据的地方会更方便。这样我们还需要一种在两者中都能取出标题的办法。前者可以借助`document`元素：在set规则中使用它，就能存储标题、描述、关键词等文档元数据。
   ],
 )
 
@@ -436,7 +438,7 @@ Next, take a look at the header. Instead of the title in square parentheses, we 
 = #babel(
   en: short-or-long[Columns And Headings][Adding columns and headings],
   zh-status: "need proofread",
-  zh: [添加列和标题],
+  zh: short-or-long[分栏与章节标题][添加分栏和章节标题],
 ) <columns-and-headings>
 #babel(
   en: [
@@ -446,9 +448,9 @@ Next, take a look at the header. Instead of the title in square parentheses, we 
   ],
   zh-status: "need proofread",
   zh: [
-    不幸的是，上面的论文看起来像一堵铅墙。  为了解决这个问题，让我们添加一些标题，并将我们的论文切换到双列布局。  @columns 函数接受一个整数参数和一个内容参数，并将内容布局到指定数量的列中。  由于我们希望摘要之后的所有内容都在两列中，因此我们需要将 `columns` 函数应用于整个文档。
+    上面的论文看起来像一堵铅墙，实在难以阅读。我们来加点章节标题，并把论文改成双栏布局。这很容易：只需给`page`的set规则补上`columns`参数。
 
-    并不需要将整个文档包装在一个巨大的函数调用里，我们可以使用 “所有内容” Show 规则。  要编写这样的 show 规则，请在 show 关键字后面直接放置一个冒号，然后提供一个函数，该函数将文档的其余部分作为参数输入。  我们在这里将参数称为 `rest`，但您可以自由选择任何参数名。  然后，该函数可以对该内容执行任何操作。在我们的例子中，它将内容传递给 `columns` 函数。
+    在参数表中加入`{columns: 2}`后，整篇文档就被包进了双栏。但这也会影响标题和作者列表，为了让它们通栏（横跨整页），可以把它们包进@place[`{place}`]的函数调用中。`place`按位置接收一个对齐方式，以及要放置的内容。通过命名参数`{scope}`，可以决定放置是相对于当前栏还是其父级（即页面）。还有一点要配置：如果不提供其它参数，`{place}`会把内容移出文档流，叠放在其它内容之上，而不影响其容器内其它内容的排版：
   ],
 )
 
@@ -530,9 +532,9 @@ In this example, we also used the `clearance` argument of the `{place}` function
   en: [
     Now there is only one thing left to do: Style our headings. We need to make them centered and use small capitals. These properties are not available on the `heading` function, so we will need to write a few show-set rules and a show rule:
   ],
-  zh-status: "need update",
+  zh-status: "need proofread",
   zh: [
-    现在只剩下一件事要做了：设置标题样式。我们需要使它们居中并使用小标题。因为`heading`函数没有提供任何的方法来让我们完成这个任务，所以我们需要编写自己的标题Show规则。
+    现在只剩最后一步：设置章节标题的样式。我们需要让标题居中并使用小型大写字母。`heading`函数没有提供这些属性，所以得写几条show-set规则和一条show规则：
   ],
 )
 
@@ -618,9 +620,9 @@ In this example, we also used the `clearance` argument of the `{place}` function
   ],
   zh-status: "need proofread",
   zh: [
-    这看起来很棒！我们使用了适用于所有标题的Show规则。我们给了它一个函数，该函数将标题作为参数传递。该参数可以用作内容块，但它也有一些字段，如`title`、`numbers`和`level`，我们可以使用它们组成我们需要的自定义外观。在这里，我们应用居中对齐，并将字体粗细设置为`{"regular"}`，因为标题默认为粗体，并使用@smallcaps\函数以小写字母的方式呈现标题。
+    太棒了！我们用了适用于所有章节标题的show规则。在最后一条show规则中，我们把`smallcaps`函数应用到了整个标题上。正如接下来的例子所示，我们还可以提供自定义规则，完全覆盖标题的默认外观。
 
-    唯一剩下的问题是，现在所有标题看起来都一模一样。“Motivation”和“Problem Statement”子小节应该是斜体标题，但现在，它们看起来与小节标题没有区别。我们可以通过在设置规则上使用`where`选择器来解决这个问题：这是一个@reference:scripting:methods[method]，我们可以标题（和其他元素）上调用，允许我们按`level`过滤它们。我们可以用它来区分小节和子小节标题：
+    现在唯一剩下的问题是，所有标题看起来都一样。「Motivation」和「Problem Statement」这两个小节应当是斜体的同行标题，但目前它们与一级章节标题毫无分别。解决办法是在show规则上加一个`where`选择器：它是可以在标题（及其它元素）上调用的@reference:scripting:methods[方法]，让我们按其属性筛选元素。用它就能区分章节标题与子章节标题：
   ],
 )
 
@@ -722,19 +724,21 @@ We provide the rule with a function that takes the heading as a parameter. This 
   ],
   zh-status: "need proofread",
   zh: [
-    这看起来很棒！我们编写了两个显示规则，每个规则都有选择地应用于一级和二级标题。  我们使用 `where` 选择器按级别过滤标题。然后，我们将小节标题呈现为短标题。  我们还会自动在子小节标题的末尾添加一个点号。
+    太棒了！我们写出的show规则分别只作用于一级和二级章节标题：用`where`选择器按级别筛选标题，然后把子章节标题渲染成同行标题，还会自动在子章节标题末尾加一个句点。
 
-    让我们回顾一下会议的样式规范：
-    - 字体应为 11pt 衬线字体 ✓
-    - 标题应为 17pt 和粗体 ✓
-    - 论文包含单栏摘要和两列正文 ✓
-    - 摘要应居中 ✓
-    - 正文应对齐 ✓
-    - 第一级章节标题应居中，以小写字母和 13pt 呈现 ✓
-    - 二级标题是短标题， 斜体，大小与正文相同 ✓
-    - 最后，页面尺寸应为 US letter，编号在中心，每页的左上角应包含论文标题 ✓
+    我们来对照会议的样式规范：
+    #checked-list[
+      - 字体应为11pt的衬线字体
+      - 标题应为17pt粗体
+      - 论文含单栏摘要和双栏正文
+      - 摘要应居中
+      - 正文应两端对齐
+      - 一级章节标题应居中，使用小型大写字母，字号13pt
+      - 二级标题是同行标题，用斜体，字号与正文相同
+      - 最后，页面尺寸应为US letter，页码居中，且每页右上角都应包含论文标题
+    ]
 
-    我们现在符合所有这些规范，可以向会议提交论文了！完成的论文如下所示：
+    现在这些样式我们全都符合了，可以向会议投稿了！最终论文如下所示：
   ],
 )
 
@@ -755,10 +759,10 @@ We provide the rule with a function that takes the heading as a parameter. This 
   ],
   zh-status: "need proofread",
   zh: [
-    您现在已经学习了如何创建页眉和页脚，如何使用函数和作用域范围在本地覆盖样式，如何使用@grid\函数创建更复杂的布局，以及如何为单个函数和整个文档编写Show规则。您还学习了如何使用@reference:styling:show-rules[`where`选择器]按级别过滤标题。
+    至此，您已经学会了如何创建标题、页眉和页脚，如何用函数、show-set规则和作用域局部覆盖样式，如何用@grid\函数创建更复杂的布局，如何用context访问元素属性，以及如何为单个函数和整篇文档编写show规则。您还学会了用@reference:styling:show-rules[`where`选择器]按级别筛选章节标题。
 
-    这篇论文取得了巨大的成功！你在会议上遇到了很多志同道合的研究人员，并计划了一个项目，你希望明年在同一地点发表。不过，您需要使用相同的样式规范撰写一篇新论文，所以也许现在您想为您和您的团队创建一个能够节省你们时间的模板？
+    这篇论文大获成功！您在会议上结识了许多志同道合的研究者，并打算做一个项目，希望明年能在同一会议上发表。不过，您需要用同样的样式规范再写一篇新论文，所以现在也许想为自己和团队创建一个省时的模板？
 
-    在下一节中，我们将学习如何创建可在多个文档中复用的模板。这是一个更高级的主题，所以如果你现在觉得并没有必要了解，可以以后再学习。
+    下一节我们将学习如何创建可在多篇文档中复用的模板。这个主题更进阶，如果现在觉得还没准备好，也可以以后再回来看。
   ],
 )

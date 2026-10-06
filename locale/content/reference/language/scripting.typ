@@ -11,7 +11,7 @@
   description: babel(
     en: "Automate your document with Typst's scripting capabilities.",
     zh-status: "need proofread",
-    zh: "使用 Typst 的脚本功能使得文档更加自动化。",
+    zh: "利用Typst的脚本功能让文档自动化。",
   ),
 )
 
@@ -21,7 +21,7 @@
   ],
   zh-status: "need proofread",
   zh: [
-    Typst内置了一个强大的脚本语言。可以使用代码自动生成文档，生成丰富多彩的样式。下面是关于脚本语言的综述。
+    Typst内置了一门强大的脚本语言。您可以用代码让文档自动化，并创建更复杂的样式。下面概述脚本相关的概念。
   ],
 )
 
@@ -30,9 +30,9 @@
   en: [
     In Typst, markup and code are fused into one. All but the most common elements are created with _functions._ To make this as convenient as possible, Typst provides compact syntax to embed a code expression into markup: An expression is introduced with a hash (`#`) and normal markup parsing resumes after the expression is finished. If a character would continue the expression but should be interpreted as text, the expression can forcibly be ended with a semicolon (`;`). You can @reference:syntax:escapes[escape a literal `#` or `;` with a backslash].
   ],
-  zh-status: "need update",
+  zh-status: "need proofread",
   zh: [
-    Typst里面，标记和代码相互交融在一起。除了最常用的文档元素，其他所有均是由_函数_生成。为了尽可能的便利，Typst设计了精巧的语法，用来将代码嵌入在标记中：用`#`(井号)来引入一个代码表达式，表达式结束后，再恢复到正常的标记语法解析。有些字符能够使其后字符继续解析为表达式，如果想将其解释为文本，可以用分号(`;`)来强制结束表达式解析。
+    在Typst中，标记与代码融为一体。除了最常见的文档元素，其他所有元素都由_函数_创建。为了尽可能方便，Typst提供了简洁的语法，可将代码表达式嵌入标记中：用井号（`#`）引入一个表达式，表达式结束后即恢复正常标记解析。如果某个字符本会延续表达式，但应解释为文本，可以用分号（`;`）强行结束表达式。您也可以@reference:syntax:escapes[用反斜杠转义字面的`#`或`;`]。
   ],
 )
 
@@ -48,7 +48,7 @@
   ],
   zh-status: "need proofread",
   zh: [
-    上面示例展示了一些用到的表达式，有@function[函数调用]，@reference:scripting:fields[字段访问]，@reference:scripting:methods[方法调用]。本章余下部分讲解更多类型表达式。有几种表达式与井号语法不一致（比如二元运算表达式），如果需要插入标记模式中，需要使用圆括号，比如`[#(1+2)]`。
+    上面的示例展示了几种可用的表达式，包括@function[函数调用]、@reference:scripting:fields[字段访问]和@reference:scripting:methods[方法调用]。本章余下部分会介绍更多种类的表达式。有几种表达式与井号语法不兼容（如二元运算表达式），要把它们嵌入标记中，可以使用圆括号，例如`[#(1 + 2)]`。
   ],
 )
 
@@ -67,15 +67,15 @@
   ],
   zh-status: "need proofread",
   zh: [
-    为了架构代码以及将标记嵌入代码中，Typst设计了两种_块_：
+    为了组织代码，并将标记嵌入代码中，Typst提供了两种_块_：
 
-    - *代码块：* `{{ let x = 1; x + 2 }}` \
-      编写代码时，一个计算过程可能需要分解为多个语句，创建多个中间变量，等等。可以将多个表达式组成一个代码块，就像一个表达式一样。在代码块中，多个表达式由换行符或者分号分割。其中每个表达式的输出值被合并起来，作为代码块的值。有些表达式没有有用的输出，比如`{let}`绑定返回`{none}`，与其他值合并，没有任何效果。
+    - *脚本块：* `{{ let x = 1; x + 2 }}` \
+      编写代码时，您可能需要把一段计算拆成多条语句，创建一些中间变量，等等。在只允许写一个表达式的地方，脚本块可以让您写多个表达式。脚本块中的各个表达式应以换行或分号分隔。脚本块中各个表达式的输出值会合并起来，共同决定脚本块的值。有些表达式没有有用的输出，比如`{let}`绑定产出`{none}`，它与任何值合并都不会产生影响。
 
-    - *文档内容块* `{[*Hey* there!]}` \
-      使用文档内容块，可以将标记/文档内容作为可编程值，存储到变量，传送给@function[函数]。文档内容块由方括号包裹，可以包含任何标记。一个文档内容块产生一个@content[content类型]的值。文档内容块可以后缀参数形式任意多个传递给函数，就是说，`{list[A][B]}`等效于`{list([A], [B])}`。
+    - *内容块：* `{[*Hey* there!]}` \
+      使用内容块，可以把标记（内容）当作可编程的值，存入变量，或传给@function[函数]。内容块由方括号界定，其中可以包含任意标记。一个内容块会生成一个@content[content]类型的值。可以按尾随参数的形式，把任意多个内容块传给函数，即`{list([A], [B])}`等价于`{list[A][B]}`。
 
-    文档内容块和代码块可以相互内嵌，下面示例中，`{[hello]}` 与 `{a + [ the ] + b}` 合并，生成 `{[hello from the *world*]}`。
+    内容块和脚本块可以任意嵌套。下面示例中，`{[hello ]}`与`{a + [ the ] + b}`的输出合并，得到`{[hello from the *world*]}`。
   ],
 )
 
@@ -93,9 +93,9 @@
   en: [
     As already demonstrated above, variables can be defined with `{let}` bindings. The variable is assigned the value of the expression that follows the `=` sign. A @reference:syntax:identifiers[valid variable name] may contain `-`, but cannot start with `-`. The assignment of a value is optional, if no value is assigned, the variable will be initialized as `{none}`. The `{let}` keyword can also be used to create a @function:defining-functions[custom named function]. Variables can be accessed for the rest of the containing block (or the rest of the file if there is no containing block).
   ],
-  zh-status: "need update",
+  zh-status: "need proofread",
   zh: [
-    上面已经展示，变量由`{let}`绑定定义。`=`符号后表达式的值被赋值给变量，这里赋值可以被省略，如果没有赋值，变量会初始化为`{none}`。`{let}`关键词也可以用来生成一个@function:defining-functions[自定义的有名函数]。let绑定的变量可以在接下来的块中或者文档中被访问。
+    如上文所述，可以用`{let}`绑定来定义变量。变量会取得等号`=`后表达式的值。@reference:syntax:identifiers[合法的变量名]可以包含`-`，但不能以`-`开头。赋值是可选的：如果没有赋值，变量会初始化为`{none}`。`{let}`关键字也可用于创建@function:defining-functions[自定义命名函数]。变量在其所在块的剩余部分都可以访问（如果没有外层块，则在整个文件的剩余部分都可以访问）。
   ],
 )
 
@@ -114,7 +114,7 @@ Sum is #my-add(2, 3).
   ],
   zh-status: "need proofread",
   zh: [
-    let绑定也常用来解构@array[数组]和@dictionary[字典]，解构时，等号左边的形式需要与数组或字典相似，`..`模式操作符只可被使用一次，用来指代数组或字典剩余的条目。
+    `let`绑定也可用于解构@array[数组]和@dictionary[字典]。此时，赋值左侧的结构应与数组或字典相对应：数组按位置对应，字典按键名对应。模式中可以使用一次`..`运算符，用来收集数组或字典中剩余的条目。
   ],
 )
 
@@ -150,7 +150,7 @@ Homer wrote #h.
   ],
   zh-status: "need proofread",
   zh: [
-    在解构匹配模式中，可以使用`_`下划线来丢弃一个元素。
+    在解构模式中，可以用下划线`_`丢弃元素：
   ],
 )
 
@@ -165,7 +165,7 @@ The y coordinate is #y.
   ],
   zh-status: "need proofread",
   zh: [
-    解构形式也可用于函数的参数列表中……
+    解构也可用于函数的参数列表中……
   ],
 )
 
@@ -183,7 +183,7 @@ The y coordinate is #y.
   ],
   zh-status: "need proofread",
   zh: [
-    ……和普通赋值的左半部分，这通常用于交换两个变量的值。
+    ……也可用于普通赋值的左侧。除其他用途外，这还可用来交换两个变量的值。
   ],
 )
 
@@ -203,7 +203,7 @@ The y coordinate is #y.
   ],
   zh-status: "need proofread",
   zh: [
-    使用条件控制语句，可以根据某种条件是否满足，来展示或计算不同的事情。Typst设计了`{if}`,`{else if}`,`{else}`表达式。当条件值为`{true}`时，条件语句会返回if从句的值，否则返回else从句的值。
+    借助条件表达式，您可以根据某个条件是否成立，展示或计算不同的内容。Typst支持`{if}`、`{else if}`和`{else}`表达式。当条件求值为`{true}`时，条件表达式产出`if`分支主体的值；否则产出`else`分支主体的值。
   ],
 )
 
@@ -221,7 +221,7 @@ The y coordinate is #y.
   ],
   zh-status: "need proofread",
   zh: [
-    每个分支从句可以写为语句块或者文档内容块。
+    每个分支的主体可以是脚本块或内容块。
   ],
 )
 
@@ -239,9 +239,9 @@ The y coordinate is #y.
   ],
   zh-status: "need proofread",
   zh: [
-    使用循环控制语句，可以反复的显示文档内容或者计算。Typst支持两种循环控制：`{for}`循环和`{while}`循环。`{for}`循环用来遍历特定集合，`{while}`循环根据某条件是否满足来决定是否再次迭代循环。和块类似，循环结构_合并_每一次迭代循环的结果。
+    使用循环，您可以重复内容，或反复计算某些东西。Typst支持两种循环：`{for}`循环和`{while}`循环。前者遍历指定的集合，后者在条件持续成立时反复迭代。和块一样，循环会把每次迭代的结果_合并_为一个值。
 
-    下面示例中，for循环生成了三句话，然后将其合并成一个文档内容。while循环生成数个长度为1的数组，然后将其合并成一个大数组。
+    下面示例中，for循环生成的三句话会合并成一个内容值，while循环中各个长度为1的数组会合并成一个大数组。
   ],
 )
 
@@ -263,7 +263,7 @@ The y coordinate is #y.
   ],
   zh-status: "need proofread",
   zh: [
-    for 循环可以遍历多种集合：
+    for循环可以遍历多种集合：
   ],
 )
 
@@ -274,7 +274,7 @@ The y coordinate is #y.
     ],
     zh-status: "need proofread",
     zh: [
-      遍历@array[数组]中的条目。@reference:scripting:bindings[let绑定]中的解构语法也可使用于此。
+      遍历@array[数组]中的条目。@reference:scripting:bindings[let绑定]中介绍的解构语法在这里也可以使用。
     ],
   )
 
@@ -285,7 +285,7 @@ The y coordinate is #y.
     ],
     zh-status: "need proofread",
     zh: [
-      遍历@dictionary[字典]的键值对。键值对也可以用 `{for (key, value) in dict {..}}` 语法解构。
+      遍历@dictionary[字典]的键值对。也可以使用`{for (key, value) in dict {..}}`来解构键值对。这比`{for pair in dict.pairs() {..}}`更高效，因为它不会创建包含所有键值对的临时数组。
     ],
   )
 
@@ -296,7 +296,7 @@ The y coordinate is #y.
     ],
     zh-status: "need proofread",
     zh: [
-      遍历@str[字符串]的每个字符。（专业的说，是遍历字符串的每个形位符，大多时候，一个形位符对应一个字符/码位，然而，有些表情标记符号由多个码位组成，但它仍然是一个形位符）。
+      遍历@str[字符串]中的字符。严格来说，它遍历的是字符串的字素簇。大多数字素簇只是一个码位，但一个字素簇也可能包含多个码位，比如旗帜表情符号。
     ],
   )
 
@@ -314,8 +314,7 @@ The y coordinate is #y.
   ],
   zh-status: "need proofread",
   zh: [
-    Typst 用 `{break}` 和 `{continue}` 语句来控制循环的执行，
-    `{break}` 用来跳出循环，`{continue}` 用来提前结束本次循环，然后执行下一次循环。
+    Typst提供了`{break}`和`{continue}`语句来控制循环的执行。前者提前退出循环，后者跳过本次迭代，直接进入下一次迭代。
   ],
 )
 
@@ -335,7 +334,7 @@ The y coordinate is #y.
   ],
   zh-status: "need proofread",
   zh: [
-    循环体可以是代码块，也可以是文档内容块：
+    循环体可以是脚本块，也可以是内容块：
   ],
 )
 
@@ -357,12 +356,14 @@ The y coordinate is #y.
   ],
   zh-status: "need proofread",
   zh: [
-    可以使用_点号_来访问一个值的字段，这个值可以是：
+    您可以使用_点号_来访问值上的字段。对于@content\类型的值，还可以使用@content.fields[`fields`]函数列出其字段。
 
-    - 有特定键的@dictionary[字典]，
-    - 有变体的@symbol[符号]，
-    - 有定义的@module[模块]，
-    - 有特定字段的@content[文档元素]，可访问的字段与文档元素的@function:element-functions[构造函数]参数相匹配。
+    所访问的值可以是：
+
+    - 具有指定键的@dictionary[字典]，
+    - 具有指定修饰符的@symbol[符号]，
+    - 包含指定定义的@module[模块]，
+    - 由具有指定字段的元素构成的@content[内容]，可用字段与构造该元素时传给@function:element-functions[元素函数]的参数相匹配。
   ],
 )
 
@@ -421,21 +422,18 @@ There are a few special functions that modify the value they are called on (e.g.
   ],
   zh-status: "need proofread",
   zh: [
-    一个Typst工程项目可以拆解为多个_模块_文件。一个模块可以使用多种方式引用其他模块的文档内容和定义。
+    您可以把Typst项目拆分到多个文件中，这些文件称为_模块_。一个模块可以用多种方式引用另一个模块的内容和定义：
 
-    - *插入：* `{include "bar.typ"}` \
-      计算`bar.typ`路径文件，返回其@content[文档内容]结果。
+    - *包含：* `{include "bar.typ"}` \
+      对@path[路径]`bar.typ`处的文件求值，返回得到的@content[内容]。
 
     - *导入：* `{import "bar.typ"}` \
-      在路径`bar.typ`处加载文档并插入结果@module[模块]作为`bar`进入当前范围（不带后缀拓展名的文档名）。您可以使用`as`关键字重命名导入的模块：`{import "bar.typ" as baz}`
+      对@path[路径]`bar.typ`处的文件求值，并将得到的@module[模块]以`bar`（不带扩展名的文件名）之名插入当前作用域。您可以使用`as`关键字重命名导入的模块：`{import "bar.typ" as baz}`。您还可以使用点号导入嵌套的条目：`{import "bar.typ": baz.a}`。
 
-    - *Import items:* `{import "bar.typ": a, b}` \
-      Evaluates the file at the path `bar.typ`, extracts the values of the variables  `a` and `b` (that need to be defined in `bar.typ`, e.g. through `{let}`  bindings) and defines them in the current file. Replacing `a, b` with `*`  loads all variables defined in a module. You can use the `as` keyword to  rename the individual items: `{import "bar.typ": a as one, b as two}`
+    - *导入条目：* `{import "bar.typ": a, b}` \
+      对@path[路径]`bar.typ`处的文件求值，提取变量`a`和`b`的值（这些变量需在`bar.typ`中定义，例如通过`{let}`绑定），并在当前文件中定义它们。把`a, b`替换为`*`，可以加载模块中定义的所有变量。您可以使用`as`关键字重命名单个条目：`{import "bar.typ": a as one, b as two}`
 
-    - *导入项目:* `{import "bar.typ": a, b}` \
-      加载路径为`bar.typ`的文档，提取变量`a`和`b`(需要在`bar.typ`中定义，例如通过`{let}`绑定)的值，并在当前文档中定义它们。将`a,b`替换为`*`可以加载模块中定义的所有变量。您可以使用`as`关键字来重命名各个项目: `{import "bar.typ": a as one, b as two}`
-
-    除了使用路径，也可以使用@module[模块值]，如下面示例：
+    除了字符串或@path[路径]之外，您还可以使用@module[模块值]，如下面示例所示：
   ],
 )
 
@@ -451,7 +449,7 @@ There are a few special functions that modify the value they are called on (e.g.
   ],
   zh-status: "need proofread",
   zh: [
-    可以创建并导入Typst_包_，在多个工程项目中进行复用。一个包的导入需有三部分指定：包命名空间，包名称，包版本号。
+    为了在不同项目间复用构建模块，您还可以创建并导入Typst_包_。导入包时需指定由命名空间、名称和版本号构成的三元组。
   ],
 )
 
@@ -467,11 +465,11 @@ There are a few special functions that modify the value they are called on (e.g.
 
     If you are using Typst locally, you can also create your own system-local packages. For more details on this, see the #link("https://github.com/typst/packages")[package repository].
   ],
-  zh-status: "need update",
+  zh-status: "need proofread",
   zh: [
-    `preview`包命名空间包含了Typst社区分享的包。可以在#link("https://typst.app/universe")[Typst Universe]章节搜索可用的社区分享包。
+    `preview`命名空间包含社区分享的包。您可以在#link("https://typst.app/universe")[Typst Universe]上找到所有可用的社区包。
 
-    在本地使用Typst时，可以创建本地包。更多详情参考#link("https://github.com/typst/packages")[包仓库]。
+    如果您在本地使用Typst，也可以创建自己的系统本地包。更多详情请参见#link("https://github.com/typst/packages")[包仓库]。
   ],
 )
 
@@ -482,7 +480,7 @@ There are a few special functions that modify the value they are called on (e.g.
   ],
   zh-status: "need proofread",
   zh: [
-    下表类出了所有一元和二元操作符的作用、参数数量（一元、二元）和优先级（优先级越高，越优先执行）
+    下表列出了所有可用的一元与二元操作符，以及它们的作用、参数数量（一元、二元）和优先级级别（数值越大，结合越紧密）。有些运算（如@calc.rem-euclid[取模]）没有专门的语法，可以用@calc\模块中的函数实现。
   ],
 )
 
@@ -513,7 +511,7 @@ There are a few special functions that modify the value they are called on (e.g.
   [7],
 
   [`{+}`],
-  babel(en: [No effect (exists for symmetry)], zh-status: "need proofread", zh: [正号，无作用，仅仅为了对称性]),
+  babel(en: [No effect (exists for symmetry)], zh-status: "need proofread", zh: [无作用（为对称而存在）]),
   i18n--arity.unary,
   [7],
 
@@ -583,12 +581,12 @@ There are a few special functions that modify the value they are called on (e.g.
   [3],
 
   [`{and}`],
-  babel(en: [Short-circuiting logical "and"], zh-status: "need proofread", zh: [短路式逻辑并]),
+  babel(en: [Short-circuiting logical "and"], zh-status: "need proofread", zh: [短路逻辑与]),
   i18n--arity.binary,
   [3],
 
   [`{or}`],
-  babel(en: [Short-circuiting logical "or"], zh-status: "need proofread", zh: [短路式逻辑或]),
+  babel(en: [Short-circuiting logical "or"], zh-status: "need proofread", zh: [短路逻辑或]),
   i18n--arity.binary,
   [2],
 
@@ -598,22 +596,22 @@ There are a few special functions that modify the value they are called on (e.g.
   [1],
 
   [`{+=}`],
-  babel(en: [Add-Assignment], zh-status: "need proofread", zh: [相加赋值]),
+  babel(en: [Add-Assignment], zh-status: "need proofread", zh: [加法赋值]),
   i18n--arity.binary,
   [1],
 
   [`{-=}`],
-  babel(en: [Subtraction-Assignment], zh-status: "need proofread", zh: [相减赋值]),
+  babel(en: [Subtraction-Assignment], zh-status: "need proofread", zh: [减法赋值]),
   i18n--arity.binary,
   [1],
 
   [`{*=}`],
-  babel(en: [Multiplication-Assignment], zh-status: "need proofread", zh: [相乘赋值]),
+  babel(en: [Multiplication-Assignment], zh-status: "need proofread", zh: [乘法赋值]),
   i18n--arity.binary,
   [1],
 
   [`{/=}`],
-  babel(en: [Division-Assignment], zh-status: "need proofread", zh: [相除赋值]),
+  babel(en: [Division-Assignment], zh-status: "need proofread", zh: [除法赋值]),
   i18n--arity.binary,
   [1],
 )

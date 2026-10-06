@@ -2746,7 +2746,7 @@
       ],
       zh-status: "need proofread",
       zh: [
-        当前活动的Typst编译器版本。
+        当前使用的Typst编译器版本。
       ],
     )
 

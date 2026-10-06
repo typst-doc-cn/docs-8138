@@ -294,8 +294,8 @@
   ),
   description: babel(
     en: "Predefined symbols in Typst.",
-    zh-status: "need update",
-    zh: "Typst中与符号有关联的函数族的文档",
+    zh-status: "need proofread",
+    zh: "Typst中的预定义符号。",
   ),
   category: "symbols",
 )[
@@ -361,9 +361,9 @@
     zh: [
       命名的通用符号。
 
-      例如，`#sym.arrow`生成 → 符号。在@math[公式]中，这些符号可以在没有`#sym.`前缀的情况下使用。
+      例如，`[#sym.arrow]`会生成→符号。在@math[公式]中，这些符号可以不加`[#sym.]`前缀使用。
 
-      积分中的`dx`中的`d`可以写为`[$dif x$]`。在数学公式之外，`dif`可以作为`math.dif`访问。
+      积分中`dx`里的`d`可以写作`[$dif x$]`。在数学公式之外，可以通过`math.dif`访问`dif`。
     ],
   ),
 )
@@ -389,7 +389,7 @@
     zh: [
       命名的表情符号。
 
-      例如，`#emoji.face`生成😀表情符号。如果经常使用某些表情符号，还可以从`emoji`模块导入它们（`[#import emoji:face]`）以在没有`#emoji.`前缀的情况下使用它们。
+      例如，`[#emoji.face]`会生成😀表情符号。如果您经常使用某些表情符号，还可以从`emoji`模块中导入它们（`[#import emoji: face]`），这样使用时就不必加`emoji.`前缀。
     ],
   ),
 )
