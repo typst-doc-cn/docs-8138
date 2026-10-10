@@ -1,7 +1,7 @@
 #import "/i18n-scope.typ": *
 #let live-item-data = (
   "TableElem": (
-    22,
+    23,
     [
       #babel(
         en: [
@@ -136,7 +136,7 @@
     ],
   ),
   "TableElem::columns": (
-    138,
+    139,
     babel(
       en: [
         The column sizes. See the @grid:track-size[grid documentation] for more
@@ -145,7 +145,7 @@
     ),
   ),
   "TableElem::rows": (
-    142,
+    143,
     babel(
       en: [
         The row sizes. See the @grid:track-size[grid documentation] for more
@@ -154,7 +154,7 @@
     ),
   ),
   "TableElem::gutter": (
-    146,
+    147,
     babel(
       en: [
         The gaps between rows and columns. This is a shorthand for setting
@@ -164,7 +164,7 @@
     ),
   ),
   "TableElem::column_gutter": (
-    152,
+    153,
     babel(
       en: [
         The gaps between columns. Takes precedence over `gutter`. See the
@@ -173,7 +173,7 @@
     ),
   ),
   "TableElem::row_gutter": (
-    160,
+    161,
     babel(
       en: [
         The gaps between rows. Takes precedence over `gutter`. See the
@@ -182,7 +182,7 @@
     ),
   ),
   "TableElem::inset": (
-    165,
+    166,
     [
       #babel(
         en: [
@@ -220,7 +220,7 @@
     ],
   ),
   "TableElem::align": (
-    198,
+    199,
     [
       #babel(
         en: [
@@ -249,7 +249,7 @@
     ],
   ),
   "TableElem::fill": (
-    220,
+    221,
     [
       #babel(
         en: [
@@ -284,7 +284,7 @@
     ],
   ),
   "TableElem::stroke": (
-    248,
+    249,
     babel(
       en: [
         How to @stroke[stroke] the cells.
@@ -310,7 +310,7 @@
     ),
   ),
   "TableElem::children": (
-    283,
+    286,
     babel(
       en: [
         The contents of the table cells, plus any extra table lines specified
@@ -319,7 +319,7 @@
     ),
   ),
   "TableHeader": (
-    442,
+    445,
     [
       #babel(
         en: [
@@ -380,7 +380,7 @@
     ],
   ),
   "TableHeader::repeat": (
-    496,
+    499,
     babel(
       en: [
         Whether this header should be repeated across pages.
@@ -388,7 +388,7 @@
     ),
   ),
   "TableHeader::level": (
-    500,
+    503,
     babel(
       en: [
         The level of the header. Must not be zero.
@@ -403,7 +403,7 @@
     ),
   ),
   "TableHeader::children": (
-    511,
+    514,
     babel(
       en: [
         The cells and lines within the header.
@@ -411,7 +411,7 @@
     ),
   ),
   "TableFooter": (
-    516,
+    519,
     babel(
       en: [
         A repeatable table footer.
@@ -426,7 +426,7 @@
     ),
   ),
   "TableFooter::repeat": (
-    526,
+    529,
     babel(
       en: [
         Whether this footer should be repeated across pages.
@@ -434,7 +434,7 @@
     ),
   ),
   "TableFooter::children": (
-    530,
+    533,
     babel(
       en: [
         The cells and lines within the footer.
@@ -442,7 +442,7 @@
     ),
   ),
   "TableHLine": (
-    535,
+    538,
     [
       #babel(
         en: [
@@ -483,7 +483,7 @@
     ],
   ),
   "TableHLine::y": (
-    569,
+    572,
     babel(
       en: [
         The row above which the horizontal line is placed (zero-indexed).
@@ -492,7 +492,7 @@
     ),
   ),
   "TableHLine::start": (
-    573,
+    576,
     babel(
       en: [
         The column at which the horizontal line starts (zero-indexed,
@@ -501,7 +501,7 @@
     ),
   ),
   "TableHLine::end": (
-    577,
+    580,
     babel(
       en: [
         The column before which the horizontal line ends (zero-indexed,
@@ -510,7 +510,7 @@
     ),
   ),
   "TableHLine::stroke": (
-    581,
+    584,
     babel(
       en: [
         The line's stroke.
@@ -521,7 +521,7 @@
     ),
   ),
   "TableHLine::position": (
-    589,
+    592,
     babel(
       en: [
         The position at which the line is placed, given its row (`y`) - either
@@ -535,7 +535,7 @@
     ),
   ),
   "TableVLine": (
-    600,
+    603,
     babel(
       en: [
         A vertical line in the table. See the docs for @grid.vline for more
@@ -554,7 +554,7 @@
     ),
   ),
   "TableVLine::x": (
-    614,
+    617,
     babel(
       en: [
         The column before which the vertical line is placed (zero-indexed).
@@ -563,7 +563,7 @@
     ),
   ),
   "TableVLine::start": (
-    618,
+    621,
     babel(
       en: [
         The row at which the vertical line starts (zero-indexed, inclusive).
@@ -571,7 +571,7 @@
     ),
   ),
   "TableVLine::end": (
-    621,
+    624,
     babel(
       en: [
         The row on top of which the vertical line ends (zero-indexed,
@@ -580,7 +580,7 @@
     ),
   ),
   "TableVLine::stroke": (
-    625,
+    628,
     babel(
       en: [
         The line's stroke.
@@ -591,7 +591,7 @@
     ),
   ),
   "TableVLine::position": (
-    633,
+    636,
     babel(
       en: [
         The position at which the line is placed, given its column (`x`) -
@@ -610,7 +610,7 @@
     ),
   ),
   "TableCell": (
-    649,
+    652,
     [
       #babel(
         en: [
@@ -710,7 +710,7 @@
     ],
   ),
   "TableCell::body": (
-    734,
+    737,
     babel(
       en: [
         The cell's body.
@@ -718,7 +718,7 @@
     ),
   ),
   "TableCell::x": (
-    738,
+    741,
     babel(
       en: [
         The cell's column (zero-indexed). Functions identically to the `x` field
@@ -727,7 +727,7 @@
     ),
   ),
   "TableCell::y": (
-    742,
+    745,
     babel(
       en: [
         The cell's row (zero-indexed). Functions identically to the `y` field in
@@ -736,7 +736,7 @@
     ),
   ),
   "TableCell::colspan": (
-    746,
+    749,
     babel(
       en: [
         The amount of columns spanned by this cell.
@@ -744,7 +744,7 @@
     ),
   ),
   "TableCell::rowspan": (
-    750,
+    753,
     babel(
       en: [
         The amount of rows spanned by this cell.
@@ -752,7 +752,7 @@
     ),
   ),
   "TableCell::inset": (
-    754,
+    757,
     babel(
       en: [
         The cell's @table.inset[inset] override.
@@ -760,7 +760,7 @@
     ),
   ),
   "TableCell::align": (
-    757,
+    760,
     babel(
       en: [
         The cell's @table.align[alignment] override.
@@ -768,7 +768,7 @@
     ),
   ),
   "TableCell::fill": (
-    760,
+    763,
     babel(
       en: [
         The cell's @table.fill[fill] override.
@@ -776,7 +776,7 @@
     ),
   ),
   "TableCell::stroke": (
-    763,
+    766,
     babel(
       en: [
         The cell's @table.stroke[stroke] override.
@@ -784,7 +784,7 @@
     ),
   ),
   "TableCell::breakable": (
-    767,
+    770,
     babel(
       en: [
         Whether rows spanned by this cell can be placed in different pages. When

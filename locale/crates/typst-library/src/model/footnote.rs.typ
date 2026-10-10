@@ -1,7 +1,7 @@
 #import "/i18n-scope.typ": *
 #let live-item-data = (
   "FootnoteElem": (
-    21,
+    22,
     [
       #babel(
         en: [
@@ -63,7 +63,7 @@
     ],
   ),
   "FootnoteElem::numbering": (
-    64,
+    65,
     [
       #babel(
         en: [
@@ -87,7 +87,7 @@
     ],
   ),
   "FootnoteElem::body": (
-    82,
+    83,
     babel(
       en: [
         The content to put into the footnote. Can also be the label of another
@@ -96,7 +96,7 @@
     ),
   ),
   "FootnoteEntry": (
-    198,
+    200,
     [
       #babel(
         en: [
@@ -126,7 +126,7 @@
     ],
   ),
   "FootnoteEntry::note": (
-    224,
+    226,
     [
       #babel(
         en: [
@@ -148,7 +148,7 @@
     ],
   ),
   "FootnoteEntry::separator": (
-    240,
+    242,
     [
       #babel(
         en: [
@@ -170,7 +170,7 @@
     ],
   ),
   "FootnoteEntry::clearance": (
-    264,
+    266,
     [
       #babel(
         en: [
@@ -189,7 +189,7 @@
     ],
   ),
   "FootnoteEntry::gap": (
-    277,
+    279,
     [
       #babel(
         en: [
@@ -207,7 +207,7 @@
     ],
   ),
   "FootnoteEntry::indent": (
-    289,
+    291,
     [
       #babel(
         en: [

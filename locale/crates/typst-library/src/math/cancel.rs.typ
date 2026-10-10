@@ -1,7 +1,7 @@
 #import "/i18n-scope.typ": *
 #let live-item-data = (
   "CancelElem": (
-    6,
+    8,
     [
       #babel(
         en: [
@@ -21,7 +21,7 @@
     ],
   ),
   "CancelElem::body": (
-    19,
+    21,
     babel(
       en: [
         The content over which the line should be placed.
@@ -29,7 +29,7 @@
     ),
   ),
   "CancelElem::length": (
-    23,
+    25,
     [
       #babel(
         en: [
@@ -47,7 +47,7 @@
     ],
   ),
   "CancelElem::inverted": (
-    35,
+    37,
     [
       #babel(
         en: [
@@ -65,7 +65,7 @@
     ],
   ),
   "CancelElem::cross": (
-    47,
+    49,
     [
       #babel(
         en: [
@@ -81,7 +81,7 @@
     ],
   ),
   "CancelElem::angle": (
-    57,
+    59,
     [
       #babel(
         en: [
@@ -109,7 +109,7 @@
     ],
   ),
   "CancelElem::stroke": (
-    78,
+    80,
     [
       #babel(
         en: [
@@ -131,7 +131,7 @@
     ],
   ),
   "CancelElem::background": (
-    99,
+    101,
     [
       #babel(
         en: [

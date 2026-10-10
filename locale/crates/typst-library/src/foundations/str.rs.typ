@@ -492,7 +492,7 @@
     ),
   ),
   "Str::trim": (
-    568,
+    566,
     babel(
       en: [
         Removes matches of a pattern from one or both sides of the string, once
@@ -501,7 +501,7 @@
     ),
   ),
   "Str::trim::pattern": (
-    573,
+    571,
     babel(
       en: [
         The pattern to search for. If `{none}`, trims white spaces.
@@ -509,7 +509,7 @@
     ),
   ),
   "Str::trim::at": (
-    576,
+    574,
     babel(
       en: [
         Can be `{start}` or `{end}` to only trim the start or end of the
@@ -518,7 +518,7 @@
     ),
   ),
   "Str::trim::repeat": (
-    580,
+    578,
     babel(
       en: [
         Whether to repeatedly removes matches of the pattern or just once.
@@ -527,7 +527,7 @@
     ),
   ),
   "Str::split": (
-    653,
+    651,
     babel(
       en: [
         Splits a string at matches of a specified pattern and returns an array
@@ -542,7 +542,7 @@
     ),
   ),
   "Str::split::pattern": (
-    664,
+    662,
     babel(
       en: [
         The pattern to split at. Defaults to whitespace.
@@ -550,7 +550,7 @@
     ),
   ),
   "Str::rev": (
-    680,
+    678,
     [
       #babel(
         en: [
@@ -567,7 +567,7 @@
     ],
   ),
   "Regex": (
-    970,
+    968,
     [
       #babel(
         en: [
@@ -633,7 +633,7 @@
     ],
   ),
   "Regex::construct": (
-    1028,
+    1026,
     babel(
       en: [
         Create a regular expression from a string.
@@ -641,7 +641,7 @@
     ),
   ),
   "Regex::construct::regex": (
-    1031,
+    1029,
     babel(
       en: [
         The regular expression as a string.

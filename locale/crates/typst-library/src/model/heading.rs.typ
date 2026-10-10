@@ -1,7 +1,7 @@
 #import "/i18n-scope.typ": *
 #let live-item-data = (
   "HeadingElem": (
-    16,
+    17,
     [
       #babel(
         en: [
@@ -82,7 +82,7 @@
     ],
   ),
   "HeadingElem::level": (
-    88,
+    89,
     [
       #babel(
         en: [
@@ -109,7 +109,7 @@
     ],
   ),
   "HeadingElem::depth": (
-    108,
+    109,
     babel(
       en: [
         The relative nesting depth of the heading, starting from one. This is
@@ -123,7 +123,7 @@
     ),
   ),
   "HeadingElem::offset": (
-    118,
+    119,
     [
       #babel(
         en: [
@@ -145,7 +145,7 @@
     ],
   ),
   "HeadingElem::numbering": (
-    134,
+    135,
     [
       #babel(
         en: [
@@ -164,7 +164,7 @@
     ],
   ),
   "HeadingElem::supplement": (
-    158,
+    159,
     [
       #babel(
         en: [
@@ -189,7 +189,7 @@
     ],
   ),
   "HeadingElem::outlined": (
-    176,
+    177,
     [
       #babel(
         en: [
@@ -214,7 +214,7 @@
     ],
   ),
   "HeadingElem::bookmarked": (
-    195,
+    196,
     [
       #babel(
         en: [
@@ -242,7 +242,7 @@
     ],
   ),
   "HeadingElem::hanging_indent": (
-    217,
+    218,
     [
       #babel(
         en: [
@@ -265,7 +265,7 @@
     ],
   ),
   "HeadingElem::body": (
-    234,
+    235,
     babel(
       en: [
         The heading's title.

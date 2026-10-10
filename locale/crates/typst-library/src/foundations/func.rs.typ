@@ -1,7 +1,7 @@
 #import "/i18n-scope.typ": *
 #let live-item-data = (
   "Func": (
-    21,
+    24,
     [
       #babel(
         en: [
@@ -155,7 +155,7 @@
     ],
   ),
   "Func::with": (
-    403,
+    460,
     babel(
       en: [
         Returns a new function that has the given arguments pre-applied.
@@ -163,7 +163,7 @@
     ),
   ),
   "Func::with::arguments": (
-    408,
+    465,
     babel(
       en: [
         The arguments to apply to the function.
@@ -171,7 +171,7 @@
     ),
   ),
   "Func::where_": (
-    420,
+    480,
     [
       #babel(
         en: [
@@ -189,7 +189,7 @@
     ],
   ),
   "Func::where_::fields": (
-    433,
+    493,
     babel(
       en: [
         The fields to filter for.

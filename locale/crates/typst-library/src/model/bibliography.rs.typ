@@ -79,10 +79,39 @@
           @bibliography.target[`target`] selector.
         ],
       )
+
+      = #babel(en: [Styling]) <styling>
+      #babel(
+        en: [
+          Some bibliography styles format entries with hanging indent. By default,
+          such styles apply an indent of `{1.5em}` through a built-in show-set rule on
+          @par.hanging-indent. To override this default, you can write your own
+          show-set rule
+          #footnote[
+            A bare `{set par(hanging-indent: ..)}` will have no effect on the
+            bibliography since show-set rules (including built-in ones) take
+            precedence over plain set rules.
+          ],
+          targeting the bibliography:
+        ],
+      )
+
+      ```example
+      #show bibliography: set par(
+        hanging-indent: 3em
+      )
+
+      The Net Wok is ... @netwok
+
+      #bibliography(
+        "works.bib",
+        style: "apa",
+      )
+      ```
     ],
   ),
   "BibliographyElem::sources": (
-    112,
+    137,
     babel(
       en: [
         One or multiple paths to or raw bytes for Hayagriva `.yaml` and/or
@@ -96,7 +125,7 @@
     ),
   ),
   "BibliographyElem::title": (
-    126,
+    151,
     babel(
       en: [
         The title of the bibliography.
@@ -113,7 +142,7 @@
     ),
   ),
   "BibliographyElem::full": (
-    138,
+    163,
     babel(
       en: [
         Whether to include all works from the given bibliography files, even
@@ -125,7 +154,7 @@
     ),
   ),
   "BibliographyElem::style": (
-    146,
+    171,
     babel(
       en: [
         The bibliography style.
@@ -141,7 +170,7 @@
     ),
   ),
   "BibliographyElem::target": (
-    165,
+    190,
     [
       #babel(
         en: [
@@ -194,7 +223,7 @@
     ],
   ),
   "BibliographyElem::group": (
-    211,
+    236,
     [
       #babel(
         en: [

@@ -1,7 +1,7 @@
 #import "/i18n-scope.typ": *
 #let live-item-data = (
   "ParElem": (
-    15,
+    16,
     [
       #babel(
         en: [
@@ -101,7 +101,7 @@
     ],
   ),
   "ParElem::leading": (
-    100,
+    101,
     [
       #babel(
         en: [
@@ -220,7 +220,7 @@
     ],
   ),
   "ParElem::spacing": (
-    213,
+    214,
     babel(
       en: [
         The spacing between paragraphs.
@@ -238,7 +238,7 @@
     ),
   ),
   "ParElem::justify": (
-    227,
+    228,
     babel(
       en: [
         Whether to justify text in its line.
@@ -259,7 +259,7 @@
     ),
   ),
   "ParElem::justification_limits": (
-    244,
+    245,
     [
       #babel(
         en: [
@@ -375,7 +375,7 @@
     ],
   ),
   "ParElem::linebreaks": (
-    354,
+    355,
     [
       #babel(
         en: [
@@ -405,7 +405,7 @@
     ],
   ),
   "ParElem::first_line_indent": (
-    377,
+    378,
     [
       #babel(
         en: [
@@ -457,7 +457,7 @@
     ],
   ),
   "ParElem::hanging_indent": (
-    423,
+    424,
     [
       #babel(
         en: [
@@ -473,7 +473,7 @@
     ],
   ),
   "ParElem::body": (
-    432,
+    433,
     babel(
       en: [
         The contents of the paragraph.
@@ -481,7 +481,7 @@
     ),
   ),
   "ParbreakElem": (
-    707,
+    708,
     [
       #babel(
         en: [
@@ -512,7 +512,7 @@
     ],
   ),
   "ParLine": (
-    737,
+    738,
     [
       #babel(
         en: [
@@ -582,7 +582,7 @@
     ],
   ),
   "ParLine::numbering": (
-    792,
+    793,
     [
       #babel(
         en: [
@@ -611,7 +611,7 @@
     ],
   ),
   "ParLine::number_align": (
-    815,
+    816,
     [
       #babel(
         en: [
@@ -637,7 +637,7 @@
     ],
   ),
   "ParLine::number_margin": (
-    835,
+    836,
     [
       #babel(
         en: [
@@ -665,7 +665,7 @@
     ],
   ),
   "ParLine::number_clearance": (
-    858,
+    859,
     [
       #babel(
         en: [
@@ -690,7 +690,7 @@
     ],
   ),
   "ParLine::numbering_scope": (
-    878,
+    879,
     [
       #babel(
         en: [

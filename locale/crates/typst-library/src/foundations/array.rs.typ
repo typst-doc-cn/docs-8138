@@ -1,7 +1,7 @@
 #import "/i18n-scope.typ": *
 #let live-item-data = (
   "Array": (
-    42,
+    43,
     [
       #babel(
         en: [
@@ -40,7 +40,7 @@
     ],
   ),
   "Array::construct": (
-    152,
+    153,
     [
       #babel(
         en: [
@@ -60,7 +60,7 @@
     ],
   ),
   "Array::construct::value": (
-    165,
+    166,
     babel(
       en: [
         The value that should be converted to an array.
@@ -68,7 +68,7 @@
     ),
   ),
   "Array::len": (
-    171,
+    172,
     babel(
       en: [
         The number of values in the array.
@@ -76,7 +76,7 @@
     ),
   ),
   "Array::first": (
-    177,
+    178,
     babel(
       en: [
         Returns the first item in the array. May be used on the left-hand side of
@@ -86,7 +86,7 @@
     ),
   ),
   "Array::first::default": (
-    183,
+    184,
     babel(
       en: [
         A default value to return if the array is empty.
@@ -94,7 +94,7 @@
     ),
   ),
   "Array::last": (
-    190,
+    191,
     babel(
       en: [
         Returns the last item in the array. May be used on the left-hand side of
@@ -104,7 +104,7 @@
     ),
   ),
   "Array::last::default": (
-    196,
+    197,
     babel(
       en: [
         A default value to return if the array is empty.
@@ -112,7 +112,7 @@
     ),
   ),
   "Array::at": (
-    203,
+    204,
     babel(
       en: [
         Returns the item at the specified index in the array. May be used on the
@@ -123,7 +123,7 @@
     ),
   ),
   "Array::at::index": (
-    210,
+    211,
     babel(
       en: [
         The index at which to retrieve the item. If negative, indexes from
@@ -132,7 +132,7 @@
     ),
   ),
   "Array::at::default": (
-    213,
+    214,
     babel(
       en: [
         A default value to return if the index is out of bounds.
@@ -140,7 +140,7 @@
     ),
   ),
   "Array::push": (
-    223,
+    224,
     babel(
       en: [
         Adds a value to the end of the array.
@@ -148,7 +148,7 @@
     ),
   ),
   "Array::push::value": (
-    227,
+    228,
     babel(
       en: [
         The value to insert at the end of the array.
@@ -156,7 +156,7 @@
     ),
   ),
   "Array::pop": (
-    233,
+    234,
     babel(
       en: [
         Removes the last item from the array and returns it. Fails with an error
@@ -165,7 +165,7 @@
     ),
   ),
   "Array::insert": (
-    240,
+    241,
     babel(
       en: [
         Inserts a value into the array at the specified index, shifting all
@@ -177,7 +177,7 @@
     ),
   ),
   "Array::insert::index": (
-    248,
+    249,
     babel(
       en: [
         The index at which to insert the item. If negative, indexes from the
@@ -186,7 +186,7 @@
     ),
   ),
   "Array::insert::value": (
-    251,
+    252,
     babel(
       en: [
         The value to insert into the array.
@@ -194,7 +194,7 @@
     ),
   ),
   "Array::remove": (
-    259,
+    260,
     babel(
       en: [
         Removes the value at the specified index from the array and return it.
@@ -202,7 +202,7 @@
     ),
   ),
   "Array::remove::index": (
-    263,
+    264,
     babel(
       en: [
         The index at which to remove the item. If negative, indexes from the
@@ -211,7 +211,7 @@
     ),
   ),
   "Array::remove::default": (
-    266,
+    267,
     babel(
       en: [
         A default value to return if the index is out of bounds.
@@ -219,7 +219,7 @@
     ),
   ),
   "Array::slice": (
-    276,
+    277,
     babel(
       en: [
         Extracts a subslice of the array. Fails with an error if the start or
@@ -228,7 +228,7 @@
     ),
   ),
   "Array::slice::start": (
-    281,
+    282,
     babel(
       en: [
         The start index (inclusive). If negative, indexes from the back.
@@ -236,7 +236,7 @@
     ),
   ),
   "Array::slice::end": (
-    283,
+    284,
     babel(
       en: [
         The end index (exclusive). If omitted, the whole slice until the end
@@ -245,7 +245,7 @@
     ),
   ),
   "Array::slice::count": (
-    287,
+    288,
     babel(
       en: [
         The number of items to extract. This is equivalent to passing
@@ -255,7 +255,7 @@
     ),
   ),
   "Array::contains": (
-    302,
+    303,
     babel(
       en: [
         Whether the array contains the specified value.
@@ -266,7 +266,7 @@
     ),
   ),
   "Array::contains::value": (
-    309,
+    310,
     babel(
       en: [
         The value to search for.
@@ -274,7 +274,7 @@
     ),
   ),
   "Array::find": (
-    315,
+    316,
     babel(
       en: [
         Searches for an item for which the given function returns `{true}` and
@@ -283,7 +283,7 @@
     ),
   ),
   "Array::find::searcher": (
-    322,
+    323,
     babel(
       en: [
         The function to apply to each item. Must return a boolean.
@@ -291,7 +291,7 @@
     ),
   ),
   "Array::position": (
-    337,
+    334,
     babel(
       en: [
         Searches for an item for which the given function returns `{true}` and
@@ -300,7 +300,7 @@
     ),
   ),
   "Array::position::searcher": (
-    344,
+    341,
     [
       #babel(
         en: [
@@ -317,7 +317,7 @@
     ],
   ),
   "Array::range": (
-    367,
+    360,
     [
       #babel(
         en: [
@@ -342,7 +342,7 @@
     ],
   ),
   "Array::range::start": (
-    386,
+    379,
     babel(
       en: [
         The start of the range (inclusive).
@@ -350,7 +350,7 @@
     ),
   ),
   "Array::range::end": (
-    390,
+    383,
     babel(
       en: [
         The end of the range.
@@ -358,7 +358,7 @@
     ),
   ),
   "Array::range::inclusive": (
-    393,
+    386,
     [
       #babel(
         en: [
@@ -375,7 +375,7 @@
     ],
   ),
   "Array::range::step": (
-    404,
+    397,
     babel(
       en: [
         The distance between the generated numbers.
@@ -383,7 +383,7 @@
     ),
   ),
   "Array::filter": (
-    445,
+    438,
     babel(
       en: [
         Produces a new array with only the items from the original one for which
@@ -392,7 +392,7 @@
     ),
   ),
   "Array::filter::test": (
-    452,
+    445,
     babel(
       en: [
         The function to apply to each item. Must return a boolean.
@@ -400,7 +400,7 @@
     ),
   ),
   "Array::map": (
-    468,
+    457,
     babel(
       en: [
         Produces a new array in which all items from the original one were
@@ -409,7 +409,7 @@
     ),
   ),
   "Array::map::mapper": (
-    475,
+    464,
     babel(
       en: [
         The function to apply to each item.
@@ -417,7 +417,7 @@
     ),
   ),
   "Array::enumerate": (
-    483,
+    472,
     [
       #babel(
         en: [
@@ -440,7 +440,7 @@
     ],
   ),
   "Array::enumerate::start": (
-    500,
+    489,
     babel(
       en: [
         The index returned for the first pair of the returned list.
@@ -448,7 +448,7 @@
     ),
   ),
   "Array::zip": (
-    519,
+    508,
     babel(
       en: [
         Zips the array with other arrays.
@@ -467,7 +467,7 @@
     ),
   ),
   "Array::zip::exact": (
-    535,
+    524,
     babel(
       en: [
         Whether all arrays have to have the same length. For example,
@@ -476,7 +476,7 @@
     ),
   ),
   "Array::zip::others": (
-    540,
+    529,
     babel(
       en: [
         The arrays to zip with.
@@ -484,7 +484,7 @@
     ),
   ),
   "Array::fold": (
-    615,
+    604,
     [
       #babel(
         en: [
@@ -499,7 +499,7 @@
     ],
   ),
   "Array::fold::init": (
-    626,
+    615,
     babel(
       en: [
         The initial value to start with.
@@ -507,7 +507,7 @@
     ),
   ),
   "Array::fold::folder": (
-    628,
+    617,
     babel(
       en: [
         The folding function. Must have two parameters: One for the
@@ -516,7 +516,7 @@
     ),
   ),
   "Array::sum": (
-    639,
+    628,
     babel(
       en: [
         Sums all items (works for all types that can be added).
@@ -524,7 +524,7 @@
     ),
   ),
   "Array::sum::default": (
-    643,
+    632,
     babel(
       en: [
         What to return if the array is empty. Must be set if the array can
@@ -533,7 +533,7 @@
     ),
   ),
   "Array::product": (
-    659,
+    648,
     babel(
       en: [
         Calculates the product of all items (works for all types that can be
@@ -542,7 +542,7 @@
     ),
   ),
   "Array::product::default": (
-    664,
+    653,
     babel(
       en: [
         What to return if the array is empty. Must be set if the array can
@@ -551,7 +551,7 @@
     ),
   ),
   "Array::any": (
-    680,
+    669,
     babel(
       en: [
         Whether the given function returns `{true}` for any item in the array.
@@ -559,7 +559,7 @@
     ),
   ),
   "Array::any::test": (
-    686,
+    675,
     babel(
       en: [
         The function to apply to each item. Must return a boolean.
@@ -567,7 +567,7 @@
     ),
   ),
   "Array::all": (
-    698,
+    687,
     babel(
       en: [
         Whether the given function returns `{true}` for all items in the array.
@@ -575,7 +575,7 @@
     ),
   ),
   "Array::all::test": (
-    704,
+    693,
     babel(
       en: [
         The function to apply to each item. Must return a boolean.
@@ -583,7 +583,7 @@
     ),
   ),
   "Array::flatten": (
-    716,
+    705,
     babel(
       en: [
         Combine all nested arrays into a single flat one.
@@ -591,7 +591,7 @@
     ),
   ),
   "Array::rev": (
-    730,
+    719,
     babel(
       en: [
         Return a new array with the same items, but in reverse order.
@@ -599,7 +599,7 @@
     ),
   ),
   "Array::split": (
-    736,
+    725,
     [
       #babel(
         en: [
@@ -613,7 +613,7 @@
     ],
   ),
   "Array::split::at": (
-    744,
+    733,
     babel(
       en: [
         The value to split at.
@@ -621,7 +621,7 @@
     ),
   ),
   "Array::join": (
-    753,
+    742,
     babel(
       en: [
         Combine all items in the array into one.
@@ -629,7 +629,7 @@
     ),
   ),
   "Array::join::separator": (
-    757,
+    746,
     babel(
       en: [
         A value to insert between each item of the array.
@@ -637,7 +637,7 @@
     ),
   ),
   "Array::join::last": (
-    760,
+    749,
     babel(
       en: [
         An alternative separator between the last two items.
@@ -645,7 +645,7 @@
     ),
   ),
   "Array::join::default": (
-    763,
+    752,
     babel(
       en: [
         What to return if the array is empty.
@@ -653,7 +653,7 @@
     ),
   ),
   "Array::intersperse": (
-    795,
+    784,
     [
       #babel(
         en: [
@@ -668,7 +668,7 @@
     ],
   ),
   "Array::intersperse::separator": (
-    804,
+    793,
     babel(
       en: [
         The value that will be placed between each adjacent element.
@@ -676,7 +676,7 @@
     ),
   ),
   "Array::chunks": (
-    828,
+    817,
     [
       #babel(
         en: [
@@ -697,7 +697,7 @@
     ],
   ),
   "Array::chunks::chunk_size": (
-    843,
+    832,
     babel(
       en: [
         How many elements each chunk may at most contain.
@@ -705,7 +705,7 @@
     ),
   ),
   "Array::chunks::exact": (
-    845,
+    834,
     babel(
       en: [
         Whether to discard the remainder if its size is less than
@@ -714,7 +714,7 @@
     ),
   ),
   "Array::windows": (
-    859,
+    848,
     [
       #babel(
         en: [
@@ -732,7 +732,7 @@
     ],
   ),
   "Array::windows::window_size": (
-    871,
+    860,
     babel(
       en: [
         How many elements each window will contain.
@@ -740,7 +740,7 @@
     ),
   ),
   "Array::sorted": (
-    880,
+    869,
     [
       #babel(
         en: [
@@ -768,7 +768,7 @@
     ],
   ),
   "Array::sorted::key": (
-    905,
+    894,
     babel(
       en: [
         If given, applies this function to each element in the array to
@@ -777,7 +777,7 @@
     ),
   ),
   "Array::sorted::by": (
-    909,
+    898,
     [
       #babel(
         en: [
@@ -813,7 +813,7 @@
     ],
   ),
   "Array::dedup": (
-    1053,
+    1042,
     [
       #babel(
         en: [
@@ -830,7 +830,7 @@
     ],
   ),
   "Array::dedup::key": (
-    1066,
+    1055,
     [
       #babel(
         en: [
@@ -845,7 +845,7 @@
     ],
   ),
   "Array::to_dict": (
-    1105,
+    1094,
     [
       #babel(
         en: [
@@ -866,7 +866,7 @@
     ],
   ),
   "Array::reduce": (
-    1137,
+    1126,
     [
       #babel(
         en: [
@@ -892,7 +892,7 @@
     ],
   ),
   "Array::reduce::reducer": (
-    1159,
+    1148,
     babel(
       en: [
         The reducing function. Must have two parameters: One for the

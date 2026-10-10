@@ -1,7 +1,7 @@
 #import "/i18n-scope.typ": *
 #let live-item-data = (
   "ListElem": (
-    12,
+    13,
     [
       #babel(
         en: [
@@ -45,7 +45,7 @@
     ],
   ),
   "ListElem::tight": (
-    45,
+    46,
     [
       #babel(
         en: [
@@ -74,7 +74,7 @@
     ],
   ),
   "ListElem::marker": (
-    68,
+    69,
     [
       #babel(
         en: [
@@ -102,7 +102,7 @@
     ],
   ),
   "ListElem::indent": (
-    97,
+    98,
     babel(
       en: [
         The indent of each item.
@@ -110,7 +110,7 @@
     ),
   ),
   "ListElem::body_indent": (
-    100,
+    101,
     babel(
       en: [
         The spacing between the marker and the body of each item.
@@ -118,7 +118,7 @@
     ),
   ),
   "ListElem::spacing": (
-    104,
+    105,
     babel(
       en: [
         The spacing between the items of the list.
@@ -129,7 +129,7 @@
     ),
   ),
   "ListElem::marker_align": (
-    110,
+    111,
     [
       #babel(
         en: [
@@ -164,7 +164,7 @@
     ],
   ),
   "ListElem::children": (
-    139,
+    140,
     [
       #babel(
         en: [
@@ -183,7 +183,7 @@
     ],
   ),
   "ListItem": (
-    165,
+    166,
     babel(
       en: [
         A bullet list item.
@@ -191,7 +191,7 @@
     ),
   ),
   "ListItem::body": (
-    168,
+    169,
     babel(
       en: [
         The item's body.
