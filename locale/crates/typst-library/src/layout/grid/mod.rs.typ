@@ -1,7 +1,7 @@
 #import "/i18n-scope.typ": *
 #let live-item-data = (
   "GridElem": (
-    23,
+    24,
     [
       #babel(
         en: [
@@ -195,7 +195,7 @@
     ],
   ),
   "GridElem::columns": (
-    182,
+    183,
     babel(
       en: [
         The column sizes.
@@ -210,7 +210,7 @@
     ),
   ),
   "GridElem::rows": (
-    192,
+    193,
     babel(
       en: [
         The row sizes.
@@ -223,7 +223,7 @@
     ),
   ),
   "GridElem::gutter": (
-    200,
+    201,
     babel(
       en: [
         The gaps between rows and columns. This is a shorthand to set
@@ -238,7 +238,7 @@
     ),
   ),
   "GridElem::column_gutter": (
-    211,
+    212,
     babel(
       en: [
         The gaps between columns.
@@ -246,7 +246,7 @@
     ),
   ),
   "GridElem::row_gutter": (
-    218,
+    219,
     babel(
       en: [
         The gaps between rows.
@@ -254,7 +254,7 @@
     ),
   ),
   "GridElem::inset": (
-    222,
+    223,
     babel(
       en: [
         How much to pad the cells' content.
@@ -275,7 +275,7 @@
     ),
   ),
   "GridElem::align": (
-    239,
+    240,
     babel(
       en: [
         How to align the cells' content.
@@ -294,7 +294,7 @@
     ),
   ),
   "GridElem::fill": (
-    253,
+    254,
     [
       #babel(
         en: [
@@ -327,7 +327,7 @@
     ],
   ),
   "GridElem::stroke": (
-    279,
+    280,
     [
       #babel(
         en: [
@@ -464,7 +464,7 @@
     ],
   ),
   "GridElem::children": (
-    414,
+    415,
     babel(
       en: [
         The contents of the grid cells, plus any extra grid lines specified with
@@ -475,7 +475,7 @@
     ),
   ),
   "GridHeader": (
-    574,
+    575,
     babel(
       en: [
         A repeatable grid header.
@@ -487,7 +487,7 @@
     ),
   ),
   "GridHeader::repeat": (
-    581,
+    582,
     babel(
       en: [
         Whether this header should be repeated across pages.
@@ -495,7 +495,7 @@
     ),
   ),
   "GridHeader::level": (
-    585,
+    586,
     babel(
       en: [
         The level of the header. Must not be zero.
@@ -510,7 +510,7 @@
     ),
   ),
   "GridHeader::children": (
-    596,
+    597,
     babel(
       en: [
         The cells and lines within the header.
@@ -518,7 +518,7 @@
     ),
   ),
   "GridFooter": (
-    601,
+    602,
     babel(
       en: [
         A repeatable grid footer.
@@ -531,7 +531,7 @@
     ),
   ),
   "GridFooter::repeat": (
-    609,
+    610,
     babel(
       en: [
         Whether this footer should be repeated across pages.
@@ -539,7 +539,7 @@
     ),
   ),
   "GridFooter::children": (
-    613,
+    614,
     babel(
       en: [
         The cells and lines within the footer.
@@ -547,7 +547,7 @@
     ),
   ),
   "GridHLine": (
-    618,
+    619,
     babel(
       en: [
         A horizontal line in the grid.
@@ -561,7 +561,7 @@
     ),
   ),
   "GridHLine::y": (
-    627,
+    628,
     babel(
       en: [
         The row above which the horizontal line is placed (zero-indexed). If the
@@ -579,7 +579,7 @@
     ),
   ),
   "GridHLine::start": (
-    640,
+    641,
     babel(
       en: [
         The column at which the horizontal line starts (zero-indexed,
@@ -588,7 +588,7 @@
     ),
   ),
   "GridHLine::end": (
-    644,
+    645,
     babel(
       en: [
         The column before which the horizontal line ends (zero-indexed,
@@ -601,7 +601,7 @@
     ),
   ),
   "GridHLine::stroke": (
-    652,
+    653,
     babel(
       en: [
         The line's stroke.
@@ -612,7 +612,7 @@
     ),
   ),
   "GridHLine::position": (
-    660,
+    661,
     babel(
       en: [
         The position at which the line is placed, given its row (`y`) - either
@@ -626,7 +626,7 @@
     ),
   ),
   "GridVLine": (
-    671,
+    672,
     babel(
       en: [
         A vertical line in the grid.
@@ -638,7 +638,7 @@
     ),
   ),
   "GridVLine::x": (
-    678,
+    679,
     babel(
       en: [
         The column before which the vertical line is placed (zero-indexed). If
@@ -658,7 +658,7 @@
     ),
   ),
   "GridVLine::start": (
-    693,
+    694,
     babel(
       en: [
         The row at which the vertical line starts (zero-indexed, inclusive).
@@ -666,7 +666,7 @@
     ),
   ),
   "GridVLine::end": (
-    696,
+    697,
     babel(
       en: [
         The row on top of which the vertical line ends (zero-indexed,
@@ -679,7 +679,7 @@
     ),
   ),
   "GridVLine::stroke": (
-    704,
+    705,
     babel(
       en: [
         The line's stroke.
@@ -690,7 +690,7 @@
     ),
   ),
   "GridVLine::position": (
-    712,
+    713,
     babel(
       en: [
         The position at which the line is placed, given its column (`x`) --
@@ -709,7 +709,7 @@
     ),
   ),
   "GridCell": (
-    728,
+    729,
     [
       #babel(
         en: [
@@ -761,7 +761,7 @@
     ],
   ),
   "GridCell::body": (
-    769,
+    770,
     babel(
       en: [
         The cell's body.
@@ -769,7 +769,7 @@
     ),
   ),
   "GridCell::x": (
-    773,
+    774,
     [
       #babel(
         en: [
@@ -808,7 +808,7 @@
     ],
   ),
   "GridCell::y": (
-    805,
+    806,
     [
       #babel(
         en: [
@@ -843,7 +843,7 @@
     ],
   ),
   "GridCell::colspan": (
-    833,
+    834,
     babel(
       en: [
         The amount of columns spanned by this cell.
@@ -851,7 +851,7 @@
     ),
   ),
   "GridCell::rowspan": (
-    837,
+    838,
     babel(
       en: [
         The amount of rows spanned by this cell.
@@ -859,7 +859,7 @@
     ),
   ),
   "GridCell::inset": (
-    841,
+    842,
     babel(
       en: [
         The cell's @grid.inset[inset] override.
@@ -867,7 +867,7 @@
     ),
   ),
   "GridCell::align": (
-    844,
+    845,
     babel(
       en: [
         The cell's @grid.align[alignment] override.
@@ -875,7 +875,7 @@
     ),
   ),
   "GridCell::fill": (
-    847,
+    848,
     babel(
       en: [
         The cell's @grid.fill[fill] override.
@@ -883,7 +883,7 @@
     ),
   ),
   "GridCell::stroke": (
-    850,
+    851,
     babel(
       en: [
         The cell's @grid.stroke[stroke] override.
@@ -891,7 +891,7 @@
     ),
   ),
   "GridCell::breakable": (
-    858,
+    859,
     babel(
       en: [
         Whether rows spanned by this cell can be placed in different pages. When

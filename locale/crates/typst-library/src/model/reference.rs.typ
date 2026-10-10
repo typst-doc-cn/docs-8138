@@ -1,7 +1,7 @@
 #import "/i18n-scope.typ": *
 #let live-item-data = (
   "RefElem": (
-    20,
+    21,
     [
       #babel(
         en: [
@@ -140,7 +140,7 @@
     ],
   ),
   "RefElem::target": (
-    140,
+    141,
     babel(
       en: [
         The target label that should be referenced.
@@ -152,7 +152,7 @@
     ),
   ),
   "RefElem::supplement": (
-    148,
+    149,
     [
       #babel(
         en: [
@@ -192,7 +192,7 @@
     ],
   ),
   "RefElem::form": (
-    181,
+    182,
     [
       #babel(
         en: [

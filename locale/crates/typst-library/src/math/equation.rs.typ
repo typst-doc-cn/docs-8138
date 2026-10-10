@@ -1,7 +1,7 @@
 #import "/i18n-scope.typ": *
 #let live-item-data = (
   "EquationElem": (
-    20,
+    21,
     [
       #babel(
         en: [
@@ -45,7 +45,7 @@
     ],
   ),
   "EquationElem::block": (
-    59,
+    60,
     babel(
       en: [
         Whether the equation is displayed as a separate block.
@@ -53,7 +53,7 @@
     ),
   ),
   "EquationElem::numbering": (
-    63,
+    64,
     [
       #babel(
         en: [
@@ -74,7 +74,7 @@
     ],
   ),
   "EquationElem::number_align": (
-    77,
+    78,
     [
       #babel(
         en: [
@@ -97,7 +97,7 @@
     ],
   ),
   "EquationElem::supplement": (
-    94,
+    95,
     [
       #babel(
         en: [
@@ -122,7 +122,7 @@
     ],
   ),
   "EquationElem::alt": (
-    112,
+    113,
     [
       #babel(
         en: [
@@ -145,7 +145,7 @@
     ],
   ),
   "EquationElem::body": (
-    128,
+    129,
     babel(
       en: [
         The contents of the equation.

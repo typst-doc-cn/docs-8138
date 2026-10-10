@@ -1,7 +1,7 @@
 #import "/i18n-scope.typ": *
 #let live-item-data = (
   "Args": (
-    16,
+    18,
     [
       #babel(
         en: [
@@ -55,7 +55,7 @@
     ],
   ),
   "Args::construct": (
-    323,
+    325,
     [
       #babel(
         en: [
@@ -72,7 +72,7 @@
     ],
   ),
   "Args::construct::arguments": (
-    334,
+    336,
     babel(
       en: [
         The arguments to construct.
@@ -80,7 +80,7 @@
     ),
   ),
   "Args::len": (
-    342,
+    344,
     babel(
       en: [
         The number of arguments, positional or named.
@@ -88,7 +88,7 @@
     ),
   ),
   "Args::at": (
-    348,
+    350,
     babel(
       en: [
         Returns the positional argument at the specified index, or the named
@@ -106,7 +106,7 @@
     ),
   ),
   "Args::at::key": (
-    362,
+    364,
     babel(
       en: [
         The index or name of the argument to get.
@@ -114,7 +114,7 @@
     ),
   ),
   "Args::at::default": (
-    364,
+    366,
     babel(
       en: [
         A default value to return if the key is invalid.
@@ -122,7 +122,7 @@
     ),
   ),
   "Args::to_pos": (
-    374,
+    376,
     babel(
       en: [
         Returns the captured positional arguments as an array.
@@ -130,7 +130,7 @@
     ),
   ),
   "Args::to_named": (
-    384,
+    386,
     babel(
       en: [
         Returns the captured named arguments as a dictionary.
@@ -138,7 +138,7 @@
     ),
   ),
   "Args::filter": (
-    393,
+    395,
     [
       #babel(
         en: [
@@ -156,7 +156,7 @@
     ],
   ),
   "Args::filter::test": (
-    407,
+    409,
     babel(
       en: [
         The function to apply to each value. Must return a boolean.
@@ -164,7 +164,7 @@
     ),
   ),
   "Args::map": (
-    422,
+    420,
     [
       #babel(
         en: [
@@ -182,7 +182,7 @@
     ],
   ),
   "Args::map::mapper": (
-    436,
+    434,
     babel(
       en: [
         The function to apply to each value.

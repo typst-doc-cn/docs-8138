@@ -239,7 +239,7 @@
     ),
   ),
   "Dict::map": (
-    333,
+    329,
     [
       #babel(
         en: [
@@ -254,7 +254,7 @@
     ],
   ),
   "Dict::map::mapper": (
-    344,
+    340,
     babel(
       en: [
         The function to apply to each value.
