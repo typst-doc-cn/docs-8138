@@ -1,5 +1,5 @@
 #import "/i18n-scope.typ": *
-#let live-item-data = (
+#let live-item-data = resolve-lines((
   "Args": (
     16,
     [
@@ -67,7 +67,7 @@
     ],
   ),
   "Args::construct": (
-    323,
+    307,
     [
       #babel(
         en: [
@@ -90,7 +90,7 @@
     ],
   ),
   "Args::construct::arguments": (
-    334,
+    11,
     babel(
       en: [
         The arguments to construct.
@@ -102,7 +102,7 @@
     ),
   ),
   "Args::len": (
-    342,
+    8,
     babel(
       en: [
         The number of arguments, positional or named.
@@ -110,7 +110,7 @@
     ),
   ),
   "Args::at": (
-    348,
+    6,
     babel(
       en: [
         Returns the positional argument at the specified index, or the named
@@ -134,7 +134,7 @@
     ),
   ),
   "Args::at::key": (
-    362,
+    14,
     babel(
       en: [
         The index or name of the argument to get.
@@ -146,7 +146,7 @@
     ),
   ),
   "Args::at::default": (
-    364,
+    2,
     babel(
       en: [
         A default value to return if the key is invalid.
@@ -154,7 +154,7 @@
     ),
   ),
   "Args::to_pos": (
-    374,
+    10,
     babel(
       en: [
         Returns the captured positional arguments as an array.
@@ -166,7 +166,7 @@
     ),
   ),
   "Args::to_named": (
-    384,
+    10,
     babel(
       en: [
         Returns the captured named arguments as a dictionary.
@@ -178,7 +178,7 @@
     ),
   ),
   "Args::filter": (
-    393,
+    9,
     [
       #babel(
         en: [
@@ -196,7 +196,7 @@
     ],
   ),
   "Args::filter::test": (
-    407,
+    14,
     babel(
       en: [
         The function to apply to each value. Must return a boolean.
@@ -204,7 +204,7 @@
     ),
   ),
   "Args::map": (
-    422,
+    15,
     [
       #babel(
         en: [
@@ -222,11 +222,11 @@
     ],
   ),
   "Args::map::mapper": (
-    436,
+    14,
     babel(
       en: [
         The function to apply to each value.
       ],
     ),
   ),
-)
+))
