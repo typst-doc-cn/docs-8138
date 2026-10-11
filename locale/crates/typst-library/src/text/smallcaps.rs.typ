@@ -19,7 +19,7 @@
       #smallcaps[Hello]
       ```
 
-      = #babel(en: [Smallcaps fonts], zh-status: "need proofread", zh: [小型大写字体]) <smallcaps-fonts>
+      = #babel(en: [Smallcaps fonts], zh-status: "need proofread", zh: [小型大写字母字体]) <smallcaps-fonts>
       #babel(
         en: [
           By default, this uses the `smcp` and `c2sc` OpenType features on the font.
@@ -30,7 +30,7 @@
         ],
         zh-status: "need proofread",
         zh: [
-          默认情况下，这使用字体上的`smcp`和`c2sc`OpenType 功能。并非所有字体都支持这些功能。有时，小写大写字母是专门字体的一部分。例如，_Latin Modern_ 字体系列就是这种情况。在这些情况下，您可以使用show-set规则来自定义小写大写字母文本的外观：
+          默认情况下，这会使用字体上的`smcp`和`c2sc`两个OpenType特性。并非所有字体都支持这些特性。有时，小型大写字母是某个专用字体的一部分，例如_Latin Modern_字体系列就是如此。在这些情况下，您可以使用show-set规则自定义小型大写字母文本的外观：
         ],
       )
 
@@ -45,7 +45,7 @@
         ],
         zh-status: "need proofread",
         zh: [
-          在将来，这个函数将支持从普通字母合成小写大写字母，但目前尚未实现。
+          将来，此函数将支持从普通字母合成小型大写字母，但目前尚未实现。
         ],
       )
 
@@ -58,7 +58,7 @@
         ],
         zh-status: "need proofread",
         zh: [
-          您可以使用@reference:styling:show-rules[show规则]将小型大写字母格式应用于所有标题。在下面的示例中，我们还居中对齐标题并禁用标准粗体字体。
+          您可以使用@reference:styling:show-rules[show规则]，将所有章节标题设为小型大写字母。在下面的示例中，我们还将标题居中对齐并禁用默认的粗体。
         ],
       )
 
@@ -89,9 +89,9 @@
         ],
         zh-status: "need proofread",
         zh: [
-          是否也将大写字母转换为小写大写字母。
+          是否也将大写字母转换为小型大写字母。
 
-          除非被show规则覆盖，否则这会启用OpenType特性`c2sc`。
+          除非被show规则覆盖，否则这会启用`c2sc` OpenType特性。
         ],
       )
 
@@ -109,7 +109,7 @@
       ],
       zh-status: "need proofread",
       zh: [
-        要显示的小写大写字母内容。
+        要以小型大写字母显示的内容。
       ],
     ),
   ),

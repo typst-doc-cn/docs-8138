@@ -9,8 +9,8 @@
   ),
   description: babel(
     en: "Documentation for functionality that enables interactions between different parts of a document.",
-    zh-status: "need update",
-    zh: "Typst中与内省有关联的函数族的文档",
+    zh-status: "need proofread",
+    zh: "介绍文档各部分之间交互功能的文档。",
   ),
   category: "introspection",
 )
@@ -23,9 +23,9 @@
   ],
   zh-status: "need proofread",
   zh: [
-    文档部分之间的交互。
+    文档各部分之间的交互。
 
-    这个类别是Typst的内省能力的所在：通过`counter`函数，您可以访问和操作页面、节、图表和方程计数器，或创建自定义计数器。与此同时，`query`函数允许您在文档中搜索元素，以构建诸如图表列表或显示当前章节标题的标题等内容。
+    本类别汇集了Typst的内省功能：使用`counter`函数，您可以访问并操作页面、章节、图表和公式的计数器，也可以创建自定义计数器；而`query`函数允许您在文档中搜索元素，用来构建图表列表、显示当前章节标题的页眉等内容。
   ],
 )
 

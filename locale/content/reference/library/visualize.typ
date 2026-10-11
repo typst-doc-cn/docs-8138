@@ -9,8 +9,8 @@
   ),
   description: babel(
     en: "Documentation for drawing and data visualization functionality.",
-    zh-status: "need update",
-    zh: "Typst中与可视化有关联的函数族的文档",
+    zh-status: "need proofread",
+    zh: "绘图和数据可视化功能的文档。",
   ),
   category: "visualize",
 )
@@ -25,7 +25,7 @@
   zh: [
     绘图和数据可视化。
 
-    如果您想创建更高级的绘图或图表，请同时查看#link("https://github.com/johannes-wolf/cetz")[CeTZ]包以及更多针对您用例的专业化#link("https://typst.app/universe")[第三方包]。
+    如果您想创建更复杂的绘图或数据图，不妨同时查看#link("https://github.com/johannes-wolf/cetz")[CeTZ]包，以及更多适合您具体用途的专门#link("https://typst.app/universe")[包]。
   ],
 )
 

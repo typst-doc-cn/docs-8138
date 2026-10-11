@@ -1,6 +1,6 @@
 #import "/i18n-scope.typ": babel
 #import "/i18n-translation.typ": Translation
-#import "/components/index.typ": docs-chapter, info, modifier-list, paged-heading-offset, ty-pill
+#import "/components/index.typ": docs-chapter, modifier-list, paged-heading-offset, ty-pill
 
 #docs-chapter(
   title: babel(
@@ -12,7 +12,7 @@
   description: babel(
     en: "The Typst reference is a systematic and comprehensive guide to the Typst typesetting language.",
     zh-status: "need proofread",
-    zh: "Typst参考手册是关于Typst排版语言的详细文档。",
+    zh: "系统且全面地介绍Typst排版语言的指南。",
   ),
   introduction: true,
   class: "reference-index",
@@ -23,9 +23,11 @@
 
       If you are completely new to Typst, we recommend starting with the @tutorial[tutorial] and then coming back to the reference to learn more about Typst's features as you need them.
     ],
-    zh-status: "need update",
+    zh-status: "need proofread",
     zh: [
-      本参考索引是一个综合指南文档，包括Typst的语法，概念，类型和函数。如果你初识Typst，建议从@tutorial[学习指南]开始，然后再按需回来学习更多的Typst特性。
+      本文档全面介绍了Typst的语法、概念、函数、类型及其它定义。您可以利用参考手册解答有关Typst的具体问题，并借此加深对已有功能的理解。
+
+      如果您完全没有接触过Typst，建议先阅读@tutorial[教程]，之后再回到参考手册，按需了解Typst的更多功能。
     ],
   )
 
@@ -36,7 +38,7 @@
     ],
     zh-status: "need proofread",
     zh: [
-      本参考索引第一部分粗略介绍@reference:syntax[Typst语法]，包括@reference:styling[文档样式]概念，以及@reference:scripting[Typst脚本功能]详细文档。
+      参考手册首先介绍Typst语言的基础知识。我们先概览@reference:syntax[Typst语法]，后续章节则介绍Typst语言的核心概念，例如@reference:styling[设置文档样式]、@reference:scripting[使用Typst的脚本功能]，以及@reference:context[根据文档内容进行推理]。
     ],
   )
 
@@ -52,30 +54,15 @@
 
       The definition sections are grouped by topic. For example, if you would like to explore all tools Typst provides to adjust where elements land on the page, you should start in the @reference:layout section. If instead you'd rather learn more about what formats Typst can export to, you should peruse the @format[Formats] section.
     ],
-    zh-status: "need update",
+    zh-status: "need proofread",
     zh: [
-      第二部分引入所有能用到的函数，有插入文档内容的，有设置文档内容样式的，有文档内容变换的，有布局文档内容的。每一个函数均已同样的形式表述，有些是表述函数基本功能，有些列举函数参数，有些举例如何使用函数。
+      #context if target() == "paged" [
+        从@reference:foundations\开始，参考手册将用以下章节介绍
+      ] else [
+        第二部分介绍
+      ]Typst语言_标准库_提供的所有函数、类型及其它定义。
 
-      参考索引最后一部分描述的Typst代码模式内的函数，用来操作及转换数据的。和第二部分一样，每一个函数均已同样的形式表述，有些是表述函数基本功能，有些列举函数参数，有些举例如何使用函数。
-
-      #info[
-        *进阶*
-
-        译者注：这部分官方文档没有，是译者自主添加的。
-
-        除了参考，还可以考虑阅读#link("https://sitandr.github.io/typst-examples-book/book/")[typst-examples-book]，里面包含了一些Typst的高级知识、简单示例，以及一些最佳实践。
-
-        例如简单地实现类似Markdown中的引用文本样式：
-
-        ```example
-        + #lorem(10) \
-          #rect(fill: luma(240), stroke: (left: 0.25em))[
-            *Solution:* #lorem(10)
-
-            $ a_(n+1)x^n = 2... $
-          ]
-        ```
-      ]
+      这些定义章节按主题分组。例如，如果您想了解Typst为调整页面元素位置而提供的所有工具，可以从@reference:layout\章节开始；如果您想了解Typst能导出哪些格式，则可以浏览@format[格式]章节。
     ],
   )
 

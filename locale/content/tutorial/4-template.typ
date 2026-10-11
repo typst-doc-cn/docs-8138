@@ -21,7 +21,7 @@
   ],
   zh-status: "need proofread",
   zh: [
-    在本教程的前三章中，您学习了如何在Typst中编写文档、应用基本样式，以及深入自定义其外观以符合出版社的样式规范。因为你在上一章写的论文取得了巨大的成功，所以你被要求为同一个会议写一篇后续文章。这一次，您希望使用在上一章中创建的样式，并将其转换为可复用的模板。在本章中，您将学习如何为您和您的团队创建只需一个Show规则即可使用的模板。让我们开始吧！
+    在本教程前三章中，您学习了如何在Typst中撰写文档、应用基本样式，并深入自定义外观以符合出版社的样式规范。由于您在上一章写的论文大获成功，有人邀请您为同一会议写一篇后续文章。这一次，您想沿用上一章创建的样式，把它变成可复用的模板。本章您将学习如何创建一个模板，让您和团队只需一条show规则就能使用。让我们开始吧！
   ],
 )
 
@@ -110,14 +110,18 @@ Variables are not limited to storing content: they can store any data type Typst
 
 In this chapter of the tutorial, you will leverage variables and your own functions to build templates that can be reused across multiple documents.
 
-= #babel(en: short-or-long[Toy Template][A toy template], zh-status: "need proofread", zh: [玩具模板]) <toy-template>
+= #babel(
+  en: short-or-long[Toy Template][A toy template],
+  zh-status: "need proofread",
+  zh: short-or-long[玩具模板][一个玩具模板],
+) <toy-template>
 #babel(
   en: [
     In Typst, templates are functions in which you can wrap your whole document. To learn how to do that, let's first review how to write your very own functions. They can do anything you want them to, so why not go a bit crazy?
   ],
   zh-status: "need proofread",
   zh: [
-    在Typst中，模板是一个可以包装整个文档的函数。要学习如何做到这一点，让我们首先回顾一下如何编写自己的函数。函数可以做任何你想让他们做的事情，所以为什么不做得疯狂一点呢？
+    在Typst中，模板就是可以把整篇文档包进去的函数。要学习如何做到这一点，我们先回顾一下如何编写自己的函数。函数可以让它做任何事，那何不玩得疯狂一点？
   ],
 )
 
@@ -133,11 +137,11 @@ You are #amazed[beautiful]!
 
     Many functions that come with Typst have optional named parameters. Our functions can also have them. Let's add a parameter to our function that lets us choose the color of the text. We need to provide a default color in case the parameter isn't given.
   ],
-  zh-status: "need update",
+  zh-status: "need proofread",
   zh: [
-    此函数采用单个参数`term`，并返回一个内容块，其中`term`被被一朵朵小火花包围着。我们还把整个东西放在一个`box`里，这样我们的`term`与它的火花就不会换行符分开。
+    与上一节对比，您可能注意到它很像用`{let}`定义变量。这个直觉是对的：函数只是另一种数据类型。这里我们定义了变量`amazed`，把「接收单个参数`term`、返回被小星星环绕的`term`内容」的函数赋给它。我们还把整个内容放进@box，这样令人惊叹的`term`就不会与星星被换行分开。这种特殊的函数定义语法让定义更简短易读，不过您也可以用普通的变量定义语法（详见@reference:scripting:bindings[脚本参考]）。定义之后，我们就能像调用所有内置函数那样调用它。
 
-    Typst附带的许多函数都有可选的命名参数，我们的函数也可以实现这一点。让我们向函数添加一个参数，其选择文本的颜色。我们需要提供默认颜色，以防用户没有给出参数。
+    Typst自带的许多函数都有可选的命名参数，我们的函数也可以有。下面给函数加一个参数，用来选择文字颜色。需要提供一个默认颜色，以防调用时没有给出该参数。
   ],
 )
 
@@ -156,7 +160,7 @@ I am #amazed(color: purple)[amazed]!
   ],
   zh-status: "need proofread",
   zh: [
-    模板现在可以通过“所有内容”Show规则来使用，该Show规则将自定义函数应用于我们的整个文档。让我们使用我们的`amazed`函数来实现它。
+    模板的用法是：用一条「所有内容」show规则把自定义函数应用到整篇文档。我们来用`amazed`函数试一试。
   ],
 )
 
@@ -177,14 +181,14 @@ In fact, I am amazing!
   ],
   zh-status: "need proofread",
   zh: [
-    我们的整个文档现在将被传递给`amazed`函数，就好像我们把它包裹在`amazed`函数里面一样。这对于这个特定函数并不是特别有用，但是当Set规则和命名参数结合使用时，它可以非常强大。
+    现在整篇文档都会被传给`amazed`函数，就像我们把它包在`amazed`外面一样。当然，对这个特定函数来说这没什么用，但把它和set规则、命名参数结合起来，就会非常强大。
   ],
 )
 
 = #babel(
   en: short-or-long[Set And Show Rules][Embedding set and show rules],
   zh-status: "need proofread",
-  zh: [嵌入的Set和Show规则],
+  zh: short-or-long[set与show规则][嵌入set和show规则],
 ) <set-and-show-rules>
 #babel(
   en: [
@@ -192,7 +196,7 @@ In fact, I am amazing!
   ],
   zh-status: "need proofread",
   zh: [
-    要将一些Set和Show规则应用于我们的模板，我们可以在函数的内容块中使用`set`和`show`，然后将文档插入到该内容块中。
+    要给模板应用一些set规则和show规则，可以在函数内的内容块里使用`set`和`show`，再把文档插入该内容块。
   ],
 )
 
@@ -214,7 +218,7 @@ It's going great so far!
   ],
   zh-status: "need proofread",
   zh: [
-    就像我们在上一章中已经发现的那样，Set 规则将应用于其内容块中的所有内容。  由于 “所有内容” Show 规则将我们的整个文档传递给 `template` 函数，  因此模板中的 `text` Set 规则和字符串 Show 规则将应用于整个文档。  让我们利用这些知识来创建一个模板，以复现我们在上一章中编写的论文的正文风格。
+    正如上一章所述，set规则会作用于其内容块内的所有内容。由于「所有内容」show规则会把整篇文档传给`template`函数，模板里的`text` set规则和字符串show规则就会作用于整篇文档。下面用这些知识创建一个模板，复现上一章论文的正文样式。
   ],
 )
 
@@ -286,18 +290,22 @@ It's going great so far!
 
     Also note where the title comes from: We previously had it inside of a variable. Now, we are receiving it as the first parameter of the template function. To do so, we passed a closure (that's a function without a name that is used right away) to the everything show rule. We did that because the `conf` function expects two positional arguments, the title and the body, but the show rule will only pass the body. Therefore, we add a new function definition that allows us to set a paper title and use the single parameter from the show rule.
   ],
-  zh-status: "need update",
+  zh-status: "need proofread",
   zh: [
-    我们复制粘贴了上一章中的大部分代码。唯一的两个区别是，我们将所有内容都包装在函数`conf`中，并直接在`doc`参数上调用`columns`函数，因为`doc`对应着整个文档的内容。此外，我们使用大括号代码块而不是内容块。这样，我们就不需要为所有的Set规则和函数调用加上`#`前缀。与之相对的，我们也不再能再直接在里面写标记文本了。
+    我们复制粘贴了上一章中的大部分代码。区别只有两处：
 
-    还要注意标题的来源：我们以前把它放在变量中，而现在我们将其作为模板函数的第一个参数接收。因此，我们必须在调用模板的Show规则中指定它。
+    + 我们用「所有内容」show规则把所有内容都包进了函数`conf`。该函数会应用几条set规则和show规则，并在末尾原样输出传给它的内容。
+
+    + 此外，我们用的是大括号脚本块，而不是内容块。这样就不必给所有set规则和函数调用都加上`#`前缀；代价是不能再在脚本块里直接写标记。
+
+    还要注意标题从何而来：以前它放在变量里，现在我们把它作为模板函数的第一个参数接收。为此，我们给「所有内容」show规则传了一个闭包（即没有名字、定义后立即使用的函数）。这样做是因为`conf`函数需要两个位置参数——标题和正文，而show规则只会传入正文。于是我们新增一个函数定义，以便能设置论文标题，并使用show规则传入的单个参数。
   ],
 )
 
 = #babel(
   en: short-or-long[Named Arguments][Templates with named arguments],
   zh-status: "need proofread",
-  zh: [具有命名参数的模板],
+  zh: short-or-long[命名参数][带命名参数的模板],
 ) <named-arguments>
 #babel(
   en: [
@@ -305,7 +313,7 @@ It's going great so far!
   ],
   zh-status: "need proofread",
   zh: [
-    我们在上一章的论文有一个标题和一个作者列表，让我们将这些内容添加到我们的模板中。除了标题之外，我们还希望我们的模板接受作者及其单位构成的列表，以及一个论文摘要。为了保持可读性，我们将添加这些参数作为命名参数。最后，我们希望它像这样工作：
+    上一章的论文有标题和作者列表。我们可以把标题保留为@document\元数据，同时让模板还接受作者列表（含姓名、单位、邮箱）和论文摘要，把它们作为命名参数加入。最后我们希望它这样用：
   ],
 )
 
@@ -347,13 +355,13 @@ It's going great so far!
   ],
   zh-status: "need proofread",
   zh: [
-    让我们构建这个新的模板函数。首先，我们为`title`参数添加一个默认值。这样，我们可以在不指定标题的情况下调用模板。我们还添加了具有空默认值的命名参数`authors`和`abstract`。接下来，我们将上一章中生成标题、摘要和作者列表的代码复制到模板中，并用参数替换其中的固定值。
+    我们来构建这个新模板函数。标题可以用@title\函数显示，并通过`document.title`访问，所以模板只需新增命名参数`authors`和`abstract`，默认值为空。接着，我们把上一章中生成标题、摘要和作者列表的代码复制进模板，用参数替换其中写死的部分。
 
-    新的`authors`参数接收一个由@dictionary[字典]的@array[数组]，其中带有键`name`、`affiliation`和`email`。因为我们可以输入任意数量的作者，所以我们需要动态地确定作者列表是需要一列、两列还是三列。首先，我们在`authors`数组上使用@array.len[`.len()`]方法确定作者的数量。然后，我们将列数设置为作者数量和3之间的最小值，以便我们永远不会创建超过三个列。如果作者超过三个，则将插入一个新行。为此，我们还在`grid`函数中添加了一个`row-gending`参数。否则，这些行将会靠得太近。为了从字典中提取有关作者的详细信息，我们使用@reference:scripting:fields[字段访问语法]。
+    新的`authors`参数接收一个@array[数组]，其中每个元素是带`name`、`affiliation`和`email`键的@dictionary[字典]。作者数量任意，因此我们动态判断作者列表需要一列、两列还是三列。首先，用@array.len[`.len()`]方法在`authors`数组上求出作者数量。然后把列数设为该数量与3的较小值，这样最多只会有三列；作者超过三名时会另起一行。为此，我们还给`grid`函数加了`row-gutter`参数，否则各行会挨得太近。要从字典里取出作者信息，用@reference:scripting:fields[字段访问语法]。
 
-    我们仍然必须为每个作者对应的网格提供一个参数：这就是数组的@array.map[`map`方法]派上用场的地方。它将一个函数作为参数，该函数与数组的每个项一起调用。我们给它传递一个函数，该函数会格式化每个作者的详细信息，并返回一个包含内容值的新数组。现在，我们有一个值数组，我们希望将其用作网格的多个参数。我们可以通过使用@arguments[`spread`操作符]来做到这一点。它接受一个数组，并将其数组里的每个项目作为单独的参数应用于函数中。
+    我们还得为每位作者向网格传一个参数：这正是数组的@array.map[`map`方法]的用武之地。它接收一个函数作为参数，并对数组的每一项调用它。我们传入的函数会格式化每位作者的信息，并返回一个包含内容值的新数组。现在有了一个值数组，想把它当作网格的多个参数使用，可以用@arguments[`spread`操作符]：它接收一个数组，把其中每一项作为单独的参数传给函数。
 
-    生成的模板函数如下所示：
+    最终的模板函数如下所示：
   ],
 )
 
@@ -401,7 +409,7 @@ It's going great so far!
 = #babel(
   en: short-or-long[Separate File][A separate file],
   zh-status: "need proofread",
-  zh: [单独的模板文件],
+  zh: short-or-long[单独的文件][单独的模板文件],
 ) <separate-file>
 #babel(
   en: [
@@ -409,7 +417,7 @@ It's going great so far!
   ],
   zh-status: "need proofread",
   zh: [
-    大多数情况下，模板应该在不同的文件中定义，然后导入到文档中。这样，您编写的主文件就可以保持整洁，并且您的模板可以轻松地复用。在文件面板中通过单击加号按钮创建一个新的文本文件，并将其命名为`conf.typ`。将`conf`函数定义移到该新文件内。现在，您可以通过在显示规则之前进行导入来从主文件访问它。在`{import}`关键字和冒号之间指定文件的路径，然后指明你要导入的函数。
+    多数情况下，模板会放在另一个文件里，再导入到文档中。这样，您编写的主文件能保持整洁，模板也便于复用。在文件面板中单击加号按钮新建一个文本文件，命名为`conf.typ`，把`conf`函数的定义移进这个新文件。现在，只要在主文件的show规则之前加一条导入，就能访问它。在`{import}`关键字和冒号之间写上文件路径，然后写明要导入的函数名。
   ],
 )
 
@@ -535,7 +543,7 @@ Another thing that you can do to make applying templates just a bit more elegant
   ],
   zh-status: "need proofread",
   zh: [
-    我们现在已经成功将会议论文转换为该会议的可重复使用模板！快来#link("https://discord.gg/2uDybryKPe")[Typst的Discord服务器]分享它，以便其他人也可以使用它吧！
+    现在我们已经把会议论文变成了该会议的可复用模板！何不把它分享到#link("https://forum.typst.app/")[论坛]或#link("https://discord.gg/2uDybryKPe")[Typst的Discord服务器]上，让其他人也能用呢？
   ],
 )
 
@@ -550,10 +558,10 @@ Another thing that you can do to make applying templates just a bit more elegant
   ],
   zh-status: "need proofread",
   zh: [
-    恭喜，您已完成Typst的教程！在本节中，您学习了如何定义自己的函数，以及如何创建和应用这个定义了可复用文档样式的模板。你已经走了很远，学到了很多东西。您现在可以使用Typst编写自己的文档并与他人共享。
+    恭喜，您完成了Typst的教程！在本节中，您学习了如何定义自己的函数，以及如何创建和应用定义可复用文档样式的模板。您一路走来，收获颇丰。现在您可以用Typst撰写自己的文档，并分享给他人了。
 
-    我们仍然是一个非常年轻的项目，正在寻求您的反馈。如果您有任何问题，建议或发现错误，请在#link("https://discord.gg/2uDybryKPe")[Typst的Discord服务器]，我们的#link("https://typst.app/contact")[contactform]或#link("https://twitter.com/typstapp")[社交媒体]上告诉我们。
+    我们仍是一个非常年轻的项目，期待您的反馈。如果您有任何问题、建议，或发现了bug，欢迎到#link("https://forum.typst.app/")[论坛]、我们的#link("https://discord.gg/2uDybryKPe")[Discord服务器]、#link("https://github.com/typst/typst/")[GitHub]上告诉我们，也可以通过在线应用里的反馈表单（始终可在帮助菜单中找到）。
 
-    那还在等什么呢？快#link("https://typst.app")[注册]一个账户并写点有趣的东西吧！
+    那还等什么？快#link("https://typst.app")[注册]并写点什么吧！
   ],
 )
