@@ -1,7 +1,7 @@
 set minimum-version := '1.55.0'
 set shell := ["bash", "-uc"] # Some recipes requires brace expansion.
 
-TYPST_REF := "9f2b6e8715237cb086899a42873660fe744622e8"
+TYPST_REF := "7ded3d5259636426eae38c727735eae03f1a2c4c"
 
 typstyle := "typstyle --line-width 120"
 
