@@ -65,6 +65,8 @@
     #note[
       // 此段应与`Translation.siteNoticeBannerDescription`同步更新
       【译注】本站提供#link("https://typst.app/docs/")[官方英文文档]的非官方中文翻译，由#link("https://github.com/typst-doc-cn")[中文社区]维护。目前翻译很不完全，存疑部分会标注⚠️，过时部分会标注⚠️💀。遇到这种情况，可单击页面上方或下方「转到官方文档」参照阅读。如有意改进翻译内容或网站本身，可在#link("https://github.com/typst-doc-cn/docs-8138")[GitHub]上提出 issue、发起 pull request。
+
+      另外，如果您本次访问缓慢，可尝试切换站点：#link("https://typst-doc-cn.github.io/docs-8138/")[主站GitHub Pages] / #link("https://docs-8138.zhtyp.top/")[镜像站Cloudflare (zhtyp.top)] / #link("https://docs-8138.pages.dev/")[镜像站Cloudflare (pages.dev)]。
     ]
 
     #divider()
