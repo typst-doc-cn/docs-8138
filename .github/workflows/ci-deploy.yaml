@@ -1,0 +1,57 @@
+name: Deploy for external PRs
+on:
+  workflow_run:
+    workflows:
+      - Build for deployments
+    types:
+      - completed
+
+jobs:
+  deploy:
+    # Run only for PRs from forks to the main repo.
+    # PRs within the main repo will be deployed by ci-build.yaml.
+    if: >
+      github.event.workflow_run.conclusion == 'success' &&
+      github.repository == 'typst-doc-cn/docs-8138' &&
+      github.event.workflow_run.event == 'pull_request' &&
+      github.event.workflow_run.head_repository.full_name != github.repository
+    # Require reviewers.
+    environment: cloudflare-deploy-external
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      actions: read
+      deployments: write
+    steps:
+      - uses: actions/download-artifact@v8
+        with:
+          name: dist-cloudflare
+          # Do not extract in the workspace dir that may contain executable scripts.
+          # https://securitylab.github.com/resources/github-actions-preventing-pwn-requests/
+          path: ${{ runner.temp }}/dist
+          run-id: ${{ github.event.workflow_run.id }}
+          github-token: ${{ github.token }}
+      - name: Get the pull request number
+        id: pr-number
+        shell: bash
+        env:
+          # We use this hack because ${{ github.event.workflow_run.pull_requests }} is empty for PRs from forks.
+          # The referenced workflow is actually cache-docit.yml.
+          REF: ${{ github.event.workflow_run.referenced_workflows[0].ref }}
+          # An alternative way is to determine from ${{ github.event.workflow_run.head_sha }}.
+          # However, we have two possible base branches (`base` and `locale`), so that is unreliable.
+        run: |
+          set -euxo pipefail
+          echo "PR_NUMBER=$(echo "$REF" | sed -E 's#^refs/pull/([0-9]+)/merge$#\1#')" >> "$GITHUB_OUTPUT"
+      - uses: cloudflare/wrangler-action@v4
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          wranglerVersion: "4.136.3"
+          command: >-
+            pages deploy
+            ${{ runner.temp }}/dist/
+            --project-name=docs-8138
+            --branch=pr-${{ steps.pr-number.outputs.PR_NUMBER }}
+            --commit-hash=${{ github.event.workflow_run.head_sha }}
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}

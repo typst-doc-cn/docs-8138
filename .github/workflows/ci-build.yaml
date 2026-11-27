@@ -95,8 +95,12 @@ jobs:
 
   deploy-cloudflare:
     name: Deploy to Cloudflare
-    # Run only in the main repo, not in forks
-    if: github.repository == 'typst-doc-cn/docs-8138'
+    # Run only in the main repo, not in forks.
+    # PRs from forks to the main repo will be deployed by ci-deploy.yaml.
+    if: >
+      github.repository == 'typst-doc-cn/docs-8138' &&
+      (github.event_name != 'pull_request' ||
+       github.event.pull_request.head.repo.full_name == github.repository)
     needs: build
     runs-on: ubuntu-latest
     permissions:
