@@ -1,7 +1,7 @@
 #import "/i18n-scope.typ": *
 #let live-item-data = resolve-lines((
   "ArtifactElem": (
-    8,
+    7,
     babel(
       en: [
         Marks content as a PDF artifact.
