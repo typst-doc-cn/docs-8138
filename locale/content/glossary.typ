@@ -61,6 +61,16 @@
 
   gap,
 
+  [context (block)],
+  [上下文 / 上下文块],
+  [详见@reference:context],
+
+  [context keyword],
+  [context关键字],
+  [],
+
+  gap,
+
   [markup (mode)],
   [标记 / 标记模式 / 标记文本],
   [详见@reference:syntax:modes],

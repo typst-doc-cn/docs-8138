@@ -4,7 +4,7 @@
 #show: docs-category.with(
   title: babel(
     en: "Layout",
-    zh-status: "need proofread",
+    zh-status: "proofread",
     zh: "布局",
   ),
   description: babel(

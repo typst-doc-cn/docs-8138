@@ -178,7 +178,7 @@
     ja-status: "validated",
     ja: [要素関数は`set`ルールや`show`ルールでカスタマイズできます。],
     zh-status: "validated",
-    zh: [元素函数可用`set`和`show`规则自定义样式。],
+    zh: [元素函数可用`set`和`show`规则定制样式。],
   ),
   locatableElement: babel(
     en: [Locatable],
