@@ -52,13 +52,3 @@ Typst文档有以下三种来源。
 just setup
 just serve
 ```
-
-## TODO
-
-- 准备typst-docs CLI下载页面和PR机器人。
-
-- 统一术语。目前语法大表格、LaTeX指南、术语表并不一致。
-
-- [镜像链接](https://typst-doc-cn.github.io/guide/dev/mirror-link.html)
-
-- 翻译`stdx.describe`的`title`
