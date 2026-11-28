@@ -16,6 +16,8 @@ Typst文档有以下三种来源。
 
   这类文档大多无需翻译，不过以防万一，也准备了[`locale/static.typ`](./locale/static.typ)。
 
+> ↑ 这么多年了，[markdown-it-cjk-friendly](https://www.npmjs.com/package/markdown-it-cjk-friendly?activeTab=readme)之类的方案层出不穷，而GitHub的Markdown词法分析器依然无法正常处理全宽冒号后的`**`；相比之下，Typst有开放而统一的实现，[中文社区前辈发个PR](https://github.com/typst/typst/pull/2648 "lexer change: Allow emphasis in CJK text without spaces by peng1999 · Pull Request #2648 · typst/typst")便再无问题。真是令人感叹……
+
 无论哪类文档，都使用`babel`函数记录原文和翻译，其用法如下。
 
 ```typst
