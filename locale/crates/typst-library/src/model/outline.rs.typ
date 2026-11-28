@@ -1,7 +1,7 @@
 #import "/i18n-scope.typ": *
 #let live-item-data = resolve-lines((
   "OutlineElem": (
-    27,
+    26,
     [
       #babel(
         en: [
@@ -180,6 +180,9 @@
           a table, you can specify the desired kind in a @function.where[`where`]
           selector. See the section on
           @outline:alternative-outlines[alternative outlines] for more details.
+
+          Note that not all elements can be outlined: The only outlinable elements
+          are @math.equation, @figure, and @heading.
         ],
       )
 
@@ -192,8 +195,8 @@
       #figure(
         table(
           columns: 4,
-          [t], [1], [2], [3],
-          [y], [0.3], [0.7], [0.5],
+          $t$, [1], [2], [3],
+          $y$, [0.3], [0.7], [0.5],
         ),
         caption: [Experiment results],
       )
@@ -201,7 +204,7 @@
     ],
   ),
   "OutlineElem::depth": (
-    25,
+    28,
     [
       #babel(
         en: [

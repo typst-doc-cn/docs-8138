@@ -1,7 +1,7 @@
 #import "/i18n-scope.typ": *
 #let live-item-data = resolve-lines((
   "abs": (
-    134,
+    133,
     [
       #babel(
         en: [
